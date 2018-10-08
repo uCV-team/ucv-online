@@ -5,6 +5,7 @@ ruby '2.5.1'
 ruby File.read('.ruby-version')
 
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootstrap', '~> 4.1.3'
 gem 'coffee-rails', '~> 4.2'
 gem 'figaro'
 gem 'jbuilder', '~> 2.5'
@@ -13,12 +14,14 @@ gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'reek', require: false
+  gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
   gem 'scss_lint', require: false
@@ -33,9 +36,10 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
-  gem 'chromedriver-helper'
-  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'capybara-selenium'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
 end
-
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
