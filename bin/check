@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+if ! bin/fastcheck
+then
+    echo 'Fast check did not pass.'
+    exit 1
+fi
+
+if ! bundle exec rspec
+then
+    echo 'Rspec did not pass successfully, commit aborted.'
+    exit 1
+fi
