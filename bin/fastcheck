@@ -1,2 +1,38 @@
 #!/bin/sh
 
+echo "\n=== Ruby Linting ==="
+if ! bundle exec rubocop -D -c .rubocop.yml --fail-fast
+then
+  echo 'Rubocop has detected some issues.'
+  bundle exec rubocop -a -D -c .rubocop.yml
+  echo 'Rubocop has tried to automatically correct the issues, but some must be reviewed manually, commit aborted.'
+  exit 1
+fi
+
+echo "\n=== SCSS Linting ==="
+if ! bundle exec scss-lint -c .scss-lint.yml
+then
+  echo 'SCSS-Lint has detected some issues, commit aborted.'
+  exit 1
+fi
+
+echo "\n=== Slim Linting ==="
+if ! bundle exec slim-lint app/views/
+then
+  echo 'Slim-Lint has detected some issues, commit aborted.'
+  exit 1
+fi
+
+echo "\n=== Brakeman Check ==="
+if ! bundle exec brakeman -z --summary -q
+then
+  echo 'Brakeman has detected some issues, commit aborted.'
+  exit 1
+fi
+
+echo "\n=== Reek Check ==="
+if ! bundle exec reek
+then
+  echo 'Reek has detected some issues, commit aborted.'
+  exit 1
+fi

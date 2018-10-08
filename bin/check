@@ -4,7 +4,7 @@ set -e
 
 if ! bin/fastcheck
 then
-    echo 'Fast check did not pass.'
+    echo 'Fast check did not pass successfully.'
     exit 1
 fi
 

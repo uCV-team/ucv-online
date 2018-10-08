@@ -16,7 +16,13 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
+  gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'reek', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'scss_lint', require: false
+  gem 'slim_lint', require: false
 end
 
 group :development do
