@@ -8,7 +8,7 @@ then
     exit 1
 fi
 
-if ! bundle exec rails test
+if ! bundle exec rspec
 then
     echo 'Rspec did not pass successfully, commit aborted.'
     exit 1
