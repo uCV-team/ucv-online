@@ -1,1 +1,5 @@
+APP_HOST: 'publicv.localhost'
+APP_PORT: '3000'
+DEVISE_PEPPER: 'rails secret'
+DEVISE_SECRET_KEY: 'rails secret'
 SECRET_KEY_BASE: 'rails secret'

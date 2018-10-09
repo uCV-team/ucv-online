@@ -4,5 +4,7 @@ class HomeController < ApplicationController
     render plain: "1+2=#{val}"
   end
 
-  def show; end
+  def index
+    redirect_to new_user_registration_url
+  end
 end

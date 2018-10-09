@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get 'home/check'
-  root 'home#show'
+  devise_for :users
+  root 'home#index'
 end

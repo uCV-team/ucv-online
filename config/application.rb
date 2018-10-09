@@ -10,5 +10,6 @@ module Publicv
 
     config.time_zone = 'Zurich'
     config.i18n.default_locale = :en
+    config.action_mailer.default_url_options = { host: ENV['APP_HOST'], port: ENV['APP_PORT'] }
   end
 end

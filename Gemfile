@@ -5,6 +5,8 @@ ruby '2.5.1'
 ruby File.read('.ruby-version')
 
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'devise'
+gem 'devise-i18n'
 gem 'figaro'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
