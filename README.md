@@ -1,24 +1,35 @@
-# README
+# PubliCV
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the PubliCV project for Corsidia.
 
-Things you may want to cover:
+## Environments
 
-* Ruby version
+| Branch  | Domain                              | Deployment | CI                                      |
+| ------- | ----------------------------------- | ---------- | --------------------------------------- |
+| master  | https://publicv-master.renuoapp.ch  | release    | [![Build Status](https://semaphoreci.com/api/v1/projects/bb5125b5-4ab3-4dbd-916d-d1f4d5e40d88/2263178/badge.svg)](https://semaphoreci.com/renuo/publicv)  |
+| develop | https://publicv-develop.renuoapp.ch | auto       | [![Build Status](https://semaphoreci.com/api/v1/projects/bb5125b5-4ab3-4dbd-916d-d1f4d5e40d88/2263178/badge.svg)](https://semaphoreci.com/renuo/publicv) |
+| testing | https://publicv-testing.renuoapp.ch | auto       | [![Build Status](https://semaphoreci.com/api/v1/projects/bb5125b5-4ab3-4dbd-916d-d1f4d5e40d88/2263178/badge.svg)](https://semaphoreci.com/renuo/publicv) |
 
-* System dependencies
+## Setup
 
-* Configuration
+```sh
+git clone git@github.com:renuo/publicv.git
+cd [project-name]
+bin/setup
+```
 
-* Database creation
+### Run
 
-* Database initialization
+```sh
+bin/run
+```
 
-* How to run the test suite
+### Tests / Checks
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+bin/check
+```
 
-* Deployment instructions
+## Copyright
 
-* ...
+Coypright 2018 [Renuo AG](https://www.renuo.ch/).
