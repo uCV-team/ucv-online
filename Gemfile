@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 ruby File.read('.ruby-version')
 
-# maybe npm package for autoprefixer
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'figaro'
 gem 'jbuilder', '~> 2.5'
@@ -33,7 +32,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
-  # gem 'scss_lint', require: false  ==> Replace with npm package?
+  gem 'scss_lint', require: false
   gem 'slim_lint', require: false
 end
 

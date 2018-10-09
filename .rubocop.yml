@@ -47,4 +47,5 @@ AllCops:
   - 'tmp/**/*'
   - 'db/**/*'
   - 'vendor/**/*'
+  - 'node_modules/**/*'
 

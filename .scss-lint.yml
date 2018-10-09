@@ -1,4 +1,4 @@
-scss_files: 'app/assets/stylesheets/**/*.scss'
+scss_files: 'app/webpacker/src/stylesheets/**/*.scss'
 
 linters:
   BorderZero:

@@ -4,7 +4,5 @@ class HomeController < ApplicationController
     render plain: "1+2=#{val}"
   end
 
-  def show
-
-  end
+  def show; end
 end
