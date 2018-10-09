@@ -3,3 +3,4 @@ en:
   layouts:
     nav:
       login: "Login"
+      logout: "Logout"
