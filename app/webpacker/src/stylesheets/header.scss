@@ -2,14 +2,13 @@ header {
   display: block;
 
   nav {
-    background-color: $_white;
-    box-shadow: 0 0 20px $_grey;
+    background-color: $white;
+    box-shadow: 0 0 20px $grey;
     display: flex;
     margin-bottom: 15px;
     padding: 0 20px;
 
-    a,
-    a:visited {
+    a {
       font-size: 17px;
       margin: 10px 10px 10px auto;
       padding: 10px;
