@@ -4,7 +4,6 @@
     <title>Publicv</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_pack_tag 'stylesheets', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -13,6 +12,8 @@
     <header>
       <nav>
         <% if user_signed_in? %>
+          <%= link_to t('layouts.nav.personal_cv'), root_path %>
+          <%= link_to t('layouts.nav.search'), '#' %>
           <%= link_to t('layouts.nav.logout'), destroy_user_session_path, method: :delete %>
         <% else %>
           <%= link_to t('layouts.nav.login'), new_user_session_path %>
@@ -30,7 +31,7 @@
         <%= yield %>
       </main>
       <footer>
-        <p>Footer goes here</p>
+        <p><%= t('layouts.footer.footer_text') %></p>
       </footer>
     </div>
   </body>
