@@ -29,6 +29,7 @@ end
 
 group :development, :test do
   gem 'brakeman', require: false
+  gem 'factory_bot_rails'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'reek', require: false
@@ -42,7 +43,6 @@ end
 group :test do
   gem 'capybara'
   gem 'capybara-selenium'
-  gem 'factory_bot_rails'
   gem 'faker'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false

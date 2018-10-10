@@ -1,10 +1,6 @@
 class PersonalcvsController < ApplicationController
   before_action :set_personalcv, only: %i[show edit update destroy]
 
-  def index
-    @personalcvs = Personalcv.all
-  end
-
   def show; end
 
   def new
@@ -14,7 +10,7 @@ class PersonalcvsController < ApplicationController
   def edit; end
 
   def create
-    @personalcv = Personalcv.new(personalcv_params)
+    @personalcv = Personalcv.new(personalcv_params.merge(user: current_user))
 
     if @personalcv.save
       redirect_to @personalcv, notice: 'Personalcv was successfully created.'

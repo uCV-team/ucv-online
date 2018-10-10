@@ -1,0 +1,88 @@
+require 'rails_helper'
+
+RSpec.describe PersonalcvsController, type: :request do
+  let(:user) { create :user }
+  let(:personalcv) { create :personalcv }
+  let(:invalid_attributes) { { about: nil } }
+
+  before { sign_in user }
+
+  describe 'GET #show' do
+    it 'returns a success response' do
+      get personalcv_path personalcv
+      expect(response).to be_successful
+    end
+  end
+
+  describe 'GET #new' do
+    it 'returns a success response' do
+      get new_personalcv_path
+      expect(response).to be_successful
+    end
+  end
+
+  describe 'GET #edit' do
+    it 'returns a success response' do
+      get edit_personalcv_path personalcv
+      expect(response).to be_successful
+    end
+  end
+
+  describe 'POST #create' do
+    context 'with valid params' do
+      it 'creates a new Personalcv' do
+        expect do
+          post personalcvs_path, params: { personalcv: attributes_for(:personalcv) }
+        end.to change(Personalcv, :count).by(1)
+      end
+
+      it 'redirects to the created personalcv' do
+        post personalcvs_path, params: { personalcv: attributes_for(:personalcv) }
+        expect(response).to redirect_to(Personalcv.last)
+      end
+    end
+
+    context 'with invalid params' do
+      it "returns a success response (i.e. to display the 'new' template)" do
+        post personalcvs_path, params: { personalcv: invalid_attributes }
+        expect(response).to be_successful
+      end
+    end
+  end
+
+  describe 'PUT #update' do
+    context 'with valid params' do
+      let(:new_attributes) { { about: 'This is a new description' } }
+
+      it 'updates the requested personalcv' do
+        put personalcv_path personalcv, params: { personalcv: new_attributes }
+        personalcv.reload
+      end
+
+      it 'redirects to the personalcv' do
+        put personalcv_path personalcv, params: { personalcv: new_attributes }
+        expect(response).to redirect_to(personalcv)
+      end
+    end
+
+    context 'with invalid params' do
+      it "returns a success response (i.e. to display the 'edit' template)" do
+        put personalcv_path personalcv, params: { personalcv: invalid_attributes }
+        expect(response).to be_successful
+      end
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    let!(:path) { personalcv_path personalcv }
+
+    it 'destroys the requested personalcv' do
+      expect { delete path }.to change(Personalcv, :count).by(-1)
+    end
+
+    it 'redirects to the personalcvs list' do
+      delete personalcv_path personalcv
+      expect(response).to redirect_to(personalcvs_url)
+    end
+  end
+end
