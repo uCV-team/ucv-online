@@ -1,0 +1,9 @@
+= form_for @personalcv do |f|
+  - if @personalcv.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@personalcv.errors.count, 'error')} prohibited this personalcv from being saved:"
+      ul
+        - @personalcv.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit

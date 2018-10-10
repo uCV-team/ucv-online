@@ -1,0 +1,19 @@
+h1 Listing personalcvs
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @personalcvs.each do |personalcv|
+      tr
+        td = link_to 'Show', personalcv
+        td = link_to 'Edit', edit_personalcv_path(personalcv)
+        td = link_to 'Destroy', personalcv, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Personalcv', new_personalcv_path
