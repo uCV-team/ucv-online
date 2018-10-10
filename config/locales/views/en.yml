@@ -1,0 +1,10 @@
+---
+en:
+  layouts:
+    nav:
+      login: "Login"
+      logout: "Logout"
+      personal_cv: "Your CV"
+      search: "Search"
+    footer:
+      footer_text: "Footer goes here"

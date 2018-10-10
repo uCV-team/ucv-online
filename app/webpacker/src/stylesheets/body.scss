@@ -1,0 +1,21 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: $white;
+  font-family: 'Raleway', sans-serif;
+
+  main {
+    display: block;
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 80px);
+    max-width: 1000px;
+    padding: 0 20px;
+  }
+}

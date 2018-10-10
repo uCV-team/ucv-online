@@ -33,7 +33,7 @@ then
 fi
 
 echo "=== Reek Check ==="
-if ! bundle exec reek
+if ! (bundle exec reek -c .reek.yml)
 then
   echo 'Reek has detected some issues, commit aborted.'
   exit 1
