@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Devise.setup do |config|
   config.secret_key = ENV['DEVISE_SECRET_KEY']
   config.mailer_sender = ENV['MAIL_SENDER']

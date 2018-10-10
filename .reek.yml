@@ -13,11 +13,11 @@ detectors:
     - V1
 
 exclude_paths:
-- tmp
-- spec
-- vendor
-- log
-- coverage
-- config
-- bin
-- db/migrate
+  - tmp
+  - spec
+  - vendor
+  - log
+  - coverage
+  - config
+  - bin
+  - db/migrate
