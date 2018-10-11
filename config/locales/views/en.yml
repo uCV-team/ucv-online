@@ -1,10 +1,15 @@
 ---
 en:
+  content:
+    main:
+      welcome: "Welcome %{first_name} %{last_name}!"
+      welcome_button_name: "here"
+      welcome_question_html: "Would you like to check your personal CV? If so, then click %{link}"
   layouts:
+    footer:
+      footer_text: "Footer goes here"
     nav:
       login: "Login"
       logout: "Logout"
       personal_cv: "Your CV"
       search: "Search"
-    footer:
-      footer_text: "Footer goes here"

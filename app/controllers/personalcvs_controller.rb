@@ -1,5 +1,6 @@
 class PersonalcvsController < ApplicationController
   before_action :set_personalcv, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   def show; end
 
@@ -29,13 +30,13 @@ class PersonalcvsController < ApplicationController
 
   def destroy
     @personalcv.destroy
-    redirect_to personalcvs_url, notice: 'Personalcv was successfully destroyed.'
+    redirect_to personalcv_url, notice: 'Personalcv was successfully destroyed.'
   end
 
   private
 
   def set_personalcv
-    @personalcv = Personalcv.find(params[:id])
+    @personalcv = current_user.personalcv
   end
 
   def personalcv_params
