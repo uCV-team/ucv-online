@@ -1,2 +1,2 @@
-.jumbotron
-  h1 = 'Hello World'
+h1 = t('content.main.welcome', first_name: current_user.first_name, last_name: current_user.last_name)
+p = t('content.main.welcome_question_html', link: (link_to t('content.main.welcome_button_name'), personalcv_path))

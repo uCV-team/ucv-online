@@ -1,5 +1,10 @@
 p#notice = notice
 
-=> link_to 'Edit', edit_personalcv_path(@personalcv)
+- if @personalcv.present?
+  p = 'Here\'s your CV'
+- else
+  p = 'You don\'t have a CV yet. Would you like to create one?'
+
+=> link_to 'Edit', edit_personalcv_path
 '|
-=< link_to 'Back', personalcvs_path
+=< link_to 'Back', root_path
