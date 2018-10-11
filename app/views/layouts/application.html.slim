@@ -10,11 +10,11 @@ html
 
     = stylesheet_pack_tag 'stylesheets', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-body
+body class="#{controller.controller_name}"
   header
     nav
       - if user_signed_in?
-        = link_to t('layouts.nav.personal_cv'), root_path
+        = link_to t('layouts.nav.home'), root_path
         = link_to t('layouts.nav.search'), '#'
         = link_to t('layouts.nav.logout'), destroy_user_session_path, method: :delete
       - else

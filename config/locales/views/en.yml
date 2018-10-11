@@ -2,14 +2,20 @@
 en:
   content:
     main:
-      welcome: "Welcome %{first_name} %{last_name}!"
-      welcome_button_name: "here"
-      welcome_question_html: "Would you like to check your personal CV? If so, then click %{link}"
+      welcome:
+        check_cv_html: "%{link} my CV."
+        check_cv_button: "Check"
+        create_cv_html: "%{link} a new CV."
+        create_cv_button: "Create"
+        title: "Welcome %{first_name} %{last_name}!"
+        search_cv_html: "%{link} a person's CV"
+        search_cv_button: "Look up"
+        question: "What would you like to do?"
   layouts:
     footer:
       footer_text: "Footer goes here"
     nav:
+      home: "Home"
       login: "Login"
       logout: "Logout"
-      personal_cv: "Your CV"
       search: "Search"
