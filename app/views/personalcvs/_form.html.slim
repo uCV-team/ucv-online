@@ -1,10 +1,10 @@
 = form_with(model: @personalcv, local: true) do |f|
   - if @personalcv.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@personalcv.errors.count, 'error')} prohibited this personalcv from being saved:"
+    .alert.alert-danger[role='alert']
+      h3 = t('content.main.personalcv.error.title', count: @personalcv.errors.count)
       ul
-        - @personalcv.errors.full_messages.each do |message|
-          li = message
+      - @personalcv.errors.full_messages.each do |message|
+        li = message
 
   .needs-validation novalidate=""
     .row.margin-bottom-sm
@@ -15,14 +15,14 @@
         .invalid-feedback
           = t('content.main.personalcv.new.profile_picture_feedback')
     .row.margin-bottom-sm
-      .col-sm-6
+      .col-sm-4
         = f.label :birth_date, t('content.main.personalcv.new.birth_date')
         br
         = f.date_select :birth_date, start_year: Date.current.year, end_year: 1900, use_two_digit_numbers: true,
                 order: %i[day month year], with_css_classes: true, class: 'form-control'
         .invalid-feedback
           = t('content.main.personalcv.new.birth_date_feedback')
-      .col-sm-6
+      .col-sm-8
         = f.label :phone_number, t('content.main.personalcv.new.phone_number')
         = f.text_field :phone_number, class: 'form-control',
                 placeholder: t('content.main.personalcv.new.phone_number_placeholder')

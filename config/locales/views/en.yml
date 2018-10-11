@@ -12,6 +12,10 @@ en:
         search_cv_button: "Look up"
         question: "What would you like to do?"
       personalcv:
+        error:
+          title:
+            one: "Could not save due to the following error:"
+            other: "Could not save due to the following errors:"
         new:
           about: "About"
           about_feedback: "Please provide a valid description."

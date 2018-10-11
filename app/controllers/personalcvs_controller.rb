@@ -14,7 +14,7 @@ class PersonalcvsController < ApplicationController
     @personalcv = Personalcv.new(personalcv_params.merge(user: current_user))
 
     if @personalcv.save
-      redirect_to @personalcv, notice: 'Personalcv was successfully created.'
+      redirect_to @personalcv, flash: { success: t('personalcv.success.create') }
     else
       render :new
     end
@@ -22,7 +22,7 @@ class PersonalcvsController < ApplicationController
 
   def update
     if @personalcv.update(personalcv_params)
-      redirect_to @personalcv, notice: 'Personalcv was successfully updated.'
+      redirect_to @personalcv, flash: { success: t('personalcv.success.update') }
     else
       render :edit
     end
@@ -30,7 +30,7 @@ class PersonalcvsController < ApplicationController
 
   def destroy
     @personalcv.destroy
-    redirect_to personalcv_url, notice: 'Personalcv was successfully destroyed.'
+    redirect_to personalcv_url, flash: { success: t('personalcv.success.destroy') }
   end
 
   private
