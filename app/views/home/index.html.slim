@@ -4,11 +4,11 @@ h1 = t('content.main.welcome.title', first_name: current_user.first_name, last_n
   ul
     - if @personalcv.present?
       li
-        p = t('content.main.welcome.check_cv_html', link: (link_to t('content.main.welcome.check_cv_button'), personalcv_path))
+        p = t('content.main.welcome.check_cv_html',
+                link: (link_to t('content.main.welcome.check_cv_button'), personalcv_path))
     - else
       li
-        p = t('content.main.welcome.create_cv_html', link: (link_to t('content.main.welcome.create_cv_button'), new_personalcv_path))
+        p = t('content.main.welcome.create_cv_html',
+                link: (link_to t('content.main.welcome.create_cv_button'), new_personalcv_path))
     li
       p = t('content.main.welcome.search_cv_html', link: (link_to t('content.main.welcome.search_cv_button'), '#'))
-
-
