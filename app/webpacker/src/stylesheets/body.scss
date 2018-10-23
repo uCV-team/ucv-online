@@ -11,6 +11,13 @@ body {
     display: block;
   }
 
+  ul,
+  li {
+    p {
+      margin: 0;
+    }
+  }
+
   .flex {
     display: flex;
     flex-direction: column;
