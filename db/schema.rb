@@ -17,13 +17,13 @@ ActiveRecord::Schema.define(version: 2018_10_23_120401) do
 
   create_table "cvs", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "photo"
-    t.string "phone_number"
-    t.string "working_skills"
+    t.string "photo", default: ""
+    t.string "phone_number", default: ""
+    t.string "working_skills", default: ""
     t.date "birth_date"
-    t.text "about"
-    t.text "skills_and_interests"
-    t.text "future_plans"
+    t.text "about", default: ""
+    t.text "skills_and_interests", default: ""
+    t.text "future_plans", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cvs_on_user_id"
