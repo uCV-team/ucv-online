@@ -30,14 +30,16 @@ RSpec.describe PersonalcvsController, type: :request do
 
   describe 'POST #create' do
     context 'with valid params' do
+      subject(:create_personalcv) { post personalcv_path, params: personalcv_params }
+
+      let(:personalcv_params) { { personalcv: attributes_for(:personalcv) } }
+
       it 'creates a new Personalcv' do
-        expect do
-          post personalcv_path, params: { personalcv: attributes_for(:personalcv) }
-        end.to change(Personalcv, :count).by(1)
+        expect { create_personalcv }.to change(Personalcv, :count).by(1)
       end
 
       it 'redirects to the created personalcv' do
-        post personalcv_path, params: { personalcv: attributes_for(:personalcv) }
+        create_personalcv
         expect(response).to redirect_to(Personalcv.last)
       end
     end
@@ -63,7 +65,7 @@ RSpec.describe PersonalcvsController, type: :request do
       end
 
       it 'redirects to the personalcv' do
-        put personalcv_path personalcv, params: params
+        update_personalcv
         expect(response).to redirect_to(personalcv)
       end
     end
