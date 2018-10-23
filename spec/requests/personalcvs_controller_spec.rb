@@ -52,15 +52,18 @@ RSpec.describe PersonalcvsController, type: :request do
 
   describe 'PUT #update' do
     context 'with valid params' do
-      let(:new_attributes) { { about: 'This is a new description' } }
+      subject(:update_personalcv) { put personalcv_path personalcv, params: params }
+
+      let(:params) { { personalcv: new_attributes } }
+      let(:new_attributes) { { about: new_description } }
+      let(:new_description) { 'This is a new description' }
 
       it 'updates the requested personalcv' do
-        put personalcv_path personalcv, params: { personalcv: new_attributes }
-        personalcv.reload
+        expect { update_personalcv }.to change(personalcv, :about).to(new_description)
       end
 
       it 'redirects to the personalcv' do
-        put personalcv_path personalcv, params: { personalcv: new_attributes }
+        put personalcv_path personalcv, params: params
         expect(response).to redirect_to(personalcv)
       end
     end
