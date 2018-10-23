@@ -1,5 +1,8 @@
 ---
 en:
+  success:
+    create: "Your CV was successfully created"
+    update: "Your CV was successfully updated"
   content:
     main:
       welcome:

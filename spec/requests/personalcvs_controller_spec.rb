@@ -72,17 +72,4 @@ RSpec.describe PersonalcvsController, type: :request do
       end
     end
   end
-
-  describe 'DELETE #destroy' do
-    let!(:path) { personalcv_path personalcv }
-
-    it 'destroys the requested personalcv' do
-      expect { delete path }.to change(Personalcv, :count).by(-1)
-    end
-
-    it 'redirects to the personalcvs list' do
-      delete personalcv_path personalcv
-      expect(response).to redirect_to(personalcv_url)
-    end
-  end
 end

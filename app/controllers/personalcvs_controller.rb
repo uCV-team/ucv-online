@@ -1,5 +1,5 @@
 class PersonalcvsController < ApplicationController
-  before_action :set_personalcv, only: %i[show edit update destroy]
+  before_action :set_personalcv, only: %i[show edit update]
   before_action :authenticate_user!
 
   def show; end
@@ -14,7 +14,7 @@ class PersonalcvsController < ApplicationController
     @personalcv = Personalcv.new(personalcv_params.merge(user: current_user))
 
     if @personalcv.save
-      redirect_to @personalcv, flash: { success: t('personalcv.success.create') }
+      redirect_to @personalcv, flash: { success: t('success.create') }
     else
       render :new
     end
@@ -22,15 +22,10 @@ class PersonalcvsController < ApplicationController
 
   def update
     if @personalcv.update(personalcv_params)
-      redirect_to @personalcv, flash: { success: t('personalcv.success.update') }
+      redirect_to @personalcv, flash: { success: t('success.update') }
     else
       render :edit
     end
-  end
-
-  def destroy
-    @personalcv.destroy
-    redirect_to personalcv_url, flash: { success: t('personalcv.success.destroy') }
   end
 
   private

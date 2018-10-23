@@ -1,7 +1,0 @@
----
-en:
-  personalcv:
-    success:
-      create: "Your CV was successfully created"
-      update: "Your CV was successfully updated"
-      destroy: "Your CV was successfully deleted"
