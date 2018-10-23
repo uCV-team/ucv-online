@@ -45,9 +45,10 @@ RSpec.describe PersonalcvsController, type: :request do
     end
 
     context 'with invalid params' do
-      it "returns a success response (i.e. to display the 'new' template)" do
-        post personalcv_path, params: { personalcv: invalid_attributes }
-        expect(response).to be_successful
+      subject(:create_invalid_personalcv) { post personalcv_path, params: { personalcv: invalid_attributes } }
+
+      it 'does not create a new Personalcv' do
+        expect { create_invalid_personalcv }.not_to change(Personalcv, :count)
       end
     end
   end
