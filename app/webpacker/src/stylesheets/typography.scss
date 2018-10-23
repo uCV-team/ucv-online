@@ -1,0 +1,7 @@
+p {
+  margin-bottom: $margin-sm;
+
+  &:empty {
+  display: none;
+  }
+}

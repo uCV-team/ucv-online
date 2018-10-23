@@ -42,8 +42,9 @@ en:
           working_skills_feedback: "Please provide a working skill."
           working_skills_placeholder: "Separate by comma"
         show:
-          create_cv_html: "You don't have a CV yet. Would you like to %{link} one?"
-          create_cv_button: "create"
+          contact_me_button: "Contact"
+          contact_me_html: "Interested? %{link} me!"
+          interests: "My interests"
   layouts:
     footer:
       footer_text: "Footer goes here"

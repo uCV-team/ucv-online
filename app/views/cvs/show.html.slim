@@ -1,5 +1,10 @@
-- if @cv.present?
-
-- else
-  p = t('content.main.cv.show.create_cv_html',
-          link: (link_to t('content.main.cv.show.create_cv_button'), new_cv_path))
+.cv-header
+  .about.margin-bottom-sm
+    .photo
+      p Photo
+    h3 = current_user.first_name + ' ' + current_user.last_name
+    p = @cv.about
+    p = t('content.main.cv.show.contact_me_html', link: (link_to t('content.main.cv.show.contact_me_button'), '#'))
+    .clearfix
+  / h5 = t('content.main.cv.show.interests')
+  / p = @cv.skills

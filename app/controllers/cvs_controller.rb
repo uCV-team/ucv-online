@@ -2,9 +2,7 @@ class CvsController < ApplicationController
   before_action :set_cv, only: %i[show edit update]
   before_action :authenticate_user!
 
-  def show; end
-
-  def new
+  def show
     @cv = Cv.new
   end
 
