@@ -1,33 +1,54 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
+---
 en:
-  hello: "Hello world"
+  success:
+    create: "Your CV was successfully created"
+    update: "Your CV was successfully updated"
+  content:
+    main:
+      welcome:
+        check_cv_html: "%{link} my CV."
+        check_cv_button: "Check"
+        create_cv_html: "%{link} a new CV."
+        create_cv_button: "Create"
+        title: "Welcome %{first_name} %{last_name}!"
+        search_cv_html: "%{link} a person's CV"
+        search_cv_button: "Look up"
+        question: "What would you like to do?"
+      cv:
+        error:
+          title:
+            one: "Could not save due to the following error:"
+            other: "Could not save due to the following errors:"
+        new:
+          about: "About"
+          about_feedback: "Please provide a valid description."
+          about_placeholder: "Tell us something about yourself"
+          birth_date: "Date of birth"
+          birth_date_feedback: "Please provide a date of birth."
+          future_plans: "Plans for the future"
+          future_plans_feedback: "Please provide your plans for the future."
+          future_plans_placeholder: "Plans for the future"
+          phone_number: "Phone number"
+          phone_number_feedback: "Please provide a valid phone number."
+          phone_number_placeholder: "Your phone number"
+          profile_picture: "Foto"
+          profile_picture_feedback: "Please provide a valid foto."
+          profile_picture_placeholder: "Foto (.jpg or .jpeg)"
+          skills_and_interests: "Other skills and interests"
+          skills_and_interests_feedback: "Please provide some other skills and interests."
+          skills_and_interests_placeholder: "Other skills, which are not directly related to a profession"
+          title: "Create your CV"
+          working_skills: "Work skills"
+          working_skills_feedback: "Please provide a working skill."
+          working_skills_placeholder: "Separate by comma"
+        show:
+          create_cv_html: "You don't have a CV yet. Would you like to %{link} one?"
+          create_cv_button: "create"
+  layouts:
+    footer:
+      footer_text: "Footer goes here"
+    nav:
+      home: "Home"
+      login: "Login"
+      logout: "Logout"
+      search: "Search"

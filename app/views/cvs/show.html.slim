@@ -1,0 +1,13 @@
+p#notice = notice
+
+- if @cv.present?
+  p = 'Here\'s your CV'
+
+  / TODO: extract cv to partial
+
+  => link_to 'Edit', edit_cv_path
+  '|
+  =< link_to 'Back', root_path
+- else
+  p = t('content.main.cv.show.create_cv_html',
+          link: (link_to t('content.main.cv.show.create_cv_button'), new_cv_path))

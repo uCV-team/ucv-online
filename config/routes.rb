@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resource :personalcv
-  resolve('Personalcv') { [:personalcv] }
+  resource :cv
+  resolve('Cv') { [:cv] }
 
   devise_for :users
 
