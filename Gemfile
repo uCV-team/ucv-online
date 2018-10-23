@@ -29,7 +29,6 @@ end
 
 group :development, :test do
   gem 'brakeman', require: false
-  gem 'factory_bot_rails'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'reek', require: false
