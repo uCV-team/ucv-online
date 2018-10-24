@@ -6,16 +6,6 @@ class CvsController < ApplicationController
 
   def edit; end
 
-  def create
-    @cv = Cv.new(cv_params.merge(user: current_user))
-
-    if @cv.save
-      redirect_to @cv, flash: { success: t('success.create') }
-    else
-      render :new
-    end
-  end
-
   def update
     if @cv.update(cv_params)
       redirect_to @cv, flash: { success: t('success.update') }
