@@ -1,6 +1,6 @@
 class CvsController < ApplicationController
-  before_action :set_cv, only: %i[show edit update]
   before_action :authenticate_user!
+  before_action :set_cv, only: %i[show edit update]
 
   def show; end
 
@@ -8,7 +8,7 @@ class CvsController < ApplicationController
 
   def update
     if @cv.update(cv_params)
-      redirect_to @cv, flash: { success: t('success.update') }
+      redirect_to @cv, flash: { success: t('success.cv.update') }
     else
       render :edit
     end

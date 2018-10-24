@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root 'cvs#show'
 
+  resources :educations
+
   devise_for :users
 
   get 'home/check'
