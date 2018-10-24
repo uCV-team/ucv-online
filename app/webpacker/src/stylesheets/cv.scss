@@ -1,7 +1,16 @@
+.cv-education,
+.cv-experience,
+.cv-header,
+.cv-languages,
+.cv-skills {
+  position: relative;
+}
+
 .cv-header {
   .photo {
+    background-color: $light-grey;
     float: left;
-    margin-right: $margin-sm;
+    margin: 0 $margin-sm $margin-sm 0;
 
     p {
       line-height: 185px;
@@ -10,4 +19,10 @@
       width: 185px;
     }
   }
+}
+
+.top-right {
+  position: absolute;
+  right: 0;
+  top: 0;
 }

@@ -1,0 +1,26 @@
+.btn-edit {
+  border: solid 1px $black;
+  color: $black;
+  line-height: 16px;
+  padding: 8px;
+  text-decoration-line: underline;
+  transition: .1s linear;
+
+  i {
+    display: block;
+  }
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+    transition: .1s linear;
+  }
+}
+
+.btn-standard {
+  // TODO
+}
+
+.btn-text {
+  // TODO
+}

@@ -9,51 +9,37 @@
   .needs-validation novalidate=""
     .row.margin-bottom-sm
       .col-12
-        = f.label :photo, t('content.main.cv.new.profile_picture')
+        = f.label :photo, t('content.main.cv.edit.profile_picture')
         = f.text_field :photo, class: 'form-control',
-                placeholder: t('content.main.cv.new.profile_picture_placeholder')
-        .invalid-feedback
-          = t('content.main.cv.new.profile_picture_feedback')
+                placeholder: t('content.main.cv.edit.profile_picture_placeholder')
     .row.margin-bottom-sm
       .col-sm-4
-        = f.label :birth_date, t('content.main.cv.new.birth_date')
+        = f.label :birth_date, t('content.main.cv.edit.birth_date')
         br
         = f.date_select :birth_date, start_year: Date.current.year, end_year: 1900, use_two_digit_numbers: true,
                 order: %i[day month year], with_css_classes: true, class: 'form-control'
-        .invalid-feedback
-          = t('content.main.cv.new.birth_date_feedback')
       .col-sm-8
-        = f.label :phone_number, t('content.main.cv.new.phone_number')
+        = f.label :phone_number, t('content.main.cv.edit.phone_number')
         = f.text_field :phone_number, class: 'form-control',
-                placeholder: t('content.main.cv.new.phone_number_placeholder')
-        .invalid-feedback
-          = t('content.main.cv.new.phone_number_feedback')
+                placeholder: t('content.main.cv.edit.phone_number_placeholder')
     .row.margin-bottom-sm
       .col-12
-        = f.label :about, t('content.main.cv.new.about')
-        = f.text_area :about, class: 'form-control', placeholder: t('content.main.cv.new.about_placeholder'),
+        = f.label :about, t('content.main.cv.edit.about')
+        = f.text_area :about, class: 'form-control', placeholder: t('content.main.cv.edit.about_placeholder'),
                 rows: 5
-        .invalid-feedback
-          = t('content.main.cv.new.about_feedback')
     .row.margin-bottom-sm
       .col-12
-        = f.label :working_skills, t('content.main.cv.new.working_skills')
+        = f.label :working_skills, t('content.main.cv.edit.working_skills')
         = f.text_field :working_skills, class: 'form-control',
-                placeholder: t('content.main.cv.new.working_skills_placeholder')
-        .invalid-feedback
-          = t('content.main.cv.new.working_skills_feedback')
+                placeholder: t('content.main.cv.edit.working_skills_placeholder')
     .row.margin-bottom-sm
       .col-12
-        = f.label :skills_and_interests, t('content.main.cv.new.skills_and_interests')
+        = f.label :skills_and_interests, t('content.main.cv.edit.skills_and_interests')
         = f.text_area :skills_and_interests, class: 'form-control',
-                placeholder: t('content.main.cv.new.skills_and_interests_placeholder'), rows: 5
-        .invalid-feedback
-          = t('content.main.cv.new.skills_and_interests_feedback')
+                placeholder: t('content.main.cv.edit.skills_and_interests_placeholder'), rows: 5
     .row.margin-bottom-sm
       .col-12
-        = f.label :future_plans, t('content.main.cv.new.future_plans')
+        = f.label :future_plans, t('content.main.cv.edit.future_plans')
         = f.text_area :future_plans, class: 'form-control',
-                placeholder: t('content.main.cv.new.future_plans_placeholder'), rows: 5
-        .invalid-feedback
-          = t('content.main.cv.new.future_plans_feedback')
+                placeholder: t('content.main.cv.edit.future_plans_placeholder'), rows: 5
   .actions = f.submit

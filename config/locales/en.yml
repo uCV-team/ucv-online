@@ -19,32 +19,38 @@ en:
           title:
             one: "Could not save due to the following error:"
             other: "Could not save due to the following errors:"
-        new:
+        edit:
           about: "About"
-          about_feedback: "Please provide a valid description."
           about_placeholder: "Tell us something about yourself"
           birth_date: "Date of birth"
-          birth_date_feedback: "Please provide a date of birth."
           future_plans: "Plans for the future"
-          future_plans_feedback: "Please provide your plans for the future."
           future_plans_placeholder: "Plans for the future"
           phone_number: "Phone number"
-          phone_number_feedback: "Please provide a valid phone number."
           phone_number_placeholder: "Your phone number"
           profile_picture: "Foto"
-          profile_picture_feedback: "Please provide a valid foto."
           profile_picture_placeholder: "Foto (.jpg or .jpeg)"
           skills_and_interests: "Other skills and interests"
-          skills_and_interests_feedback: "Please provide some other skills and interests."
           skills_and_interests_placeholder: "Other skills, which are not directly related to a profession"
           title: "Create your CV"
           working_skills: "Work skills"
-          working_skills_feedback: "Please provide a working skill."
           working_skills_placeholder: "Separate by comma"
         show:
+          birthday: "Born on %{day}. %{month}, %{year}"
           contact_me_button: "Contact"
           contact_me_html: "Interested? %{link} me!"
-          interests: "My interests"
+          education:
+            title: "Education"
+            no_entry: "%{first_name} %{last_name} didn't add any education entries yet."
+          experience:
+            title: "Experience"
+            no_entry: "%{first_name} %{last_name} didn't add any experience entries yet."
+          interests: "Interests"
+          languages:
+            title: "Languages"
+            no_entry: "%{first_name} %{last_name} didn't add any language entries yet."
+          skills:
+            other_skills: "Other skills"
+            title: "Skills"
   layouts:
     footer:
       footer_text: "Footer goes here"
