@@ -9,15 +9,6 @@ en:
       destroy: "Education entry successfully removed"
   content:
     main:
-      welcome:
-        check_cv_html: "%{link} my CV."
-        check_cv_button: "Check"
-        create_cv_html: "%{link} a new CV."
-        create_cv_button: "Create"
-        title: "Welcome %{first_name} %{last_name}!"
-        search_cv_html: "%{link} a person's CV"
-        search_cv_button: "Look up"
-        question: "What would you like to do?"
       cv:
         error:
           title:
@@ -48,6 +39,7 @@ en:
           experience:
             title: "Experience"
             no_entry: "%{first_name} %{last_name} didn't add any experience entries yet."
+          extra: "Other information"
           interests: "Interests"
           languages:
             title: "Languages"

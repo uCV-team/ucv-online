@@ -1,18 +1,12 @@
 .cv-header.margin-bottom-sm
-  .about
-    .photo
-      p Photo
-    h3 = current_user.first_name + ' ' + current_user.last_name
-    p = t('content.main.cv.show.birthday', day: @cv.birth_date.day, month: @cv.birth_date.strftime('%B'),
-            year: @cv.birth_date.year)
-    p = @cv.about
-    p = t('content.main.cv.show.contact_me_html', link: (link_to t('content.main.cv.show.contact_me_button'), '#'))
-    .clearfix
-  h5 = t('content.main.cv.show.interests')
-  p = @cv.interests
-  h5 = t('content.main.cv.edit.future_plans')
-  p = @cv.future_plans
-
+  .photo
+    p Photo
+  h3 = current_user.first_name + ' ' + current_user.last_name
+  p = t('content.main.cv.show.birthday', day: @cv.birth_date.day, month: @cv.birth_date.strftime('%B'),
+          year: @cv.birth_date.year)
+  p = @cv.about
+  p = t('content.main.cv.show.contact_me_html', link: (link_to t('content.main.cv.show.contact_me_button'), '#'))
+  .clearfix
   = link_to edit_cv_path, class: 'btn-edit top-right'
     i.fas.fa-pen
 hr
@@ -52,3 +46,11 @@ hr
   = link_to edit_cv_path, class: 'btn-edit top-right'
     i.fas.fa-pen
 hr
+.cv-footer.margin-bottom-md
+  h3 = t('content.main.cv.show.extra')
+  h5 = t('content.main.cv.show.interests')
+  p = @cv.interests
+  h5 = t('content.main.cv.edit.future_plans')
+  p = @cv.future_plans
+  = link_to edit_cv_path, class: 'btn-edit top-right'
+    i.fas.fa-pen

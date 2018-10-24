@@ -1,5 +1,6 @@
 .cv-education,
 .cv-experience,
+.cv-footer,
 .cv-header,
 .cv-languages,
 .cv-skills {
@@ -10,7 +11,7 @@
   .photo {
     background-color: $light-grey;
     float: left;
-    margin: 0 $margin-sm $margin-sm 0;
+    margin-right: $margin-sm;
 
     p {
       line-height: 185px;
