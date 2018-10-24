@@ -1,4 +1,4 @@
-.cv-header
+.cv-header.margin-bottom-sm
   .about.margin-bottom-sm
     .photo
       p Photo
@@ -6,5 +6,9 @@
     p = @cv.about
     p = t('content.main.cv.show.contact_me_html', link: (link_to t('content.main.cv.show.contact_me_button'), '#'))
     .clearfix
-  / h5 = t('content.main.cv.show.interests')
-  / p = @cv.skills
+  h5 = t('content.main.cv.show.interests')
+  p = @cv.interests
+  = link_to edit_cv_path, class: 'btn-edit' do
+    i.fas.fa-pen
+  end
+hr
