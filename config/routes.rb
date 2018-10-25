@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  resource :cv, except: %i[create destroy new]
+  resolve('Cv') { [:cv] }
 
-  resource :personalcv
-  resolve('Personalcv') { [:personalcv] }
+  root 'cvs#show'
 
   devise_for :users
 

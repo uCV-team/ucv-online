@@ -1,8 +1,14 @@
 class User < ApplicationRecord
-  has_one :personalcv, dependent: :destroy
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :recoverable, :registerable, :rememberable, :timeoutable, :trackable, :validatable
+  has_one :cv, dependent: :destroy
 
+  after_initialize :create_cv, if: :new_record?
+
+  devise :database_authenticatable, :recoverable, :registerable, :rememberable, :timeoutable, :trackable, :validatable
   validates :first_name, :last_name, presence: true
+
+  private
+
+  def create_cv
+    self.cv = Cv.new
+  end
 end

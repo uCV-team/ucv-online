@@ -1,0 +1,47 @@
+= form_with(model: @cv, local: true) do |f|
+  - if @cv.errors.any?
+    .alert.alert-danger[role='alert']
+      h3 = t('content.main.cv.error.title', count: @cv.errors.count)
+      ul
+      - @cv.errors.full_messages.each do |message|
+        li = message
+
+  .needs-validation novalidate=""
+    .row.margin-bottom-sm
+      .col-12
+        = f.label :photo, t('content.main.cv.edit.profile_picture')
+        = f.text_field :photo, class: 'form-control',
+                placeholder: t('content.main.cv.edit.profile_picture_placeholder')
+    .row.margin-bottom-sm
+      .col-sm-4
+        = f.label :birth_date, t('content.main.cv.edit.birth_date')
+        br
+        / TODO: Extract date validation into a constant and use it server- and client-side (like about_max_length) ->
+        / user should be like at least 10 years old (for example)
+        = f.date_select :birth_date, start_year: Date.current.year, end_year: 1900, use_two_digit_numbers: true,
+                order: %i[day month year], with_css_classes: true, class: 'form-control'
+      .col-sm-8
+        = f.label :phone_number, t('content.main.cv.edit.phone_number')
+        = f.text_field :phone_number, class: 'form-control',
+                placeholder: t('content.main.cv.edit.phone_number_placeholder')
+    .row.margin-bottom-sm
+      .col-12
+        = f.label :about, t('content.main.cv.edit.about')
+        = f.text_area :about, class: 'form-control', placeholder: t('content.main.cv.edit.about_placeholder'),
+                rows: 5, maxlength: Cv::ABOUT_MAX_LENGTH
+    .row.margin-bottom-sm
+      .col-12
+        = f.label :working_skills, t('content.main.cv.edit.working_skills')
+        = f.text_field :working_skills, class: 'form-control',
+                placeholder: t('content.main.cv.edit.working_skills_placeholder')
+    .row.margin-bottom-sm
+      .col-12
+        = f.label :skills_and_interests, t('content.main.cv.edit.skills_and_interests')
+        = f.text_area :skills_and_interests, class: 'form-control',
+                placeholder: t('content.main.cv.edit.skills_and_interests_placeholder'), rows: 5
+    .row.margin-bottom-sm
+      .col-12
+        = f.label :future_plans, t('content.main.cv.edit.future_plans')
+        = f.text_area :future_plans, class: 'form-control',
+                placeholder: t('content.main.cv.edit.future_plans_placeholder'), rows: 5
+  .actions = f.submit
