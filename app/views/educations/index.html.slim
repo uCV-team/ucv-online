@@ -1,0 +1,19 @@
+h1 Listing educations
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @educations.each do |education|
+      tr
+        td = link_to 'Show', education
+        td = link_to 'Edit', edit_education_path(education)
+        td = link_to 'Destroy', education, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Education', new_education_path

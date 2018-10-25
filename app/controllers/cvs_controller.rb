@@ -8,7 +8,7 @@ class CvsController < ApplicationController
 
   def update
     if @cv.update(cv_params)
-      redirect_to @cv, flash: { success: t('success.update') }
+      redirect_to @cv, flash: { success: t('success.cv.update') }
     else
       render :edit
     end
