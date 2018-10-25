@@ -1,6 +1,7 @@
 .cv-header.margin-bottom-sm
   .photo
     p Photo
+  / TODO: extract into helper
   h3 = current_user.first_name + ' ' + current_user.last_name
   p = t('content.main.cv.show.birthday', day: @cv.birth_date.day, month: @cv.birth_date.strftime('%B'),
           year: @cv.birth_date.year)
@@ -12,7 +13,7 @@
 hr
 .cv-experience.margin-bottom-sm
   h3 = t('content.main.cv.show.experience.title')
-  / Replace with if/else when experience table exists
+  / TODO: Replace with if/else when experience table exists
   p = t('content.main.cv.show.experience.no_entry', first_name: current_user.first_name,
           last_name: current_user.last_name)
 
@@ -21,7 +22,7 @@ hr
 hr
 .cv-education.margin-bottom-sm
   h3 = t('content.main.cv.show.education.title')
-  / Replace with if/else when education table exists
+  / TODO: Replace with if/else when education table exists
   p = t('content.main.cv.show.education.no_entry', first_name: current_user.first_name,
           last_name: current_user.last_name)
 
@@ -30,7 +31,7 @@ hr
 hr
 .cv-languages.margin-bottom-sm
   h3 = t('content.main.cv.show.languages.title')
-  / Replace with if/else when languages table exists
+  / TODO: Replace with if/else when languages table exists
   p = t('content.main.cv.show.languages.no_entry', first_name: current_user.first_name,
           last_name: current_user.last_name)
   = link_to edit_cv_path, class: 'btn-edit top-right'

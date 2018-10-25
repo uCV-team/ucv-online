@@ -3,7 +3,11 @@ require 'rails_helper'
 RSpec.describe CvsController, type: :request do
   let(:user) { create :user }
   let(:cv) { create :cv, user: user }
-  let(:invalid_attributes) { { about: nil } }
+  let(:invalid_attributes) do
+    { about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel ante
+porta, lobortis risus sit amet, suscipit ex. Cras ultrices placerat aliquet. Curabitur eu erat quis massa
+fringilla dapibus. Maecenas rutrum porta lacus in semper. Orci amet.' }
+  end
 
   before { sign_in user }
 
@@ -14,42 +18,10 @@ RSpec.describe CvsController, type: :request do
     end
   end
 
-  describe 'GET #new' do
-    it 'returns a success response' do
-      get new_cv_path
-      expect(response).to be_successful
-    end
-  end
-
   describe 'GET #edit' do
     it 'returns a success response' do
       get edit_cv_path cv
       expect(response).to be_successful
-    end
-  end
-
-  describe 'POST #create' do
-    context 'with valid params' do
-      subject(:create_cv) { post cv_path, params: cv_params }
-
-      let(:cv_params) { { cv: attributes_for(:cv) } }
-
-      it 'creates a new Cv' do
-        expect { create_cv }.to change(Cv, :count).by(1)
-      end
-
-      it 'redirects to the created cv' do
-        create_cv
-        expect(response).to redirect_to(Cv.last)
-      end
-    end
-
-    context 'with invalid params' do
-      subject(:create_invalid_cv) { post cv_path, params: { cv: invalid_attributes } }
-
-      it 'does not create a new Cv' do
-        expect { create_invalid_cv }.not_to change(Cv, :count)
-      end
     end
   end
 
@@ -72,8 +44,12 @@ RSpec.describe CvsController, type: :request do
     end
 
     context 'with invalid params' do
-      it "returns a success response (i.e. to display the 'edit' template)" do
-        put cv_path cv, params: { cv: invalid_attributes }
+      subject(:update_cv) { put cv_path cv, params: invalid_params }
+
+      let(:invalid_params) { { cv: invalid_attributes } }
+
+      it 'renders the edit page' do
+        update_cv
         expect(response).to be_successful
       end
     end
