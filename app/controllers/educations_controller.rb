@@ -1,4 +1,5 @@
 class EducationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_cv
   before_action :set_education, only: %i[edit update destroy]
 
