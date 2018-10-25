@@ -9,6 +9,6 @@ class User < ApplicationRecord
   private
 
   def create_cv
-    self.cv = Cv.new
+    self.cv ||= Cv.new
   end
 end

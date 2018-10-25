@@ -1,4 +1,5 @@
 class EducationsController < ApplicationController
+  before_action :set_cv
   before_action :set_education, only: %i[edit update destroy]
 
   def index
@@ -12,9 +13,9 @@ class EducationsController < ApplicationController
   def edit; end
 
   def create
-    @education = Education.new(education_params)
+    @education = @cv.educations.new(education_params)
     if @education.save
-      redirect_to educations_url, flash: { success: t('success.education.create') }
+      redirect_to cv_educations_url, flash: { success: t('success.education.create') }
     else
       render :new
     end
@@ -22,7 +23,7 @@ class EducationsController < ApplicationController
 
   def update
     if @education.update(education_params)
-      redirect_to educations_url, flash: { success: t('success.education.update') }
+      redirect_to cv_educations_url, flash: { success: t('success.education.update') }
     else
       render :edit
     end
@@ -30,13 +31,17 @@ class EducationsController < ApplicationController
 
   def destroy
     @education.destroy
-    redirect_to educations_url, flash: { success: t('success.education.destroy') }
+    redirect_to cv_educations_url, flash: { success: t('success.education.destroy') }
   end
 
   private
 
+  def set_cv
+    @cv = current_user.cv
+  end
+
   def set_education
-    @education = Education.find(params[:id])
+    @education = @cv.educations.find(params[:id])
   end
 
   def education_params

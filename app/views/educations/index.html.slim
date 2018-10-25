@@ -11,9 +11,9 @@ table
     - @educations.each do |education|
       tr
         td = link_to 'Show', education
-        td = link_to 'Edit', edit_education_path(education)
+        td = link_to 'Edit', edit_cv_education_path(education)
         td = link_to 'Destroy', education, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
-= link_to 'New Education', new_education_path
+= link_to 'New Education', new_cv_education_path

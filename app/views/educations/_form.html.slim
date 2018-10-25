@@ -1,7 +1,7 @@
-= form_for @education do |f|
+= form_with(model: [@cv, @education], local: true) do |f|
   - if @education.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@education.errors.count, "error")} prohibited this education from being saved:"
+      h2 = "#{pluralize(@education.errors.count, 'error')} prohibited this education from being saved:"
       ul
         - @education.errors.full_messages.each do |message|
           li = message
