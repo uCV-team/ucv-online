@@ -39,7 +39,7 @@ en:
           experience:
             title: "Experience"
             no_entry: "%{first_name} %{last_name} didn't add any experience entries yet."
-          extra: "Other information"
+          extras: "Other information"
           interests: "Interests"
           languages:
             title: "Languages"
