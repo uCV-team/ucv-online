@@ -16,8 +16,8 @@
       .col-sm-4
         = f.label :birth_date, t('content.main.cv.edit.birth_date')
         br
-        / TODO: Extract date validation into a constant and use it server- and client-side (like about_max_length) -> user should be like
-          at least 10 years old (for example)
+        / TODO: Extract date validation into a constant and use it server- and client-side (like about_max_length) ->
+        / user should be like at least 10 years old (for example)
         = f.date_select :birth_date, start_year: Date.current.year, end_year: 1900, use_two_digit_numbers: true,
                 order: %i[day month year], with_css_classes: true, class: 'form-control'
       .col-sm-8
