@@ -4,4 +4,5 @@ class Cv < ApplicationRecord
 
   ABOUT_MAX_LENGTH = 250
   validates :about, length: { maximum: ABOUT_MAX_LENGTH }
+  validates :user, uniqueness: true
 end

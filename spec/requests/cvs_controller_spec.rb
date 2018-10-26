@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe CvsController, type: :request do
-  let(:user) { create(:user, cv: create(:cv)) }
+  let(:user) { create :user }
   let(:cv) { user.cv }
   let(:invalid_attributes) do
     { about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel ante
@@ -13,14 +13,14 @@ fringilla dapibus. Maecenas rutrum porta lacus in semper. Orci amet.' }
 
   describe 'GET #show' do
     it 'returns a success response' do
-      get cv_path cv
+      get cv_path
       expect(response).to be_successful
     end
   end
 
   describe 'GET #edit' do
     it 'returns a success response' do
-      get edit_cv_path cv
+      get edit_cv_path
       expect(response).to be_successful
     end
   end
