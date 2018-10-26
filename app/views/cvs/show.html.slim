@@ -3,9 +3,10 @@
     p Photo
   / TODO: extract into helper
   h3 = current_user.first_name + ' ' + current_user.last_name
-  p = t('content.main.cv.show.birthday', day: @cv.birth_date.day, month: @cv.birth_date.strftime('%B'),
-          year: @cv.birth_date.year)
-  p = @cv.about
+  - if @cv.birth_date.present?
+    p = t('content.main.cv.show.birthday', day: @cv.birth_date.day, month: @cv.birth_date.strftime('%B'),
+            year: @cv.birth_date.year)
+  p = @cv.about.presence
   p = t('content.main.cv.show.contact_me_html', link: (link_to t('content.main.cv.show.contact_me_button'), '#'))
   .clearfix
   = link_to edit_cv_path, class: 'btn-edit top-right'
@@ -40,9 +41,9 @@ hr
 .cv-skills.margin-bottom-sm
   h3 = t('content.main.cv.show.skills.title')
   h5 = t('content.main.cv.edit.working_skills')
-  p = @cv.working_skills
+  p = @cv.working_skills.presence
   h5 = t('content.main.cv.show.skills.other_skills')
-  p = @cv.skills
+  p = @cv.skills.presence
 
   = link_to edit_cv_path, class: 'btn-edit top-right'
     i.fas.fa-pen
@@ -50,8 +51,8 @@ hr
 .cv-footer.margin-bottom-md
   h3 = t('content.main.cv.show.extras')
   h5 = t('content.main.cv.show.interests')
-  p = @cv.interests
+  p = @cv.interests.presence
   h5 = t('content.main.cv.edit.future_plans')
-  p = @cv.future_plans
+  p = @cv.future_plans.presence
   = link_to edit_cv_path, class: 'btn-edit top-right'
     i.fas.fa-pen

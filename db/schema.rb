@@ -10,24 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_24_070231) do
+ActiveRecord::Schema.define(version: 2018_10_26_065751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cvs", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "photo", default: ""
-    t.string "phone_number", default: ""
-    t.string "working_skills", default: ""
+    t.bigint "user_id", null: false
+    t.string "photo"
+    t.string "phone_number"
+    t.string "working_skills"
     t.date "birth_date"
-    t.text "about", default: ""
-    t.text "skills", default: ""
-    t.text "future_plans", default: ""
+    t.text "about"
+    t.text "skills"
+    t.text "future_plans"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "interests", default: ""
+    t.text "interests"
     t.index ["user_id"], name: "index_cvs_on_user_id"
+  end
+
+  create_table "educations", force: :cascade do |t|
+    t.bigint "cv_id", null: false
+    t.date "started_on"
+    t.date "ended_on"
+    t.string "degree"
+    t.string "school", null: false
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cv_id"], name: "index_educations_on_cv_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,4 +62,5 @@ ActiveRecord::Schema.define(version: 2018_10_24_070231) do
   end
 
   add_foreign_key "cvs", "users"
+  add_foreign_key "educations", "cvs"
 end

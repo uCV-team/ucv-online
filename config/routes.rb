@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resource :cv, except: %i[create destroy new]
+  root 'cvs#show'
+  resource :cv, except: %i[create destroy new] do
+    resources :educations
+  end
   resolve('Cv') { [:cv] }
 
-  root 'cvs#show'
-
   devise_for :users
-
   get 'home/check'
 end
