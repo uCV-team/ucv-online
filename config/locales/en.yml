@@ -15,24 +15,26 @@ en:
             one: "Could not save due to the following error:"
             other: "Could not save due to the following errors:"
         edit:
-          about: "About"
-          about_placeholder: "Tell us something about yourself"
-          birth_date: "Date of birth"
-          future_plans: "Plans for the future"
-          future_plans_placeholder: "Plans for the future"
-          phone_number: "Phone number"
-          phone_number_placeholder: "Your phone number"
-          profile_picture: "Foto"
-          profile_picture_placeholder: "Foto (.jpg or .jpeg)"
-          skills_and_interests: "Other skills and interests"
-          skills_and_interests_placeholder: "Other skills, which are not directly related to a profession"
-          title: "Create your CV"
-          working_skills: "Work skills"
-          working_skills_placeholder: "Separate by comma"
+          education:
+            title: "Edit education"
+          experience:
+            title: "Edit experience"
+          extras:
+            title: "Edit extras"
+          intro:
+            title: "Edit intro"
+          languages:
+            title: "Edit language"
+          skills:
+            title: "Edit skills"
+        new:
+          education:
+            title: "Add new education"
+          experience:
+            title: "Add new experience"
+          language:
+            title: "Add new language"
         show:
-          birthday: "Born on %{day}. %{month}, %{year}"
-          contact_me_button: "Contact"
-          contact_me_html: "Interested? %{link} me!"
           education:
             title: "Education"
             no_entry: "%{first_name} %{last_name} didn't add any education entries yet."
@@ -40,13 +42,19 @@ en:
             title: "Experience"
             no_entry: "%{first_name} %{last_name} didn't add any experience entries yet."
           extras: "Other information"
+          future_plans: "Plans for the future"
           interests: "Interests"
+          intro:
+            birthday: "Born on %{day}. %{month}, %{year}"
+            contact_me_button: "Contact"
+            contact_me_html: "Interested? %{link} me!"
           languages:
             title: "Languages"
             no_entry: "%{first_name} %{last_name} didn't add any language entries yet."
           skills:
             other_skills: "Other skills"
             title: "Skills"
+            working_skills: "Work skills"
   layouts:
     footer:
       footer_text: "Footer goes here"

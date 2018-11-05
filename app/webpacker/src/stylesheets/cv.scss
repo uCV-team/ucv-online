@@ -1,13 +1,13 @@
 .cv-education,
 .cv-experience,
-.cv-footer,
-.cv-header,
+.cv-extras,
+.cv-intro,
 .cv-languages,
 .cv-skills {
   position: relative;
 }
 
-.cv-header {
+.cv-intro {
   .photo {
     background-color: $light-grey;
     float: left;
