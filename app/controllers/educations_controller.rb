@@ -14,7 +14,7 @@ class EducationsController < ApplicationController
   def edit; end
 
   def create
-    @education = @cv.educations.new(education_params)
+    @education = @cv.educations.build(education_params)
     if @education.save
       redirect_to cv_educations_url, flash: { success: t('success.education.create') }
     else
