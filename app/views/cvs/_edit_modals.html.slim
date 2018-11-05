@@ -5,29 +5,26 @@
         h4 = t('content.main.cv.edit.intro.title')
         button class='close' data-dismiss='modal' aria-label='Close'
           span aria-hidden='true' &times;
-      = form_with(model: @cv, local: true) do |f|
-        .modal-body
-          - if @cv.errors.any?
-            .alert.alert-danger[role='alert']
-              h3 = t('content.main.cv.error.title', count: @cv.errors.count)
-              ul
-                - @cv.errors.full_messages.each do |message|
-                  li = message
-          .needs-validation novalidate=""
-            .row.margin-bottom-sm
-              .col-6
-                = f.label :first_name, 'First name *'
-                = f.text_field :first_name, class: 'form-control', placeholder: current_user.first_name
-              .col-6
-                = f.label :last_name, 'Last name *'
-                = f.text_field :last_name, class: 'form-control', placeholder: current_user.last_name
-            .row.margin-bottom-sm
-              .col-12
-                = f.label :about
-                = f.text_field :about, class: 'form-control', placeholder: :about
-        .modal-footer
-          = f.submit 'Save', class: 'btn-standard'
-
+      .modal-body
+        p = 'Under construction'
+      .modal-footer
+      / = form_for current_user, url: registration_path(current_user), method: :put do |f|
+      /   .modal-body
+      /     .needs-validation novalidate=""
+      /       .row.margin-bottom-sm
+      /         .col-6
+      /           = f.label :first_name, 'First name *'
+      /           = f.text_field :first_name, class: 'form-control'
+      /         .col-6
+      /           = f.label :last_name, 'Last name *'
+      /           = f.text_field :last_name, class: 'form-control'
+      /     = fields_for :cv, current_user.cv do |cv_fields|
+      /       .row.margin-bottom-sm
+      /         .col-12
+      /           = cv_fields.label :about
+      /           = cv_fields.text_field :about, class: 'form-control'
+      /   .modal-footer
+      /     = f.submit 'Save', class: 'btn-standard'
 
 #editCvExperience.modal.fade role='dialog'
   .modal-dialog.modal-dialog-centered.modal-lg

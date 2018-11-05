@@ -1,5 +1,5 @@
-.cv-intro.margin-bottom-sm
-  .photo
+.cv-intro.position-relative.mb-3
+  .photo.float-left
     p Photo
   / TODO: extract into helper
   h3 = current_user.first_name + ' ' + current_user.last_name
@@ -12,10 +12,10 @@
   .clearfix
 
   button.btn-edit.top-right data-toggle='modal' data-target='#editCvIntro'
-    i.fas.fa-pen
+    i.fas.fa-pencil-alt
 hr
 
-.cv-experience.margin-bottom-sm
+.cv-experience.position-relative.mb-3
   h3 = t('content.main.cv.show.experience.title')
   / TODO: Replace with if/else when experience table exists
   p = t('content.main.cv.show.experience.no_entry', first_name: current_user.first_name,
@@ -25,7 +25,7 @@ hr
     i.fas.fa-plus
 hr
 
-.cv-education.margin-bottom-sm
+.cv-education.position-relative.mb-3
   h3 = t('content.main.cv.show.education.title')
   / TODO: Replace with if/else when education table exists
   p = t('content.main.cv.show.education.no_entry', first_name: current_user.first_name,
@@ -35,7 +35,7 @@ hr
     i.fas.fa-plus
 hr
 
-.cv-languages.margin-bottom-sm
+.cv-languages.position-relative.mb-3
   h3 = t('content.main.cv.show.languages.title')
   / TODO: Replace with if/else when languages table exists
   p = t('content.main.cv.show.languages.no_entry', first_name: current_user.first_name,
@@ -45,7 +45,7 @@ hr
     i.fas.fa-plus
 hr
 
-.cv-skills.margin-bottom-sm
+.cv-skills.position-relative.mb-3
   h3 = t('content.main.cv.show.skills.title')
   h5 = t('content.main.cv.show.skills.working_skills')
   p = @cv.working_skills.presence
@@ -53,10 +53,10 @@ hr
   p = @cv.skills.presence
 
   button.btn-edit.top-right data-toggle='modal' data-target='#editCvSkills'
-    i.fas.fa-pen
+    i.fas.fa-pencil-alt
 hr
 
-.cv-extras.margin-bottom-md
+.cv-extras.position-relative.mb-4
   h3 = t('content.main.cv.show.extras')
   h5 = t('content.main.cv.show.interests')
   p = @cv.interests.presence
@@ -64,7 +64,7 @@ hr
   p = @cv.future_plans.presence
 
   button.btn-edit.top-right data-toggle='modal' data-target='#editCvExtras'
-    i.fas.fa-pen
+    i.fas.fa-pencil-alt
 
 = render 'add_modals'
 = render 'edit_modals'
