@@ -24,7 +24,7 @@ body class="#{controller.controller_name}"
   .container.flex
     main
       - flash.each do |type, message|
-        - next if key == 'timedout' # This is because of https://github.com/plataformatec/devise/issues/1777
+        - next if type == 'timedout' # This is because of https://github.com/plataformatec/devise/issues/1777
         .alert.alert-dismissible role=alert class=alert_class_for(type)
           button class='close' data-dismiss='alert' aria-label='Close'
             span aria-hidden='true' &times;
