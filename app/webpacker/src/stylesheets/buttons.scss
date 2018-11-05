@@ -1,8 +1,8 @@
 button {
   &:active,
   &:focus {
-    outline: 0;
     box-shadow: none;
+    outline: 0;
   }
 }
 

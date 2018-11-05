@@ -15,6 +15,22 @@ en:
             one: "Could not save due to the following error:"
             other: "Could not save due to the following errors:"
         edit:
+          # TODO: remove translations for the old edit page when no longer needed
+          about: "About"
+          about_placeholder: "Tell us something about yourself"
+          birth_date: "Date of birth"
+          future_plans: "Plans for the future"
+          future_plans_placeholder: "Plans for the future"
+          phone_number: "Phone number"
+          phone_number_placeholder: "Your phone number"
+          profile_picture: "Phone number"
+          profile_picture_placeholder: "Foto (.jpg or .jpeg)"
+          skills_and_interests: "Other skills and interests"
+          skills_and_interests_placeholder: "Other skills, which are not directly related to a profession"
+          title: "Create your CV"
+          working_skills: "Work skills"
+          working_skills_placeholder: "Separate by comma"
+          # end
           education:
             title: "Edit education"
           experience:
