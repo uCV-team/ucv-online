@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_one :cv, dependent: :destroy
+  accepts_nested_attributes_for :cv
 
   after_initialize :create_cv, if: :new_record?
 
