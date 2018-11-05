@@ -5,12 +5,12 @@ header {
     background-color: $white;
     box-shadow: 0 0 20px $grey;
     display: flex;
-    margin-bottom: $margin-md;
-    padding: 0 $margin-md;
+    margin-bottom: 20px;
+    padding: 0 20px;
 
     a {
       font-size: 17px;
-      padding: $margin-md;
+      padding: 20px;
     }
   }
 }

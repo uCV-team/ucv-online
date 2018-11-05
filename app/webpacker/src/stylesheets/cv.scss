@@ -1,17 +1,6 @@
-.cv-education,
-.cv-experience,
-.cv-extras,
-.cv-intro,
-.cv-languages,
-.cv-skills {
-  position: relative;
-}
-
 .cv-intro {
   .photo {
     background-color: $light-grey;
-    float: left;
-    margin-right: $margin-sm;
 
     p {
       line-height: 185px;
