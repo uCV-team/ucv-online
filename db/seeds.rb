@@ -8,9 +8,8 @@
 
 User.create!(first_name: 'Johnny',
              last_name: 'Williams',
-             email: 'johnny3@renuo.ch',
+             email: 'johnny@renuo.ch',
              password: 'Password123',
-             password_confirmation: 'Password123',
              cv_attributes: {
                about: 'Hi! I\'m Johnny and I love to code!',
                birth_date: Date.new(1995, 3, 21),

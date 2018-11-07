@@ -19,7 +19,7 @@ body class="#{controller.controller_name}"
         = link_to t('layouts.nav.logout'), destroy_user_session_path, method: :delete
       - else
         = link_to t('layouts.nav.login'), new_user_session_path
-  .container.flex
+  .container.custom-flex
     main
       - flash.each do |type, message|
         - next if type == 'timedout' # This is because of https://github.com/plataformatec/devise/issues/1777
