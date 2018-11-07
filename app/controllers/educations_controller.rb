@@ -24,7 +24,7 @@ class EducationsController < ApplicationController
 
   def update
     if @education.update(education_params)
-      redirect_to cv_educations_url, flash: { success: t('success.education.update') }
+      redirect_to cv_educations_url, flash: { success: t('success.cv.update') }
     else
       render :edit
     end

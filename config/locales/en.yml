@@ -2,35 +2,22 @@
 en:
   success:
     cv:
-      update: "Your CV was successfully updated"
+      update: "Your changes have been saved successfully."
     education:
-      create: "Education entry successfully created"
-      update: "Education entry successfully updated"
-      destroy: "Education entry successfully removed"
+      create: "Education entry successfully created."
+      destroy: "Education entry successfully removed."
   content:
     main:
+      aria_labels:
+        close: "Close"
+      buttons:
+        save: "Save"
       cv:
         error:
           title:
             one: "Could not save due to the following error:"
             other: "Could not save due to the following errors:"
         edit:
-          # TODO: remove translations for the old edit page when no longer needed
-          about: "About"
-          about_placeholder: "Tell us something about yourself"
-          birth_date: "Date of birth"
-          future_plans: "Plans for the future"
-          future_plans_placeholder: "Plans for the future"
-          phone_number: "Phone number"
-          phone_number_placeholder: "Your phone number"
-          profile_picture: "Phone number"
-          profile_picture_placeholder: "Foto (.jpg or .jpeg)"
-          skills_and_interests: "Other skills and interests"
-          skills_and_interests_placeholder: "Other skills, which are not directly related to a profession"
-          title: "Create your CV"
-          working_skills: "Work skills"
-          working_skills_placeholder: "Separate by comma"
-          # end
           education:
             title: "Edit education"
           experience:
@@ -39,6 +26,8 @@ en:
             title: "Edit extras"
           intro:
             title: "Edit intro"
+            first_name: "First name *"
+            last_name: "Last name *"
           languages:
             title: "Edit language"
           skills:
