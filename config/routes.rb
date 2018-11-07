@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   end
   resolve('Cv') { [:cv] }
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   get 'home/check'
 end

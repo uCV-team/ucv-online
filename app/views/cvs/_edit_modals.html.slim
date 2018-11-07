@@ -5,26 +5,31 @@
         h4 = t('content.main.cv.edit.intro.title')
         button class='close' data-dismiss='modal' aria-label='Close'
           span aria-hidden='true' &times;
-      .modal-body
-        p = 'Under construction'
-      .modal-footer
-      / = form_for current_user, url: registration_path(current_user), method: :put do |f|
-      /   .modal-body
-      /     .needs-validation novalidate=""
-      /       .row.margin-bottom-sm
-      /         .col-6
-      /           = f.label :first_name, 'First name *'
-      /           = f.text_field :first_name, class: 'form-control'
-      /         .col-6
-      /           = f.label :last_name, 'Last name *'
-      /           = f.text_field :last_name, class: 'form-control'
-      /     = fields_for :cv, current_user.cv do |cv_fields|
-      /       .row.margin-bottom-sm
-      /         .col-12
-      /           = cv_fields.label :about
-      /           = cv_fields.text_field :about, class: 'form-control'
-      /   .modal-footer
-      /     = f.submit 'Save', class: 'btn-standard'
+      = form_for current_user, url: registration_path(current_user), method: :put do |f|
+        .modal-body
+          .needs-validation novalidate=''
+            .row.mb-3
+              .col-6
+                = f.label :first_name, 'First name *'
+                = f.text_field :first_name, class: 'form-control'
+              .col-6
+                = f.label :last_name, 'Last name *'
+                = f.text_field :last_name, class: 'form-control'
+            = f.fields_for :cv, current_user.cv do |cv_fields|
+              .row.mb-3
+                .col-12
+                  = cv_fields.label :about
+                  = cv_fields.text_field :about, class: 'form-control'
+              .row.mb-3
+                .col-12
+                  / TODO: Extract date validation into a constant and use it server- and client-side (like about_max_length)
+                    user should be i.e. at least 10 years old
+                  = cv_fields.label :birth_date
+                  br
+                  = cv_fields.date_select :birth_date, start_year: Date.current.year - 20, end_year: 1900, use_two_digit_numbers: true,
+                          order: %i[day month year], with_css_classes: true, class: 'form-control'
+        .modal-footer
+          = f.submit 'Save', class: 'btn-standard'
 
 #editCvExperience.modal.fade role='dialog'
   .modal-dialog.modal-dialog-centered.modal-lg
@@ -34,7 +39,7 @@
         button class='close' data-dismiss='modal' aria-label='Close'
           span aria-hidden='true' &times;
       .modal-body
-        = image_tag 'doge.png'
+        p = 'Under construction'
 
 #editCvEducation.modal.fade role='dialog'
   .modal-dialog.modal-dialog-centered.modal-lg
@@ -63,8 +68,19 @@
         h4 = t('content.main.cv.edit.skills.title')
         button class='close' data-dismiss='modal' aria-label='Close'
           span aria-hidden='true' &times;
-      .modal-body
-        p = 'Under construction'
+      = form_for @cv do |f|
+        .modal-body
+          .needs-validation novalidate=''
+            .row.mb-3
+              .col-12
+                = f.label :working_skills
+                = f.text_field :working_skills, class: 'form-control'
+            .row.mb-3
+              .col-12
+                = f.label :skills
+                = f.text_field :skills, class: 'form-control'
+        .modal-footer
+          = f.submit 'Save', class: 'btn-standard'
 
 #editCvExtras.modal.fade role='dialog'
   .modal-dialog.modal-dialog-centered.modal-lg
@@ -73,5 +89,16 @@
         h4 = t('content.main.cv.edit.extras.title')
         button class='close' data-dismiss='modal' aria-label='Close'
           span aria-hidden='true' &times;
-      .modal-body
-        p = 'Under construction'
+      = form_for @cv do |f|
+        .modal-body
+          .needs-validation novalidate=''
+            .row.mb-3
+              .col-12
+                = f.label :interests
+                = f.text_area :interests, class: 'form-control', rows: 5
+            .row.mb-3
+              .col-12
+                = f.label :future_plans
+                = f.text_area :future_plans, class: 'form-control', rows: 5
+        .modal-footer
+          = f.submit 'Save', class: 'btn-standard'
