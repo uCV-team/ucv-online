@@ -5,8 +5,7 @@ RSpec.describe CvsController, type: :request do
   let(:cv) { user.cv }
   let(:invalid_attributes) do
     { about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel ante
-porta, lobortis risus sit amet, suscipit ex. Cras ultrices placerat aliquet. Curabitur eu erat quis massa
-fringilla dapibus. Maecenas rutrum porta lacus in semper. Orci amet.' }
+porta, lobortis risus sit amet, suscipit ex.' }
   end
 
   before { sign_in user }
