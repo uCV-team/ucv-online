@@ -53,10 +53,10 @@ en:
         show:
           education:
             title: "Education"
-            no_entry: "%{first_name} %{last_name} didn't add any education entries yet."
+            no_entry: "%{full_name} didn't add any education entries yet."
           experience:
             title: "Experience"
-            no_entry: "%{first_name} %{last_name} didn't add any experience entries yet."
+            no_entry: "%{full_name} didn't add any experience entries yet."
           extras: "Other information"
           future_plans: "Plans for the future"
           interests: "Interests"
@@ -66,7 +66,7 @@ en:
             contact_me_html: "Interested? %{link} me!"
           languages:
             title: "Languages"
-            no_entry: "%{first_name} %{last_name} didn't add any language entries yet."
+            no_entry: "%{full_name} didn't add any language entries yet."
           skills:
             other_skills: "Other skills"
             title: "Skills"

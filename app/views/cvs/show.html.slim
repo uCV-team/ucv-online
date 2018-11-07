@@ -1,8 +1,8 @@
 .cv-intro.position-relative.mb-3
-  .photo.float-left
+  .photo.float-left.mr-3
     p Photo
   / TODO: extract into helper
-  h3 = current_user.first_name + ' ' + current_user.last_name
+  h3 = full_name
   - if @cv.birth_date.present?
     p = t('content.main.cv.show.intro.birthday', day: @cv.birth_date.day, month: @cv.birth_date.strftime('%B'),
             year: @cv.birth_date.year)
@@ -13,37 +13,35 @@
 
   button.btn-edit.top-right data-toggle='modal' data-target='#editCvIntro'
     i.fas.fa-pencil-alt
-hr
+hr.mb-3
 
 .cv-experience.position-relative.mb-3
   h3 = t('content.main.cv.show.experience.title')
   / TODO: Replace with if/else when experience table exists
-  p = t('content.main.cv.show.experience.no_entry', first_name: current_user.first_name,
-          last_name: current_user.last_name)
+  p = t('content.main.cv.show.experience.no_entry', full_name: full_name)
 
   button.btn-add.top-right data-toggle='modal' data-target='#addCvExperience'
     i.fas.fa-plus
-hr
+hr.mb-3
 
 .cv-education.position-relative.mb-3
   h3 = t('content.main.cv.show.education.title')
   / TODO: Replace with if/else when education table exists
-  p = t('content.main.cv.show.education.no_entry', first_name: current_user.first_name,
-          last_name: current_user.last_name)
+  - unless @cv.educations.empty?
 
-  button.btn-add.top-right data-toggle='modal' data-target='#addtCvEducation'
+
+  button.btn-add.top-right data-toggle='modal' data-target='#addCvEducation'
     i.fas.fa-plus
-hr
+hr.mb-3
 
 .cv-languages.position-relative.mb-3
   h3 = t('content.main.cv.show.languages.title')
   / TODO: Replace with if/else when languages table exists
-  p = t('content.main.cv.show.languages.no_entry', first_name: current_user.first_name,
-          last_name: current_user.last_name)
+  p = t('content.main.cv.show.languages.no_entry', full_name: full_name)
 
-  button.btn-add.top-right data-toggle='modal' data-target='#addCvLanguages'
+  button.btn-add.top-right data-toggle='modal' data-target='#addCvLanguage'
     i.fas.fa-plus
-hr
+hr.mb-3
 
 .cv-skills.position-relative.mb-3
   h3 = t('content.main.cv.show.skills.title')
@@ -54,7 +52,7 @@ hr
 
   button.btn-edit.top-right data-toggle='modal' data-target='#editCvSkills'
     i.fas.fa-pencil-alt
-hr
+hr.mb-3
 
 .cv-extras.position-relative.mb-4
   h3 = t('content.main.cv.show.extras')
