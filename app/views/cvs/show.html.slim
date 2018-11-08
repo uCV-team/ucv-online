@@ -1,10 +1,9 @@
 .cv-intro.position-relative.mb-3
   .photo.float-left.mr-3
     p Photo
-  / TODO: extract into helper
   h3 = full_name
   - if @cv.birth_date.present?
-    p = t('content.main.cv.show.intro.birthday', day: @cv.birth_date.day, month: @cv.birth_date.strftime('%B'),
+    p = t('content.main.cv.show.intro.birth_date', day: @cv.birth_date.day, month: @cv.birth_date.strftime('%B'),
             year: @cv.birth_date.year)
   p = @cv.about.presence
   p = t('content.main.cv.show.intro.contact_me_html',
@@ -26,9 +25,17 @@ hr.mb-3
 
 .cv-education.position-relative.mb-3
   h3 = t('content.main.cv.show.education.title')
-  / TODO: Replace with if/else when education table exists
   - unless @cv.educations.empty?
-
+    - @cv.educations.each do |education|
+      .education-entry.mb-2
+        h6 = education.school
+        p = t('content.main.cv.show.education.degree', degree: education.degree) if education.degree.present?
+        p.period = study_period(education.started_on, education.ended_on)
+        p = education.description.presence
+        br
+        = link_to 'Edit', edit_cv_education_path(education), remote: true
+        '  |
+        = link_to 'Remove', cv_education_path(education), method: :delete
 
   button.btn-add.top-right data-toggle='modal' data-target='#addCvEducation'
     i.fas.fa-plus

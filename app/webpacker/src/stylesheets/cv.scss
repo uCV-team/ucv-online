@@ -1,6 +1,6 @@
 .cv-intro {
   .photo {
-    background-color: $light-grey;
+    background-color: $gray-400;
 
     p {
       line-height: 185px;
@@ -9,6 +9,22 @@
       width: 185px;
     }
   }
+}
+
+.education-entry {
+  h6,
+  p {
+    margin: 0;
+  }
+
+  h6 {
+    font-weight: bold;
+  }
+}
+
+.period {
+  color: $gray-600;
+  font-size: 13px;
 }
 
 .top-right {
