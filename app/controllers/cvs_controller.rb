@@ -1,6 +1,6 @@
 class CvsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_cv
+  before_action :set_cv, :education
 
   def show; end
 
@@ -18,6 +18,10 @@ class CvsController < ApplicationController
 
   def set_cv
     @cv = current_user.cv
+  end
+
+  def education
+    @education ||= Education.new
   end
 
   def cv_params
