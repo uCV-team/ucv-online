@@ -8,23 +8,9 @@ RSpec.describe EducationsController, type: :request do
 
   before { sign_in user }
 
-  describe 'GET #index' do
-    it 'returns a success response' do
-      get cv_educations_path
-      expect(response).to be_successful
-    end
-  end
-
-  describe 'GET #new' do
-    it 'returns a success response' do
-      get new_cv_education_path
-      expect(response).to be_successful
-    end
-  end
-
   describe 'GET #edit' do
     it 'returns a success response' do
-      get edit_cv_education_path education
+      get edit_cv_education_path(education), xhr: true
       expect(response).to be_successful
     end
   end
@@ -41,12 +27,12 @@ RSpec.describe EducationsController, type: :request do
 
       it 'redirects to the educations display' do
         create_education
-        expect(response).to redirect_to(cv_educations_path)
+        expect(response).to redirect_to(cv_path)
       end
     end
 
     context 'with invalid params' do
-      subject(:create_invalid_education) { post cv_educations_path, params: invalid_education_params }
+      subject(:create_invalid_education) { post cv_educations_path, params: invalid_education_params, xhr: true }
 
       let(:invalid_education_params) { { education: invalid_params } }
 
@@ -75,12 +61,14 @@ RSpec.describe EducationsController, type: :request do
 
       it 'redirects to the educations display' do
         update_education
-        expect(response).to redirect_to(cv_educations_path)
+        expect(response).to redirect_to(cv_path)
       end
     end
 
     context 'with invalid params' do
-      subject(:update_invalid_education) { put cv_education_path education, params: invalid_education_params }
+      subject(:update_invalid_education) do
+        put cv_education_path(education), params: invalid_education_params, xhr: true
+      end
 
       let(:invalid_education_params) { { education: new_invalid_attribute } }
       let(:new_invalid_attribute) { { school: nil } }
@@ -103,9 +91,9 @@ RSpec.describe EducationsController, type: :request do
       expect { delete path }.to change(Education, :count).by(-1)
     end
 
-    it 'redirects to the educations display' do
+    it 'redirects to the cv display' do
       delete path
-      expect(response).to redirect_to(cv_educations_path)
+      expect(response).to redirect_to(cv_path)
     end
   end
 end
