@@ -1,0 +1,14 @@
+$('.alert.alert-danger')
+    .empty()
+    .append(
+        '<h4><%= t('content.main.cv.error.title', count: @education.errors.count ) %></h4>' +
+        '<ul>' +
+        '<% @education.errors.full_messages.each do | message |%>' +
+        '<li><%= message %></li>' +
+        '<% end %>' +
+        '</ul>'
+    );
+
+$('.close').click(function() {
+   $('.alert.alert-danger').empty();
+});
