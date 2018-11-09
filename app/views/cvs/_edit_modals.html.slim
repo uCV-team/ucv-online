@@ -29,6 +29,7 @@
                   = cv_fields.date_select :birth_date, { start_year: Date.current.year - 20, end_year: 1900 },
                           class: 'form-control'
         .modal-footer
+          = f.button t('content.main.buttons.reset'), type: :reset
           = f.submit t('content.main.buttons.save'), class: 'btn-standard'
 
 #editCvSkills.modal.fade role='dialog'
@@ -50,6 +51,7 @@
                 = f.label :skills, t('content.main.cv.show.skills.other_skills')
                 = f.text_field :skills, class: 'form-control'
         .modal-footer
+          = f.button t('content.main.buttons.reset'), type: :reset
           = f.submit t('content.main.buttons.save'), class: 'btn-standard'
 
 #editCvExtras.modal.fade role='dialog'
@@ -71,4 +73,5 @@
                 = f.label :future_plans, t('content.main.cv.show.future_plans')
                 = f.text_area :future_plans, class: 'form-control', rows: 5
         .modal-footer
+          = f.button t('content.main.buttons.reset'), type: :reset
           = f.submit t('content.main.buttons.save'), class: 'btn-standard'
