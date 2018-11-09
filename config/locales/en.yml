@@ -11,6 +11,7 @@ en:
       aria_labels:
         close: "Close"
       buttons:
+        reset: "Reset"
         save: "Save"
       cv:
         error:
