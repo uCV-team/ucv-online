@@ -41,5 +41,4 @@ class EducationsController < ApplicationController
   def education_params
     params.require(:education).permit(:degree, :description, :ended_on, :school, :started_on)
   end
-
 end
