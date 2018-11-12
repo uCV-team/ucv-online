@@ -35,7 +35,7 @@ hr.mb-3
         br
         = link_to 'Edit', edit_cv_education_path(education), remote: true
         '  |
-        = link_to 'Remove', cv_education_path(education), method: :delete, data: {confirm: t('confirmation')}
+        = link_to 'Remove', cv_education_path(education), method: :delete, data: { confirm: t('confirmation') }
 
   = link_to new_cv_education_path, remote: true, class: 'btn-add top-right' do
     i.fas.fa-plus
