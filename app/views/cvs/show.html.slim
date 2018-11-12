@@ -19,7 +19,7 @@ hr.mb-3
   / TODO: Replace with if/else when experience table exists
   p = t('content.main.cv.show.experience.no_entry', full_name: full_name(current_user))
 
-  button.btn-add.top-right data-toggle='modal' data-target='#addCvExperience'
+  button.btn-new.top-right data-toggle='modal' data-target='#addCvExperience'
     i.fas.fa-plus
 hr.mb-3
 
@@ -37,7 +37,7 @@ hr.mb-3
         '  |
         = link_to 'Remove', cv_education_path(education), method: :delete, data: { confirm: t('confirmation') }
 
-  = link_to new_cv_education_path, remote: true, class: 'btn-add top-right' do
+  = link_to new_cv_education_path, remote: true, class: 'btn-new top-right' do
     i.fas.fa-plus
 hr.mb-3
 
@@ -46,7 +46,7 @@ hr.mb-3
   / TODO: Replace with if/else when languages table exists
   p = t('content.main.cv.show.languages.no_entry', full_name: full_name(current_user))
 
-  button.btn-add.top-right data-toggle='modal' data-target='#addCvLanguage'
+  button.btn-new.top-right data-toggle='modal' data-target='#addCvLanguage'
     i.fas.fa-plus
 hr.mb-3
 

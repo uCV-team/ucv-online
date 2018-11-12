@@ -8,20 +8,20 @@
       = form_for @cv do |f|
         .modal-body
           .needs-validation novalidate=''
-            .row.mb-3
+            .row
               = f.fields_for :user, @cv.user do |user_fields|
-                .col-sm-6
+                .col-sm-6.mb-3
                   = user_fields.label :first_name, t('content.main.cv.edit.intro.first_name')
                   = user_fields.text_field :first_name, class: 'form-control'
-                .col-sm-6
+                .col-sm-6.mb-3
                   = user_fields.label :last_name, t('content.main.cv.edit.intro.last_name')
                   = user_fields.text_field :last_name, class: 'form-control'
-            .row.mb-3
-              .col-12
+            .row
+              .col-12.mb-3
                 = f.label :about, t('content.main.cv.edit.intro.about')
                 = f.text_field :about, class: 'form-control'
-            .row.mb-3
-              .col-12
+            .row
+              .col-12.mb-3
                 / TODO: Extract date validation into a constant and use it server- and client-side
                 / (like about_max_length) user should be i.e. at least 10 years old
                 = f.label :birth_date, t('content.main.cv.edit.intro.birth_date')

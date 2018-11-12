@@ -6,7 +6,7 @@ button {
   }
 }
 
-.btn-add,
+.btn-new,
 .btn-edit {
   border: solid 1px $black;
   color: $black;
@@ -25,8 +25,12 @@ button {
   }
 }
 
-.btn-add {
+.btn-new {
   padding: 8px 9px;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .btn-edit {
