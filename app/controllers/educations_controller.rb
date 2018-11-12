@@ -4,6 +4,10 @@ class EducationsController < ApplicationController
   before_action :set_education, only: %i[edit update destroy]
   respond_to :html, :js
 
+  def new
+    @education = Education.new
+  end
+
   def edit; end
 
   def create

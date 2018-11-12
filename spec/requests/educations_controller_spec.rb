@@ -8,6 +8,13 @@ RSpec.describe EducationsController, type: :request do
 
   before { sign_in user }
 
+  describe 'GET #new' do
+    it 'returns a success response' do
+      get new_cv_education_path, xhr: true
+      expect(response).to be_successful
+    end
+  end
+
   describe 'GET #edit' do
     it 'returns a success response' do
       get edit_cv_education_path(education), xhr: true

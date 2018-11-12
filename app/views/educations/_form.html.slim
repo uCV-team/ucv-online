@@ -13,7 +13,7 @@
       .col-sm-6
         = f.label :started_on, t('content.main.cv.show.education.started_on')
         br
-        = f.date_select :started_on, { start_year: Date.current.year - 4, end_year: 1900, discard_day: true,
+        = f.date_select :started_on, { start_year: Date.current.year, end_year: 1900, discard_day: true,
                 discard_month: true }, class: 'custom-select form-control'
       .col-sm-6
         = f.label :ended_on, t('content.main.cv.show.education.ended_on')

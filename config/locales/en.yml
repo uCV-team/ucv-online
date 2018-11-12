@@ -1,5 +1,6 @@
 ---
 en:
+  confirmation: "Are you sure?"
   success:
     cv:
       update: "Your changes have been saved successfully."
