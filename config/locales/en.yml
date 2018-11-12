@@ -5,8 +5,8 @@ en:
     cv:
       update: "Your changes have been saved successfully."
     education:
-      create: "Education entry successfully created."
-      destroy: "Education entry successfully removed."
+      create: "Your new education entry was successfully saved."
+      destroy: "The chosen education entry was successfully removed."
   content:
     main:
       aria_labels:
