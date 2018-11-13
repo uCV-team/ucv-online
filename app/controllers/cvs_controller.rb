@@ -6,7 +6,7 @@ class CvsController < ApplicationController
   def show; end
 
   def edit
-    if %w[intro skills extras].include? params[:section]
+    if Cv::CV_SECTIONS.include? params[:section]
       render "edit_#{params[:section]}"
     else
       redirect_to cv_path
