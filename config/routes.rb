@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'cvs#show'
-  resource :cv, except: %i[create destroy new] do
+  get 'cv/edit/:section', to: 'cvs#edit_section', as: 'edit_cv_section'
+
+  resource :cv, except: %i[new edit create destroy] do
     resources :educations
   end
   resolve('Cv') { [:cv] }

@@ -1,0 +1,5 @@
+|
+  if (!$('#editCvSkills').length) {
+      $('main').append("#{escape_javascript (render partial: 'cvs/edit_modals/skills_modal')}");
+  }
+  $('#editCvSkills').modal('toggle');

@@ -10,7 +10,7 @@
           link: (link_to t('content.main.cv.show.intro.contact_me_button'), '#'))
   .clearfix
 
-  button.btn-edit.top-right data-toggle='modal' data-target='#editCvIntro'
+  = link_to edit_cv_section_path(section: :intro), remote: true, class: 'btn-edit top-right' do
     i.fas.fa-pencil-alt
 hr.mb-3
 
@@ -57,7 +57,7 @@ hr.mb-3
   h5 = t('content.main.cv.show.skills.other_skills')
   p = @cv.skills.presence
 
-  button.btn-edit.top-right data-toggle='modal' data-target='#editCvSkills'
+  = link_to edit_cv_section_path(section: :skills), remote: true, class: 'btn-edit top-right' do
     i.fas.fa-pencil-alt
 hr.mb-3
 
@@ -68,8 +68,7 @@ hr.mb-3
   h5 = t('content.main.cv.show.future_plans')
   p = @cv.future_plans.presence
 
-  button.btn-edit.top-right data-toggle='modal' data-target='#editCvExtras'
+  = link_to edit_cv_section_path(section: :extras), remote: true, class: 'btn-edit top-right' do
     i.fas.fa-pencil-alt
 
 = render 'add_modals'
-= render 'edit_modals'

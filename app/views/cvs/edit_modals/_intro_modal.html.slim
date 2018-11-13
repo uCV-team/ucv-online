@@ -1,12 +1,13 @@
-#editCvIntro.modal.fade role='dialog'
+.modal.fade role='dialog' id='editCvIntro'
   .modal-dialog.modal-dialog-centered.modal-lg
     .modal-content
       .modal-header
         h4 = t('content.main.cv.edit.intro.title')
         button class='close' data-dismiss='modal' aria-label=t('content.main.aria_labels.close')
           span aria-hidden='true' &times;
-      = form_for @cv do |f|
+      = form_with model: @cv do |f|
         .modal-body
+          .alert.alert-danger
           .needs-validation novalidate=''
             .row
               = f.fields_for :user, @cv.user do |user_fields|

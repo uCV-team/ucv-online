@@ -17,10 +17,23 @@ porta, lobortis risus sit amet, suscipit ex.' }
     end
   end
 
-  describe 'GET #edit' do
-    it 'returns a success response' do
-      get edit_cv_path
-      expect(response).to be_successful
+  describe 'GET #edit_section' do
+    context 'with valid section' do
+      let(:section) { :intro }
+
+      it 'returns a success response' do
+        get edit_cv_section_path(section: section), xhr: true
+        expect(response).to be_successful
+      end
+    end
+
+    context 'with invalid section' do
+      let(:invalid_section) { :some_section }
+
+      it 'redirects to the cv' do
+        get edit_cv_section_path(section: invalid_section)
+        expect(response).to redirect_to(cv)
+      end
     end
   end
 
@@ -43,11 +56,11 @@ porta, lobortis risus sit amet, suscipit ex.' }
     end
 
     context 'with invalid params' do
-      subject(:update_cv) { put cv_path, params: invalid_params }
+      subject(:update_cv) { put cv_path, params: invalid_params, xhr: true }
 
       let(:invalid_params) { { cv: invalid_attributes } }
 
-      it 'renders the edit page' do
+      it 'renders the errors inside the edit page' do
         update_cv
         expect(response).to be_successful
       end
