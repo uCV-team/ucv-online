@@ -1,5 +1,5 @@
 |
   if (!$('#editCvEducation#{@education.id}').length) {
-    $('main').append("#{escape_javascript (render partial: 'edit_modal')}");
+    $('main').append("#{escape_javascript(render(partial: 'edit_modal'))}");
   }
   $('#editCvEducation#{@education.id}').modal('toggle');

@@ -1,5 +1,5 @@
 |
   if (!$('#editCvExtras').length) {
-      $('main').append("#{escape_javascript (render partial: 'cvs/edit_modals/extras_modal')}");
+      $('main').append("#{escape_javascript(render(partial: 'cvs/edit_modals/extras_modal'))}");
   }
   $('#editCvExtras').modal('toggle');
