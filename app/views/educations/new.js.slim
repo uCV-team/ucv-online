@@ -1,5 +1,5 @@
 |
-  if (!$('#newCvEducation').length) {
-    $('main').append("#{escape_javascript(render(partial: 'new_modal'))}");
+  if (!$('#new-cv-education').length) {
+    $('main').append("#{j render 'new_modal'}");
   }
-  $('#newCvEducation').modal('toggle');
+  $('#new-cv-education').modal('toggle');

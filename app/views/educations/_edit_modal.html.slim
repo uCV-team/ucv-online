@@ -1,8 +1,2 @@
-.modal.fade role='dialog' id="editCvEducation#{@education.id}"
-  .modal-dialog.modal-dialog-centered.modal-lg
-    .modal-content
-      .modal-header
-        h4 = t('content.main.cv.edit.education.title')
-        button class='close' data-dismiss='modal' aria-label=t('content.main.aria_labels.close')
-          span aria-hidden='true' &times;
-      = render 'form'
+= render 'shared/modal_header', id: "edit-cv-education-#{@education.id}", title: t('content.main.cv.edit.education.title')
+  = render 'form'
