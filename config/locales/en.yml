@@ -1,52 +1,77 @@
 ---
 en:
+  confirmation: "Are you sure?"
   success:
     cv:
-      update: "Your CV was successfully updated"
+      update: "Your changes have been saved successfully."
     education:
-      create: "Education entry successfully created"
-      update: "Education entry successfully updated"
-      destroy: "Education entry successfully removed"
+      create: "Your new education entry was successfully saved."
+      destroy: "The chosen education entry was successfully removed."
   content:
     main:
+      aria_labels:
+        close: "Close"
+      buttons:
+        reset: "Reset"
+        save: "Save"
       cv:
         error:
           title:
             one: "Could not save due to the following error:"
             other: "Could not save due to the following errors:"
         edit:
-          about: "About"
-          about_placeholder: "Tell us something about yourself"
-          birth_date: "Date of birth"
-          future_plans: "Plans for the future"
-          future_plans_placeholder: "Plans for the future"
-          phone_number: "Phone number"
-          phone_number_placeholder: "Your phone number"
-          profile_picture: "Foto"
-          profile_picture_placeholder: "Foto (.jpg or .jpeg)"
-          skills_and_interests: "Other skills and interests"
-          skills_and_interests_placeholder: "Other skills, which are not directly related to a profession"
-          title: "Create your CV"
-          working_skills: "Work skills"
-          working_skills_placeholder: "Separate by comma"
-        show:
-          birthday: "Born on %{day}. %{month}, %{year}"
-          contact_me_button: "Contact"
-          contact_me_html: "Interested? %{link} me!"
           education:
-            title: "Education"
-            no_entry: "%{first_name} %{last_name} didn't add any education entries yet."
+            degree: "Degree"
+            school: "School *"
+            title: "Edit education"
           experience:
-            title: "Experience"
-            no_entry: "%{first_name} %{last_name} didn't add any experience entries yet."
-          extras: "Other information"
-          interests: "Interests"
+            title: "Edit experience"
+          extras:
+            title: "Edit extras"
+          intro:
+            about: "About"
+            birth_date: "Date of birth"
+            title: "Edit intro"
+            first_name: "First name *"
+            last_name: "Last name *"
           languages:
+            title: "Edit language"
+          skills:
+            title: "Edit skills"
+        new:
+          education:
+            title: "Add new education"
+          experience:
+            title: "Add new experience"
+          language:
+            title: "Add new language"
+        show:
+          education:
+            degree: "Degree: %{degree}"
+            description: "Description"
+            ended_on: "To year (blank if on-going)"
+            on_going: "%{started_on} - Present"
+            no_entry: "%{full_name} didn't add any education entries yet."
+            school: "School"
+            started_on: "From year"
+            title: "Education"
+          experience:
+            no_entry: "%{full_name} didn't add any experience entries yet."
+            title: "Experience"
+          extras: "Other information"
+          future_plans: "Plans for the future"
+          interests: "Interests"
+          intro:
+            birth_date: "Born on %{day}. %{month}, %{year}"
+            contact_me_button: "Contact"
+            contact_me_html: "Interested? %{link} me!"
+          languages:
+            no_entry: "%{full_name} didn't add any language entries yet."
             title: "Languages"
-            no_entry: "%{first_name} %{last_name} didn't add any language entries yet."
           skills:
             other_skills: "Other skills"
             title: "Skills"
+            working_skills: "Work skills"
   layouts:
     footer:
       footer_text: "Footer goes here"

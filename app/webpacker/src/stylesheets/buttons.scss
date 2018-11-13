@@ -1,9 +1,17 @@
+button {
+  &:active,
+  &:focus {
+    box-shadow: none;
+    outline: 0;
+  }
+}
+
+.btn-new,
 .btn-edit {
   border: solid 1px $black;
   color: $black;
   line-height: 16px;
   padding: 8px;
-  text-decoration-line: underline;
   transition: .1s linear;
 
   i {
@@ -15,6 +23,18 @@
     color: $white;
     transition: .1s linear;
   }
+}
+
+.btn-new {
+  padding: 8px 9px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.btn-edit {
+  text-decoration-line: underline;
 }
 
 .btn-standard {

@@ -1,17 +1,6 @@
-.cv-education,
-.cv-experience,
-.cv-footer,
-.cv-header,
-.cv-languages,
-.cv-skills {
-  position: relative;
-}
-
-.cv-header {
+.cv-intro {
   .photo {
-    background-color: $light-grey;
-    float: left;
-    margin-right: $margin-sm;
+    background-color: $gray-400;
 
     p {
       line-height: 185px;
@@ -20,6 +9,22 @@
       width: 185px;
     }
   }
+}
+
+.education-entry {
+  h6,
+  p {
+    margin: 0;
+  }
+
+  h6 {
+    font-weight: bold;
+  }
+}
+
+.period {
+  color: $gray-600;
+  font-size: 13px;
 }
 
 .top-right {

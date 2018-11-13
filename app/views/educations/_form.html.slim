@@ -1,9 +1,29 @@
-= form_with(model: [@cv, @education], local: true) do |f|
-  - if @education.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@education.errors.count, 'error')} prohibited this education from being saved:"
-      ul
-        - @education.errors.full_messages.each do |message|
-          li = message
-
-  .actions = f.submit
+= form_with model: [:cv, @education] do |f|
+  .modal-body
+    .alert.alert-danger
+    .row
+      .col-12.mb-3
+        = f.label :school, t('content.main.cv.edit.education.school')
+        = f.text_field :school, class: 'form-control'
+    .row
+      .col-12.mb-3
+        = f.label :degree, t('content.main.cv.edit.education.degree')
+        = f.text_field :degree, class: 'form-control'
+    .row
+      .col-sm-6.mb-3
+        = f.label :started_on, t('content.main.cv.show.education.started_on')
+        br
+        = f.date_select :started_on, { start_year: Date.current.year, end_year: 1900, discard_day: true,
+                discard_month: true, include_blank: true }, class: 'custom-select form-control'
+      .col-sm-6.mb-3
+        = f.label :ended_on, t('content.main.cv.show.education.ended_on')
+        br
+        = f.date_select :ended_on, { start_year: Date.current.year, end_year: 1900, discard_day: true,
+                discard_month: true, include_blank: true }, class: 'custom-select form-control'
+    .row
+      .col-12.mb-3
+        = f.label :description, t('content.main.cv.show.education.description')
+        = f.text_area :description, class: 'form-control', rows: 2
+  .modal-footer
+    = f.button t('content.main.buttons.reset'), type: :reset
+    = f.submit t('content.main.buttons.save'), class: 'btn-standard'

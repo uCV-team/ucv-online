@@ -1,0 +1,9 @@
+.cv-extras.position-relative.mb-4
+  h3 = t('content.main.cv.show.extras')
+  h5 = t('content.main.cv.show.interests')
+  p = @cv.interests.presence
+  h5 = t('content.main.cv.show.future_plans')
+  p = @cv.future_plans.presence
+
+  = link_to edit_cv_section_path(section: :extras), remote: true, class: 'btn-edit top-right' do
+    i.fas.fa-pencil-alt

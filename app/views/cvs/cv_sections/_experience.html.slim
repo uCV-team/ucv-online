@@ -1,0 +1,8 @@
+.cv-experience.position-relative.mb-3
+  h3 = t('content.main.cv.show.experience.title')
+  / TODO: Replace with if/else when experience table exists
+  p = t('content.main.cv.show.experience.no_entry', full_name: full_name(current_user))
+
+  button.btn-new.top-right data-toggle='modal' data-target='#addCvExperience'
+    i.fas.fa-plus
+hr.mb-3

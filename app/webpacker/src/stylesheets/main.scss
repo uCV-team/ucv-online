@@ -1,11 +1,13 @@
 hr {
-  margin: 0 0 $margin-md;
+  margin: 0;
 }
 
-.margin-bottom-sm {
-  margin-bottom: $margin-sm;
+.alert {
+  ul {
+    margin: 0;
+  }
 }
 
-.margin-bottom-md {
-  margin-bottom: $margin-md;
+.alert:empty {
+  display: none;
 }
