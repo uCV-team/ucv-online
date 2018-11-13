@@ -1,0 +1,4 @@
+if (!$('<%= id %>').length) {
+  $('main').append("<%= yield %>");
+}
+$('<%= id %>').modal('toggle');
