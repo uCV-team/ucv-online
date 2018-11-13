@@ -5,7 +5,7 @@ class CvsController < ApplicationController
 
   def show; end
 
-  def edit_section
+  def edit
     if %w[intro skills extras].include? params[:section]
       render "edit_#{params[:section]}"
     else
