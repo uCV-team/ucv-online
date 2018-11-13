@@ -50,6 +50,7 @@ en:
             degree: "Degree: %{degree}"
             description: "Description"
             ended_on: "To year (blank if on-going)"
+            on_going: "%{started_on} - Present"
             no_entry: "%{full_name} didn't add any education entries yet."
             school: "School"
             started_on: "From year"
