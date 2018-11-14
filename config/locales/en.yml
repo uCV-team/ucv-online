@@ -7,6 +7,9 @@ en:
     education:
       create: "Your new education entry was successfully saved."
       destroy: "The chosen education entry was successfully removed."
+    experience:
+      create: "Your new experience entry was successfully saved."
+      destroy: "The chosen experience entry was successfully removed."
   content:
     main:
       aria_labels:
