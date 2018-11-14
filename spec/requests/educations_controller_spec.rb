@@ -32,9 +32,9 @@ RSpec.describe EducationsController, type: :request do
         expect { create_education }.to change(Education, :count).by(1)
       end
 
-      it 'redirects to the educations display' do
+      it 'redirects to the CV display' do
         create_education
-        expect(response).to redirect_to(cv_path)
+        expect(response).to redirect_to(cv_url)
       end
     end
 
@@ -47,7 +47,7 @@ RSpec.describe EducationsController, type: :request do
         expect { create_invalid_education }.not_to change(Education, :count)
       end
 
-      it 'redirects to the "new" page' do
+      it 'renders the errors remotely' do
         create_invalid_education
         expect(response).to be_successful
       end
@@ -66,9 +66,9 @@ RSpec.describe EducationsController, type: :request do
         expect { update_education }.to change { education.reload.degree }.to(new_degree)
       end
 
-      it 'redirects to the educations display' do
+      it 'redirects to the CV display' do
         update_education
-        expect(response).to redirect_to(cv_path)
+        expect(response).to redirect_to(cv_url)
       end
     end
 
@@ -84,7 +84,7 @@ RSpec.describe EducationsController, type: :request do
         expect { update_invalid_education }.not_to(change { education.reload.school })
       end
 
-      it 'renders the errors inside the edit page' do
+      it 'renders the errors remotely inside the edit page' do
         update_invalid_education
         expect(response).to be_successful
       end
@@ -98,9 +98,9 @@ RSpec.describe EducationsController, type: :request do
       expect { delete path }.to change(Education, :count).by(-1)
     end
 
-    it 'redirects to the cv display' do
+    it 'redirects to the CV display' do
       delete path
-      expect(response).to redirect_to(cv_path)
+      expect(response).to redirect_to(cv_url)
     end
   end
 end
