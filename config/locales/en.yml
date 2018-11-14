@@ -24,8 +24,6 @@ en:
             other: "Could not save due to the following errors:"
         edit:
           education:
-            degree: "Degree"
-            school: "School *"
             title: "Edit education"
           experience:
             title: "Edit experience"
@@ -43,23 +41,30 @@ en:
             title: "Edit skills"
         new:
           education:
+            degree: "Degree"
+            school: "School *"
             title: "Add new education"
           experience:
+            company: "Company *"
+            from: "From"
+            job_title: "Title *"
+            location: "Location"
             title: "Add new experience"
+            to: "To (blank if on-going)"
           language:
             title: "Add new language"
         show:
+          entries:
+            description: "Description"
+            on_going: "%{started_on} - Present"
           education:
             degree: "Degree: %{degree}"
-            description: "Description"
             ended_on: "To year (blank if on-going)"
-            on_going: "%{started_on} - Present"
-            no_entry: "%{full_name} didn't add any education entries yet."
             school: "School"
             started_on: "From year"
             title: "Education"
           experience:
-            no_entry: "%{full_name} didn't add any experience entries yet."
+            location: "in %{location}"
             title: "Experience"
           extras: "Other information"
           future_plans: "Plans for the future"

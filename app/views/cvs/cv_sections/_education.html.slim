@@ -1,10 +1,10 @@
 .cv-education.position-relative.mb-3
   h3 = t('content.main.cv.show.education.title')
   - @cv.educations.each do |education|
-    .education-entry.mb-2
+    .entry.mb-2
       h6 = education.school
       p = t('content.main.cv.show.education.degree', degree: education.degree) if education.degree.present?
-      p.period = study_period(education.started_on, education.ended_on)
+      p.light = study_period(education.started_on, education.ended_on)
       p = education.description.presence
       br
       = link_to 'Edit', edit_cv_education_path(education), remote: true

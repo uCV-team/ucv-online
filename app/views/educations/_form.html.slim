@@ -3,11 +3,11 @@
     .alert.alert-danger
     .row
       .col-12.mb-3
-        = f.label :school, t('content.main.cv.edit.education.school')
+        = f.label :school, t('content.main.cv.new.education.school')
         = f.text_field :school, class: 'form-control'
     .row
       .col-12.mb-3
-        = f.label :degree, t('content.main.cv.edit.education.degree')
+        = f.label :degree, t('content.main.cv.new.education.degree')
         = f.text_field :degree, class: 'form-control'
     .row
       .col-sm-6.mb-3
@@ -22,7 +22,7 @@
                 discard_month: true, include_blank: true }, class: 'custom-select form-control'
     .row
       .col-12.mb-3
-        = f.label :description, t('content.main.cv.show.education.description')
+        = f.label :description, t('content.main.cv.show.entries.description')
         = f.text_area :description, class: 'form-control', rows: 2
   .modal-footer
     = f.button t('content.main.buttons.reset'), type: :reset
