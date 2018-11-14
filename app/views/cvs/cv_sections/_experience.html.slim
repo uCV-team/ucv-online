@@ -4,9 +4,9 @@
     .entry.mb-2
       h6 = experience.title
       p = experience.company
-      p.light = work_period(experience.started_on, experience.ended_on)
       - if experience.location.present?
         p.light = t('content.main.cv.show.experience.location', location: experience.location)
+      p.light = work_period(experience.started_on, experience.ended_on)
       p = experience.description.presence
       br
       = link_to 'Edit', edit_cv_experience_path(experience), remote: true
