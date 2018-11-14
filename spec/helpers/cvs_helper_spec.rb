@@ -9,21 +9,21 @@ RSpec.describe CvsHelper do
     end
   end
 
-  describe '#study_period' do
+  shared_examples 'period' do
     let(:started_on) { Date.new(2014, 1, 1) }
     let(:ended_on) { Date.new(2018, 1, 1) }
 
     context 'with both dates provided' do
-      it 'returns the study period as a single string' do
-        expect(helper.study_period(started_on, ended_on)).to eq '2014 - 2018'
+      it 'returns the period as a single string' do
+        expect(period_method).to eq both_dates_provided
       end
     end
 
     context 'with only started_on provided' do
       let(:ended_on) { nil }
 
-      it 'returns the study period from the input date to present' do
-        expect(helper.study_period(started_on, ended_on)).to eq '2014 - Present'
+      it 'returns the period from the input date to present' do
+        expect(period_method).to eq start_date_provided
       end
     end
 
@@ -31,7 +31,7 @@ RSpec.describe CvsHelper do
       let(:started_on) { nil }
 
       it 'returns an empty string' do
-        expect(helper.study_period(started_on, ended_on)).to eq ''
+        expect(period_method).to eq no_date_provided
       end
     end
 
@@ -40,8 +40,28 @@ RSpec.describe CvsHelper do
       let(:ended_on) { nil }
 
       it 'returns an empty string' do
-        expect(helper.study_period(started_on, ended_on)).to eq ''
+        expect(period_method).to eq no_date_provided
       end
+    end
+  end
+
+  describe '#study_period' do
+    it_behaves_like 'period' do
+      subject(:period_method) { helper.study_period(started_on, ended_on) }
+
+      let(:both_dates_provided) { '2014 - 2018' }
+      let(:start_date_provided) { '2014 - Present' }
+      let(:no_date_provided) { '' }
+    end
+  end
+
+  describe '#work_period' do
+    it_behaves_like 'period' do
+      subject(:period_method) { helper.work_period(started_on, ended_on) }
+
+      let(:both_dates_provided) { 'January 2014 - January 2018' }
+      let(:start_date_provided) { 'January 2014 - Present' }
+      let(:no_date_provided) { '' }
     end
   end
 end
