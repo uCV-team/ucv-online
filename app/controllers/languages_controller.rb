@@ -15,7 +15,7 @@ class LanguagesController < ApplicationController
     if @language.save
       redirect_to cv_url, flash: { success: t('success.language.create') }
     else
-      render 'educations/errors'
+      render 'languages/errors'
     end
   end
 
@@ -23,7 +23,7 @@ class LanguagesController < ApplicationController
     if @language.update(language_params)
       redirect_to cv_url, flash: { success: t('success.cv.update') }
     else
-      render 'educations/errors'
+      render 'languages/errors'
     end
   end
 
