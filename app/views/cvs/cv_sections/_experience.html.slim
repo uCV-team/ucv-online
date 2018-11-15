@@ -1,6 +1,6 @@
 .cv-experience.position-relative.mb-3
   h3 = t('content.main.cv.show.experience.title')
-  - @cv.experiences.each do |experience|
+  - @cv.experiences.order(created_at: :desc).each do |experience|
     .entry.mb-2
       h6 = experience.title
       p = experience.company
