@@ -8,7 +8,9 @@
     .row
       .col-12.mb-3
         = f.label :level, t('content.main.cv.new.language.level')
-        = f.text_field :level, class: 'form-control'
+        br
+        = f.select :level, options_from_collection_for_select(cefr_level_options, :first, :last), {},
+                class: 'custom-select form-control'
   .modal-footer
     = f.button t('content.main.buttons.reset'), type: :reset
     = f.submit t('content.main.buttons.save'), class: 'btn-standard'

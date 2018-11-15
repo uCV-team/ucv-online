@@ -7,12 +7,12 @@
       p.light = study_period(education.started_on, education.ended_on)
       p = education.description.presence
       .d-flex.top-right
-        = link_to edit_cv_education_path(education), remote: true, class: 'button btn-edit' do
+        = link_to edit_cv_education_path(education), remote: true, class: 'btn-cv btn-edit' do
           i.fas.fa-pencil-alt
         = link_to cv_education_path(education), method: :delete, data: { confirm: t('confirmation') },
-                class: 'button btn-delete' do
+                class: 'btn-cv btn-delete' do
           i.fas.fa-trash-alt
 
-  = link_to new_cv_education_path, remote: true, class: 'button btn-new top-right' do
+  = link_to new_cv_education_path, remote: true, class: 'btn-cv btn-new top-right' do
     i.fas.fa-plus
 hr.mb-3
