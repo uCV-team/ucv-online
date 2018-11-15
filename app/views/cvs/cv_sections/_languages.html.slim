@@ -1,6 +1,6 @@
 .cv-languages.position-relative.mb-3
   h3 = t('content.main.cv.show.languages.title')
-  - @cv.languages.order(created_at: :desc).each do |language|
+  - @cv.languages.chronological_order.each do |language|
     .entry.position-relative.mb-3
       h6 = language.language
       p = cefr_level language.level

@@ -3,7 +3,6 @@ class Cv < ApplicationRecord
   has_many :educations, dependent: :destroy
   has_many :experiences, dependent: :destroy
   has_many :languages, dependent: :destroy
-
   accepts_nested_attributes_for :user
 
   ABOUT_MAX_LENGTH = 120
