@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_100228) do
 
   create_table "languages", force: :cascade do |t|
     t.bigint "cv_id", null: false
-    t.string "language"
+    t.string "language", null: false
     t.string "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
