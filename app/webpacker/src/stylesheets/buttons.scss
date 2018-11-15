@@ -6,11 +6,11 @@ button {
   }
 }
 
-.btn-new,
-.btn-edit {
+.button {
   border: solid 1px $black;
   color: $black;
   line-height: 16px;
+  margin-left: 14px;
   padding: 8px;
   transition: .1s linear;
 
@@ -25,7 +25,8 @@ button {
   }
 }
 
-.btn-new {
+.btn-new,
+.btn-delete {
   padding: 8px 9px;
 
   &:hover {
