@@ -11,7 +11,7 @@
   }
 }
 
-.education-entry {
+.entry {
   h6,
   p {
     margin: 0;
@@ -19,10 +19,15 @@
 
   h6 {
     font-weight: bold;
+    line-height: 34px;
   }
 }
 
-.period {
+h3 {
+  line-height: 34px;
+}
+
+.light {
   color: $gray-600;
   font-size: 13px;
 }

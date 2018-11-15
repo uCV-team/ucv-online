@@ -1,8 +1,19 @@
 .cv-experience.position-relative.mb-3
   h3 = t('content.main.cv.show.experience.title')
-  / TODO: Replace with if/else when experience table exists
-  p = t('content.main.cv.show.experience.no_entry', full_name: full_name(current_user))
-
-  button.btn-new.top-right data-toggle='modal' data-target='#addCvExperience'
+  - @cv.experiences.order(created_at: :desc).each do |experience|
+    .entry.position-relative.mb-3
+      h6 = experience.title
+      p = experience.company
+      - if experience.location.present?
+        p.light = t('content.main.cv.show.experience.location', location: experience.location)
+      p.light = work_period(experience.started_on, experience.ended_on)
+      p = experience.description.presence
+      .d-flex.top-right
+        = link_to edit_cv_experience_path(experience), remote: true, class: 'button btn-edit' do
+          i.fas.fa-pencil-alt
+        = link_to cv_experience_path(experience), method: :delete, data: { confirm: t('confirmation') },
+                class: 'button btn-delete' do
+          i.fas.fa-trash-alt
+  = link_to new_cv_experience_path, remote: true, class: 'button btn-new top-right' do
     i.fas.fa-plus
 hr.mb-3
