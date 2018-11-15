@@ -1,0 +1,14 @@
+= form_with model: [:cv, @language] do |f|
+  .modal-body
+    .alert.alert-danger
+    .row
+      .col-12.mb-3
+        = f.label :language, t('content.main.cv.new.language.language')
+        = f.text_field :language, class: 'form-control'
+    .row
+      .col-12.mb-3
+        = f.label :level, t('content.main.cv.new.language.level')
+        = f.text_field :level, class: 'form-control'
+  .modal-footer
+    = f.button t('content.main.buttons.reset'), type: :reset
+    = f.submit t('content.main.buttons.save'), class: 'btn-standard'
