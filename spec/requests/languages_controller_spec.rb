@@ -60,7 +60,7 @@ RSpec.describe LanguagesController, type: :request do
 
       let(:language_params) { { language: new_attribute } }
       let(:new_attribute) { { level: new_level } }
-      let(:new_level) { 'C1 - Effective operational proficiency or advanced' }
+      let(:new_level) { 'c1' }
 
       it 'updates the requested language entry' do
         expect { update_language }.to change { language.reload.level }.to(new_level)

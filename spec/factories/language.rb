@@ -2,6 +2,6 @@ FactoryBot.define do
   factory :language do
     cv
     language { 'English' }
-    level { 'C2 - Mastery or proficiency' }
+    level { 'b2' }
   end
 end
