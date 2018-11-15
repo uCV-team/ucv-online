@@ -4,10 +4,13 @@
     .entry.position-relative.mb-3
       h6 = language.language.presence
       p = language.level.presence
-    = link_to 'Edit', edit_cv_language_path(language), remote: true
-    '  |
-    = link_to 'Remove', cv_language_path(language), method: :delete, data: { confirm: t('confirmation') }
+      .d-flex.top-right
+        = link_to edit_cv_language_path(language), remote: true, class: 'button btn-edit' do
+          i.fas.fa-pencil-alt
+        = link_to cv_language_path(language), method: :delete, data: { confirm: t('confirmation') },
+                class: 'button btn-delete' do
+          i.fas.fa-trash-alt
 
-  = link_to new_cv_language_path, remote: true, class: 'btn-new top-right' do
+  = link_to new_cv_language_path, remote: true, class: 'button btn-new top-right' do
     i.fas.fa-plus
 hr.mb-3

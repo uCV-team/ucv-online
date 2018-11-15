@@ -14,6 +14,7 @@
         = link_to cv_experience_path(experience), method: :delete, data: { confirm: t('confirmation') },
                 class: 'button btn-delete' do
           i.fas.fa-trash-alt
+
   = link_to new_cv_experience_path, remote: true, class: 'button btn-new top-right' do
     i.fas.fa-plus
 hr.mb-3
