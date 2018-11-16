@@ -15,6 +15,7 @@ en:
       buttons:
         reset: "Reset"
         save: "Save"
+        saving: "Saving..."
       cv:
         error:
           title:

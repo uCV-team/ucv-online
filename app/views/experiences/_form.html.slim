@@ -32,4 +32,4 @@
         = f.text_area :description, class: 'form-control', rows: 2
   .modal-footer
     = f.button t('content.main.buttons.reset'), type: :reset
-    = f.submit t('content.main.buttons.save'), class: 'btn-standard'
+    = f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') }, class: 'btn-standard'
