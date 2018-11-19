@@ -1,17 +1,18 @@
 .cv-education.position-relative.mb-3
   h3 = t('content.main.cv.show.education.title')
-  - @cv.educations.order(created_at: :desc).each do |education|
+  - @cv.educations.chronological_order.each do |education|
     .entry.position-relative.mb-3
       h6 = education.school
       p = t('content.main.cv.show.education.degree', degree: education.degree) if education.degree.present?
       p.light = study_period(education.started_on, education.ended_on)
       p = education.description.presence
       .d-flex.top-right
-        = link_to edit_cv_education_path(education), remote: true, class: 'button btn-edit' do
+        = link_to edit_cv_education_path(education), remote: true, class: 'btn-cv btn-edit' do
           i.fas.fa-pencil-alt
         = link_to cv_education_path(education), method: :delete, data: { confirm: t('confirmation') },
-                class: 'button btn-delete' do
+                class: 'btn-cv btn-delete' do
           i.fas.fa-trash-alt
-  = link_to new_cv_education_path, remote: true, class: 'button btn-new top-right' do
+
+  = link_to new_cv_education_path, remote: true, class: 'btn-cv btn-new top-right' do
     i.fas.fa-plus
 hr.mb-3

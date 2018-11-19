@@ -1,8 +1,16 @@
 .cv-languages.position-relative.mb-3
   h3 = t('content.main.cv.show.languages.title')
-  / TODO: Replace with if/else when languages table exists
-  p = t('content.main.cv.show.languages.no_entry', full_name: full_name(current_user))
+  - @cv.languages.chronological_order.each do |language|
+    .entry.position-relative.mb-3
+      h6 = language.language
+      p = cefr_level language.level
+      .d-flex.top-right
+        = link_to edit_cv_language_path(language), remote: true, class: 'btn-cv btn-edit' do
+          i.fas.fa-pencil-alt
+        = link_to cv_language_path(language), method: :delete, data: { confirm: t('confirmation') },
+                class: 'btn-cv btn-delete' do
+          i.fas.fa-trash-alt
 
-  button.button.btn-new.top-right data-toggle='modal' data-target='#addCvLanguage'
+  = link_to new_cv_language_path, remote: true, class: 'btn-cv btn-new top-right' do
     i.fas.fa-plus
 hr.mb-3

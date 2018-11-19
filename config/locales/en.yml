@@ -1,15 +1,13 @@
 ---
 en:
+  cefr_levels:
+    a1: "A1 - Beginner"
+    a2: "A2 - Elementary"
+    b1: "B1 - Intermediate"
+    b2: "B2 - Upper intermediate"
+    c1: "C1 - Advanced"
+    c2: "C2 - Proficiency"
   confirmation: "Are you sure?"
-  success:
-    cv:
-      update: "Your changes have been saved successfully."
-    education:
-      create: "Your new education entry was successfully saved."
-      destroy: "The chosen education entry was successfully removed."
-    experience:
-      create: "Your new experience entry was successfully saved."
-      destroy: "The chosen experience entry was successfully removed."
   content:
     main:
       aria_labels:
@@ -17,6 +15,7 @@ en:
       buttons:
         reset: "Reset"
         save: "Save"
+        saving: "Saving..."
       cv:
         error:
           title:
@@ -52,6 +51,8 @@ en:
             title: "Add new experience"
             to: "To (blank if on-going)"
           language:
+            language: "Language *"
+            level: "Level"
             title: "Add new language"
         show:
           entries:
@@ -88,3 +89,15 @@ en:
       login: "Login"
       logout: "Logout"
       search: "Search"
+  success:
+    cv:
+      update: "Your changes have been saved successfully."
+    education:
+      create: "Your new education entry was successfully saved."
+      destroy: "The chosen education entry was successfully removed."
+    experience:
+      create: "Your new experience entry was successfully saved."
+      destroy: "The chosen experience entry was successfully removed."
+    language:
+      create: "Your new language entry was successfully saved."
+      destroy: "The chosen language entry was successfully removed."
