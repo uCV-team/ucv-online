@@ -4,17 +4,11 @@ module CvsHelper
   end
 
   def study_period(started_on, ended_on)
-    start_date = started_on.year if started_on.present?
-    end_date = ended_on.year if ended_on.present?
-
-    get_period(start_date, end_date)
+    get_period(started_on&.year, ended_on&.year)
   end
 
   def work_period(started_on, ended_on)
-    start_date = "#{started_on.strftime('%B')} #{started_on.year}" if started_on.present?
-    end_date = "#{ended_on.strftime('%B')} #{ended_on.year}" if ended_on.present?
-
-    get_period(start_date, end_date)
+    get_period(started_on&.strftime('%B %Y'), ended_on&.strftime('%B %Y'))
   end
 
   private
