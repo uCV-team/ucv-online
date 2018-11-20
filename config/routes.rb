@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :languages
   root 'cvs#show'
   get 'cv/edit/:section', to: 'cvs#edit', as: 'edit_cv_section'
 
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
     resources :languages, except: %i[index show]
   end
   resolve('Cv') { [:cv] }
+  resources :locations, except: %i[index show]
 
   devise_for :users
   get 'home/check'

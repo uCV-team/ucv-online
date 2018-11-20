@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Experiences', type: :request do
+RSpec.describe ExperiencesController, type: :request do
   let(:user) { create :user }
   let(:cv) { user.cv }
   let(:experience) { create :experience, cv: cv }
@@ -47,7 +47,7 @@ RSpec.describe 'Experiences', type: :request do
         expect { create_invalid_experience }.not_to change(Experience, :count)
       end
 
-      it 'renders the errors remotely' do
+      it 'renders the errors' do
         create_invalid_experience
         expect(response).to be_successful
       end
@@ -84,7 +84,7 @@ RSpec.describe 'Experiences', type: :request do
         expect { update_invalid_experience }.not_to(change { experience.reload.company })
       end
 
-      it 'renders the errors remotely inside the edit page' do
+      it 'renders the errors' do
         update_invalid_experience
         expect(response).to be_successful
       end

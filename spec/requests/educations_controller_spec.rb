@@ -47,7 +47,7 @@ RSpec.describe EducationsController, type: :request do
         expect { create_invalid_education }.not_to change(Education, :count)
       end
 
-      it 'renders the errors remotely' do
+      it 'renders the errors' do
         create_invalid_education
         expect(response).to be_successful
       end
@@ -84,7 +84,7 @@ RSpec.describe EducationsController, type: :request do
         expect { update_invalid_education }.not_to(change { education.reload.school })
       end
 
-      it 'renders the errors remotely inside the edit page' do
+      it 'renders the errors' do
         update_invalid_education
         expect(response).to be_successful
       end
