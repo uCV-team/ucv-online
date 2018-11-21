@@ -3,16 +3,20 @@
     .alert.alert-danger
     .row
       .col-sm-8.mb-3
-        = f.label :title, t('content.main.cv.new.location.location_title')
-        = f.text_field :title, class: 'form-control'
+        = f.label :title, t('content.main.cv.new.location.location_title'), for: "#{id}_title"
+        = f.text_field :title, class: 'form-control', id: "#{id}_title"
       .col-sm-4.mb-3
-        = f.label :radius, t('content.main.cv.new.location.radius')
-        = f.number_field :radius, value: 0, min: 0, class: 'form-control'
+        = f.label :radius, t('content.main.cv.new.location.radius'), for: "#{id}_radius"
+        = f.number_field :radius, value: 0, min: 0, class: 'form-control', id: "#{id}_radius"
     .row
-      .col-12.mb-3
-        = f.label :address, t('content.main.cv.new.location.address')
-        = f.text_field :address, placeholder: t('content.main.cv.new.location.address_placeholder'), class: 'form-control'
+      .autocomplete.col-12
+        = f.label :address, t('content.main.cv.new.location.address'), for: "#{id}_address"
+        = f.text_field :address, placeholder: t('content.main.cv.new.location.address_placeholder'),
+                autocomplete: 'off', class: 'form-control', id: "#{id}_address"
+        #autocomplete-results
   .modal-footer
     = f.button t('content.main.buttons.reset'), type: :reset
     = f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') },
             class: 'btn-standard'
+//javascript:
+//    initWhatever('#{id}_address');

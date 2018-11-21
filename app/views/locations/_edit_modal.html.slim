@@ -1,3 +1,3 @@
-= render 'shared/modal_header', id: "edit-location-#{@location.id}",
+= render 'shared/modal_header', id: "edit_location_#{@location.id}",
         title: t('content.main.cv.edit.locations.title')
-  = render 'form'
+  = render 'form', id: "edit_location_#{@location.id}"

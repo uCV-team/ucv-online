@@ -3,27 +3,27 @@
     .alert.alert-danger
     .row
       .col-12.mb-3
-        = f.label :school, t('content.main.cv.new.education.school')
-        = f.text_field :school, class: 'form-control'
+        = f.label :school, t('content.main.cv.new.education.school'), for: "#{id}_school"
+        = f.text_field :school, class: 'form-control', id: "#{id}_school"
     .row
       .col-12.mb-3
-        = f.label :degree, t('content.main.cv.new.education.degree')
-        = f.text_field :degree, class: 'form-control'
+        = f.label :degree, t('content.main.cv.new.education.degree'), for: "#{id}_degree"
+        = f.text_field :degree, class: 'form-control', id: "#{id}_degree"
     .row
       .col-sm-6.mb-3
-        = f.label :started_on, t('content.main.cv.show.education.started_on')
+        = f.label :started_on, t('content.main.cv.show.education.started_on'), for: "#{id}_started_on"
         br
         = f.date_select :started_on, { start_year: Date.current.year, end_year: 1900, discard_day: true,
-                discard_month: true, include_blank: true }, class: 'custom-select form-control'
+                discard_month: true, include_blank: true, prefix: "#{id}" }, class: 'custom-select form-control'
       .col-sm-6.mb-3
-        = f.label :ended_on, t('content.main.cv.show.education.ended_on')
+        = f.label :ended_on, t('content.main.cv.show.education.ended_on'), for: "#{id}_ended_on"
         br
         = f.date_select :ended_on, { start_year: Date.current.year, end_year: 1900, discard_day: true,
-                discard_month: true, include_blank: true }, class: 'custom-select form-control'
+                discard_month: true, include_blank: true, prefix: "#{id}" }, class: 'custom-select form-control'
     .row
       .col-12
-        = f.label :description, t('content.main.cv.show.entries.description')
-        = f.text_area :description, class: 'form-control', rows: 2
+        = f.label :description, t('content.main.cv.show.entries.description'), for: "#{id}_description"
+        = f.text_area :description, class: 'form-control', rows: 2, id: "#{id}_description"
   .modal-footer
     = f.button t('content.main.buttons.reset'), type: :reset
     = f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') },
