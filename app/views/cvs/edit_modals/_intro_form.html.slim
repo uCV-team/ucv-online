@@ -16,7 +16,7 @@
             = f.label :about, t('content.main.cv.edit.intro.about')
             = f.text_field :about, class: 'form-control'
         .row
-          .col-12.mb-3
+          .col-12
             / TODO: Extract date validation into a constant and use it server- and client-side
             / (like about_max_length) user should be i.e. at least 10 years old
             = f.label :birth_date, t('content.main.cv.edit.intro.birth_date')

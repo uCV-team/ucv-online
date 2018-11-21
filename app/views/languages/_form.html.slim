@@ -6,7 +6,7 @@
         = f.label :language, t('content.main.cv.new.language.language')
         = f.text_field :language, class: 'form-control'
     .row
-      .col-12.mb-3
+      .col-12
         = f.label :level, t('content.main.cv.new.language.level')
         br
         = f.select :level, options_from_collection_for_select(cefr_level_options, :first, :last), {},
