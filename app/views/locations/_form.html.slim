@@ -7,11 +7,11 @@
         = f.text_field :title, class: 'form-control'
       .col-sm-4.mb-3
         = f.label :radius, t('content.main.cv.new.location.radius')
-        = f.number_field :radius, class: 'form-control'
+        = f.number_field :radius, value: 0, min: 0, class: 'form-control'
     .row
       .col-12.mb-3
         = f.label :address, t('content.main.cv.new.location.address')
-        = f.text_field :address, class: 'form-control'
+        = f.text_field :address, placeholder: t('content.main.cv.new.location.address_placeholder'), class: 'form-control'
   .modal-footer
     = f.button t('content.main.buttons.reset'), type: :reset
     = f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') },
