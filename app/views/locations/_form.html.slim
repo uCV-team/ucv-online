@@ -13,10 +13,12 @@
         = f.label :address, t('content.main.cv.new.location.address'), for: "#{id}_address"
         = f.text_field :address, placeholder: t('content.main.cv.new.location.address_placeholder'),
                 autocomplete: 'off', class: 'form-control', id: "#{id}_address"
-        #autocomplete-results
+        div[id="#{id}_results" class="autocomplete-results position-absolute"]
+          ul
   .modal-footer
     = f.button t('content.main.buttons.reset'), type: :reset
     = f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') },
             class: 'btn-standard'
-//javascript:
-//    initWhatever('#{id}_address');
+
+javascript:
+   initAutocomplete('#{id}', '#{api_token}');

@@ -1,4 +1,6 @@
+import 'babel-polyfill';
 import 'bootstrap/dist/js/bootstrap';
+import '../src/javascripts/address_autocomplete';
 import jQuery from 'jquery';
 import Rails from 'rails-ujs';
 import Turbolinks from 'turbolinks';

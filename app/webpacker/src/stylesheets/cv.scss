@@ -1,3 +1,11 @@
+.autocomplete-results {
+  background-color: $white;
+  box-shadow: 0 0 5px $gray-600;
+  display: none;
+  padding: 0.25rem 0.75rem;
+  width: calc(100% - 30px);
+}
+
 .cv-intro {
   .photo {
     background-color: $gray-400;
