@@ -4,6 +4,22 @@
   display: none;
   padding: 0.25rem 0.75rem;
   width: calc(100% - 30px);
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-bottom: 0.25rem;
+      border-bottom: 1px solid $gray-400;
+    }
+
+    span {
+      color: $gray-500;
+      margin-right: 0.5rem;
+    }
+  }
 }
 
 .cv-intro {

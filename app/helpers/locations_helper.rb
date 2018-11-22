@@ -1,5 +1,5 @@
 module LocationsHelper
   def api_token
-    ENV['LOCATIONIQ_API_KEY']
+    ENV['LOCATIONIQ_PUBLIC_KEY']
   end
 end

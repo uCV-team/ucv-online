@@ -13,7 +13,7 @@
         = f.label :address, t('content.main.cv.new.location.address'), for: "#{id}_address"
         = f.text_field :address, placeholder: t('content.main.cv.new.location.address_placeholder'),
                 autocomplete: 'off', class: 'form-control', id: "#{id}_address"
-        div[id="#{id}_results" class="autocomplete-results position-absolute"]
+        div[id="#{id}_results" class='autocomplete-results position-absolute']
           ul
   .modal-footer
     = f.button t('content.main.buttons.reset'), type: :reset

@@ -1,12 +1,12 @@
 import { throttle } from "lodash";
 
 let token;
-let inputField, resultsField;
+let inputField, resultsContainer;
 
 function initAutocomplete(modalId, api_token) {
     token = api_token;
     inputField = $(`#${modalId}_address`);
-    resultsField = $(`#${modalId}_results`);
+    resultsContainer = $(`#${modalId}_results`);
 
     autocomplete();
 }
@@ -35,21 +35,23 @@ async function fetchData() {
 }
 
 function displayResults(data) {
+    const resultsList = resultsContainer.find('ul');
     let formattedAddresses;
 
     if (inputField.val().length > 0) {
-        resultsField.show();
+        resultsContainer.show();
     } else {
-        resultsField.find('ul').empty();
-        resultsField.hide();
+        resultsList.empty();
+        resultsContainer.hide();
     }
 
     if (data && Array.isArray(data) && data.length > 0) {
         formattedAddresses = data.map(address => address.display_name);
-        resultsField.find('ul').empty();
+        resultsList.empty();
         formattedAddresses.forEach(address => {
-            resultsField.find('ul').append(`<li>${address}</li>`);
+            resultsList.append(`<li><span><i class="fas fa-map-marker-alt"></i></span>${address}</li>`);
         });
+        resultsList.append('<span>Search by <a href="https://locationiq.com" target="_blank">LocationIQ.com</a></span>');
     }
 
 }
