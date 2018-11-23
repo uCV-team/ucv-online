@@ -1,4 +1,4 @@
-import { throttle } from "lodash";
+import {throttle} from "lodash";
 
 let token;
 let inputField, resultsContainer;
@@ -14,7 +14,14 @@ function initAutocomplete(modalId, api_token) {
 function autocomplete() {
     // Instead of sending a request on each keystroke, send one every second. (LocationIQ free limit: 2 req/s)
     let throttled = throttle(fetchData, 1000);
-    inputField.on('keyup', throttled);
+    inputField.on('input', throttled);
+
+    // Make results clickable and auto-fill information
+    resultsContainer.on('click', 'li', (event)=> {
+       inputField.val($(event.target).text());
+       resultsContainer.find('ul').empty();
+       resultsContainer.hide();
+    });
 }
 
 async function fetchData() {
@@ -27,7 +34,7 @@ async function fetchData() {
             let response = await fetch(api_link);
             data = await response.json();
         } catch(e) {
-            $('.modal.fade.show').find('.alert.alert-danger').empty().append(e.message)
+            $('.modal.fade.show').find('.alert.alert-danger').empty().append(e.message);
         }
     }
 
@@ -51,9 +58,8 @@ function displayResults(data) {
         formattedAddresses.forEach(address => {
             resultsList.append(`<li><span><i class="fas fa-map-marker-alt"></i></span>${address}</li>`);
         });
-        resultsList.append('<span>Search by <a href="https://locationiq.com" target="_blank">LocationIQ.com</a></span>');
+        resultsList.append('<p>Search by <a href="https://locationiq.com" target="_blank">LocationIQ.com</a></p>');
     }
-
 }
 
 window.initAutocomplete = initAutocomplete;
