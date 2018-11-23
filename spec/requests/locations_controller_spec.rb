@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe LocationsController, type: :request do
   let(:user) { create :user }
   let(:location) { create :location, user: user }
-  let(:invalid_params) { { title: nil } }
+  let(:invalid_params) { { original_address: nil } }
 
   before { sign_in user }
 
@@ -58,11 +58,11 @@ RSpec.describe LocationsController, type: :request do
       subject(:update_location) { put location_path location, params: location_params }
 
       let(:location_params) { { location: new_attribute } }
-      let(:new_attribute) { { address: new_address } }
-      let(:new_address) { 'Bahnhofstrasse 50, 8400 Winterthur' }
+      let(:new_attribute) { { original_address: new_original_address } }
+      let(:new_original_address) { 'Bahnhofstrasse 50, 8400 Winterthur' }
 
       it 'updates the requested location' do
-        expect { update_location }.to change { location.reload.address }.to(new_address)
+        expect { update_location }.to change { location.reload.original_address }.to(new_original_address)
       end
 
       it 'redirects to the CV display' do
@@ -75,10 +75,10 @@ RSpec.describe LocationsController, type: :request do
       subject(:update_invalid_location) { put location_path(location), params: invalid_location_params, xhr: true }
 
       let(:invalid_location_params) { { location: new_invalid_attribute } }
-      let(:new_invalid_attribute) { { address: nil } }
+      let(:new_invalid_attribute) { { original_address: nil } }
 
       it 'does not update the requested location' do
-        expect { update_invalid_location }.not_to(change { location.reload.address })
+        expect { update_invalid_location }.not_to(change { location.reload.original_address })
       end
 
       it 'renders the errors' do

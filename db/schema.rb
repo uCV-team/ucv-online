@@ -69,8 +69,12 @@ ActiveRecord::Schema.define(version: 2018_11_19_103112) do
     t.float "latitude"
     t.float "longitude"
     t.integer "radius"
-    t.string "title", null: false
-    t.text "address", null: false
+    t.string "city"
+    t.string "country"
+    t.string "geocoded_address"
+    t.string "original_address", null: false
+    t.string "province_code"
+    t.string "region"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_locations_on_user_id"

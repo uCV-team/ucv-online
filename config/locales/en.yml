@@ -58,8 +58,6 @@ en:
             title: "Add new language"
           location:
             address: "Address *"
-            address_placeholder: "Street, Postcode, City"
-            location_title: "Title *"
             radius: "Radius (in km)"
             title: "Add new location"
         show:

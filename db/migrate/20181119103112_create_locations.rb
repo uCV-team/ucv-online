@@ -5,8 +5,12 @@ class CreateLocations < ActiveRecord::Migration[5.2]
       t.float :latitude
       t.float :longitude
       t.integer :radius
-      t.string :title, null: false
-      t.text :address, null: false
+      t.string :city
+      t.string :country
+      t.string :geocoded_address
+      t.string :original_address, null: false
+      t.string :province_code
+      t.string :region
 
       t.timestamps
     end
