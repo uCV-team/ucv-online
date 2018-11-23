@@ -14,12 +14,12 @@
         = f.label :started_on, t('content.main.cv.show.education.started_on'), for: "#{id}_started_on"
         br
         = f.date_select :started_on, { start_year: Date.current.year, end_year: 1900, discard_day: true,
-                discard_month: true, include_blank: true, prefix: "#{id}" }, class: 'custom-select form-control'
+                discard_month: true, include_blank: true, prefix: id.to_s }, class: 'custom-select form-control'
       .col-sm-6.mb-3
         = f.label :ended_on, t('content.main.cv.show.education.ended_on'), for: "#{id}_ended_on"
         br
         = f.date_select :ended_on, { start_year: Date.current.year, end_year: 1900, discard_day: true,
-                discard_month: true, include_blank: true, prefix: "#{id}" }, class: 'custom-select form-control'
+                discard_month: true, include_blank: true, prefix: id.to_s }, class: 'custom-select form-control'
     .row
       .col-12
         = f.label :description, t('content.main.cv.show.entries.description'), for: "#{id}_description"
