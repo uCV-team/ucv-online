@@ -1,12 +1,14 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :recoverable, :registerable, :rememberable, :timeoutable, :trackable, :validatable
+
   has_one :cv, dependent: :destroy
   has_many :locations, dependent: :destroy
-  accepts_nested_attributes_for :cv
+
+  validates :first_name, :last_name, presence: true
 
   after_initialize :create_cv, if: :new_record?
 
-  devise :database_authenticatable, :recoverable, :registerable, :rememberable, :timeoutable, :trackable, :validatable
-  validates :first_name, :last_name, presence: true
+  accepts_nested_attributes_for :cv
 
   private
 
