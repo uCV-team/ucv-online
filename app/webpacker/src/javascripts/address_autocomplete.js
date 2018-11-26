@@ -27,7 +27,7 @@ function autocomplete() {
 async function fetchData() {
     let data;
     let query = encodeURIComponent(inputField.val());
-    let api_link = `https://api.locationiq.com/v1/autocomplete.php?key=${token}&q=${query}&limit=5`;
+    let api_link = `https://api.locationiq.com/v1/autocomplete.php?key=${token}&q=${query}&normalizecity=1&limit=5`;
 
     if (inputField.val().length > 0) {
         try {
@@ -53,7 +53,7 @@ function displayResults(data) {
     }
 
     if (data && Array.isArray(data) && data.length > 0) {
-        formattedAddresses = data.map(address => address.display_name);
+        formattedAddresses = data.map(address => address.display_address);
         resultsList.empty();
         formattedAddresses.forEach(address => {
             resultsList.append(`<li><span><i class="fas fa-map-marker-alt"></i></span>${address}</li>`);

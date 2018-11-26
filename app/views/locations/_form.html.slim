@@ -3,8 +3,8 @@
     .alert.alert-danger
     .row
       .autocomplete.col-lg-9.mb-3
-        = f.label :address, t('content.main.cv.new.location.address'), for: "#{id}_address"
-        = f.text_field :address,  autocomplete: 'off', class: 'form-control', id: "#{id}_address"
+        = f.label :orginial_address, t('content.main.cv.new.location.address'), for: "#{id}_address"
+        = f.text_field :original_address, autocomplete: 'off', class: 'form-control', id: "#{id}_address"
         div[id="#{id}_results" class='autocomplete-results position-absolute']
           ul
       .col-lg-3.mb-3

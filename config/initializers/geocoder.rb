@@ -1,8 +1,9 @@
 Geocoder.configure(
+  api_key: ENV['LOCATIONIQ_API_KEY'],
+  lookup: :location_iq,
   timeout: 15,
-  lookup: :nominatim,
-  use_https: true,
-  units: :km
+  units: :km,
+  use_https: true
   # Geocoding options
   # timeout: 3,                 # geocoding service timeout (secs)
   # lookup: :nominatim,         # name of geocoding service (symbol)

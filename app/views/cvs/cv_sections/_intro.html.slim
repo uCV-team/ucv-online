@@ -11,8 +11,9 @@
   = link_to 'Add new location', new_location_path, remote: true
   - current_user.locations.chronological_order.each do |location|
     .entry.position-relative.mb-3
-      h6 = location.title
-      p = location.address
+      h6 = location.city
+      p = location.original_address
+      p = location.geocoded_address
       p = "Coords: #{location.latitude} | #{location.longitude}"
       = link_to 'Edit', edit_location_path(location), remote: true
       '  |
