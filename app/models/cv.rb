@@ -8,6 +8,7 @@ class Cv < ApplicationRecord
   has_many :educations, dependent: :destroy
   has_many :experiences, dependent: :destroy
   has_many :languages, dependent: :destroy
+  has_many :locations, through: :user
 
   validates :about, length: { maximum: ABOUT_MAX_LENGTH }
   validates :user, uniqueness: true
@@ -22,21 +23,21 @@ class Cv < ApplicationRecord
                     working_skills: :A
                   },
                   associated_against: {
-                    education: [
+                    educations: [
                       %i[degree A],
                       %i[description C],
                       %i[school B]
                     ],
-                    experience: [
+                    experiences: [
                       %i[company B],
                       %i[description C],
                       %i[title A]
                     ],
-                    language: [
+                    languages: [
                       %i[language A],
                       %i[level B]
                     ],
-                    location: [
+                    locations: [
                       %i[city A],
                       %i[country B],
                       %i[geocoded_address A],

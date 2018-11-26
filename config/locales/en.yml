@@ -16,6 +16,8 @@ en:
         reset: "Reset"
         save: "Save"
         saving: "Saving..."
+        search: "Search"
+        searching: "Searching..."
       cv:
         error:
           title:

@@ -1,0 +1,6 @@
+h4.text-center = 'Search'
+= render 'form'
+
+- @results.each do |cv|
+  .entry.position-relative.mb-3
+    h5 = full_name(cv.user)

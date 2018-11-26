@@ -15,7 +15,7 @@ body class="#{controller.controller_name}"
     nav
       - if user_signed_in?
         = link_to t('layouts.nav.home'), root_path
-        = link_to t('layouts.nav.search'), '#'
+        = link_to t('layouts.nav.search'), search_path
         = link_to t('layouts.nav.logout'), destroy_user_session_path, method: :delete, class: 'ml-auto'
       - else
         = link_to t('layouts.nav.login'), new_user_session_path
