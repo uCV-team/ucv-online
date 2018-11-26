@@ -5,7 +5,38 @@ RSpec.describe LocationsController, type: :request do
   let(:location) { create :location, user: user }
   let(:invalid_params) { { original_address: nil } }
 
-  before { sign_in user }
+  before do
+    sign_in user
+    Geocoder.configure(lookup: :test)
+
+    Geocoder::Lookup::Test.add_stub(
+      'New York, NY', [
+        {
+          latitude: 40.7143528,
+          longitude: -74.0059731,
+          address: 'New York, NY, USA',
+          state: 'New York',
+          state_code: 'NY',
+          country: 'United States',
+          country_code: 'US'
+        }
+      ]
+    )
+
+    Geocoder::Lookup::Test.add_stub(
+      'Bahnhofplatz 17, 8400 Winterthur', [
+        {
+          latitude: 47.501330,
+          longitude: 8.724830,
+          address: 'Winterthur, ZH, Switzerland',
+          state: 'Zurich',
+          state_code: 'ZH',
+          country: 'Switzerland',
+          country_code: 'CH'
+        }
+      ]
+    )
+  end
 
   describe 'GET #new' do
     it 'returns a success response' do
@@ -59,7 +90,7 @@ RSpec.describe LocationsController, type: :request do
 
       let(:location_params) { { location: new_attribute } }
       let(:new_attribute) { { original_address: new_original_address } }
-      let(:new_original_address) { 'Bahnhofstrasse 50, 8400 Winterthur' }
+      let(:new_original_address) { 'Bahnhofplatz 17, 8400 Winterthur' }
 
       it 'updates the requested location' do
         expect { update_location }.to change { location.reload.original_address }.to(new_original_address)
