@@ -60,7 +60,7 @@ porta, lobortis risus sit amet, suscipit ex.' }
 
       let(:invalid_params) { { cv: invalid_attributes } }
 
-      it 'renders the errors inside the edit page' do
+      it 'renders the errors' do
         update_cv
         expect(response).to be_successful
       end

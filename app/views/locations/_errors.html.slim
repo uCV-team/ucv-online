@@ -1,0 +1,4 @@
+h4 = t('content.main.cv.error.title', count: location.errors.count)
+ul
+  - location.errors.full_messages.each do |message|
+    li = message

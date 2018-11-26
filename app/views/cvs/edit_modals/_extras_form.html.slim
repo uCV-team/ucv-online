@@ -1,4 +1,4 @@
-= render 'shared/modal_header', id: 'edit-cv-extras', title: t('content.main.cv.edit.extras.title')
+= render 'shared/modal_header', id: 'edit_cv_extras', title: t('content.main.cv.edit.extras.title')
   = form_with model: @cv do |f|
     .modal-body
       .alert.alert-danger
@@ -8,7 +8,7 @@
             = f.label :interests, t('content.main.cv.show.interests')
             = f.text_area :interests, class: 'form-control', rows: 3
         .row
-          .col-12.mb-3
+          .col-12
             = f.label :future_plans, t('content.main.cv.show.future_plans')
             = f.text_area :future_plans, class: 'form-control', rows: 3
     .modal-footer

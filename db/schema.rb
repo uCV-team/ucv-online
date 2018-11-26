@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_100228) do
+ActiveRecord::Schema.define(version: 2018_11_19_103112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,22 @@ ActiveRecord::Schema.define(version: 2018_11_15_100228) do
     t.index ["cv_id"], name: "index_languages_on_cv_id"
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.integer "radius"
+    t.string "city"
+    t.string "country"
+    t.string "geocoded_address"
+    t.string "original_address", null: false
+    t.string "province_code"
+    t.string "region"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_locations_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
@@ -87,4 +103,5 @@ ActiveRecord::Schema.define(version: 2018_11_15_100228) do
   add_foreign_key "educations", "cvs"
   add_foreign_key "experiences", "cvs"
   add_foreign_key "languages", "cvs"
+  add_foreign_key "locations", "users"
 end

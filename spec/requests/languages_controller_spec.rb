@@ -47,7 +47,7 @@ RSpec.describe LanguagesController, type: :request do
         expect { create_invalid_language }.not_to change(Language, :count)
       end
 
-      it 'renders the errors remotely' do
+      it 'renders the errors' do
         create_invalid_language
         expect(response).to be_successful
       end
@@ -84,7 +84,7 @@ RSpec.describe LanguagesController, type: :request do
         expect { update_invalid_language }.not_to(change { language.reload.language })
       end
 
-      it 'renders the errors remotely inside the edit page' do
+      it 'renders the errors' do
         update_invalid_language
         expect(response).to be_successful
       end
