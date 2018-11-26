@@ -3,39 +3,15 @@ require 'rails_helper'
 RSpec.describe LocationsController, type: :request do
   let(:user) { create :user }
   let(:location) { create :location, user: user }
+  let(:lookup_response) { create :lookup_response }
+  let(:update_lookup_response) { create :update_lookup_response }
   let(:invalid_params) { { original_address: nil } }
 
   before do
     sign_in user
     Geocoder.configure(lookup: :test)
-
-    Geocoder::Lookup::Test.add_stub(
-      'New York, NY', [
-        {
-          latitude: 40.7143528,
-          longitude: -74.0059731,
-          address: 'New York, NY, USA',
-          state: 'New York',
-          state_code: 'NY',
-          country: 'United States',
-          country_code: 'US'
-        }
-      ]
-    )
-
-    Geocoder::Lookup::Test.add_stub(
-      'Bahnhofplatz 17, 8400 Winterthur', [
-        {
-          latitude: 47.501330,
-          longitude: 8.724830,
-          address: 'Winterthur, ZH, Switzerland',
-          state: 'Zurich',
-          state_code: 'ZH',
-          country: 'Switzerland',
-          country_code: 'CH'
-        }
-      ]
-    )
+    Geocoder::Lookup::Test.add_stub('New York, NY', [lookup_response])
+    Geocoder::Lookup::Test.add_stub('Bahnhofplatz 17, 8400 Winterthur', [update_lookup_response])
   end
 
   describe 'GET #new' do
