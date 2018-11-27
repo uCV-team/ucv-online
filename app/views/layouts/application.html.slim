@@ -10,6 +10,7 @@ html
 
     = stylesheet_pack_tag 'stylesheets', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = yield :header
 body class="#{controller.controller_name}"
   header
     nav

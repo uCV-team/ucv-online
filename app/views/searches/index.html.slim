@@ -1,6 +1,6 @@
-h4.text-center = 'Search'
-= render 'form'
-
-- @results.each do |cv|
-  .entry.position-relative.mb-3
-    h5 = full_name(cv.user)
+.row
+  .col.mb-3
+    = render 'form'
+    = render 'results'
+  .col.mb-3
+    = render 'map'

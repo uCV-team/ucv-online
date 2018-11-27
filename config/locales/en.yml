@@ -16,7 +16,7 @@ en:
         reset: "Reset"
         save: "Save"
         saving: "Saving..."
-        search: "Search"
+        search: "Go!"
         searching: "Searching..."
       cv:
         error:
@@ -89,6 +89,8 @@ en:
             other_skills: "Other skills"
             title: "Skills"
             working_skills: "Work skills"
+      search:
+        header: "Search"
   layouts:
     footer:
       footer_text: "Footer goes here"
