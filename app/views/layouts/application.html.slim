@@ -12,22 +12,23 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = yield :header
 body class="#{controller.controller_name}"
-  header
-    nav
-      - if user_signed_in?
-        = link_to t('layouts.nav.home'), root_path
-        = link_to t('layouts.nav.search'), search_path
-        = link_to t('layouts.nav.logout'), destroy_user_session_path, method: :delete, class: 'ml-auto'
-      - else
-        = link_to t('layouts.nav.login'), new_user_session_path
-  .container.custom-flex
-    main
+  .d-flex.flex-column.h-100
+    header
+      nav.d-flex.align-items-center.px-3
+        - if user_signed_in?
+          = link_to t('layouts.nav.home'), root_path, class: 'px-3'
+          = link_to t('layouts.nav.search'), search_path, class: 'px-3'
+          = link_to t('layouts.nav.logout'), destroy_user_session_path, method: :delete, class: 'ml-auto px-3'
+        - else
+          = link_to t('layouts.nav.login'), new_user_session_path, class: 'px-3'
+    main.flex-fill
       - flash.each do |type, message|
         - next if type == 'timedout' # This is because of https://github.com/plataformatec/devise/issues/1777
-        .alert.alert-dismissible role=alert class=alert_class_for(type)
-          button class='close' data-dismiss='alert' aria-label=t('content.main.aria_labels.close')
-            span aria-hidden='true' &times;
-          = message
+        .container.mt-3
+          .alert.alert-dismissible role=alert class=alert_class_for(type)
+            button class='close' data-dismiss='alert' aria-label=t('content.main.aria_labels.close')
+              span aria-hidden='true' &times;
+            = message
       = yield
     footer
       p = t('layouts.footer.footer_text')
