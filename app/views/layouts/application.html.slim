@@ -24,8 +24,8 @@ body class="#{controller.controller_name}"
     main.flex-fill
       - flash.each do |type, message|
         - next if type == 'timedout' # This is because of https://github.com/plataformatec/devise/issues/1777
-        .container.mt-3
-          .alert.alert-dismissible role=alert class=alert_class_for(type)
+        .container.fixed-bottom.mb-3.transparent
+          .alert.alert-dismissible.m-0 role=alert class=alert_class_for(type)
             button class='close' data-dismiss='alert' aria-label=t('content.main.aria_labels.close')
               span aria-hidden='true' &times;
             = message
