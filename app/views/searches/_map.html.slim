@@ -1,4 +1,4 @@
 - content_for :header do
-  / script defer='' src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBiNHrSWe6Vq2NbnHJ0HzPOb2a5ZgVf4As&callback=initMap"
+  script async='' defer='' src="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&callback=initMap"
 
 #map
