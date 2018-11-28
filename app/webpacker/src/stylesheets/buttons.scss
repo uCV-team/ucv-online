@@ -39,7 +39,16 @@ button {
 }
 
 .btn-standard {
-  // TODO
+  background-color: $dodger-blue;
+  color: $white;
+
+  &:active {
+
+  }
+
+  &:hover {
+    background-color: darken($dodger-blue, 15%);
+  }
 }
 
 .btn-text {
