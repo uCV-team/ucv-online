@@ -2,3 +2,8 @@
   script async='' defer='' src="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&callback=initMap"
 
 #map
+
+javascript:
+    $(document).on('turbolinks:load', () => {
+        if ('google' in window) initMap()
+    });
