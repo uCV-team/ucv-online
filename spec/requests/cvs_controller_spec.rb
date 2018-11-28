@@ -1,14 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe CvsController, type: :request do
-  let(:user) { create :user }
-  let(:cv) { user.cv }
+  let(:cv) { create :cv }
   let(:invalid_attributes) do
     { about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel ante
 porta, lobortis risus sit amet, suscipit ex.' }
   end
 
-  before { sign_in user }
+  before { sign_in cv.user }
 
   describe 'GET #show' do
     it 'returns a success response' do

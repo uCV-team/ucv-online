@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :language do
-    cv
+    cv { build :cv }
     language { 'English' }
     level { 'b2' }
   end

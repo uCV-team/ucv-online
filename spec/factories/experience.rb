@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :experience do
-    cv
+    cv { build :cv }
     company { 'Renuo AG' }
     description { '' }
     ended_on { Date.new(2011) }
