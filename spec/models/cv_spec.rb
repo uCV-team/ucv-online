@@ -17,5 +17,11 @@ RSpec.describe Cv do
       it { is_expected.to be_pg_searched_by('ski') }
       it { is_expected.to be_pg_searched_by('friend') }
     end
+
+    context 'with inexistent keywords' do
+      it { is_expected.not_to be_pg_searched_by('guitar') }
+      it { is_expected.not_to be_pg_searched_by('bread') }
+      it { is_expected.not_to be_pg_searched_by('wine') }
+    end
   end
 end
