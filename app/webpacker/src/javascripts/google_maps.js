@@ -1,8 +1,8 @@
 function initMap() {
     $('#map').each((_, mapElement) => {
         new google.maps.Map(mapElement, {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 8
+            center: {lat: 46.8182, lng: 8.2275},
+            zoom: 7
         });
     });
 }
