@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe CvsController, type: :request do
-  let(:cv) { create :cv }
+  let(:user) { create :user }
   let(:invalid_attributes) do
     { about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel ante
 porta, lobortis risus sit amet, suscipit ex.' }
   end
 
-  before { sign_in cv.user }
+  before { sign_in user }
 
   describe 'GET #show' do
     it 'returns a success response' do
@@ -31,7 +31,7 @@ porta, lobortis risus sit amet, suscipit ex.' }
 
       it 'redirects to the cv' do
         get edit_cv_section_path(section: invalid_section)
-        expect(response).to redirect_to(cv)
+        expect(response).to redirect_to(cv_url)
       end
     end
   end
@@ -45,12 +45,12 @@ porta, lobortis risus sit amet, suscipit ex.' }
       let(:new_about) { 'This is a new description' }
 
       it 'updates the requested cv' do
-        expect { update_cv }.to change { cv.reload.about }.to(new_about)
+        expect { update_cv }.to change { user.cv.reload.about }.to(new_about)
       end
 
       it 'redirects to the cv' do
         update_cv
-        expect(response).to redirect_to(cv)
+        expect(response).to redirect_to(cv_url)
       end
     end
 

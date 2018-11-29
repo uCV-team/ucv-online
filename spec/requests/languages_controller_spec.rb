@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe LanguagesController, type: :request do
-  let(:language) { create :language }
+  let(:user) { create :user, cv: build(:cv, :complete_cv) }
+  let(:language) { user.cv.languages.first }
   let(:invalid_params) { { language: nil } }
 
-  before { sign_in language.cv.user }
+  before { sign_in user }
 
   describe 'GET #new' do
     it 'returns a success response' do

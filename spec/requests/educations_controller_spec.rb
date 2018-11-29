@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe EducationsController, type: :request do
-  let(:education) { create :education }
+  let(:user) { create :user, cv: build(:cv, :complete_cv) }
+  let(:education) { user.cv.educations.first }
   let(:invalid_params) { { school: nil } }
 
-  before { sign_in education.cv.user }
+  before { sign_in user }
 
   describe 'GET #new' do
     it 'returns a success response' do
