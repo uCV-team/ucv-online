@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe SearchesHelper do
+RSpec.describe SearchesService do
   let(:latitude) { 40.7143528 }
   let(:longitude) { -74.0059731 }
   let(:name) { 'John Williams' }
 
   describe '#coordinates_list' do
-    subject { helper.coordinates_list(full_text_search_results) }
+    subject { described_class.new(full_text_search_results).coordinates_list }
 
     context 'with no search results' do
       let(:full_text_search_results) { [] }

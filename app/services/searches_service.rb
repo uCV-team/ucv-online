@@ -1,6 +1,10 @@
-module SearchesHelper
-  def coordinates_list(search_results)
-    search_results.map do |result|
+class SearchesService
+  def initialize(search_results)
+    @search_results = search_results
+  end
+
+  def coordinates_list
+    @search_results.map do |result|
       next if result.locations.empty?
       name = "#{result.user.first_name} #{result.user.last_name}"
       location = location_coordinates(result.locations.first)
