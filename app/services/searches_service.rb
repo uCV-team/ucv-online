@@ -3,6 +3,7 @@ class SearchesService
     @search_results = search_results
   end
 
+  # :reek:FeatureEnvy
   def coordinates_list
     @search_results.map do |result|
       next if result.locations.empty?
