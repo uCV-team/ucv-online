@@ -1,5 +1,5 @@
 h4.text-center = t('content.main.search.header')
-= form_tag search_path, method: :get do
+= form_tag search_path, method: :get, remote: true do
   .row
     .col.mb-3
       = text_field_tag :search_term, params[:search_term], class: 'form-control'
