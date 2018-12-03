@@ -1,16 +1,13 @@
 header {
-  display: block;
+  z-index: 1;
 
   nav {
     background-color: $white;
     box-shadow: 0 0 20px $gray-600;
-    display: flex;
-    margin-bottom: 20px;
-    padding: 0 20px;
+    height: 55px;
 
     a {
       font-size: 17px;
-      padding: 20px;
     }
   }
 }

@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ExperiencesController, type: :request do
-  let(:user) { create :user }
-  let(:cv) { user.cv }
-  let(:experience) { create :experience, cv: cv }
+  let(:user) { create :user, cv: build(:cv, :complete_cv) }
+  let(:experience) { user.cv.experiences.first }
   let(:invalid_params) { { title: nil } }
 
   before { sign_in user }

@@ -4,10 +4,12 @@
 $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/solid';
+@import '../src/stylesheets/authentication';
 @import '../src/stylesheets/body';
 @import '../src/stylesheets/buttons';
 @import '../src/stylesheets/cv';
 @import '../src/stylesheets/footer';
 @import '../src/stylesheets/header';
 @import '../src/stylesheets/main';
+@import '../src/stylesheets/search';
 @import '../src/stylesheets/typography';

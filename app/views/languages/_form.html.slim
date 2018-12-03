@@ -12,6 +12,6 @@
         = f.select :level, options_from_collection_for_select(cefr_level_options, :first, :last), {},
                 class: 'custom-select form-control', id: "#{id}_level"
   .modal-footer
-    = f.button t('content.main.buttons.reset'), type: :reset
+    = f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-standard'
     = f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') },
-            class: 'btn-standard'
+            class: 'btn btn-standard'

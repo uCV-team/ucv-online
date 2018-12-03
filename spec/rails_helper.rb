@@ -24,4 +24,10 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
+
+  config.before(:all) do
+    Geocoder.configure(lookup: :test)
+    Geocoder::Lookup::Test.add_stub('New York, NY', create_list(:lookup_response, 1))
+    Geocoder::Lookup::Test.add_stub('Bahnhofplatz 17, 8400 Winterthur', create_list(:update_lookup_response, 1))
+  end
 end

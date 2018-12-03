@@ -1,17 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe LocationsController, type: :request do
-  let(:user) { create :user }
-  let(:location) { create :location, user: user }
-  let(:lookup_response) { create :lookup_response }
-  let(:update_lookup_response) { create :update_lookup_response }
+  let(:user) { create :user, :with_locations }
+  let(:location) { user.locations.first }
   let(:invalid_params) { { original_address: nil } }
 
   before do
     sign_in user
-    Geocoder.configure(lookup: :test)
-    Geocoder::Lookup::Test.add_stub('New York, NY', [lookup_response])
-    Geocoder::Lookup::Test.add_stub('Bahnhofplatz 17, 8400 Winterthur', [update_lookup_response])
   end
 
   describe 'GET #new' do

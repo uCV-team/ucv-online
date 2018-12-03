@@ -12,9 +12,9 @@
         = f.number_field :radius, value: 10, min: 0, class: 'form-control', id: "#{id}_radius"
 
   .modal-footer
-    = f.button t('content.main.buttons.reset'), type: :reset
+    = f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-standard'
     = f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') },
-            class: 'btn-standard'
+            class: 'btn btn-standard'
 
 javascript:
    initAutocomplete('#{id}', '#{api_token}');

@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe EducationsController, type: :request do
-  let(:user) { create :user }
-  let(:cv) { user.cv }
-  let(:education) { create :education, cv: cv }
+  let(:user) { create :user, cv: build(:cv, :complete_cv) }
+  let(:education) { user.cv.educations.first }
   let(:invalid_params) { { school: nil } }
 
   before { sign_in user }

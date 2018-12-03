@@ -1,0 +1,20 @@
+.auth-form.px-5.py-3
+  h2.text-center = t('devise.sessions.sign_in')
+  p.text-center = t('devise.sessions.sign_in_text')
+
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field.mb-2
+      = f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: t('devise.sessions.email'),
+              class: 'form-control'
+    .field.mb-2
+      = f.password_field :password, autocomplete: 'current-password', placeholder: t('devise.sessions.password'),
+              class: 'form-control'
+    - if devise_mapping.rememberable?
+      .field.mb-3
+        = f.check_box :remember_me
+        = f.label :remember_me, class: 'm-0 ml-2'
+    .actions.mb-2
+      = f.submit t('devise.sessions.sign_in'), data: { disable_with: t('devise.sessions.signing_in') },
+              class: 'btn btn-login'
+
+  = render 'devise/shared/links'

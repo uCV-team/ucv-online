@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe LanguagesController, type: :request do
-  let(:user) { create :user }
-  let(:cv) { user.cv }
-  let(:language) { create :language, cv: cv }
+  let(:user) { create :user, cv: build(:cv, :complete_cv) }
+  let(:language) { user.cv.languages.first }
   let(:invalid_params) { { language: nil } }
 
   before { sign_in user }

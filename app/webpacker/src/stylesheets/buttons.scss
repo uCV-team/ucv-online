@@ -38,8 +38,24 @@ button {
   text-decoration-line: underline;
 }
 
+.btn-login {
+  border: solid 1px $dodger-blue;
+  color: $dodger-blue;
+  width: 100%;
+
+  &:hover {
+    background-color: $dodger-blue;
+    color: $white;
+  }
+}
+
 .btn-standard {
-  // TODO
+  background-color: $dodger-blue;
+  color: $white;
+
+  &:hover {
+    background-color: darken($dodger-blue, 15%);
+  }
 }
 
 .btn-text {

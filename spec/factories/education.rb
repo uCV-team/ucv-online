@@ -1,9 +1,8 @@
 FactoryBot.define do
   factory :education do
-    cv
     started_on { Date.new(2008) }
     degree { 'Bachelor of Science' }
-    description { '' }
+    description { 'Learned a lot' }
     ended_on { Date.new(2012) }
     school { 'ETH' }
   end
