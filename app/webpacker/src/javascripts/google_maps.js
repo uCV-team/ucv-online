@@ -21,7 +21,19 @@ window.generateMarkers = function(searchResultsList) {
             })
         );
     });
+
+    centerMap();
 };
+
+function centerMap() {
+    if (markers.length > 0) {
+        const bounds = new google.maps.LatLngBounds();
+        markers.forEach(marker => {
+            bounds.extend(marker.getPosition());
+        });
+        map.fitBounds(bounds);
+    }
+}
 
 function clearMarkers() {
     markers.forEach(marker => {
