@@ -1,0 +1,4 @@
+<% _slim_controls1 = render 'shared/modal_header', id: "edit_cv_language_#{@language.id}",
+title: t('content.main.cv.edit.languages.title') do
+ %><%= ::Temple::Utils.escape_html((render 'form', id: "edit_cv_language_#{@language.id}")) %>
+<% end %><%= ::Temple::Utils.escape_html((_slim_controls1)) %>

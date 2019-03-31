@@ -1,0 +1,31 @@
+<% _slim_controls1 = form_with model: [:cv, @education] do |f|
+ %><div class="modal-body">
+<div class="alert alert-danger">
+</div><div class="row">
+<div class="col-12 mb-3">
+<%= ::Temple::Utils.escape_html((f.label :school, t('content.main.cv.new.education.school'), for: "#{id}_school")) %>
+<%= ::Temple::Utils.escape_html((f.text_field :school, class: 'form-control', id: "#{id}_school")) %>
+</div></div><div class="row">
+<div class="col-12 mb-3">
+<%= ::Temple::Utils.escape_html((f.label :degree, t('content.main.cv.new.education.degree'), for: "#{id}_degree")) %>
+<%= ::Temple::Utils.escape_html((f.text_field :degree, class: 'form-control', id: "#{id}_degree")) %>
+</div></div><div class="row">
+<div class="col-sm-6 mb-3">
+<%= ::Temple::Utils.escape_html((f.label :started_on, t('content.main.cv.show.education.started_on'), for: "#{id}_started_on")) %>
+<br />
+<%= ::Temple::Utils.escape_html((f.date_select :started_on, { start_year: Date.current.year, end_year: 1900, discard_day: true,
+discard_month: true, include_blank: true, prefix: id.to_s }, class: 'custom-select form-control')) %>
+</div><div class="col-sm-6 mb-3">
+<%= ::Temple::Utils.escape_html((f.label :ended_on, t('content.main.cv.show.education.ended_on'), for: "#{id}_ended_on")) %>
+<br />
+<%= ::Temple::Utils.escape_html((f.date_select :ended_on, { start_year: Date.current.year, end_year: 1900, discard_day: true,
+discard_month: true, include_blank: true, prefix: id.to_s }, class: 'custom-select form-control')) %>
+</div></div><div class="row">
+<div class="col-12">
+<%= ::Temple::Utils.escape_html((f.label :description, t('content.main.cv.show.entries.description'), for: "#{id}_description")) %>
+<%= ::Temple::Utils.escape_html((f.text_area :description, class: 'form-control', rows: 2, id: "#{id}_description")) %>
+</div></div></div><div class="modal-footer">
+<%= ::Temple::Utils.escape_html((f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-standard')) %>
+<%= ::Temple::Utils.escape_html((f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') },
+class: 'btn btn-standard')) %>
+</div><% end %><%= ::Temple::Utils.escape_html((_slim_controls1)) %>

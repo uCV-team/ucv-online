@@ -1,0 +1,9 @@
+<div class="modal fade"<% _slim_codeattributes1 = id; if _slim_codeattributes1; if _slim_codeattributes1 == true %> id=""<% else %> id="<%= ::Temple::Utils.escape_html((_slim_codeattributes1)) %>"<% end; end %> role="dialog">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h4><%= ::Temple::Utils.escape_html((title)) %>
+</h4><button<% _slim_codeattributes2 = t('content.main.aria_labels.close'); if _slim_codeattributes2; if _slim_codeattributes2 == true %> aria-label=""<% else %> aria-label="<%= ::Temple::Utils.escape_html((_slim_codeattributes2)) %>"<% end; end %> class="close" data-dismiss="modal">
+<span aria-hidden="true">&times;</span>
+</button></div><%= ::Temple::Utils.escape_html((yield)) %>
+</div></div></div>

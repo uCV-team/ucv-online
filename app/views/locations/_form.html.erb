@@ -1,0 +1,20 @@
+<% _slim_controls1 = form_with model: @location do |f|
+ %><div class="modal-body">
+<div class="alert alert-danger">
+</div><div class="row">
+<div class="autocomplete col-lg-9 mb-3">
+<%= ::Temple::Utils.escape_html((f.label :orginial_address, t('content.main.cv.new.location.address'), for: "#{id}_address")) %>
+<%= ::Temple::Utils.escape_html((f.text_field :original_address, autocomplete: 'off', class: 'form-control', id: "#{id}_address")) %>
+<div class="autocomplete-results position-absolute" id="<%= ::Temple::Utils.escape_html((id)) %>_results">
+<ul>
+</ul></div></div><div class="col-lg-3 mb-3">
+<%= ::Temple::Utils.escape_html((f.label :radius, t('content.main.cv.new.location.radius'), for: "#{id}_radius")) %>
+<%= ::Temple::Utils.escape_html((f.number_field :radius, value: 10, min: 0, class: 'form-control', id: "#{id}_radius")) %>
+
+</div></div></div><div class="modal-footer">
+<%= ::Temple::Utils.escape_html((f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-standard')) %>
+<%= ::Temple::Utils.escape_html((f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') },
+class: 'btn btn-standard')) %>
+
+</div><% end %><%= ::Temple::Utils.escape_html((_slim_controls1)) %><script>
+initAutocomplete('<%= ::Temple::Utils.escape_html((id)) %>', '<%= ::Temple::Utils.escape_html((api_token)) %>');</script>

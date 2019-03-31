@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<title>PubliCV
+</title>
+<%= ::Temple::Utils.escape_html((csrf_meta_tags)) %>
+<%= ::Temple::Utils.escape_html((csp_meta_tag)) %>
+
+<%= ::Temple::Utils.escape_html((stylesheet_pack_tag 'stylesheets', media: 'all', 'data-turbolinks-track': 'reload')) %>
+<%= ::Temple::Utils.escape_html((javascript_pack_tag 'application', 'data-turbolinks-track': 'reload')) %>
+<%= ::Temple::Utils.escape_html((yield :header)) %>
+</head></html><body<% _temple_html_attributeremover1 = (::Temple::Utils.escape_html((controller.controller_name))).to_s %><% if !_temple_html_attributeremover1.empty? %> class="<%= _temple_html_attributeremover1 %>"<% end %>>
+<div class="d-flex flex-column h-100">
+<header>
+<nav class="d-flex align-items-center px-3">
+<% if user_signed_in?
+ %><%= ::Temple::Utils.escape_html((link_to t('layouts.nav.home'), root_path, class: 'px-3')) %>
+<%= ::Temple::Utils.escape_html((link_to t('layouts.nav.search'), search_path, class: 'px-3')) %>
+<%= ::Temple::Utils.escape_html((link_to t('layouts.nav.logout'), destroy_user_session_path, method: :delete, class: 'ml-auto px-3')) %>
+<% else
+ %><%= ::Temple::Utils.escape_html((link_to t('layouts.nav.login'), new_user_session_path, class: 'px-3')) %>
+<% end %></nav></header><main class="flex-fill">
+<% flash.each do |type, message|
+next if type == 'timedout' # This is because of https://github.com/plataformatec/devise/issues/1777
+ %><div class="container fixed-bottom mb-3 transparent">
+<div<% _temple_html_attributeremover2 = ''; _temple_html_attributemerger1 = []; _temple_html_attributemerger1[0] = "alert"; _temple_html_attributemerger1[1] = "alert-dismissible"; _temple_html_attributemerger1[2] = "m-0"; _temple_html_attributemerger1[3] = ''; _slim_codeattributes1 = alert_class_for(type); if Array === _slim_codeattributes1; _slim_codeattributes1 = _slim_codeattributes1.flatten; _slim_codeattributes1.map!(&:to_s); _slim_codeattributes1.reject!(&:empty?); _temple_html_attributemerger1[3] << ((::Temple::Utils.escape_html((_slim_codeattributes1.join(" ")))).to_s); else; _temple_html_attributemerger1[3] << ((::Temple::Utils.escape_html((_slim_codeattributes1))).to_s); end; _temple_html_attributemerger1[3]; _temple_html_attributeremover2 << ((_temple_html_attributemerger1.reject(&:empty?).join(" ")).to_s); _temple_html_attributeremover2 %><% if !_temple_html_attributeremover2.empty? %> class="<%= _temple_html_attributeremover2 %>"<% end; _slim_codeattributes2 = alert; if _slim_codeattributes2; if _slim_codeattributes2 == true %> role=""<% else %> role="<%= ::Temple::Utils.escape_html((_slim_codeattributes2)) %>"<% end; end %>>
+<button<% _slim_codeattributes3 = t('content.main.aria_labels.close'); if _slim_codeattributes3; if _slim_codeattributes3 == true %> aria-label=""<% else %> aria-label="<%= ::Temple::Utils.escape_html((_slim_codeattributes3)) %>"<% end; end %> class="close" data-dismiss="alert">
+<span aria-hidden="true">&times;</span>
+</button><%= ::Temple::Utils.escape_html((message)) %>
+</div></div><% end %><%= ::Temple::Utils.escape_html((yield)) %>
+</main><footer>
+<p><%= ::Temple::Utils.escape_html((t('layouts.footer.footer_text'))) %>
+</p></footer></div></body>

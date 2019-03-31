@@ -1,0 +1,16 @@
+<div class="auth-form px-5 py-3">
+<h2 class="text-center"><%= ::Temple::Utils.escape_html((t('devise.passwords.forgot_password'))) %>
+</h2><p class="text-center"><%= ::Temple::Utils.escape_html((t('devise.passwords.forgot_password_text'))) %>
+
+</p><% _slim_controls1 = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+ %><div class="alert alert-danger">
+<%= ::Temple::Utils.escape_html((devise_error_messages!)) %>
+</div><div class="field mb-3">
+<%= ::Temple::Utils.escape_html((f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: t('devise.sessions.email'),
+class: 'form-control')) %>
+</div><div class="actions mb-2">
+<%= ::Temple::Utils.escape_html((f.submit t('devise.passwords.send_button'), data: { disable_with: t('devise.passwords.sending_button') },
+class: 'btn btn-login')) %>
+
+</div><% end %><%= ::Temple::Utils.escape_html((_slim_controls1)) %><%= ::Temple::Utils.escape_html((render 'devise/shared/links')) %>
+</div>
