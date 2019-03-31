@@ -1,4 +1,8 @@
 [] Creazione CV
+- [] descrizione breve (keywords cameriere, commesso etc. )
+- [] partita iva
+- [] automunito
+- [] lavoro temporaneo / indeterminato etc.
 [] Stampa CV
 [] Servizio online con termini legali
 -- Termini Servizio

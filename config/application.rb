@@ -8,8 +8,8 @@ module Publicv
   class Application < Rails::Application
     config.load_defaults 5.2
 
-    config.time_zone = 'Zurich'
-    config.i18n.default_locale = :en
+    config.time_zone = 'Rome'
+    config.i18n.default_locale = :it
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     config.action_mailer.default_url_options = { host: ENV['APP_HOST'], port: ENV['APP_PORT'] }
   end
