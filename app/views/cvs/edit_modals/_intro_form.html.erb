@@ -1,29 +1,38 @@
-<%= render 'shared/modal_header', id: 'edit_cv_intro', title: t('content.main.cv.edit.intro.title') do
-_slim_controls2 = form_with model: @cv do |f|
- %><div class="modal-body">
-<div class="alert alert-danger">
-</div><div class="needs-validation" novalidate="">
-<div class="row">
-<% _slim_controls3 = f.fields_for :user, @cv.user do |user_fields|
- %><div class="col-sm-6 mb-3">
-<%= user_fields.label :first_name, t('content.main.cv.edit.intro.first_name') %>
-<%= user_fields.text_field :first_name, class: 'form-control' %>
-</div><div class="col-sm-6 mb-3">
-<%= user_fields.label :last_name, t('content.main.cv.edit.intro.last_name') %>
-<%= user_fields.text_field :last_name, class: 'form-control' %>
-</div><% end %><%= _slim_controls3 %></div><div class="row">
-<div class="col-12 mb-3">
-<%= f.label :about, t('content.main.cv.edit.intro.about') %>
-<%= f.text_area :about, class: 'form-control' %>
-</div></div><div class="row">
-<div class="col-12">
-
-
-<%= f.label :birth_date, t('content.main.cv.edit.intro.birth_date') %>
-<br />
-<%= f.date_select :birth_date, { start_year: Date.current.year - 20, end_year: 1900 },
-class: 'form-control' %>
-</div></div></div></div><div class="modal-footer">
-<%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-standard' %>
-<%= f.submit t('content.main.buttons.save'), class: 'btn btn-standard' %>
-</div><% end %><%= _slim_controls2 %><% end %>
+<%= render 'shared/modal_header', id: 'edit_cv_intro', title: t('content.main.cv.edit.intro.title') do %>
+<%= form_with model: @cv do |f| %>
+<div class="modal-body">
+  <div class="alert alert-danger"></div>
+  <div class="needs-validation" novalidate>
+    <div class="row">
+      <%= f.fields_for :user, @cv.user do |user_fields| %>
+      <div class="col-sm-6 mb-3">
+        <%= user_fields.label :first_name, t('content.main.cv.edit.intro.first_name') %>
+        <%= user_fields.text_field :first_name, class: 'form-control' %>
+      </div>
+      <div class="col-sm-6 mb-3">
+        <%= user_fields.label :last_name, t('content.main.cv.edit.intro.last_name') %>
+        <%= user_fields.text_field :last_name, class: 'form-control' %>
+      </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="col-12 mb-3">
+        <%= f.label :about, t('content.main.cv.edit.intro.about') %>
+        <%= f.text_area :about, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <%= f.label :birth_date, t('content.main.cv.edit.intro.birth_date') %>
+        <br />
+        <%= f.date_select :birth_date, { start_year: Date.current.year - 20, end_year: 1900 }, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-standard' %>
+  <%= f.submit t('content.main.buttons.save'), class: 'btn btn-standard' %>
+</div>
+<% end %>
+<% end %>
