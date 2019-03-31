@@ -7,6 +7,7 @@ class SearchesService
   def coordinates_list
     @search_results.map do |result|
       next if result.locations.empty?
+
       name = "#{result.user.first_name} #{result.user.last_name}"
       location = location_coordinates(result.locations.first)
       formatted_element(name, location)

@@ -6,13 +6,13 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
 
-  after_initialize :create_cv, if: :new_record?
+  after_initialize :prepare_blank_cv, if: :new_record?
 
   accepts_nested_attributes_for :cv
 
   private
 
-  def create_cv
+  def prepare_blank_cv
     self.cv ||= Cv.new
   end
 end

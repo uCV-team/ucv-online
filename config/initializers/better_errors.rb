@@ -1,3 +1,1 @@
-if defined?(BetterErrors)
-  BetterErrors.editor = :atom
-end
+BetterErrors.editor = :atom if defined?(BetterErrors)

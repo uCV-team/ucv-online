@@ -1,8 +1,4 @@
 module CvsHelper
-  def full_name(user)
-    "#{user.first_name} #{user.last_name}"
-  end
-
   def study_period(started_on, ended_on)
     get_period(started_on&.year, ended_on&.year)
   end

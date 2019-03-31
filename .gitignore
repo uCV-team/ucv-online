@@ -18,6 +18,7 @@ tags
 /coverage
 /public/packs
 /public/packs-test
+/public/system
 yarn-debug.log*
 .yarn-integrity
 /public/packs

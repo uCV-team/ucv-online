@@ -14,4 +14,9 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :test
   config.active_support.deprecation = :stderr
   config.action_view.raise_on_missing_translations = true
+
+  # Paperclip config
+  config.paperclip_defaults = {
+    path: 'tmp/test_files/:class/:attachment/:id_partition/:style/:filename'
+  }
 end

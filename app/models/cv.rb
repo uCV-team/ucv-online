@@ -15,6 +15,12 @@ class Cv < ApplicationRecord
 
   accepts_nested_attributes_for :user
 
+  has_attached_file :headshot,
+                    styles: { default: '185x185#', large: '370x370#' },
+                    default_url: '/images/:style/missing_headshot.png'
+  validates_attachment :headshot, size: { in: 40..4000.kilobytes },
+                                  content_type: { content_type: ['image/jpeg', 'image/png'] }
+
   # TODO: Replace hard coded dictionary with locale
   pg_search_scope :full_text_search,
                   against: {
@@ -49,4 +55,8 @@ class Cv < ApplicationRecord
                     ]
                   },
                   using: { tsearch: { prefix: true, dictionary: 'english' } }
+
+  def abbr_name
+    "#{user.first_name} #{user.last_name[0]}."
+  end
 end

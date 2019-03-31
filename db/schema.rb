@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_103112) do
+ActiveRecord::Schema.define(version: 2019_03_31_120213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(version: 2018_11_19_103112) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "interests"
+    t.string "headshot_file_name"
+    t.string "headshot_content_type"
+    t.bigint "headshot_file_size"
+    t.datetime "headshot_updated_at"
     t.index ["user_id"], name: "index_cvs_on_user_id"
   end
 
