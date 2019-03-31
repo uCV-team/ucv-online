@@ -1,4 +1,4 @@
-<% render 'shared/modal_header', id: 'edit_cv_intro', title: t('content.main.cv.edit.intro.title') do
+<%= render 'shared/modal_header', id: 'edit_cv_intro', title: t('content.main.cv.edit.intro.title') do
 _slim_controls2 = form_with model: @cv do |f|
  %><div class="modal-body">
 <div class="alert alert-danger">
@@ -14,7 +14,7 @@ _slim_controls2 = form_with model: @cv do |f|
 </div><% end %><%= _slim_controls3 %></div><div class="row">
 <div class="col-12 mb-3">
 <%= f.label :about, t('content.main.cv.edit.intro.about') %>
-<%= f.text_field :about, class: 'form-control' %>
+<%= f.text_area :about, class: 'form-control' %>
 </div></div><div class="row">
 <div class="col-12">
 
