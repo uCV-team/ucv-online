@@ -1,5 +1,5 @@
-<h4><%= ::Temple::Utils.escape_html((t('content.main.cv.error.title', count: education.errors.count))) %>
+<h4><%= t('content.main.cv.error.title', count: education.errors.count) %>
 </h4><ul>
 <% education.errors.full_messages.each do |message|
- %><li><%= ::Temple::Utils.escape_html((message)) %>
+ %><li><%= message %>
 </li><% end %></ul>

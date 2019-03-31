@@ -1,18 +1,18 @@
-<% _slim_controls1 = form_with model: [:cv, @language] do |f|
+<%= form_with model: [:cv, @language] do |f|
  %><div class="modal-body">
 <div class="alert alert-danger">
 </div><div class="row">
 <div class="col-12 mb-3">
-<%= ::Temple::Utils.escape_html((f.label :language, t('content.main.cv.new.language.language'), for: "#{id}_language")) %>
-<%= ::Temple::Utils.escape_html((f.text_field :language, class: 'form-control', id: "#{id}_language")) %>
+<%= f.label :language, t('content.main.cv.new.language.language'), for: "#{id}_language" %>
+<%= f.text_field :language, class: 'form-control', id: "#{id}_language" %>
 </div></div><div class="row">
 <div class="col-12">
-<%= ::Temple::Utils.escape_html((f.label :level, t('content.main.cv.new.language.level'), for: "#{id}_level")) %>
+<%= f.label :level, t('content.main.cv.new.language.level'), for: "#{id}_level" %>
 <br />
-<%= ::Temple::Utils.escape_html((f.select :level, options_from_collection_for_select(cefr_level_options, :first, :last), {},
-class: 'custom-select form-control', id: "#{id}_level")) %>
+<%= f.select :level, options_from_collection_for_select(cefr_level_options, :first, :last), {},
+class: 'custom-select form-control', id: "#{id}_level" %>
 </div></div></div><div class="modal-footer">
-<%= ::Temple::Utils.escape_html((f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-standard')) %>
-<%= ::Temple::Utils.escape_html((f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') },
-class: 'btn btn-standard')) %>
-</div><% end %><%= ::Temple::Utils.escape_html((_slim_controls1)) %>
+<%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-standard' %>
+<%= f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') },
+class: 'btn btn-standard' %>
+</div><% end %>

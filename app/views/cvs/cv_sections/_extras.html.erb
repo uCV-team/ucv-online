@@ -1,10 +1,10 @@
 <div class="cv-extras position-relative">
-<h3><%= ::Temple::Utils.escape_html((t('content.main.cv.show.extras'))) %>
-</h3><h5><%= ::Temple::Utils.escape_html((t('content.main.cv.show.interests'))) %>
-</h5><p><%= ::Temple::Utils.escape_html((@cv.interests.presence)) %>
-</p><h5><%= ::Temple::Utils.escape_html((t('content.main.cv.show.future_plans'))) %>
-</h5><p><%= ::Temple::Utils.escape_html((@cv.future_plans.presence)) %>
+<h3><%= t('content.main.cv.show.extras') %>
+</h3><h5><%= t('content.main.cv.show.interests') %>
+</h5><p><%= @cv.interests.presence %>
+</p><h5><%= t('content.main.cv.show.future_plans') %>
+</h5><p><%= @cv.future_plans.presence %>
 
-</p><% _slim_controls1 = link_to edit_cv_section_path(section: :extras), remote: true, class: 'btn-cv btn-edit top-right' do
+</p><% link_to edit_cv_section_path(section: :extras), remote: true, class: 'btn-cv btn-edit top-right' do
  %><i class="fas fa-pencil-alt">
-</i><% end %><%= ::Temple::Utils.escape_html((_slim_controls1)) %></div>
+</i><% end %></div>

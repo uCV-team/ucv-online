@@ -1,5 +1,5 @@
 <% content_for :header do
- %><script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=<%= ::Temple::Utils.escape_html((ENV['GOOGLE_API_KEY'])) %>&amp;callback=initMap">
+ %><script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&amp;callback=initMap">
 
 </script><% end %><div class="google-map" id="map">
 </div>

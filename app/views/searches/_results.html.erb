@@ -1,4 +1,4 @@
 <% @results.each do |cv|
  %><div class="entry position-relative mb-3">
-<h5><%= ::Temple::Utils.escape_html((full_name(cv.user))) %>
+<h5><%= full_name(cv.user) %>
 </h5></div><% end %>

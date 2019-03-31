@@ -1,17 +1,17 @@
-<% _slim_controls1 = render 'shared/modal_header', id: 'edit_cv_skills', title: t('content.main.cv.edit.skills.title') do
+<% render 'shared/modal_header', id: 'edit_cv_skills', title: t('content.main.cv.edit.skills.title') do
 _slim_controls2 = form_with model: @cv do |f|
  %><div class="modal-body">
 <div class="alert alert-danger">
 </div><div class="needs-validation" novalidate="">
 <div class="row">
 <div class="col-12 mb-3">
-<%= ::Temple::Utils.escape_html((f.label :working_skills, t('content.main.cv.show.skills.working_skills'))) %>
-<%= ::Temple::Utils.escape_html((f.text_field :working_skills, class: 'form-control')) %>
+<%= f.label :working_skills, t('content.main.cv.show.skills.working_skills') %>
+<%= f.text_field :working_skills, class: 'form-control' %>
 </div></div><div class="row">
 <div class="col-12 mb-3">
-<%= ::Temple::Utils.escape_html((f.label :skills, t('content.main.cv.show.skills.other_skills'))) %>
-<%= ::Temple::Utils.escape_html((f.text_field :skills, class: 'form-control')) %>
+<%= f.label :skills, t('content.main.cv.show.skills.other_skills') %>
+<%= f.text_field :skills, class: 'form-control' %>
 </div></div></div></div><div class="modal-footer">
-<%= ::Temple::Utils.escape_html((f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-standard')) %>
-<%= ::Temple::Utils.escape_html((f.submit t('content.main.buttons.save'), class: 'btn btn-standard')) %>
-</div><% end %><%= ::Temple::Utils.escape_html((_slim_controls2)) %><% end %><%= ::Temple::Utils.escape_html((_slim_controls1)) %>
+<%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-standard' %>
+<%= f.submit t('content.main.buttons.save'), class: 'btn btn-standard' %>
+</div><% end %><%= _slim_controls2 %><% end %>

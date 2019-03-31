@@ -3,7 +3,7 @@
   </h2><p class="text-center"><%= t('devise.sessions.sign_in_text') %>
 
   </p>
-  <% form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field mb-2">
     <%= f.email_field(:email, autofocus: true, autocomplete: 'email', placeholder: t('devise.sessions.email'), class: 'form-control') %>
   </div>

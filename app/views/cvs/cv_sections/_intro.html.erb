@@ -1,24 +1,24 @@
 <div class="cv-intro position-relative mb-3">
 <div class="photo float-left mb-3 mr-3">
 <p>Photo</p>
-</div><h3><%= ::Temple::Utils.escape_html((full_name(current_user))) %>
+</div><h3><%= full_name(current_user) %>
 </h3><% if @cv.birth_date.present?
- %><p><%= ::Temple::Utils.escape_html((t('content.main.cv.show.intro.birth_date', day: @cv.birth_date.day, month: @cv.birth_date.strftime('%B'),
-year: @cv.birth_date.year))) %>
-</p><% end %><p><%= ::Temple::Utils.escape_html((@cv.about.presence)) %>
+ %><p><%= t('content.main.cv.show.intro.birth_date', day: @cv.birth_date.day, month: @cv.birth_date.strftime('%B'),
+year: @cv.birth_date.year) %>
+</p><% end %><p><%= @cv.about.presence %>
 </p><div class="clearfix">
 
-</div><%= ::Temple::Utils.escape_html((link_to 'Add new location', new_location_path, remote: true)) %>
+</div><%= link_to 'Add new location', new_location_path, remote: true %>
 <% current_user.locations.chronological_order.each do |location|
  %><div class="entry position-relative mb-3">
-<h6><%= ::Temple::Utils.escape_html((location.city)) %>
-</h6><p><%= ::Temple::Utils.escape_html((location.original_address)) %>
-</p><p><%= ::Temple::Utils.escape_html((location.geocoded_address)) %>
-</p><p><%= ::Temple::Utils.escape_html(("Coords: #{location.latitude} | #{location.longitude}")) %>
-</p><%= ::Temple::Utils.escape_html((link_to 'Edit', edit_location_path(location), remote: true)) %>
+<h6><%= location.city %>
+</h6><p><%= location.original_address %>
+</p><p><%= location.geocoded_address %>
+</p><p><%= "Coords: #{location.latitude} | #{location.longitude}" %>
+</p><%= link_to 'Edit', edit_location_path(location), remote: true %>
  | 
-<%= ::Temple::Utils.escape_html((link_to 'Delete', location_path(location), method: :delete, data: { confirm: t('confirmation') })) %>
+<%= link_to 'Delete', location_path(location), method: :delete, data: { confirm: t('confirmation') } %>
 
-</div><% end; _slim_controls1 = link_to edit_cv_section_path(section: :intro), remote: true, class: 'btn-cv btn-edit top-right' do
+</div><% end; link_to edit_cv_section_path(section: :intro), remote: true, class: 'btn-cv btn-edit top-right' do
  %><i class="fas fa-pencil-alt">
-</i><% end %><%= ::Temple::Utils.escape_html((_slim_controls1)) %></div><hr class="mb-3" />
+</i><% end %></div><hr class="mb-3" />

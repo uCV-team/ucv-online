@@ -1,10 +1,10 @@
 <div class="cv-skills position-relative mb-3">
-<h3><%= ::Temple::Utils.escape_html((t('content.main.cv.show.skills.title'))) %>
-</h3><h5><%= ::Temple::Utils.escape_html((t('content.main.cv.show.skills.working_skills'))) %>
-</h5><p><%= ::Temple::Utils.escape_html((@cv.working_skills.presence)) %>
-</p><h5><%= ::Temple::Utils.escape_html((t('content.main.cv.show.skills.other_skills'))) %>
-</h5><p><%= ::Temple::Utils.escape_html((@cv.skills.presence)) %>
+<h3><%= t('content.main.cv.show.skills.title') %>
+</h3><h5><%= t('content.main.cv.show.skills.working_skills') %>
+</h5><p><%= @cv.working_skills.presence %>
+</p><h5><%= t('content.main.cv.show.skills.other_skills') %>
+</h5><p><%= @cv.skills.presence %>
 
-</p><% _slim_controls1 = link_to edit_cv_section_path(section: :skills), remote: true, class: 'btn-cv btn-edit top-right' do
+</p><% link_to edit_cv_section_path(section: :skills), remote: true, class: 'btn-cv btn-edit top-right' do
  %><i class="fas fa-pencil-alt">
-</i><% end %><%= ::Temple::Utils.escape_html((_slim_controls1)) %></div><hr class="mb-3" />
+</i><% end %></div><hr class="mb-3" />

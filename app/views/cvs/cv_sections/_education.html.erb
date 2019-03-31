@@ -1,18 +1,18 @@
 <div class="cv-education position-relative mb-3">
-<h3><%= ::Temple::Utils.escape_html((t('content.main.cv.show.education.title'))) %>
+<h3><%= t('content.main.cv.show.education.title') %>
 </h3><% @cv.educations.chronological_order.each do |education|
  %><div class="entry position-relative mb-3">
-<h6><%= ::Temple::Utils.escape_html((education.school)) %>
-</h6><p><%= ::Temple::Utils.escape_html((t('content.main.cv.show.education.degree', degree: education.degree) if education.degree.present?)) %>
-</p><p class="light"><%= ::Temple::Utils.escape_html((study_period(education.started_on, education.ended_on))) %>
-</p><p><%= ::Temple::Utils.escape_html((education.description.presence)) %>
+<h6><%= education.school %>
+</h6><p><%= t('content.main.cv.show.education.degree', degree: education.degree) if education.degree.present? %>
+</p><p class="light"><%= study_period(education.started_on, education.ended_on) %>
+</p><p><%= education.description.presence %>
 </p><div class="d-flex top-right">
-<% _slim_controls1 = link_to edit_cv_education_path(education), remote: true, class: 'btn-cv btn-edit' do
+<% link_to edit_cv_education_path(education), remote: true, class: 'btn-cv btn-edit' do
  %><i class="fas fa-pencil-alt">
-</i><% end %><%= ::Temple::Utils.escape_html((_slim_controls1)) %><% _slim_controls2 = link_to cv_education_path(education), method: :delete, data: { confirm: t('confirmation') },
+</i><% end %><% _slim_controls2 = link_to cv_education_path(education), method: :delete, data: { confirm: t('confirmation') },
 class: 'btn-cv btn-delete' do
  %><i class="fas fa-trash-alt">
 
-</i><% end %><%= ::Temple::Utils.escape_html((_slim_controls2)) %></div></div><% end; _slim_controls3 = link_to new_cv_education_path, remote: true, class: 'btn-cv btn-new top-right' do
+</i><% end %><%= _slim_controls2 %></div></div><% end; _slim_controls3 = link_to new_cv_education_path, remote: true, class: 'btn-cv btn-new top-right' do
  %><i class="fas fa-plus">
-</i><% end %><%= ::Temple::Utils.escape_html((_slim_controls3)) %></div><hr class="mb-3" />
+</i><% end %><%= _slim_controls3 %></div><hr class="mb-3" />

@@ -1,4 +1,4 @@
-<% _slim_controls1 = render 'shared/modal_header', id: "edit_cv_experience_#{@experience.id}",
+<% render 'shared/modal_header', id: "edit_cv_experience_#{@experience.id}",
 title: t('content.main.cv.edit.experience.title') do
- %><%= ::Temple::Utils.escape_html((render 'form', id: "edit_cv_experience_#{@experience.id}")) %>
-<% end %><%= ::Temple::Utils.escape_html((_slim_controls1)) %>
+ %><%= render 'form', id: "edit_cv_experience_#{@experience.id}" %>
+<% end %>
