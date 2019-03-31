@@ -30,7 +30,7 @@ it:
           extras:
             title: "Edit extras"
           intro:
-            about: "About"
+            about: "Presentazione breve (è importantissima!)"
             birth_date: "Date of birth"
             title: "Edit intro"
             first_name: "First name *"
@@ -91,7 +91,8 @@ it:
         header: "Search"
   layouts:
     footer:
-      footer_text: "Footer goes here"
+      footer_html: |
+        publiCV &copy; Corsidia Education - Associazione Culturale CF: 97766310151 - Via Tagliamento 5, Paderno Dugnano (MI)
     nav:
       home: "Home"
       login: "Login"

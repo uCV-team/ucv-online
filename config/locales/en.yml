@@ -92,7 +92,7 @@ en:
         header: "Search"
   layouts:
     footer:
-      footer_text: "Footer goes here"
+      footer_html: "Footer goes here"
     nav:
       home: "Home"
       login: "Login"

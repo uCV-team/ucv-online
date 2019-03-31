@@ -4,9 +4,9 @@
   </div>
   <h3><%= @cv.abbr_name %></h3>
   <p>
+    <%= @cv.gender_female? ? 'Nata' : 'Nato' %> a <%= @cv.birth_place %> il
     <%= l(@cv.birth_date, format: :long) if @cv.birth_date.present? %>.
   </p>
-  <% end %>
   <p><%= @cv.about.presence %></p>
   <div class="clearfix"></div>
   <%= link_to 'Add new location', new_location_path, remote: true %>

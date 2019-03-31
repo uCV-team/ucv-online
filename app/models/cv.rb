@@ -1,7 +1,7 @@
 class Cv < ApplicationRecord
   include PgSearch
 
-  ABOUT_MAX_LENGTH = 120
+  ABOUT_MAX_LENGTH = 140
   CV_SECTIONS = %w[intro skills extras].freeze
 
   belongs_to :user
@@ -58,5 +58,9 @@ class Cv < ApplicationRecord
 
   def abbr_name
     "#{user.first_name} #{user.last_name[0]}."
+  end
+
+  def gender_female?
+    gender == 'f'
   end
 end
