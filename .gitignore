@@ -19,3 +19,8 @@ tags
 /public/packs-test
 yarn-debug.log*
 .yarn-integrity
+/public/packs
+/public/packs-test
+/node_modules
+yarn-debug.log*
+.yarn-integrity
