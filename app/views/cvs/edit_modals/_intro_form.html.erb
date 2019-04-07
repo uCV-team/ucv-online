@@ -18,11 +18,11 @@
       <div class="row">
         <div class="col-6 mb-3">
           <%= f.label :about, t('content.main.cv.edit.intro.about') %>
-          <%= f.text_area :about, class: 'form-control', placeholder: 'Scrivi qui chi sei e cosa cerchi in una breve frase...' %>
+          <%= f.text_area :about, class: 'form-control', placeholder: 'Scrivi qui cosa sai fare, che esperienza hai e cosa cerchi in una breve frase. Es.: Programmatore con 7 anni di esperienza cerca...' %>
         </div>
         <div class="col-6 mb-3">
           <%= f.label :headshot %>
-          <%= f.file_field :headshot, class: 'form-control' %>
+          <%= f.file_field :headshot, accept: 'image/jpeg, image/png', class: 'form-control' %>
         </div>
       </div>
       <div class="row">
@@ -32,20 +32,34 @@
           <%= f.date_select :birth_date, { start_year: Date.current.year - 20, end_year: 1900 }, class: 'form-control' %>
         </div>
         <div class="col-4">
-          <%= f.label :birth_place %>
-          <br />
-          <%= f.text_field :birth_place %>
+          <div class="row">
+            <%= f.label :birth_place %>
+            <%= f.text_field :birth_place, class: 'form-control' %>
+          </div>
+
+          <div class="row">
+              <%= f.label :gender %>
+              <div class="form-control">
+                <%= f.label :gender, for: "femminile", class:'nolabel', data: { icon: 'female' } do %>
+                <i class="fa fa-female"></i>
+                <% end %>
+                <%= f.radio_button :gender, "f", id:"femminile", data: { icon: "female" } %>
+                &nbsp;&nbsp;&nbsp;
+                <%= f.label :gender, for: "maschile", class:'nolabel', data: { icon: 'male' } do %>
+                <i class="fa fa-male"></i>
+                <% end %>
+                <%= f.radio_button :gender, "m", id:"maschile", data: { icon: "male" } %>
+              </div>
+            </div>
         </div>
         <div class="col-4">
-          <%= f.label :gender %>
-          <%= f.radio_button :gender, "f", id:"femminile", data: { icon: "female" }, class: 'form-control' %>
-          <%= f.label :gender, for: "femminile", class:'nolabel', data: { icon: 'female' } do %>
-          <i class="fa fa-female"></i>
-          <% end %>
-          <%= f.radio_button :gender, "m", id:"maschile", data: { icon: "male" }, class: 'form-control' %>
-          <%= f.label :gender, for: "maschile", class:'nolabel', data: { icon: 'male' } do %>
-          <i class="fa fa-male"></i>
-          <% end %>
+          <!-- CHECKBOXES
+          - sono automunito/a
+          - disponibile a trasferte
+          - ho partita iva
+          - percepisco il Reddito di Cittadinanza
+          - senza esperienza (cerco un tirocinio)
+          - (categorie protette ai sensi della legge 68/99 tipo jobmetoo) -->
         </div>
       </div>
     </div>
@@ -55,4 +69,4 @@
     <%= f.submit t('content.main.buttons.save'), class: 'btn btn-standard' %>
   </div>
   <% end %>
-<% end %>
+  <% end %>

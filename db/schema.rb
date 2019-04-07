@@ -10,29 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_31_131649) do
+ActiveRecord::Schema.define(version: 2019_04_06_094706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cvs", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "photo"
-    t.string "phone_number"
-    t.string "working_skills"
+    # t.string "photo"
+    t.string "phone_number", limit: 255
+    t.string "working_skills", limit: 255
     t.date "birth_date"
-    t.text "about"
-    t.text "skills"
-    t.text "future_plans"
+    t.string "about", limit: 255
+    t.string "skills", limit: 255
+    t.string "future_plans", limit: 255
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "interests"
-    t.string "headshot_file_name"
-    t.string "headshot_content_type"
+    t.string "interests", limit: 255
+    t.string "headshot_file_name", limit: 255
+    t.string "headshot_content_type", limit: 255
     t.bigint "headshot_file_size"
     t.datetime "headshot_updated_at"
     t.string "gender", limit: 1, default: "f"
-    t.string "birth_place"
+    t.string "birth_place", limit: 255
     t.index ["user_id"], name: "index_cvs_on_user_id"
   end
 
@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 2019_03_31_131649) do
     t.bigint "cv_id", null: false
     t.date "started_on"
     t.date "ended_on"
-    t.string "degree"
-    t.string "school", null: false
-    t.text "description"
+    t.string "degree", limit: 255
+    t.string "school", null: false, limit: 255
+    t.string "description", limit: 255
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cv_id"], name: "index_educations_on_cv_id"
@@ -52,10 +52,10 @@ ActiveRecord::Schema.define(version: 2019_03_31_131649) do
     t.bigint "cv_id", null: false
     t.date "started_on"
     t.date "ended_on"
-    t.string "company", null: false
-    t.string "location"
-    t.string "title", null: false
-    t.text "description"
+    t.string "company", null: false, limit: 255
+    t.string "location", limit: 255
+    t.string "title", null: false, limit: 255
+    t.string "description", limit: 255
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cv_id"], name: "index_experiences_on_cv_id"
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 2019_03_31_131649) do
 
   create_table "languages", force: :cascade do |t|
     t.bigint "cv_id", null: false
-    t.string "language", null: false
-    t.string "level"
+    t.string "language", null: false, limit: 255
+    t.string "level", limit: 255
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cv_id"], name: "index_languages_on_cv_id"
@@ -75,23 +75,23 @@ ActiveRecord::Schema.define(version: 2019_03_31_131649) do
     t.float "latitude"
     t.float "longitude"
     t.integer "radius"
-    t.string "city"
-    t.string "country"
-    t.string "geocoded_address"
-    t.string "original_address", null: false
-    t.string "province_code"
-    t.string "region"
+    t.string "city", limit: 255
+    t.string "country", limit: 255
+    t.string "geocoded_address", limit: 255
+    t.string "original_address", null: false, limit: 255
+    t.string "province_code", limit: 255
+    t.string "region", limit: 255
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "email", null: false
-    t.string "encrypted_password", null: false
-    t.string "reset_password_token"
+    t.string "first_name", null: false, limit: 255
+    t.string "last_name", null: false, limit: 255
+    t.string "email", null: false, limit: 255
+    t.string "encrypted_password", null: false, limit: 255
+    t.string "reset_password_token", limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0, null: false

@@ -1,7 +1,7 @@
 class Cv < ApplicationRecord
   include PgSearch
 
-  ABOUT_MAX_LENGTH = 140
+  ABOUT_MAX_LENGTH = 255
   CV_SECTIONS = %w[intro skills extras].freeze
 
   belongs_to :user
@@ -10,7 +10,7 @@ class Cv < ApplicationRecord
   has_many :languages, dependent: :destroy
   has_many :locations, through: :user
 
-  validates :about, length: { maximum: ABOUT_MAX_LENGTH }
+  # validates :about, length: { maximum: ABOUT_MAX_LENGTH }
   validates :user, uniqueness: true
 
   accepts_nested_attributes_for :user

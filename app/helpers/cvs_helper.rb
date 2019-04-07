@@ -7,6 +7,16 @@ module CvsHelper
     get_period(started_on&.strftime('%B %Y'), ended_on&.strftime('%B %Y'))
   end
 
+  def birth_info_for(cv)
+    return nil unless cv.birth_date.present? || cv.birth_date.present?
+
+    s = []
+    s << (cv.gender_female? ? 'Nata' : 'Nato')
+    s << "a #{cv.birth_place}" if cv.birth_place.present?
+    s << "il #{I18n.l(@cv.birth_date, format: :long)}" if cv.birth_date.present?
+    s.join(' ') + '.'
+  end
+
   private
 
   def get_period(start_date, end_date)

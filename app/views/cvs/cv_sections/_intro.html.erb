@@ -4,12 +4,11 @@
   </div>
   <h3><%= @cv.abbr_name %></h3>
   <p>
-    <%= @cv.gender_female? ? 'Nata' : 'Nato' %> a <%= @cv.birth_place %> il
-    <%= l(@cv.birth_date, format: :long) if @cv.birth_date.present? %>.
+    <%= birth_info_for(@cv) %>
   </p>
   <p><%= @cv.about.presence %></p>
   <div class="clearfix"></div>
-  <%= link_to 'Add new location', new_location_path, remote: true %>
+  <%= link_to 'Aggiungi zona in cui cerchi lavoro', new_location_path, remote: true %>
   <% current_user.locations.chronological_order.each do |location| %>
   <div class="entry position-relative mb-3">
     <h6><%= location.city %></h6>

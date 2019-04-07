@@ -1,5 +1,12 @@
 it:
   activerecord:
+    attributes:
+      cv:
+        date_of_birth: Data di nascita
+        birth_place: Città di nascita
+        gender: Il tuo genere
+        headshot: Una tua foto professionale
+
     errors:
       messages:
         record_invalid: 'Validazione fallita: %{errors}'

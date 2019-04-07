@@ -31,10 +31,10 @@ it:
             title: "Edit extras"
           intro:
             about: "Presentazione breve (è importantissima!)"
-            birth_date: "Date of birth"
-            title: "Edit intro"
-            first_name: "First name *"
-            last_name: "Last name *"
+            birth_date: "Data di nascita"
+            title: "Introduzione: la prima impressione è importante."
+            first_name: "Nome *"
+            last_name: "Cognome *"
           languages:
             title: "Edit language"
           locations:
@@ -90,9 +90,6 @@ it:
       search:
         header: "Search"
   layouts:
-    footer:
-      footer_html: |
-        publiCV &copy; Corsidia Education - Associazione Culturale CF: 97766310151 - Via Tagliamento 5, Paderno Dugnano (MI)
     nav:
       home: "Home"
       login: "Login"

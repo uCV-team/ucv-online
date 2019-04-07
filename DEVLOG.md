@@ -3,6 +3,7 @@
 - [] partita iva
 - [] automunito
 - [] lavoro temporaneo / indeterminato etc.
+- [] campo 2-3 keywords tipo Google my business?
 [] Stampa CV
 [] Servizio online con termini legali
 -- Termini Servizio
