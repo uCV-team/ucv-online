@@ -5,6 +5,7 @@
 - [] lavoro temporaneo / indeterminato etc.
 - [] campo 2-3 keywords tipo Google my business?
 [] Stampa CV
+- [] IMPORTANTE: proteggere dati di contatto da scraping!
 [] Servizio online con termini legali
 -- Termini Servizio
 -- cookies

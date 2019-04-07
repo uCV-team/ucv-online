@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     resources :experiences, except: %i[index show]
     resources :languages, except: %i[index show]
   end
+  resources :cvs, only: [:show] do
+    get '/print', to: 'cvs/printings#show', as: :print
+  end
   resolve('Cv') { [:cv] }
+
   resources :locations, except: %i[index show]
 
   devise_for :users

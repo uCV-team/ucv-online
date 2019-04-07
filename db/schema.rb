@@ -10,15 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_06_094706) do
+ActiveRecord::Schema.define(version: 2019_04_07_182311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cvs", force: :cascade do |t|
     t.bigint "user_id", null: false
-    # t.string "photo"
-    t.string "phone_number", limit: 255
     t.string "working_skills", limit: 255
     t.date "birth_date"
     t.string "about", limit: 255
@@ -41,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_04_06_094706) do
     t.date "started_on"
     t.date "ended_on"
     t.string "degree", limit: 255
-    t.string "school", null: false, limit: 255
+    t.string "school", limit: 255, null: false
     t.string "description", limit: 255
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,9 +50,9 @@ ActiveRecord::Schema.define(version: 2019_04_06_094706) do
     t.bigint "cv_id", null: false
     t.date "started_on"
     t.date "ended_on"
-    t.string "company", null: false, limit: 255
+    t.string "company", limit: 255, null: false
     t.string "location", limit: 255
-    t.string "title", null: false, limit: 255
+    t.string "title", limit: 255, null: false
     t.string "description", limit: 255
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -63,7 +61,7 @@ ActiveRecord::Schema.define(version: 2019_04_06_094706) do
 
   create_table "languages", force: :cascade do |t|
     t.bigint "cv_id", null: false
-    t.string "language", null: false, limit: 255
+    t.string "language", limit: 255, null: false
     t.string "level", limit: 255
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -78,7 +76,7 @@ ActiveRecord::Schema.define(version: 2019_04_06_094706) do
     t.string "city", limit: 255
     t.string "country", limit: 255
     t.string "geocoded_address", limit: 255
-    t.string "original_address", null: false, limit: 255
+    t.string "original_address", limit: 255, null: false
     t.string "province_code", limit: 255
     t.string "region", limit: 255
     t.datetime "created_at", null: false
@@ -87,10 +85,10 @@ ActiveRecord::Schema.define(version: 2019_04_06_094706) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name", null: false, limit: 255
-    t.string "last_name", null: false, limit: 255
-    t.string "email", null: false, limit: 255
-    t.string "encrypted_password", null: false, limit: 255
+    t.string "first_name", limit: 255, null: false
+    t.string "last_name", limit: 255, null: false
+    t.string "email", limit: 255, null: false
+    t.string "encrypted_password", limit: 255, null: false
     t.string "reset_password_token", limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -101,6 +99,7 @@ ActiveRecord::Schema.define(version: 2019_04_06_094706) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tel", limit: 255
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

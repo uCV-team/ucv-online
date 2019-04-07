@@ -35,6 +35,7 @@ it:
             title: "Introduzione: la prima impressione è importante."
             first_name: "Nome *"
             last_name: "Cognome *"
+            tel: "Num. di Cellulare"
           languages:
             title: "Edit language"
           locations:
@@ -58,9 +59,9 @@ it:
             level: "Level"
             title: "Add new language"
           location:
-            address: "Address *"
-            radius: "Radius (in km)"
-            title: "Add new location"
+            address: "Città o indirizzo *"
+            radius: "Raggio (in km), minimo 1"
+            title: "Aggiungi Zona in cui cerchi lavoro"
         show:
           entries:
             description: "Description"

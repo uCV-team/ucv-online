@@ -94,6 +94,7 @@ it:
       first_name: "Nome"
       last_name: "Cognome"
       password: "Password"
+      tel: "Numero di cellulare"
       password_min_length: "Lunghezza minima della password: %{count}"
       password_repeat: "Ripeti la tua password (per sicurezza)"
       destroyed: Arrivederci! L'account è stato cancellato. Speriamo di rivederti presto.

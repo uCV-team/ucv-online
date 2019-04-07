@@ -5,13 +5,17 @@
     <div class="needs-validation" novalidate>
       <div class="row">
         <%= f.fields_for :user, @cv.user do |user_fields| %>
-        <div class="col-sm-6 mb-3">
+        <div class="col-sm-4 mb-3">
           <%= user_fields.label :first_name, t('content.main.cv.edit.intro.first_name') %>
           <%= user_fields.text_field :first_name, class: 'form-control' %>
         </div>
-        <div class="col-sm-6 mb-3">
+        <div class="col-sm-4 mb-3">
           <%= user_fields.label :last_name, t('content.main.cv.edit.intro.last_name') %>
           <%= user_fields.text_field :last_name, class: 'form-control' %>
+        </div>
+        <div class="col-sm-4 mb-3">
+          <%= user_fields.label :tel, t('content.main.cv.edit.intro.tel') %>
+          <%= user_fields.text_field :tel, class: 'form-control' %>
         </div>
         <% end %>
       </div>
@@ -38,19 +42,20 @@
           </div>
 
           <div class="row">
-              <%= f.label :gender %>
-              <div class="form-control">
-                <%= f.label :gender, for: "femminile", class:'nolabel', data: { icon: 'female' } do %>
-                <i class="fa fa-female"></i>
-                <% end %>
-                <%= f.radio_button :gender, "f", id:"femminile", data: { icon: "female" } %>
-                &nbsp;&nbsp;&nbsp;
-                <%= f.label :gender, for: "maschile", class:'nolabel', data: { icon: 'male' } do %>
-                <i class="fa fa-male"></i>
-                <% end %>
-                <%= f.radio_button :gender, "m", id:"maschile", data: { icon: "male" } %>
-              </div>
+            <%#= f.label :gender %>
+            <div class="form-control">
+              <%= f.label :gender, for: "femminile", class:'nolabel', data: { icon: 'female' } do %>
+              <i class="fa fa-female"></i>
+              <% end %>
+              <%= f.radio_button :gender, "f", id:"femminile", data: { icon: "female" } %>
+              &nbsp;&nbsp;&nbsp;
+              <%= f.label :gender, for: "maschile", class:'nolabel', data: { icon: 'male' } do %>
+              <i class="fa fa-male"></i>
+              <% end %>
+              <%= f.radio_button :gender, "m", id:"maschile", data: { icon: "male" } %>
             </div>
+          </div>
+
         </div>
         <div class="col-4">
           <!-- CHECKBOXES

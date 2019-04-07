@@ -8,26 +8,20 @@
   </p>
   <p><%= @cv.about.presence %></p>
   <div class="clearfix"></div>
+
   <%= link_to 'Aggiungi zona in cui cerchi lavoro', new_location_path, remote: true %>
+
   <% current_user.locations.chronological_order.each do |location| %>
-  <div class="entry position-relative mb-3">
+  <div class="location entry position-relative mb-3">
     <h6><%= location.city %></h6>
-    <p>
-      <%= location.original_address %>
-    </p>
-    <p>
-    <%= location.geocoded_address %>
-  </p>
-  <p>
-  <%= "Coords: #{location.latitude} | #{location.longitude}" %>
-</p>
-<%= link_to 'Edit', edit_location_path(location), remote: true %>
-|
-<%= link_to 'Delete', location_path(location), method: :delete, data: { confirm: t('confirmation') } %>
-</div>
-<% end %>
-<%= link_to edit_cv_section_path(section: :intro), remote: true, class: 'btn-cv btn-edit top-right' do %>
+    <p><%= location.geocoded_address %></p>
+    <%= link_to 'Edit', edit_location_path(location), remote: true %>
+    |
+    <%= link_to 'Delete', location_path(location), method: :delete, data: { confirm: t('confirmation') } %>
+  </div>
+  <% end %>
+  <%= link_to edit_cv_section_path(section: :intro), remote: true, class: 'btn-cv btn-edit top-right' do %>
   <i class="fas fa-pencil-alt"> </i>
-<% end %>
+  <% end %>
 </div>
 <hr class="mb-3" />

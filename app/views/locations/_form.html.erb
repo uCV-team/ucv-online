@@ -1,20 +1,27 @@
-<%= form_with model: @location do |f|
- %><div class="modal-body">
-<div class="alert alert-danger">
-</div><div class="row">
-<div class="autocomplete col-lg-9 mb-3">
-<%= f.label :orginial_address, t('content.main.cv.new.location.address'), for: "#{id}_address" %>
-<%= f.text_field :original_address, autocomplete: 'off', class: 'form-control', id: "#{id}_address" %>
-<div class="autocomplete-results position-absolute" id="<%= id %>_results">
-<ul>
-</ul></div></div><div class="col-lg-3 mb-3">
-<%= f.label :radius, t('content.main.cv.new.location.radius'), for: "#{id}_radius" %>
-<%= f.number_field :radius, value: 10, min: 0, class: 'form-control', id: "#{id}_radius" %>
-
-</div></div></div><div class="modal-footer">
+<%= form_with model: @location do |f| %>
+<div class="modal-body">
+  <div class="alert alert-danger"></div>
+  <div class="row">
+    <div class="autocomplete col-lg-9 mb-3">
+      <%= f.label :orginial_address, t('content.main.cv.new.location.address'), for: "#{id}_address" %>
+      <%= f.text_field :original_address, autocomplete: 'off', class: 'form-control', id: "#{id}_address" %>
+      <div class="autocomplete-results position-absolute" id="<%= id %>_results">
+        <ul>
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-3 mb-3">
+      <%= f.label :radius, t('content.main.cv.new.location.radius'), for: "#{id}_radius" %>
+      <%= f.number_field :radius, value: 10, min: 0, class: 'form-control', id: "#{id}_radius" %>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
 <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-standard' %>
-<%= f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') },
-class: 'btn btn-standard' %>
+<%= f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') }, class: 'btn btn-standard' %>
+</div>
+<% end %>
 
-</div><% end %><script>
-initAutocomplete('<%= id %>', '<%= api_token %>');</script>
+<script>
+  initAutocomplete('<%= id %>', '<%= api_token %>');
+</script>

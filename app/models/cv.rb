@@ -12,6 +12,7 @@ class Cv < ApplicationRecord
 
   # validates :about, length: { maximum: ABOUT_MAX_LENGTH }
   validates :user, uniqueness: true
+  delegate :email, :tel, to: :user
 
   accepts_nested_attributes_for :user
 
@@ -58,6 +59,10 @@ class Cv < ApplicationRecord
 
   def abbr_name
     "#{user.first_name} #{user.last_name[0]}."
+  end
+
+  def full_name
+    "#{user.first_name} #{user.last_name}"
   end
 
   def gender_female?

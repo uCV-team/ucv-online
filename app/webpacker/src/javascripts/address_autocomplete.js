@@ -27,7 +27,8 @@ function autocomplete() {
 async function fetchData() {
     let data;
     let query = encodeURIComponent(inputField.val());
-    let api_link = `https://api.locationiq.com/v1/autocomplete.php?key=${token}&q=${query}&normalizecity=1&limit=5`;
+    let api_link = `https://api.locationiq.com/v1/autocomplete.php?key=${token}&q=${query}&normalizecity=0&limit=5&accept-language=it`;
+    // let api_link = `https://search-maps.yandex.ru/v1/text=${query}&type=geo&lang=it&results=5`
 
     if (inputField.val().length > 0) {
         try {

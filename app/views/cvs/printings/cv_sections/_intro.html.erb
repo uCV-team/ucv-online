@@ -1,0 +1,20 @@
+<div class="cv-intro position-relative mb-3">
+  <div class="photo float-right mb-3 ml-3">
+    <%= image_tag( @cv.headshot.url(:default), alt: "#{@cv.abbr_name} headshot") %>
+  </div>
+  <h3><%= @cv.full_name %></h3>
+  <p>
+    <%= birth_info_for(@cv) %>
+  </p>
+  <p><%= @cv.about.presence %></p>
+  <div class="clearfix"></div>
+</div>
+<div class="cv-contacts position-relative mb-3">
+  <ul style="list-style:none;padding:0;margin:0">
+    <li><i class="fas fa-at"></i>&nbsp;&nbsp; <%= @cv.email %></li>
+    <% if @cv.tel.present? %>
+      <li><i class="fas fa-phone"></i></i>&nbsp;&nbsp; <%= @cv.tel %></li>
+    <% end %>
+  </ul>
+</div>
+<hr class="mb-3" />

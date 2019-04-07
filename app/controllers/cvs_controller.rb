@@ -24,12 +24,15 @@ class CvsController < ApplicationController
   private
 
   def set_cv
-    @cv = current_user.cv
+    @cv = if params[:id]
+      Cv.find(params[:id])
+    else
+      current_user.cv
+    end
   end
 
   def cv_params
-    params.require(:cv).permit(:about, :birth_date, :birth_place, :future_plans, :gender, :headshot,
-                               :interests, :phone_number,
-                               :section, :skills, :working_skills, user_attributes: %i[id first_name last_name])
+    params.require(:cv).permit(:about, :birth_date, :birth_place, :future_plans, :gender, :headshot, :interests,
+                               :section, :skills, :working_skills, user_attributes: %i[id first_name last_name tel])
   end
 end
