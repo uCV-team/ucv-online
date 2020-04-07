@@ -1,10 +1,7 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, except: :check
+  layout 'theme', except: [:coming_soon]
 
-  def index; end
-
-  def check
-    val = ActiveRecord::Base.connection.execute('select 1+2 as val').first['val']
-    render plain: "1+2=#{val}"
+  def coming_soon
+    render 'coming_soon', layout: false
   end
 end

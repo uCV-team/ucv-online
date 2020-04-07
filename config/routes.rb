@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  root 'cvs#show'
+  root 'home#coming_soon'
+  match '*path' => 'home#coming_soon', via: :all
+
+  get '/search', to: 'home#search'
+  get '/coming_soon', to: 'home#coming_soon'
+  
+  #root 'cvs#show'
   get 'cv/edit/:section', to: 'cvs#edit', as: 'edit_cv_section'
   get 'search', to: 'searches#index'
 
