@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  root 'home#coming_soon'
-  match '*path' => 'home#coming_soon', via: :all
-
+  root 'home#index'
   get '/search', to: 'home#search'
   get '/coming_soon', to: 'home#coming_soon'
   
