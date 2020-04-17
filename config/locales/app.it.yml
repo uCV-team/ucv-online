@@ -96,6 +96,8 @@ it:
       login: "Login"
       logout: "Logout"
       search: "Search"
+      create_your_cv: "Create Your CV"
+      hire_someone: "Hire Candidate"
   success:
     cv:
       update: "Changes have been saved successfully."

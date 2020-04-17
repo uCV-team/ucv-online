@@ -3,7 +3,7 @@
 <div class="position-fixed z-index-fixed w-100 bg-white shadow-sm">
   <div class="container">
     <nav class="navbar navbar-expand-md navbar-light py-3 px-0">
-      <%= link_to './index.html', class: 'navbar-brand' do %>
+      <%= link_to '/', class: 'navbar-brand' do %>
         <%= image_pack_tag 'images/logo.svg' %>
       <% end %>
       <button class="navbar-toggler bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,20 +12,29 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto d-none d-md-flex">
           <li class="nav-item mx-3">
-            <a class="nav-link badge badge-pill badge-primary badge-primary-light p-2 text-primary font-weight-normal" href="./views/about.html">
-            About <i class="ml-1 fas fa-angle-down"></i>
+            <a class="nav-link badge badge-pill badge-primary badge-primary-light p-2 text-primary font-weight-normal" href="/about">
+            About
+            <!-- <i class="ml-1 fas fa-angle-down"></i> -->
             </a>
           </li>
           <li class="nav-item mx-3">
             <a class="badge badge-pill badge-primary badge-primary-light p-2 text-primary font-weight-normal" href="./views/cvpage.html" >
-            Your CV <i class="ml-1 fas fa-angle-down"></i>
+            Your CV 
+            <!-- <i class="ml-1 fas fa-angle-down"></i> -->
             </a>
           </li>
         </ul>
-        <div class="d-flex justify-content-between justify-content-md-start border-top border-md-0 pt-3 pt-md-0 mt-3 mt-md-0">
-          <button class="btn btn-lg btn-outline-primary mr-2">Create Your CV</button>
-          <button class="btn btn-lg btn-primary ml-2">Hire Candidate</button>
-        </div>
+        <% if user_signed_in? %>
+          <div class="d-flex justify-content-between justify-content-md-start border-top border-md-0 pt-3 pt-md-0 mt-3 mt-md-0">
+            <button class="btn btn-lg btn-outline-primary mr-2">Edit Your CV</button>
+            <%= link_to t('layouts.nav.logout'), destroy_user_session_path, method: :delete, class: 'btn btn-lg btn-primary ml-2' %>
+          </div>
+        <% else %>
+          <div class="d-flex justify-content-between justify-content-md-start border-top border-md-0 pt-3 pt-md-0 mt-3 mt-md-0">
+            <%= link_to t('layouts.nav.create_your_cv'), new_user_session_path, class: 'btn btn-lg btn-outline-primary mr-2' %>
+            <button class="btn btn-lg btn-primary ml-2"><%= t('layouts.nav.hire_someone') %></button>
+          </div>
+        <% end %>
       </div>
     </nav>
   </div>

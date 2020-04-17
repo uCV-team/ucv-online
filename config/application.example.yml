@@ -11,6 +11,8 @@ MAIL_SENDER: 'yourname+publicv@renuo.ch'
 DEVISE_PEPPER: 'rails secret'
 DEVISE_SECRET_KEY: 'rails secret'
 SECRET_KEY_BASE: 'rails secret'
+
+
 LOCATIONIQ_API_KEY: 'locationiq api key'
 LOCATIONIQ_PUBLIC_KEY: 'locationiq public key'
 GOOGLE_API_KEY: 'google maps js api key'
