@@ -1,0 +1,56 @@
+.map-search {
+  bottom: 4.5rem;
+  .form-control:focus, .custom-select:focus {
+    box-shadow: none;
+  }
+  .map-search-container{
+    background-color: white;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border-radius: 2rem;
+  }
+}
+.enable-btn {
+  top: 1.25rem;
+  right: 4rem;
+}
+
+.card-width {
+  width: 260px;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+    background-color: #707070;
+
+}
+.carousel-indicators {
+  bottom: -30px;
+}
+.carousel-indicators li {
+    width: 8px;
+    border-radius: 50%;
+    height: 8px;
+    border: 1px solid #707070;
+    opacity: 1;
+}
+
+@include media-breakpoint-down(md){
+  .map-image-container{
+    height: 35rem;
+  }
+  .enable-btn {
+    top: 1rem;
+    right: 1rem;
+  }
+  .map-search {
+    bottom: 3rem;
+    .form-control:focus, .custom-select:focus {
+      box-shadow: none;
+    }
+    .map-search-container{
+      background-color: inherit;
+      box-shadow: 0 0;
+      border-radius: 0rem;
+    }
+  }
+}

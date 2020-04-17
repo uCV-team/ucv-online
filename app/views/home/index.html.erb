@@ -1,486 +1,354 @@
-<!-- Wrapper -->
-<div id="wrapper">
-
-<!-- Map
-================================================== -->
-<div id="map-container" class="fullwidth-home-map">
-
-    <div id="map" data-map-zoom="9">
-        <!-- map goes here -->
+<!-- Content Container
+  ================================================== -->
+<div class="middle-container-1">
+  <!-- Map
+    ================================================== -->
+  <div class="map-container position-relative">
+    <div class="row mx-0">
+      <div class="col-12 px-0 map-image-container">
+        <%= image_pack_tag 'images/full-map.svg' %>
+      </div>
     </div>
-
-  <div class="main-search-inner">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          
-          <div class="main-search-input">
-
-            <div class="main-search-input-item">
-              <input type="text" placeholder="What are you looking for?" value=""/>
+    <div class="enable-btn position-absolute">
+      <button class="btn btn-primary font-size-14"><i class="icon-mouse mr-2"></i>Enable Scrolling</button>
+    </div>
+    <div class="w-100 position-absolute map-search">
+      <div class="row mx-0">
+        <div class="col-11 col-lg-10 mx-auto py-2 map-search-container">
+          <div class="row">
+            <div class="col-12 col-lg-4 border-lg-right mb-3 mb-lg-0">
+              <input class="form-control form-control-lg border-lg-0" placeholder="What skills you are looking for?">
             </div>
-
-            <div class="main-search-input-item location">
-              <div id="autocomplete-container">
-                <input id="autocomplete-input" type="text" placeholder="Location">
+            <div class="col-12 col-lg-4 border-lg-right mb-3 mb-lg-0">
+              <div class="input-with-icon-append">
+                <i class="icon-location-pin text-muted"></i>
+                <input class="form-control form-control-lg border-lg-0 pr-40" placeholder="Location">
               </div>
-              <a href="#"><i class="fa fa-map-marker"></i></a>
             </div>
-
-            <div class="main-search-input-item">
-              <select data-placeholder="All Categories" class="chosen-select" >
-                <option>All Categories</option> 
-                <option>Shops</option>
-                <option>Hotels</option>
-                <option>Restaurants</option>
-                <option>Fitness</option>
-                <option>Events</option>
-              </select>
+            <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+              <div class="d-flex flex-column flex-lg-row">
+                <select data-placeholder="All Categories" class="custom-select w-100 border-lg-0 mr-0 mr-lg-5 mb-3 mb-lg-0" id="inputGroupSelect02">
+                  <option>All Categories</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+                <div>
+                  <button class="btn btn-primary">Search</button>
+                </div>
+              </div>
             </div>
-
-            <button class="button">Search</button>
-
           </div>
         </div>
       </div>
     </div>
-
   </div>
-
-    <!-- Scroll Enabling Button -->
-  <a href="#" id="scrollEnabling" title="Enable or disable scrolling on map">Enable Scrolling</a>
+  <div class="bg-light py-40 py-md-80">
+    <div class="container px-0">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="d-flex align-items-center overflow-auto">
+              <div class="mb-5">
+                <div class="card card-width shadow-sm border-0 rounded mx-3">
+                  <div class="card-body p-4">
+                    <div class="pb-3 d-flex align-items-center justify-content-between border-bottom">
+                      <%= image_pack_tag 'images/user-avtar-2.svg', class: "img-fluid rounded-circle", alt: 'avatar' %>
+                      <div class="">
+                        <h6>Jane Diana</h6>
+                        <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9">
+                        LEAD UX DESIGNER
+                        </span>
+                      </div>
+                    </div>
+                    <div class="pt-3 d-flex align-items-center justify-content-between">
+                      <small>January 24, 2020</small>
+                      <small><a href="#">View CV <i class="ml-2 fas fa-angle-right"></i></a></small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-5">
+                <div class="card card-width shadow-sm border-0 rounded mx-3">
+                  <div class="card-body p-4">
+                    <div class="pb-3 d-flex align-items-center justify-content-between border-bottom">
+                      <%= image_pack_tag 'images/user-avtar-1.svg', class: "img-fluid", alt: 'avatar' %>
+                      <div class="">
+                        <h6>Jane Diana</h6>
+                        <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9">
+                        LEAD UX DESIGNER
+                        </span>
+                      </div>
+                    </div>
+                    <div class="pt-3 d-flex align-items-center justify-content-between">
+                      <small>January 24, 2020</small>
+                      <small><a href="#">View CV <i class="ml-2 fas fa-angle-right"></i></a></small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-5">
+                <div class="card card-width shadow-sm border-0 rounded mx-3">
+                  <div class="card-body p-4">
+                    <div class="pb-3 d-flex align-items-center justify-content-between border-bottom">
+                      <%= image_pack_tag 'images/user-avtar-2.svg', class: "img-fluid", alt: 'avatar' %>
+                      <div class="">
+                        <h6>Jane Diana</h6>
+                        <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9">
+                        LEAD UX DESIGNER
+                        </span>
+                      </div>
+                    </div>
+                    <div class="pt-3 d-flex align-items-center justify-content-between">
+                      <small>January 24, 2020</small>
+                      <small><a href="#">View CV <i class="ml-2 fas fa-angle-right"></i></a></small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-5">
+                <div class="card card-width shadow-sm border-0 rounded mx-3">
+                  <div class="card-body p-4">
+                    <div class="pb-3 d-flex align-items-center justify-content-between border-bottom">
+                      <%= image_pack_tag 'images/user-avtar-1.svg', class: "img-fluid", alt: 'avatar' %>
+                      <div class="">
+                        <h6>Jane Diana</h6>
+                        <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9">
+                        LEAD UX DESIGNER
+                        </span>
+                      </div>
+                    </div>
+                    <div class="pt-3 d-flex align-items-center justify-content-between">
+                      <small>January 24, 2020</small>
+                      <small><a href="#">View CV <i class="ml-2 fas fa-angle-right"></i></a></small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container pt-40 pt-md-80">
+    <div class="border-bottom">
+      <h3>Why PubliCV?</h3>
+      <p class="mb-3">Lorem ipsum dolor sit amet</p>
+    </div>
+  </div>
+  <div class="container py-40 py-md-80">
+    <div class="row">
+      <div class="col-12 col-md-6 col-xl-4 mb-5">
+        <div class="card border-0 h-100">
+          <div class="card-body py-0 pl-0 pr-5">
+            <h4 class="mb-3">Jobseekers</h4>
+            <p class="mb-5">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing habitant massa aliquet enim.
+            </p>
+            <button class="btn btn-lg btn-primary">Create Your CV Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 mb-5">
+        <div class="card rounded h-100">
+          <div class="card-body p-4">
+            <i class="icon-globe-alt font-size-32"></i>
+            <h5 class="my-3">Global public CV</h5>
+            <span class="text-muted">
+            Instead of being buried under some agency’s drawer, your CV will be public. Like ours: Duccio, Vishal, Anuj.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 mb-5">
+        <div class="card rounded h-100">
+          <div class="card-body p-4">
+            <i class="icon-globe-alt font-size-32"></i>
+            <h5 class="my-3">It’s digital and effective</h5>
+            <span class="text-muted">
+            Standard CVs are ugly, ineffective and outdated. PubliCV is the new standard for digital CVs. You will be guided to create yours, download pdf or send it via a public link.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 mb-5 mb-xl-0">
+        <div class="card rounded h-100">
+          <div class="card-body p-4">
+            <i class="icon-globe-alt font-size-32"></i>
+            <h5 class="my-3">We put you first</h5>
+            <span class="text-muted">
+            We put you first. Your CV will be live at: your-name.publicv.org and this will be your professional page.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 mb-5 mb-xl-0">
+        <div class="card rounded h-100">
+          <div class="card-body p-4">
+            <i class="icon-globe-alt font-size-32"></i>
+            <h5 class="my-3">Find a job and get paid</h5>
+            <span class="text-muted">
+            PubliCV is straight to the point: you’re not here to make friends, connect to people, build your network, being monitored by your HR, nor tweet like a bird… You’re here to find a job and get paid for it.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 mb-5 mb-xl-0">
+        <div class="card rounded h-100">
+          <div class="card-body p-4">
+            <i class="icon-globe-alt font-size-32"></i>
+            <h5 class="my-3">We value your time</h5>
+            <span class="text-muted">
+            Value your time by being contacted only by Companies that are willing to show real interest or even pay to contact you.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container py-0 py-md-80">
+    <div class="row">
+      <div class="col-12 col-md-6 col-xl-4 mb-5">
+        <div class="card border-0 h-100">
+          <div class="card-body py-0 pl-0 pr-5">
+            <h4 class="mb-3">Company</h4>
+            <p class="mb-5">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing habitant massa aliquet enim.
+            </p>
+            <button class="btn btn-lg btn-primary">Hire Candidate Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 mb-5">
+        <div class="card rounded h-100">
+          <div class="card-body p-4">
+            <i class="icon-globe-alt font-size-32"></i>
+            <h5 class="my-3">Search to hire candidates</h5>
+            <span class="text-muted">
+            Access immediately a searchable database of candidates to/for hire. As and when required to fill open Vacancies.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 mb-5">
+        <div class="card rounded h-100">
+          <div class="card-body p-4">
+            <i class="icon-globe-alt font-size-32"></i>
+            <h5 class="my-3">Direct contact</h5>
+            <span class="text-muted">
+            Cut the middlemen out: contact directly the candidates you like.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 mb-5 mb-xl-0">
+        <div class="card rounded h-100">
+          <div class="card-body p-4">
+            <i class="icon-globe-alt font-size-32"></i>
+            <h5 class="my-3">We stay out of deal</h5>
+            <span class="text-muted">
+            Hire directly the people you chose. We’ll stay out of any agreement between you and your candidate. We will not profit from their wages.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 mb-5 mb-xl-0">
+        <div class="card rounded h-100">
+          <div class="card-body p-4">
+            <i class="icon-globe-alt font-size-32"></i>
+            <h5 class="my-3">Save time, save money</h5>
+            <span class="text-muted">
+            Save time and money because you pay only if you need to contact several candidates for the same job at the same time. Please note that during this crisis this service will be completely free.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-xl-4 mb-5 mb-xl-0">
+        <div class="card rounded h-100">
+          <div class="card-body p-4">
+            <i class="icon-globe-alt font-size-32"></i>
+            <h5 class="my-3">Genuine and interested only</h5>
+            <span class="text-muted">
+            Avoid the time-wasters: we’ll go great lengths to keep CVs up to date. If the CV is here it is very likely that the person behind it is genuinely interested in a job.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container pt-40 pt-lg-80">
+    <div class="border-bottom">
+      <h3>Stakeholder</h3>
+      <p class="mb-3">Lorem ipsum dolor sit amet</p>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6 pt-40 pb-3 py-md-80">
+        <div class="pr-0 pr-md-80 d-flex flex-column justify-content-center h-100">
+          <div><span class="badge badge-danger font-weight-normal align-middle mb-2">Live</span></div>
+          <h5>PubliCV <span class="font-weight-normal">went live on May, 1st 2020 for a good reason.</span></h5>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 pt-3 pb-40 py-md-80">
+        <%= image_pack_tag 'images/globe.png', class: 'img-fluid', alt: 'globe' %>
+      </div>
+    </div>
+    <div class="row flex-md-row flex-column-reverse">
+      <div class="col-12 col-md-6 pt-3 pb-40 py-lg-80">
+        <%= image_pack_tag 'images/gift.png', class: 'img-fluid', alt: 'gift' %>
+      </div>
+      <div class="col-12 col-md-6 pt-40 pb-3 py-md-80">
+        <div class="pl-0 pl-md-80 d-flex flex-column justify-content-center h-100">
+          <div><span class="badge badge-success font-weight-normal align-middle mb-2">Free</span></div>
+          <h5>Facing COVID-19 together.</h5>
+          <h5>PubliCV <span class="font-weight-normal">will be free during this crisis.</span></h5>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6 pt-40 pb-3 py-md-80">
+        <div class="pr-0 pr-md-80 d-flex flex-column justify-content-center h-100">
+          <h5 class="mb-3">B Corp with a simple business model</h5>
+          <span>After, it will become a B-Corp with a simple business model: contacting one candidate at a time, by hand, putting your time into writing a message to them, will be always free. Contacting more than one candidate simultaneously will cost a reasonable fee with no spam</span>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 pt-3 pb-40 py-md-80">
+        <%= image_pack_tag 'images/stamp.png', class: 'img-fluid', alt: 'stamp' %>
+      </div>
+    </div>
+    <div class="row flex-md-row flex-column-reverse">
+      <div class="col-12 col-md-6 pt-3 pb-40 py-md-80">
+        <%= image_pack_tag 'images/no-tracking.png', class: 'img-fluid', alt: 'no-tracking' %>
+      </div>
+      <div class="col-12 col-md-6 pt-40 pb-3 py-md-80">
+        <div class="pl-0 pl-md-80 d-flex flex-column justify-content-center h-100">
+          <h5>No Tracking</h5>
+          <span>We do not employ any tracking technology. All we know about you is what you included in your publiCV. You can <span class="text-danger">delete</span> it at any time.</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6 pt-40 pb-3 py-md-80">
+        <div class="pr-0 pr-md-80 d-flex flex-column justify-content-center h-100">
+          <h5 class="mb-3">Open Source</h5>
+          <h5 class="font-weight-normal mb-5">Most of the code is and will stay opensource.</h5>
+          <span class="text-primary">Git Hub <i class="ml-2 fas fa-angle-right"></i></span>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 pt-3 pb-80 py-md-80">
+        <%= image_pack_tag 'images/open-source.png', class: 'img-fluid', alt: 'open-source' %>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-<!-- Content
-================================================== -->
-
-<!-- Listings -->
-<div class="container margin-top-70">
-  <div class="row">
-
-    <div class="col-md-12">
-      <h3 class="headline centered margin-bottom-45">
-        Most Visited Places
-        <span>Discover top-rated local businesses</span>
-      </h3>
-    </div>
-
-    <div class="col-md-12">
-      <div class="simple-slick-carousel dots-nav">
-
-      <!-- Listing Item -->
-      <div class="carousel-item">
-        <a href="listings-single-page.html" class="listing-item-container">
-          <div class="listing-item">
-            <img src="/theme/images/listing-item-01.jpg" alt="">
-
-            <div class="listing-badge now-open">Now Open</div>
-            
-            <div class="listing-item-content">
-              <span class="tag">Eat & Drink</span>
-              <h3>Tom's Restaurant</h3>
-              <span>964 School Street, New York</span>
-            </div>
-            <span class="like-icon"></span>
-          </div>
-          <div class="star-rating" data-rating="3.5">
-            <div class="rating-counter">(12 reviews)</div>
-          </div>
-        </a>
-      </div>
-      <!-- Listing Item / End -->
-
-      <!-- Listing Item -->
-      <div class="carousel-item">
-        <a href="listings-single-page.html" class="listing-item-container">
-          <div class="listing-item">
-            <img src="/theme/images/listing-item-02.jpg" alt="">
-            <div class="listing-item-details">
-              <ul>
-                <li>Friday, August 10</li>
-              </ul>
-            </div>
-            <div class="listing-item-content">
-              <span class="tag">Events</span>
-              <h3>Sticky Band</h3>
-              <span>Bishop Avenue, New York</span>
-            </div>
-            <span class="like-icon"></span>
-          </div>
-          <div class="star-rating" data-rating="5.0">
-            <div class="rating-counter">(23 reviews)</div>
-          </div>
-        </a>
-      </div>
-      <!-- Listing Item / End -->   
-
-      <!-- Listing Item -->
-      <div class="carousel-item">
-        <a href="listings-single-page.html" class="listing-item-container">
-          <div class="listing-item">
-            <img src="/theme/images/listing-item-03.jpg" alt="">
-            <div class="listing-item-details">
-              <ul>
-                <li>Starting from $59 per night</li>
-              </ul>
-            </div>
-            <div class="listing-item-content">
-              <span class="tag">Hotels</span>
-              <h3>Hotel Govendor</h3>
-              <span>778 Country Street, New York</span>
-            </div>
-            <span class="like-icon"></span>
-          </div>
-          <div class="star-rating" data-rating="2.0">
-            <div class="rating-counter">(17 reviews)</div>
-          </div>
-        </a>
-      </div>
-      <!-- Listing Item / End -->
-
-      <!-- Listing Item -->
-      <div class="carousel-item">
-        <a href="listings-single-page.html" class="listing-item-container">
-          <div class="listing-item">
-            <img src="/theme/images/listing-item-04.jpg" alt="">
-
-            <div class="listing-badge now-open">Now Open</div>
-
-            <div class="listing-item-content">
-              <span class="tag">Eat & Drink</span>
-              <h3>Burger House</h3>
-              <span>2726 Shinn Street, New York</span>
-            </div>
-            <span class="like-icon"></span>
-          </div>
-          <div class="star-rating" data-rating="5.0">
-            <div class="rating-counter">(31 reviews)</div>
-          </div>
-        </a>
-      </div>
-      <!-- Listing Item / End -->
-
-      <!-- Listing Item -->
-      <div class="carousel-item">
-        <a href="listings-single-page.html" class="listing-item-container">
-          <div class="listing-item">
-            <img src="/theme/images/listing-item-05.jpg" alt="">
-            <div class="listing-item-content">
-              <span class="tag">Other</span>
-              <h3>Airport</h3>
-              <span>1512 Duncan Avenue, New York</span>
-            </div>
-            <span class="like-icon"></span>
-          </div>
-          <div class="star-rating" data-rating="3.5">
-            <div class="rating-counter">(46 reviews)</div>
-          </div>
-        </a>
-      </div>
-      <!-- Listing Item / End -->
-
-      <!-- Listing Item -->
-      <div class="carousel-item">
-        <a href="listings-single-page.html" class="listing-item-container">
-          <div class="listing-item">
-            <img src="/theme/images/listing-item-06.jpg" alt="">
-
-            <div class="listing-badge now-closed">Now Closed</div>
-
-            <div class="listing-item-content">
-              <span class="tag">Eat & Drink</span>
-              <h3>Think Coffee</h3>
-              <span>215 Terry Lane, New York</span>
-            </div>
-            <span class="like-icon"></span>
-          </div>
-          <div class="star-rating" data-rating="4.5">
-            <div class="rating-counter">(15 reviews)</div>
-          </div>
-        </a>
-      </div>
-      <!-- Listing Item / End -->
-      </div>
-      
-    </div>
-
-  </div>
-</div>
-<!-- Listings / End -->
-
-
-<section class="fullwidth margin-top-70 padding-top-75 padding-bottom-70" data-background-color="#f9f9f9">
-  <!-- Info Section -->
-  <div class="container">
-
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <h3 class="headline centered">
-          What Our Users Say
-          <span class="margin-top-25">We collect reviews from our users so you can get an honest opinion of what an experience with our website are really like!</span>
-        </h3>
-      </div>
-    </div>
-
-  </div>
-  <!-- Info Section / End -->
-
-  <!-- Categories Carousel -->
-  <div class="fullwidth-carousel-container margin-top-20">
-    <div class="testimonial-carousel testimonials">
-
-      <!-- Item -->
-      <div class="fw-carousel-review">
-        <div class="testimonial-box">
-          <div class="testimonial">Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation is on the runway heading towards a streamlined cloud solution user generated content.</div>
-        </div>
-        <div class="testimonial-author">
-          <img src="/theme/images/happy-client-01.jpg" alt="">
-          <h4>Jennie Smith <span>Coffee Shop Owner</span></h4>
-        </div>
-      </div>
-      
-      <!-- Item -->
-      <div class="fw-carousel-review">
-        <div class="testimonial-box">
-          <div class="testimonial">Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop.</div>
-        </div>
-        <div class="testimonial-author">
-          <img src="/theme/images/happy-client-02.jpg" alt="">
-          <h4>Tom Baker <span>Clothing Store Owner</span></h4>
-        </div>
-      </div>
-
-      <!-- Item -->
-      <div class="fw-carousel-review">
-        <div class="testimonial-box">
-          <div class="testimonial">Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view.</div>
-        </div>
-        <div class="testimonial-author">
-          <img src="/theme/images/happy-client-03.jpg" alt="">
-          <h4>Jack Paden <span>Restaurant Owner</span></h4>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  <!-- Categories Carousel / End -->
-
-</section>
-
-
-<!-- Parallax -->
-<div class="parallax"
-  data-background="/theme/images/slider-bg-02.jpg"
-  data-color="#36383e"
-  data-color-opacity="0.6"
-  data-img-width="800"
-  data-img-height="505">
-
-  <!-- Infobox -->
-  <div class="text-content white-font">
-    <div class="container">
-
-      <div class="row">
-        <div class="col-lg-6 col-sm-8">
-          <h2>Streamline Your Business</h2>
-          <p>We’re full-service, local agents who know how to find people and home each together. We use online tools with an unmatched search capability to make you smarter and faster.</p>
-          <a href="listings-list-with-sidebar.html" class="button margin-top-25">Get Started</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Infobox / End -->
-
-</div>
-<!-- Parallax / End -->
-
-  
-<!-- Pricing Tables  -->
-<section class="fullwidth margin-top-0 padding-top-75 padding-bottom-65" data-background-color="#fff">
-
-  <!-- Container / Start -->
-  <div class="container">
-
-
-    <div class="row">
-      <div class="col-md-12">
-        <h3 class="headline centered margin-bottom-50">
-          Get an Exposure For Your Listing
-        </h3>
-      </div>
-    </div>
-
-
-    <!-- Row / Start -->
-    <div class="row">
-
-      <div class="col-md-12">
-        <div class="pricing-container margin-top-30">
-
-        <!-- Plan #1 -->
-
-          <div class="plan">
-
-            <div class="plan-price">
-              <h3>Basic</h3>
-              <span class="value">Free</span>
-              <span class="period">Free of charge one standard listing active for 30 days</span>
-            </div>
-
-            <div class="plan-features">
-              <ul>
-                <li>One Listing</li>
-                <li>30 Days Availability</li>
-                <li>Standard Listing</li>
-                <li>Limited Support</li>
-              </ul>
-              <a class="button border" href="#">Get Started</a>
-            </div>
-
-          </div>
-
-          <!-- Plan #3 -->
-          <div class="plan featured">
-
-            <div class="listing-badge">
-              <span class="featured">Featured</span>
-            </div>
-
-            <div class="plan-price">
-              <h3>Extended</h3>
-              <span class="value">$9.99</span>
-              <span class="period">One time fee for one listing, highlighted in the search results</span>
-            </div>
-            <div class="plan-features">
-              <ul>
-                <li>One Time Fee</li>
-                <li>One Listing</li>
-                <li>90 Days Availability</li>
-                <li>Featured In Search Results</li>
-                <li>24/7 Support</li>
-              </ul>
-              <a class="button" href="#">Get Started</a>
-            </div>
-          </div>
-
-          <!-- Plan #3 -->
-          <div class="plan">
-
-            <div class="plan-price">
-              <h3>Professional</h3>
-              <span class="value">$19.99</span>
-              <span class="period">Monthly subscription for unlimited listings and availability</span>
-            </div>
-
-            <div class="plan-features">
-              <ul>
-                <li>Unlimited Listings</li>
-                <li>Unlimited Availability</li>
-                <li>Featured In Search Results</li>
-                <li>24/7 Support</li>
-              </ul>
-              <a class="button border" href="#">Get Started</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!-- Row / End -->
-
-  </div>
-  <!-- Container / End -->
-
-</section>
-<!-- Pricing Tables / End -->
-
-
-<!-- Recent Blog Posts -->
-<section class="fullwidth padding-top-75 padding-bottom-75" data-background-color="#f9f9f9">
-  <div class="container">
-
-    <div class="row">
-      <div class="col-md-12">
-        <h3 class="headline centered margin-bottom-50">
-          From The Blog
-        </h3>
-      </div>
-    </div>
-
-    <div class="row">
-      <!-- Blog Post Item -->
-      <div class="col-md-4">
-        <a href="pages-blog-post.html" class="blog-compact-item-container">
-          <div class="blog-compact-item">
-            <img src="/theme/images/blog-compact-post-01.jpg" alt="">
-            <span class="blog-item-tag">Tips</span>
-            <div class="blog-compact-item-content">
-              <ul class="blog-post-tags">
-                <li>22 August 2019</li>
-              </ul>
-              <h3>Hotels for All Budgets</h3>
-              <p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <!-- Blog post Item / End -->
-
-      <!-- Blog Post Item -->
-      <div class="col-md-4">
-        <a href="pages-blog-post.html" class="blog-compact-item-container">
-          <div class="blog-compact-item">
-            <img src="/theme/images/blog-compact-post-02.jpg" alt="">
-            <span class="blog-item-tag">Tips</span>
-            <div class="blog-compact-item-content">
-              <ul class="blog-post-tags">
-                <li>18 August 2019</li>
-              </ul>
-              <h3>The 50 Greatest Street Arts In London</h3>
-              <p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <!-- Blog post Item / End -->
-
-      <!-- Blog Post Item -->
-      <div class="col-md-4">
-        <a href="pages-blog-post.html" class="blog-compact-item-container">
-          <div class="blog-compact-item">
-            <img src="/theme/images/blog-compact-post-03.jpg" alt="">
-            <span class="blog-item-tag">Tips</span>
-            <div class="blog-compact-item-content">
-              <ul class="blog-post-tags">
-                <li>10 August 2019</li>
-              </ul>
-              <h3>The Best Cofee Shops In Sydney Neighborhoods</h3>
-              <p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <!-- Blog post Item / End -->
-
-      <div class="col-md-12 centered-content">
-        <a href="pages-blog.html" class="button border margin-top-10">View Blog</a>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-<!-- Recent Blog Posts / End -->
-
-
-<!-- Back To Top Button -->
-<div id="backtotop"><a href="#"></a></div>
-
-
-</div>
-<!-- Wrapper / End -->

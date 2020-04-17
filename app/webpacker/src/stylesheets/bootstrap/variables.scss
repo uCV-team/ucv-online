@@ -1,0 +1,26 @@
+// Colors
+$primary: #91076C;
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+    5: ($spacer * 2),
+    6: ($spacer * 3),
+    40: ($spacer * 2.5),
+    80: ($spacer * 5)
+);
+
+// Button
+$input-btn-font-size-lg: 1rem !default;
+
+$btn-border-radius: 2rem !default; 
+$btn-border-radius-lg: 2rem !default;
+$btn-border-radius-sm: 2rem !default;
+
+// Border
+$border-color: #E8E8E8;
+
+//Typography
+$font-weight-normal: 500 !default;
+$font-weight-bold: 600 !default;
+// $headings-font-weight: 600 !default;
