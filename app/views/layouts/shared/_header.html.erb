@@ -19,7 +19,7 @@
           </li>
           <li class="nav-item mx-3">
             <a class="badge badge-pill badge-primary badge-primary-light p-2 text-primary font-weight-normal" href="./views/cvpage.html" >
-            Your CV 
+            Your CV
             <!-- <i class="ml-1 fas fa-angle-down"></i> -->
             </a>
           </li>
@@ -31,7 +31,7 @@
           </div>
         <% else %>
           <div class="d-flex justify-content-between justify-content-md-start border-top border-md-0 pt-3 pt-md-0 mt-3 mt-md-0">
-            <%= link_to t('layouts.nav.create_your_cv'), new_user_session_path, class: 'btn btn-lg btn-outline-primary mr-2' %>
+            <%= link_to t('layouts.nav.create_your_cv'), new_user_registration_path, class: 'btn btn-lg btn-outline-primary mr-2' %>
             <button class="btn btn-lg btn-primary ml-2"><%= t('layouts.nav.hire_someone') %></button>
           </div>
         <% end %>

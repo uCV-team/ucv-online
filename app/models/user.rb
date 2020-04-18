@@ -4,7 +4,11 @@ class User < ApplicationRecord
   has_one :cv, dependent: :destroy
   has_many :locations, dependent: :destroy
 
-  validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, :subdomain, presence: true
+  validates :subdomain, uniqueness: true
+
+  # TODO: Validate format of domain
+  #validates_format_of :subdomain, :with => Regexp.new(/^[a-zA-Z0-9-]*?$/), :message => "as"
 
   after_initialize :prepare_blank_cv, if: :new_record?
 
@@ -14,5 +18,10 @@ class User < ApplicationRecord
 
   def prepare_blank_cv
     self.cv ||= Cv.new
+  end
+
+  # Allow unconfirmed users to use application
+  def confirmation_required?
+    false
   end
 end

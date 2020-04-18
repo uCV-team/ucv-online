@@ -43,6 +43,14 @@ en:
       updated_not_active: "Your password has been changed successfully."
       confirm_password: 'Confirm Your Password'
     registrations:
+      placeholder:
+        subdomain: 'vishal-garg'
+        first_name: 'Vishal'
+        last_name: 'Garg'
+        email: 'vishal@bluebash.co'
+        tel: '+1-541-754-3010'
+        subdomain_example: 'Example: vishal-garg.publicv.org'
+      subdomain: 'Subdomain'
       signup_label: 'Create your account, and then PubliCV'
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       first_name: "First name"

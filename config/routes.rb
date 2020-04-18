@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   get 'cv/edit/:section', to: 'cvs#edit', as: 'edit_cv_section'
   get 'search', to: 'searches#index'
 
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    confirmations: 'users/confirmations'
+  }
+
   resource :cv, except: %i[new edit create destroy] do
     resources :educations, except: %i[index show]
     resources :experiences, except: %i[index show]
@@ -21,6 +26,5 @@ Rails.application.routes.draw do
 
   resources :locations, except: %i[index show]
 
-  devise_for :users
   get 'home/check'
 end

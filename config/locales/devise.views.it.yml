@@ -95,6 +95,14 @@ it:
       updated: La tua password è stata cambiata. Ora sei collegato.
       updated_not_active: La tua password è stata cambiata.
     registrations:
+      placeholder:
+        subdomain: 'vishal-garg'
+        first_name: 'Vishal'
+        last_name: 'Garg'
+        email: 'vishal@bluebash.co'
+        tel: '+1-541-754-3010'
+        subdomain_example: 'Example: vishal-garg.publicv.it'
+      subdomain: 'Subdomain'
       signup_label: 'Create your account, and then PubliCV'
       first_name: "Nome"
       last_name: "Cognome"
