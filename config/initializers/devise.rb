@@ -16,4 +16,5 @@ Devise.setup do |config|
   config.timeout_in = 30.minutes
   config.reset_password_within = 6.hours
   config.sign_out_via = :delete
+  config.allow_unconfirmed_access_for = 1.day
 end
