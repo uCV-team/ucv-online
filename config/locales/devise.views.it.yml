@@ -31,11 +31,13 @@ it:
         other: Utenti
   devise:
     confirmations:
+      form_label: 'Resend confirmation instructions'
       confirmed: Il tuo account è stato correttamente confermato.
       new:
         resend_confirmation_instructions: Invia di nuovo le istruzioni per la conferma
       send_instructions: Riceverai un messaggio email con le istruzioni per confermare il tuo account entro qualche minuto.
       send_paranoid_instructions: Se la tua email esiste nel nostro database, riceverai un messaggio email con le istruzioni per confermare il tuo account entro qualche minuto.
+      button: 'Resend confirmation instructions'
     failure:
       already_authenticated: Hai già effettuato l'accesso.
       inactive: Il tuo account non è stato ancora attivato.
@@ -77,6 +79,8 @@ it:
       failure: Non è stato possibile autorizzarti da %{kind} perchè "%{reason}".
       success: Autorizzato con successo dall'account %{kind}.
     passwords:
+      change_form_label: 'Change your password'
+      confirm_password: 'Confirm Your Password'
       edit:
         change_my_password: Cambia la mia password
         change_your_password: Cambia la tua password
@@ -91,8 +95,11 @@ it:
       updated: La tua password è stata cambiata. Ora sei collegato.
       updated_not_active: La tua password è stata cambiata.
     registrations:
+      signup_label: 'Create your account, and then PubliCV'
       first_name: "Nome"
       last_name: "Cognome"
+      email: "Email"
+      password: "Password"
       password: "Password"
       tel: "Numero di cellulare"
       password_min_length: "Lunghezza minima della password: %{count}"
@@ -119,7 +126,9 @@ it:
       update_needs_confirmation: Il tuo account è stato aggiornato, ma dobbiamo verificare la tua email. Ti invitiamo a consultare la tua email e cliccare sul link di conferma.
       updated: Il tuo account è stato aggiornato.
       updated_but_not_signed_in:
+      no_account_yet: 'Don’t have an account?'
     sessions:
+      signin_label: 'Login to PubliCV'
       already_signed_out: Sei uscito correttamente.
       email: "Email"
       password: "Password"
@@ -132,6 +141,7 @@ it:
         sign_in: Accedi
       signed_in: Accesso effettuato con successo.
       signed_out: Sei uscito correttamente.
+      username: 'Username'
     shared:
       links:
         back: Indietro

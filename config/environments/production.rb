@@ -40,7 +40,7 @@ Rails.application.configure do
       path: ':class/:attachment/:id_partition/:style/:filename'
     }
     if ENV['AWS_ALIAS'].present?
-      options[:s3_host_alias] = ENV['AWS_ALIAS'] # images.corsidia.com
+      options[:s3_host_alias] = ENV['AWS_ALIAS'] # images.publicv.com
       options[:url] = ':s3_alias_url'
     end
     config.paperclip_defaults = options

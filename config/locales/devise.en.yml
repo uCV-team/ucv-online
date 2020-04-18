@@ -1,9 +1,11 @@
 en:
   devise:
     confirmations:
+      form_label: 'Resend confirmation instructions'
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      button: 'Resend confirmation instructions'
     failure:
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
@@ -29,6 +31,7 @@ en:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
     passwords:
+      change_form_label: 'Change your password'
       forgot_password: "Forgot your password?"
       forgot_password_text: "Please enter your account's email address"
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
@@ -38,10 +41,14 @@ en:
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
+      confirm_password: 'Confirm Your Password'
     registrations:
+      signup_label: 'Create your account, and then PubliCV'
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       first_name: "First name"
       last_name: "Last name"
+      email: "Email"
+      password: "Password"
       password: "Password"
       password_min_length: "Minimum password length: %{count}"
       password_repeat: "Repeat your password"
@@ -54,7 +61,10 @@ en:
       signing_up: "Creating account..."
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
       updated: "Your changes have been saved successfully."
+      no_account_yet: 'Don’t have an account?'
+      tel: "Phone Number"
     sessions:
+      signin_label: 'Login to PubliCV'
       already_signed_out: "Signed out successfully."
       email: "Email"
       password: "Password"
@@ -63,6 +73,19 @@ en:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       signing_in: "Logging in..."
+      username: 'Username'
+    shared:
+      links:
+        back: Back
+        didn_t_receive_confirmation_instructions: Didn't receive confirmation instructions?
+        didn_t_receive_unlock_instructions: Didn't receive unlock instructions?
+        forgot_your_password: Forgot your password?
+        sign_in: Log in
+        sign_in_with_provider: Sign in with %{provider}
+        sign_up: Sign up
+      minimum_password_length:
+        one: "(%{count} character minimum)"
+        other: "(%{count} characters minimum)"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
