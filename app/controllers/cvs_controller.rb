@@ -25,9 +25,9 @@ class CvsController < ApplicationController
 
   def set_cv
     @cv = if params[:id]
-      Cv.find(params[:id])
-    else
-      current_user.cv
+            Cv.find(params[:id])
+          else
+            current_user.cv
     end
   end
 

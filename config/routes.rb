@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/about', to: 'home#about'
   get '/privacy-policy', to: 'home#privacy'
 
-  #root 'cvs#show'
+  # root 'cvs#show'
   get 'cv/edit/:section', to: 'cvs#edit', as: 'edit_cv_section'
   get 'search', to: 'searches#index'
 

@@ -10,12 +10,12 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    case tld
-    when 'it'
-      I18n.locale = :it
-    else
-      I18n.locale = :en
-    end
+    I18n.locale = case tld
+                  when 'it'
+                    :it
+                  else
+                    :en
+                  end
   end
 
   def tld
