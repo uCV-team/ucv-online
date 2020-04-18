@@ -38,5 +38,9 @@
       </div>
     </nav>
   </div>
+
+  <% if params[:controller] == 'cvs' && params[:action] == 'show' %>
+    <%= render partial: 'cvs/topbar' %>
+  <% end %>
 </div>
 <!-- Header Container / End -->

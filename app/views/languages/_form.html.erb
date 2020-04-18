@@ -1,18 +1,26 @@
-<%= form_with model: [:cv, @language] do |f|
- %><div class="modal-body">
-<div class="alert alert-danger">
-</div><div class="row">
-<div class="col-12 mb-3">
-<%= f.label :language, t('content.main.cv.new.language.language'), for: "#{id}_language" %>
-<%= f.text_field :language, class: 'form-control', id: "#{id}_language" %>
-</div></div><div class="row">
-<div class="col-12">
-<%= f.label :level, t('content.main.cv.new.language.level'), for: "#{id}_level" %>
-<br />
-<%= f.select :level, options_from_collection_for_select(cefr_level_options, :first, :last), {},
-class: 'custom-select form-control', id: "#{id}_level" %>
-</div></div></div><div class="modal-footer">
-<%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-standard' %>
-<%= f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') },
-class: 'btn btn-standard' %>
-</div><% end %>
+<%= form_with model: [:cv, @language] do |f| %>
+  <div class="modal-body p-5">
+    <div class="alert alert-danger"></div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group mb-5">
+            <%= f.label :language, t('content.main.cv.new.language.language'), for: "#{id}_language", class: 'text-muted d-block' %>
+            <%= f.text_field :language, class: 'form-control', id: "#{id}_language" %>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group mb-5">
+            <%= f.label :level, t('content.main.cv.new.language.level'), for: "#{id}_level", class: 'text-muted d-block' %>
+            <%= f.select :level, options_from_collection_for_select(cefr_level_options, :first, :last), {},
+            class: 'custom-select form-control', id: "#{id}_level" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-right">
+          <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-primary' %>
+          <%= f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') }, class: 'btn btn-primary' %>
+        </div>
+      </div>
+  </div>
+<% end %>

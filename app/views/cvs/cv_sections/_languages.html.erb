@@ -1,16 +1,23 @@
-<div class="cv-languages position-relative mb-3">
-<h3><%= t('content.main.cv.show.languages.title') %>
-</h3><% @cv.languages.chronological_order.each do |language|
- %><div class="entry position-relative mb-3">
-<h6><%= language.language %>
-</h6><p><%= cefr_level language.level %>
-</p><div class="d-flex top-right">
-<% link_to edit_cv_language_path(language), remote: true, class: 'btn-cv btn-edit' do
- %><i class="fas fa-pencil-alt">
-</i><% end %><% _slim_controls2 = link_to cv_language_path(language), method: :delete, data: { confirm: t('confirmation') },
-class: 'btn-cv btn-delete' do
- %><i class="fas fa-trash-alt">
+<div class="border-top pt-5 pl-3 pl-md-6 pr-2">
+  <div class="d-flex align-items-center justify-content-between">
+    <h6><%= t('content.main.cv.show.languages.title') %></h6>
+    <%= link_to new_cv_language_path, remote: true do %>
+      <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-plus"></i></span>
+    <% end %>
+  </div>
 
-</i><% end %><%= _slim_controls2 %></div></div><% end; _slim_controls3 = link_to new_cv_language_path, remote: true, class: 'btn-cv btn-new top-right' do
- %><i class="fas fa-plus">
-</i><% end %><%= _slim_controls3 %></div><hr class="mb-3" />
+  <% @cv.languages.chronological_order.each do |language| %>
+    <div class="d-flex flex-row font-size-14 pt-5">
+      <div class="ml-2 border-bottom w-100">
+        <h6><%= language.language %></h6>
+        <p><%= cefr_level language.level %></p>
+      </div>
+      <%= link_to edit_cv_language_path(language), remote: true do %>
+        <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-pencil"></i></span>
+      <% end %>
+      <%= link_to cv_language_path(language), method: :delete, data: { confirm: t('confirmation') } do %>
+        <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="fas fa-trash-alt"></i></span>
+      <% end %>
+    </div>
+  <% end %>
+</div>

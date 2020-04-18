@@ -1,77 +1,77 @@
 <%= render 'shared/modal_header', id: 'edit_cv_intro', title: t('content.main.cv.edit.intro.title') do %>
   <%= form_with model: @cv, html: { multipart: true } do |f| %>
-  <div class="modal-body">
-    <div class="alert alert-danger"></div>
-    <div class="needs-validation" novalidate>
+    <div class="modal-body p-5">
+      <div class="alert alert-danger"></div>
       <div class="row">
         <%= f.fields_for :user, @cv.user do |user_fields| %>
-        <div class="col-sm-4 mb-3">
-          <%= user_fields.label :first_name, t('content.main.cv.edit.intro.first_name') %>
-          <%= user_fields.text_field :first_name, class: 'form-control' %>
-        </div>
-        <div class="col-sm-4 mb-3">
-          <%= user_fields.label :last_name, t('content.main.cv.edit.intro.last_name') %>
-          <%= user_fields.text_field :last_name, class: 'form-control' %>
-        </div>
-        <div class="col-sm-4 mb-3">
-          <%= user_fields.label :tel, t('content.main.cv.edit.intro.tel') %>
-          <%= user_fields.text_field :tel, class: 'form-control' %>
-        </div>
-        <% end %>
-      </div>
-      <div class="row">
-        <div class="col-6 mb-3">
-          <%= f.label :about, t('content.main.cv.edit.intro.about') %>
-          <%= f.text_area :about, class: 'form-control', placeholder: 'Scrivi qui cosa sai fare, che esperienza hai e cosa cerchi in una breve frase. Es.: Programmatore con 7 anni di esperienza cerca...' %>
-        </div>
-        <div class="col-6 mb-3">
-          <%= f.label :headshot %>
-          <%= f.file_field :headshot, accept: 'image/jpeg, image/png', class: 'form-control' %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4">
-          <%= f.label :birth_date, t('content.main.cv.edit.intro.birth_date') %>
-          <br />
-          <%= f.date_select :birth_date, { start_year: Date.current.year - 20, end_year: 1900 }, class: 'form-control' %>
-        </div>
-        <div class="col-4">
-          <div class="row">
-            <%= f.label :birth_place %>
-            <%= f.text_field :birth_place, class: 'form-control' %>
-          </div>
-
-          <div class="row">
-            <%#= f.label :gender %>
-            <div class="form-control">
-              <%= f.label :gender, for: "femminile", class:'nolabel', data: { icon: 'female' } do %>
-              <i class="fa fa-female"></i>
-              <% end %>
-              <%= f.radio_button :gender, "f", id:"femminile", data: { icon: "female" } %>
-              &nbsp;&nbsp;&nbsp;
-              <%= f.label :gender, for: "maschile", class:'nolabel', data: { icon: 'male' } do %>
-              <i class="fa fa-male"></i>
-              <% end %>
-              <%= f.radio_button :gender, "m", id:"maschile", data: { icon: "male" } %>
+          <div class="col-4">
+            <div class="form-group mb-5">
+              <%= user_fields.label :first_name, t('content.main.cv.edit.intro.first_name'), class: 'text-muted d-block' %>
+              <%= user_fields.text_field :first_name, class: 'form-control form-control-lg', placeholder: 'First Name', "aria-label" => "first_name" %>
             </div>
           </div>
+          <div class="col-4">
+            <div class="form-group mb-5">
+              <%= user_fields.label :last_name, t('content.main.cv.edit.intro.last_name'), class: 'text-muted d-block' %>
+              <%= user_fields.text_field :last_name, class: 'form-control form-control-lg', placeholder: 'Last Name', "aria-label" => "last_name" %>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-group mb-5">
+              <%= user_fields.label :tel, t('content.main.cv.edit.intro.tel'), class: 'text-muted d-block' %>
+              <%= user_fields.text_field :tel, class: 'form-control form-control-lg', placeholder: 'Telephone', "aria-label" => "telephone" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
 
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group mb-5">
+            <%= f.label :about, t('content.main.cv.edit.intro.about'), class: 'text-muted d-block' %>
+            <%= f.text_area :about, class: 'form-control form-control-lg', placeholder: 'Scrivi qui cosa sai fare, che esperienza hai e cosa cerchi in una breve frase. Es.: Programmatore con 7 anni di esperienza cerca...' %>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group mb-5">
+          <%= f.label :headshot, class: 'text-muted d-block' %>
+          <%= f.file_field :headshot, accept: 'image/jpeg, image/png', class: 'form-control form-control-lg' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group mb-5">
+            <%= f.label :birth_date, t('content.main.cv.edit.intro.birth_date'), class: "text-muted d-block"%>
+            <%= f.date_select :birth_date, { start_year: Date.current.year - 20, end_year: 1900 }, class: 'form-control' %>
+          </div>
         </div>
         <div class="col-4">
-          <!-- CHECKBOXES
-          - sono automunito/a
-          - disponibile a trasferte
-          - ho partita iva
-          - percepisco il Reddito di Cittadinanza
-          - senza esperienza (cerco un tirocinio)
-          - (categorie protette ai sensi della legge 68/99 tipo jobmetoo) -->
+          <div class="form-group mb-5">
+            <%= f.label :birth_place, class: "text-muted d-block"%>
+            <%= f.text_field :birth_place, class: 'form-control form-control-lg' %>
+          </div>
+        </div>
+
+        <div class="col-4" style="display: flex;">
+          <%= f.label :gender, for: "femminile", class: 'text-muted d-block', data: { icon: 'female' } do %>
+            <i class="fa fa-female"></i>
+          <% end %>
+          <%= f.radio_button :gender, "f", id:"femminile", class: 'form-control form-control-sm', data: { icon: "female" } %><br>
+          <%= f.label :gender, for: "maschile", class: 'text-muted d-block', data: { icon: 'male' } do %>
+            <i class="fa fa-male"></i>
+          <% end %>
+          <%= f.radio_button :gender, "m", id: "maschile", class: 'form-control form-control-sm', data: { icon: "male" } %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 text-right">
+          <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-primary' %>
+          <%= f.submit t('content.main.buttons.save'), class: 'btn btn-primary' %>
         </div>
       </div>
     </div>
-  </div>
-  <div class="modal-footer">
-    <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-standard' %>
-    <%= f.submit t('content.main.buttons.save'), class: 'btn btn-standard' %>
-  </div>
   <% end %>
-  <% end %>
+<% end %>

@@ -1,11 +1,12 @@
 import 'babel-polyfill';
-import '../src/javascripts/bootstrap';
+import 'bootstrap/dist/js/bootstrap';
 import '../src/javascripts/address_autocomplete';
 import '../src/javascripts/google_maps';
 import jQuery from 'jquery';
 import Rails from 'rails-ujs';
 import Turbolinks from 'turbolinks';
 require.context('../images', true)
+require.context('../icons', true)
 
 window.$ = jQuery;
 Rails.start();

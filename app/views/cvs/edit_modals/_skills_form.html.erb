@@ -1,17 +1,30 @@
-<%= render 'shared/modal_header', id: 'edit_cv_skills', title: t('content.main.cv.edit.skills.title') do
-_slim_controls2 = form_with model: @cv do |f|
- %><div class="modal-body">
-<div class="alert alert-danger">
-</div><div class="needs-validation" novalidate="">
-<div class="row">
-<div class="col-12 mb-3">
-<%= f.label :working_skills, t('content.main.cv.show.skills.working_skills') %>
-<%= f.text_field :working_skills, class: 'form-control' %>
-</div></div><div class="row">
-<div class="col-12 mb-3">
-<%= f.label :skills, t('content.main.cv.show.skills.other_skills') %>
-<%= f.text_field :skills, class: 'form-control' %>
-</div></div></div></div><div class="modal-footer">
-<%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-standard' %>
-<%= f.submit t('content.main.buttons.save'), class: 'btn btn-standard' %>
-</div><% end %><%= _slim_controls2 %><% end %>
+<%= render 'shared/modal_header', id: 'edit_cv_skills', title: t('content.main.cv.edit.skills.title') do %>
+  <%= form_with model: @cv do |f| %>
+    <div class="modal-body p-5">
+      <div class="alert alert-danger"></div>
+      <div class="needs-validation" novalidate="">
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group mb-5">
+              <%= f.label :working_skills, t('content.main.cv.show.skills.working_skills'), class: 'text-muted d-block' %>
+              <%= f.text_field :working_skills, class: 'form-control form-control-lg', "aria-label" => "working_skills" %>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group mb-5">
+              <%= f.label :skills, t('content.main.cv.show.skills.other_skills'), class: 'text-muted d-block' %>
+              <%= f.text_field :skills, class: 'form-control', "aria-label" => "skills" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 text-right">
+            <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-primary' %>
+            <%= f.submit t('content.main.buttons.save'), class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

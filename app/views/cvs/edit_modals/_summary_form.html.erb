@@ -1,0 +1,23 @@
+<%= render 'shared/modal_header', id: 'edit_cv_summary', title: t('content.main.cv.edit.summary.title') do %>
+  <%= form_with model: @cv do |f| %>
+    <div class="modal-body p-5">
+      <div class="needs-validation" novalidate="">
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group mb-5">
+              <%= f.label :about, t('content.main.cv.show.about'), class: 'text-muted d-block' %>
+              <%= f.text_area :about, class: 'form-control form-control-lg', rows: 3, "aria-label" => "about" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 text-right">
+            <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-primary' %>
+            <%= f.submit t('content.main.buttons.save'), class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

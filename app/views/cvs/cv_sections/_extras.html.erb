@@ -1,10 +1,17 @@
-<div class="cv-extras position-relative">
-<h3><%= t('content.main.cv.show.extras') %>
-</h3><h5><%= t('content.main.cv.show.interests') %>
-</h5><p><%= @cv.interests.presence %>
-</p><h5><%= t('content.main.cv.show.future_plans') %>
-</h5><p><%= @cv.future_plans.presence %>
+<div class="border-top pt-5 pl-3 pl-md-6 pr-2">
+  <div class="d-flex align-items-center justify-content-between">
+    <h6><%= t('content.main.cv.show.extras') %></h6>
+    <%= link_to edit_cv_section_path(section: :extras), remote: true do %>
+      <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-pencil"></i></span>
+    <% end %>
+  </div>
 
-</p><% link_to edit_cv_section_path(section: :extras), remote: true, class: 'btn-cv btn-edit top-right' do
- %><i class="fas fa-pencil-alt">
-</i><% end %></div>
+  <div class="d-flex flex-row font-size-14 pt-5">
+    <div class="ml-2 pb-5 border-bottom w-100">
+      <h6><%= t('content.main.cv.show.interests') %></h6>
+      <p><%= @cv.interests.presence %></p>
+      <h6><%= t('content.main.cv.show.future_plans') %></h6>
+      <p><%= @cv.future_plans.presence %></p>
+    </div>
+  </div>
+</div>

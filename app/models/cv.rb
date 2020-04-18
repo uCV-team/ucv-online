@@ -2,7 +2,7 @@ class Cv < ApplicationRecord
   include PgSearch
 
   ABOUT_MAX_LENGTH = 255
-  CV_SECTIONS = %w[intro skills extras].freeze
+  CV_SECTIONS = %w[intro summary skills extras].freeze
 
   belongs_to :user
   has_many :educations, dependent: :destroy

@@ -1,8 +1,23 @@
-<div class="container mt-3">
-<%= render 'cvs/cv_sections/intro' %>
-<%= render 'cvs/cv_sections/experience' %>
-<%= render 'cvs/cv_sections/education' %>
-<%= render 'cvs/cv_sections/languages' %>
-<%= render 'cvs/cv_sections/skills' %>
-<%= render 'cvs/cv_sections/extras' %>
+<!-- CV sections
+================================================== -->
+<div class="container middle-container-2 cvpage pb-40 pb-md-80">
+  <% unless false # @cv.published? %>
+    <p class="border-bottom border-primary text-muted py-3 mb-0">
+      <i class="icon-info mr-2"></i>
+      Your resume is only visible to you until you publish.
+    </p>
+  <% end %>
+
+  <div class="border-top border-primary">
+    <div class="border py-6">
+      <%= render 'cvs/cv_sections/intro' %>
+      <%#= render 'cvs/cv_sections/locations' %>
+      <%= render 'cvs/cv_sections/summary' %>
+      <%= render 'cvs/cv_sections/experience' %>
+      <%= render 'cvs/cv_sections/education' %>
+      <%= render 'cvs/cv_sections/languages' %>
+      <%= render 'cvs/cv_sections/skills' %>
+      <%= render 'cvs/cv_sections/extras' %>
+    </div>
+  </div>
 </div>

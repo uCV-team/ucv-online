@@ -1,9 +1,15 @@
-<div class="modal fade"<% _slim_codeattributes1 = id; if _slim_codeattributes1; if _slim_codeattributes1 == true %> id=""<% else %> id="<%= _slim_codeattributes1 %>"<% end; end %> role="dialog">
-<div class="modal-dialog modal-dialog-centered modal-lg">
-<div class="modal-content">
-<div class="modal-header">
-<h4><%= title %>
-</h4><button<% _slim_codeattributes2 = t('content.main.aria_labels.close'); if _slim_codeattributes2; if _slim_codeattributes2 == true %> aria-label=""<% else %> aria-label="<%= _slim_codeattributes2 %>"<% end; end %> class="close" data-dismiss="modal">
-<span aria-hidden="true">&times;</span>
-</button></div><%= yield %>
-</div></div></div>
+<div class="modal fade" <% _slim_codeattributes1 = id; if _slim_codeattributes1; if _slim_codeattributes1 == true %> id=""<% else %> id="<%= _slim_codeattributes1 %>"<% end; end %> role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header p-5 border-0 bg-light d-flex justify-content-between align-items-center">
+        <h5 class="modal-title mb-0"><%= title %></h5>
+        <button<% _slim_codeattributes2 = t('content.main.aria_labels.close'); if _slim_codeattributes2; if _slim_codeattributes2 == true %> aria-label=""<% else %> aria-label="<%= _slim_codeattributes2 %>"<% end; end %> class="close" data-dismiss="modal">
+          <span class="badge badge-light rounded-circle">
+            <i class="fas fa-times"></i>
+          </span>
+        </button>
+      </div>
+      <%= yield %>
+    </div>
+  </div>
+</div>

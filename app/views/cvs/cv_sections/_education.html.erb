@@ -1,18 +1,34 @@
-<div class="cv-education position-relative mb-3">
-<h3><%= t('content.main.cv.show.education.title') %>
-</h3><% @cv.educations.chronological_order.each do |education|
- %><div class="entry position-relative mb-3">
-<h6><%= education.school %>
-</h6><p><%= t('content.main.cv.show.education.degree', degree: education.degree) if education.degree.present? %>
-</p><p class="light"><%= study_period(education.started_on, education.ended_on) %>
-</p><p><%= education.description.presence %>
-</p><div class="d-flex top-right">
-<% link_to edit_cv_education_path(education), remote: true, class: 'btn-cv btn-edit' do
- %><i class="fas fa-pencil-alt">
-</i><% end %><% _slim_controls2 = link_to cv_education_path(education), method: :delete, data: { confirm: t('confirmation') },
-class: 'btn-cv btn-delete' do
- %><i class="fas fa-trash-alt">
+<div class="border-top pt-5 pl-3 pl-md-6 pr-2">
+  <div class="d-flex align-items-center justify-content-between">
+    <h6><%= t('content.main.cv.show.education.title') %></h6>
+    <%= link_to new_cv_education_path, remote: true do %>
+      <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-plus"></i></span>
+    <% end %>
+  </div>
 
-</i><% end %><%= _slim_controls2 %></div></div><% end; _slim_controls3 = link_to new_cv_education_path, remote: true, class: 'btn-cv btn-new top-right' do
- %><i class="fas fa-plus">
-</i><% end %><%= _slim_controls3 %></div><hr class="mb-3" />
+  <% @cv.educations.chronological_order.each do |education| %>
+    <div class="d-flex flex-row font-size-14 pt-5">
+      <span class="badge badge-light h-100 p-1 mr-2 border">
+        <%= image_pack_tag 'icons/gogle-logo.svg', alt: 'google' %>
+      </span>
+
+      <div class="ml-2 pb-5 border-bottom w-100">
+        <h6><%= education.school %></h6>
+        <% if education.degree.present? %>
+          <h6 class="font-weight-normal mb-1"><%= t('content.main.cv.show.education.degree', degree: education.degree) %></h6>
+        <% end %>
+        <p><%= study_period(education.started_on, education.ended_on) %></p>
+        <p class="mb-0">Description: </p>
+        <span><%= education.description.presence %></span>
+      </div>
+
+      <%= link_to edit_cv_education_path(education), remote: true do %>
+        <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-pencil"></i></span>
+      <% end %>
+
+      <%= link_to cv_education_path(education), method: :delete, data: { confirm: t('confirmation') } do %>
+        <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="fas fa-trash-alt"></i></span>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -1,27 +1,27 @@
-<div class="cv-intro position-relative mb-3">
-  <div class="photo float-right mb-3 ml-3">
-    <%= image_tag( @cv.headshot.url(:default), alt: "#{@cv.abbr_name} headshot") %>
-  </div>
-  <h3><%= @cv.abbr_name %></h3>
-  <p>
-    <%= birth_info_for(@cv) %>
-  </p>
-  <p><%= @cv.about.presence %></p>
-  <div class="clearfix"></div>
+<div class="d-flex pl-3 pl-md-6 pr-2 pb-4">
+  <div>
+    <div class="row w-100 flex-column-reverse flex-md-row">
+      <div class="col-12 col-md-10 mt-2 mb-md-0">
+        <h2><%= @cv.abbr_name %></h2>
+        <h6 class="font-weight-normal"><%= birth_info_for(@cv) %></h6>
 
-  <%= link_to 'Aggiungi zona in cui cerchi lavoro', new_location_path, remote: true %>
-
-  <% current_user.locations.chronological_order.each do |location| %>
-  <div class="location entry position-relative mb-3">
-    <h6><%= location.city %></h6>
-    <p><%= location.geocoded_address %></p>
-    <%= link_to 'Edit', edit_location_path(location), remote: true %>
-    |
-    <%= link_to 'Delete', location_path(location), method: :delete, data: { confirm: t('confirmation') } %>
+        <div class="row mt-4">
+          <div class="col-12 col-md-6 col-lg-4 mb-3"><i class="icon-envelope mr-2"></i><%= current_user.email %></div>
+          <div class="col-12 col-md-6 col-lg-4 mb-3"><i class="icon-phone mr-2"></i><%= current_user.tel %></div>
+          <div class="col-12 col-lg-4"></div>
+          <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <%= image_pack_tag 'icons/publicv-icon.svg', class: 'mr-2' %>publicv.org/johndoe
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-3"><i class="icon-link mr-2"></i>https://dribbble.com/johndoe</div>
+          <div class="col-12 col-lg-4"></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-2 mb-2 mb-md-0">
+        <%= image_tag( @cv.headshot.url(:default), alt: "#{@cv.abbr_name} headshot", class: 'img-fluid') %>
+      </div>
+    </div>
   </div>
-  <% end %>
   <%= link_to edit_cv_section_path(section: :intro), remote: true, class: 'btn-cv btn-edit top-right' do %>
-  <i class="fas fa-pencil-alt"> </i>
+    <span type="button" class="badge rounded-circle badge-primary-light text-primary p-2 ml-2"><i class="icon-pencil"></i></span>
   <% end %>
 </div>
-<hr class="mb-3" />
