@@ -45,7 +45,7 @@
                 <% if @cv.headshot.present? %>
                   <%= image_tag @cv.headshot.url, width: "100%" %>
                 <% else %>
-                  <%= image_pack 'images/logo.svg', alt: "" %>
+                  <%= image_pack_tag 'images/head_shot.png', alt: "" %>
                 <% end %>
               </div>
 

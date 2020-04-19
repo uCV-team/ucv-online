@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_19_121429) do
+ActiveRecord::Schema.define(version: 2020_04_19_193022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_121429) do
     t.string "birth_day"
     t.string "birth_month"
     t.string "birth_year"
+    t.boolean "published", default: false
     t.index ["user_id"], name: "index_cvs_on_user_id"
   end
 
