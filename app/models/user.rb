@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :subdomain, uniqueness: true
 
   # TODO: Validate format of domain
-  #validates_format_of :subdomain, :with => Regexp.new(/^[a-zA-Z0-9-]*?$/), :message => "as"
+  # validates_format_of :subdomain, :with => Regexp.new(/^[a-zA-Z0-9-]*?$/), :message => "as"
 
   after_initialize :prepare_blank_cv, if: :new_record?
 
