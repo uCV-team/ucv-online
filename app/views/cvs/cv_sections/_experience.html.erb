@@ -16,7 +16,11 @@
         <h6><%= experience.title %></h6>
         <h6 class="font-weight-normal mb-1"><%= experience.company %></h6>
         <% if experience.location.present? %>
-          <p><%= t('content.main.cv.show.experience.location', location: experience.location) %></p>
+          <span><%= t('content.main.cv.show.experience.location', location: experience.location) %></span><br>
+        <% end %>
+        <% if experience.website_url.present? %>
+          <p>
+            <a href="<%= experience.website_url %>" target="_blank"><%= experience.website_url %></a></p>
         <% end %>
         <p><%= work_period(experience.started_on, experience.ended_on) %></p>
         <p class="mb-0">Core Competencies: </p>

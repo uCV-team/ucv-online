@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_18_162800) do
+ActiveRecord::Schema.define(version: 2020_04_19_121429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_162800) do
     t.string "description", limit: 255
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "website_url"
     t.index ["cv_id"], name: "index_experiences_on_cv_id"
   end
 

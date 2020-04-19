@@ -55,6 +55,7 @@ en:
             location: "Location"
             title: "Add new experience"
             to: "To (blank if on-going)"
+            website_url: "Website URL"
           language:
             language: "Language *"
             level: "Level"
