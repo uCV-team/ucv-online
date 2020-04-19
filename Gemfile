@@ -20,6 +20,8 @@ gem 'paperclip'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'webpacker', '~> 3.5'
+# Amazon S3
+gem 'aws-sdk-s3'
 
 group :development do
   gem 'better_errors'
