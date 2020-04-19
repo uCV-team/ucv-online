@@ -7,9 +7,15 @@
   </div>
 
   <% @cv.experiences.chronological_order.each do |experience| %>
+    <% has_website = experience.website_url.present? %>
+
     <div class="d-flex flex-row font-size-14 pt-5">
       <span class="badge badge-light h-100 p-1 mr-2 border">
-        <%= image_pack_tag 'icons/gogle-logo.svg', alt: 'google' %>
+        <% if has_website %>
+          <img src="https://www.google.com/s2/favicons?domain=<%= experience.website_url %>" />
+        <% else %>
+          <%= image_pack_tag 'icons/gogle-logo.svg', alt: 'google' %>
+        <% end %>
       </span>
 
       <div class="ml-2 pb-5 border-bottom w-100">
@@ -18,9 +24,8 @@
         <% if experience.location.present? %>
           <span><%= t('content.main.cv.show.experience.location', location: experience.location) %></span><br>
         <% end %>
-        <% if experience.website_url.present? %>
-          <p>
-            <a href="<%= experience.website_url %>" target="_blank"><%= experience.website_url %></a></p>
+        <% if has_website %>
+          <p><a href="<%= experience.website_url %>" target="_blank"><%= experience.website_url %></a></p>
         <% end %>
         <p><%= work_period(experience.started_on, experience.ended_on) %></p>
         <p class="mb-0">Core Competencies: </p>

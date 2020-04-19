@@ -8,10 +8,6 @@
 
   <% @cv.educations.chronological_order.each do |education| %>
     <div class="d-flex flex-row font-size-14 pt-5">
-      <span class="badge badge-light h-100 p-1 mr-2 border">
-        <%= image_pack_tag 'icons/gogle-logo.svg', alt: 'google' %>
-      </span>
-
       <div class="ml-2 pb-5 border-bottom w-100">
         <h6><%= education.school %></h6>
         <% if education.degree.present? %>
