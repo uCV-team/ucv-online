@@ -57,13 +57,21 @@
       </div>
 
       <div class="row">
-        <div class="col-6">
-          <div class="form-group mb-5">
-            <%= f.label :birth_place, class: "text-muted d-block"%>
-            <%= f.text_field :birth_place, class: 'form-control form-control-lg' %>
-          </div>
-        </div>
-        <div class="col-6 pt-5">
+        <%= f.fields_for :user, @cv.user do |user| %>
+          <%= user.fields_for :current_location do |location| %>
+            <div class="autocomplete col-9">
+              <div class="form-group mb-5">
+                <%= location.label :original_address, t('content.main.cv.new.location.address'), for: "edit_cv_intro_address", class: 'text-muted d-block' %>
+                <%= location.text_field :original_address, autocomplete: 'off', class: 'form-control', id: "edit_cv_intro_address" %>
+                <div class="autocomplete-results position-absolute" id="edit_cv_intro_results">
+                  <ul>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="col-3 pt-5">
           <div class="form-check-inline">
             <%= f.label :gender, for: "femminile", class: 'form-check-label', data: { icon: 'female' } do %>
               <i class="fa fa-female"></i>
@@ -89,3 +97,7 @@
     </div>
   <% end %>
 <% end %>
+
+<script>
+  initAutocomplete('edit_cv_intro', '<%= api_token %>');
+</script>

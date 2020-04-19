@@ -4,6 +4,9 @@
       <div class="col-12 col-md-10 mt-2 mb-md-0">
         <h2><%= @cv.abbr_name %></h2>
         <h6 class="font-weight-normal"><%= birth_info_for(@cv) %></h6>
+        <% if current_user.current_location.present? %>
+          <h6 class="font-weight-normal"><%= current_user.current_location&.original_address %></h6>
+        <% end %>
 
         <div class="row mt-4">
           <div class="col-12 col-md-6 col-lg-4 mb-3"><i class="icon-envelope mr-2"></i><%= current_user.email %></div>

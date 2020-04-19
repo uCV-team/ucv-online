@@ -6,10 +6,10 @@
         <div class="form-group mb-5">
           <%= f.label :orginial_address, t('content.main.cv.new.location.address'), for: "#{id}_address", class: 'text-muted d-block' %>
           <%= f.text_field :original_address, autocomplete: 'off', class: 'form-control', id: "#{id}_address" %>
-        </div>
-        <div class="autocomplete-results position-absolute" id="<%= id %>_results">
-          <ul>
-          </ul>
+          <div class="autocomplete-results position-absolute" id="<%= id %>_results">
+            <ul>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="col-lg-3">

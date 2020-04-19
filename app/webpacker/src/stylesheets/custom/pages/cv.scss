@@ -30,3 +30,15 @@
     font-weight: 500;
   }
 }
+
+.autocomplete-results {
+  z-index: 100;
+  ul{
+    list-style: none;
+    padding: 0px 0px 0px 6px;
+    background: #f0f0f0;
+    span {
+      padding: 0px 10px 0px 0px;
+    }
+  }
+}

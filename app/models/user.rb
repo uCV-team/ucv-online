@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_one :cv, dependent: :destroy
   has_many :locations, dependent: :destroy
 
+  has_one :current_location, class_name: 'Location', dependent: :destroy
+
   validates :first_name, :last_name, :subdomain, presence: true
   validates :subdomain, uniqueness: true
 
@@ -12,7 +14,7 @@ class User < ApplicationRecord
 
   after_initialize :prepare_blank_cv, if: :new_record?
 
-  accepts_nested_attributes_for :cv
+  accepts_nested_attributes_for :cv, :current_location
 
   private
 
