@@ -1,1 +1,3 @@
-$('.modal.fade.show').find('.alert.alert-danger').empty().append('<%= render 'errors', language: @language %>');
+var errorElementTag = $('.modal.fade.show').find('.alert.alert-danger')
+errorElementTag.empty().removeClass('d-none')
+errorElementTag.append('<%= render 'errors', language: @language %>');

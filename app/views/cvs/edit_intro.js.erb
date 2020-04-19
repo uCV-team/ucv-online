@@ -1,1 +1,24 @@
 <%= render('shared/modal_toggle', id: '#edit_cv_intro') { j render 'cvs/edit_modals/intro_form' } %>
+
+// Upload Preview
+var imageUploder = $('div[data-behavior~=image-uploader]');
+if (imageUploder.length > 0) {
+  var fileInput = imageUploder.find('input[type=file]')
+  imageUploder.find('button').on('click', (e) => {
+    e.preventDefault();
+    fileInput.click();
+  })
+  fileInput.on('change', (event) => {
+    var input = event.target;
+    if(input.files && input.files[0]){
+      var file = input.files[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function(e) {
+        var preview = imageUploder.find('.preview')
+        preview.empty();
+        preview.append(`<img src=${e.target.result} width="200" />`);
+      }
+    }
+  });
+}

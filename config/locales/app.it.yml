@@ -81,6 +81,7 @@ it:
           future_plans: "Plans for the future"
           interests: "Interests"
           intro:
+            birth_date: "Born on %{day}. %{month}, %{year}"
             contact_me_button: "Contact"
             contact_me_html: "Interested? %{link} me!"
           languages:
@@ -92,7 +93,7 @@ it:
             working_skills: "Work skills"
           summary:
             title: "Sommario"
-          about: "Di"
+          about: "Informazioni (massimo 255 caratteri)"
       search:
         header: "Search"
   layouts:

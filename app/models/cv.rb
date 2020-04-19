@@ -10,7 +10,7 @@ class Cv < ApplicationRecord
   has_many :languages, dependent: :destroy
   has_many :locations, through: :user
 
-  # validates :about, length: { maximum: ABOUT_MAX_LENGTH }
+  validates :about, length: { maximum: ABOUT_MAX_LENGTH }
   validates :user, uniqueness: true
   delegate :email, :tel, to: :user
 

@@ -32,7 +32,7 @@ class CvsController < ApplicationController
   end
 
   def cv_params
-    params.require(:cv).permit(:about, :birth_date, :birth_place, :future_plans, :gender, :headshot, :interests,
+    params.require(:cv).permit(:about, :birth_date, :birth_place, :birth_day, :birth_month, :birth_year, :future_plans, :gender, :headshot, :interests,
                                :section, :skills, :working_skills, user_attributes: %i[id first_name last_name tel])
   end
 end

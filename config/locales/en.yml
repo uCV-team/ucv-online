@@ -92,7 +92,7 @@ en:
             working_skills: "Work skills"
           summary:
             title: "Summary"
-          about: "About"
+          about: "About (max. 255 scharacters)"
       search:
         header: "Search"
   layouts:

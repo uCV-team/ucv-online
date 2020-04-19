@@ -1,7 +1,7 @@
 <%= render 'shared/modal_header', id: 'edit_cv_intro', title: t('content.main.cv.edit.intro.title') do %>
   <%= form_with model: @cv, html: { multipart: true } do |f| %>
     <div class="modal-body p-5">
-      <div class="alert alert-danger"></div>
+      <div class="alert alert-danger d-none"></div>
       <div class="row">
         <%= f.fields_for :user, @cv.user do |user_fields| %>
           <div class="col-4">
@@ -28,41 +28,55 @@
       <div class="row">
         <div class="col-6">
           <div class="form-group mb-5">
-            <%= f.label :about, t('content.main.cv.edit.intro.about'), class: 'text-muted d-block' %>
-            <%= f.text_area :about, class: 'form-control form-control-lg', placeholder: 'Scrivi qui cosa sai fare, che esperienza hai e cosa cerchi in una breve frase. Es.: Programmatore con 7 anni di esperienza cerca...' %>
+            <%= f.label :birth_date, t('content.main.cv.edit.intro.birth_date'), class: "text-muted d-block" %>
+            <small class="day text-muted">Day:</small>
+            <%= f.select :birth_day, options_for_select((1..31).to_a.insert(0, nil), f.object.birth_day), {}, class: 'form-control' %>
+            <small class="month text-muted">Month:</small>
+            <%= f.select :birth_month, options_for_select(Date::MONTHNAMES, f.object.birth_month), {}, class: 'form-control' %>
+            <small class="year text-muted">Year:</small>
+            <%= f.select :birth_year, options_for_select((1900..(Date.current.year - 20)).to_a.reverse.insert(0, nil), f.object.birth_year), {}, class: 'form-control' %>
           </div>
         </div>
         <div class="col-6">
           <div class="form-group mb-5">
-          <%= f.label :headshot, class: 'text-muted d-block' %>
-          <%= f.file_field :headshot, accept: 'image/jpeg, image/png', class: 'form-control form-control-lg' %>
+            <%= f.label :headshot, class: 'text-muted d-block' %>
+            <div class="profile-logo squared" data-behavior="image-uploader">
+              <div class="preview">
+                <% if @cv.headshot.present? %>
+                  <%= image_tag @cv.headshot.url, width: "100%" %>
+                <% else %>
+                  <%= image_pack 'images/logo.svg', alt: "" %>
+                <% end %>
+              </div>
+
+              <button type='button'>Edit</button>
+              <%= f.file_field :headshot, accept: 'image/jpeg, image/png', class: 'form-control form-control-lg d-none' %>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-4">
-          <div class="form-group mb-5">
-            <%= f.label :birth_date, t('content.main.cv.edit.intro.birth_date'), class: "text-muted d-block"%>
-            <%= f.date_select :birth_date, { start_year: Date.current.year - 20, end_year: 1900 }, class: 'form-control' %>
-          </div>
-        </div>
-        <div class="col-4">
+        <div class="col-6">
           <div class="form-group mb-5">
             <%= f.label :birth_place, class: "text-muted d-block"%>
             <%= f.text_field :birth_place, class: 'form-control form-control-lg' %>
           </div>
         </div>
+        <div class="col-6 pt-5">
+          <div class="form-check-inline">
+            <%= f.label :gender, for: "femminile", class: 'form-check-label', data: { icon: 'female' } do %>
+              <i class="fa fa-female"></i>
+              <%= f.radio_button :gender, "f", id:"femminile", class: 'form-check-input', data: { icon: "female" } %>
+            <% end %>
+          </div>
 
-        <div class="col-4" style="display: flex;">
-          <%= f.label :gender, for: "femminile", class: 'text-muted d-block', data: { icon: 'female' } do %>
-            <i class="fa fa-female"></i>
-          <% end %>
-          <%= f.radio_button :gender, "f", id:"femminile", class: 'form-control form-control-sm', data: { icon: "female" } %><br>
-          <%= f.label :gender, for: "maschile", class: 'text-muted d-block', data: { icon: 'male' } do %>
-            <i class="fa fa-male"></i>
-          <% end %>
-          <%= f.radio_button :gender, "m", id: "maschile", class: 'form-control form-control-sm', data: { icon: "male" } %>
+           <div class="form-check-inline">
+             <%= f.label :gender, for: "maschile", class: 'form-check-label', data: { icon: 'male' } do %>
+              <i class="fa fa-male"></i>
+              <%= f.radio_button :gender, "m", id: "maschile", class: 'form-check-input', data: { icon: "male" } %>
+            <% end %>
+          </div>
         </div>
       </div>
 

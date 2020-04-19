@@ -1,7 +1,7 @@
 <%= render 'shared/modal_header', id: 'edit_cv_skills', title: t('content.main.cv.edit.skills.title') do %>
   <%= form_with model: @cv do |f| %>
     <div class="modal-body p-5">
-      <div class="alert alert-danger"></div>
+      <div class="alert alert-danger d-none"></div>
       <div class="needs-validation" novalidate="">
         <div class="row">
           <div class="col-12">
