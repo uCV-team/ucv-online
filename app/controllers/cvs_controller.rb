@@ -1,13 +1,15 @@
 class CvsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
-  before_action :set_cv
+  before_action :set_cv, only: [:show]
+  before_action :find_cv, only: %i[edit update]
   respond_to :html, :js
 
   def show
     if current_user.present? && current_user.id == @cv.user_id
-      # User can edit CV
+      @cv_edit_controls = true # user can edit CV on root domain (owner)
+      @user = current_user
     elsif @cv.published?
-      # public view of CV
+      @cv_edit_controls = false # public view of CV on subdomain
     else
       cv_not_found_or_unpublished
     end
@@ -17,13 +19,13 @@ class CvsController < ApplicationController
     if Cv::CV_SECTIONS.include? params[:section]
       render "edit_#{params[:section]}"
     else
-      redirect_to cv_path
+      redirect_to cv_section_path(current_user.subdomain)
     end
   end
 
   def update
     if @cv.update(cv_params)
-      redirect_to @cv, flash: { success: t('success.cv.update') }
+      redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.cv.update') }
     else
       render 'errors'
     end
@@ -36,12 +38,20 @@ class CvsController < ApplicationController
     if @user
       @cv = @user.cv
     else
-      cv_not_founds
+      cv_not_found_or_unpublished
+    end
+  end
+
+  def find_cv
+    @cv = if params[:id]
+      Cv.find(params[:id])
+    else
+      current_user.cv
     end
   end
 
   def cv_params
-    params.require(:cv).permit(:about, :birth_date, :birth_place, :birth_day, :birth_month, :birth_year, :future_plans, :gender, :headshot, :interests,
+    params.require(:cv).permit(:about, :birth_date, :birth_place, :birth_day, :birth_month, :birth_year, :future_plans, :gender, :headshot, :interests, :published,
                                :section, :skills, :working_skills, user_attributes: [:id, :first_name, :last_name, :tel, current_location_attributes: %i[id original_address]])
   end
 

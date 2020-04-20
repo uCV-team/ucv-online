@@ -95,6 +95,9 @@ it:
           summary:
             title: "Sommario"
           about: "Informazioni (massimo 255 caratteri)"
+          prefer_not_to_disclose: "Preferisco non rivelare"
+          male: "Maschile"
+          female: "Femminile"
       search:
         header: "Search"
   layouts:

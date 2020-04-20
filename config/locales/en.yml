@@ -94,6 +94,9 @@ en:
           summary:
             title: "Summary"
           about: "About (max. 255 scharacters)"
+          prefer_not_to_disclose: "Prefer not to disclose"
+          male: "Male"
+          female: "Female"
       search:
         header: "Search"
   layouts:

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    params[:user][:locale] = I18n.locale
+    params[:user][:locale] = I18n.locale if params[:user].present?
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name tel subdomain locale])
   end
 

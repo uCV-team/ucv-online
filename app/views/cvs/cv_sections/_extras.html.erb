@@ -1,8 +1,10 @@
 <div class="border-top pt-5 pl-3 pl-md-6 pr-2">
   <div class="d-flex align-items-center justify-content-between">
     <h6><%= t('content.main.cv.show.extras') %></h6>
-    <%= link_to edit_cv_section_path(section: :extras), remote: true do %>
-      <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-pencil"></i></span>
+    <% if @cv_edit_controls %>
+      <%= link_to edit_cv_section_path(section: :extras), remote: true do %>
+        <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-pencil"></i></span>
+      <% end %>
     <% end %>
   </div>
 

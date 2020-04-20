@@ -59,7 +59,7 @@
       <div class="row">
         <%= f.fields_for :user, @cv.user do |user| %>
           <%= user.fields_for :current_location do |location| %>
-            <div class="autocomplete col-9">
+            <div class="autocomplete col-6">
               <div class="form-group mb-5">
                 <%= location.label :original_address, t('content.main.cv.new.location.address'), for: "edit_cv_intro_address", class: 'text-muted d-block' %>
                 <%= location.text_field :original_address, autocomplete: 'off', class: 'form-control', id: "edit_cv_intro_address" %>
@@ -71,18 +71,24 @@
             </div>
           <% end %>
         <% end %>
-        <div class="col-3 pt-5">
-          <div class="form-check-inline">
-            <%= f.label :gender, for: "femminile", class: 'form-check-label', data: { icon: 'female' } do %>
-              <i class="fa fa-female"></i>
-              <%= f.radio_button :gender, "f", id:"femminile", class: 'form-check-input', data: { icon: "female" } %>
+
+        <div class="col-6 pt-4 pb-2">
+          <div class="form-check">
+            <%= f.radio_button :gender, "", id:"prefer_not_disclose", class: 'form-check-input' %>
+            <%= f.label :gender, for: "prefer_not_disclose", class: 'form-check-label' do %>
+              <%= t('content.main.cv.show.prefer_not_to_disclose') %>
             <% end %>
           </div>
-
-           <div class="form-check-inline">
-             <%= f.label :gender, for: "maschile", class: 'form-check-label', data: { icon: 'male' } do %>
-              <i class="fa fa-male"></i>
-              <%= f.radio_button :gender, "m", id: "maschile", class: 'form-check-input', data: { icon: "male" } %>
+           <div class="form-check">
+             <%= f.radio_button :gender, "m", id: "maschile", class: 'form-check-input' %>
+             <%= f.label :gender, for: "maschile", class: 'form-check-label' do %>
+              <%= t('content.main.cv.show.male') %>
+             <% end %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :gender, "f", id:"femminile", class: 'form-check-input' %>
+            <%= f.label :gender, for: "femminile", class: 'form-check-label' do %>
+              <%= t('content.main.cv.show.female') %>
             <% end %>
           </div>
         </div>
