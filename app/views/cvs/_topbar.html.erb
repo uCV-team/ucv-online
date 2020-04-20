@@ -3,20 +3,26 @@
     <div class="d-flex flex-column flex-md-row align-items-center justify-content-between py-3">
       <% if @cv_edit_controls %>
         <div class="w-100 pb-3 pb-md-0">
-          <h6 class="d-inline-block pr-3 border-right">Your Resume</h6>
-          <h6 class="d-inline-block px-3">Resume-<%= @cv.user&.first_name %></h6>
-          <span class="rounded-circle badge badge-primary-light text-primary p-2"><i class="icon-pencil"></i></button>
+          <h6 class="d-inline-block pr-3 border-right">CV</h6>
+          <h6 class="d-inline-block px-3"><%= @cv.user&.first_name %></h6>
+          <span class="rounded-circle badge badge-primary-light text-primary p-2"><i class="icon-pencil"></i></span>
         </div>
       <% end %>
 
       <div class="d-flex align-items-center justify-content-start justify-content-md-end border-top border-md-0 w-100 pt-3 pt-md-0">
-        <% if @cv_edit_controls %>
+        <% if @cv_edit_controls %> <!-- When CV owner is in edit mode ====== -->
           <%= link_to 'Preview', cv_section_path(current_user.subdomain, preview: 't'), class: 'btn btn-primary mx-2' %>
-          <% unless @cv.published? %>
+
+          <% if @cv.published? %>
+            <%= link_to 'Unpublish', cv_path("cv[published]" => "0"), method: :put, class: 'btn btn-outline-primary mx-2', remote: true %>
+          <% else %>
             <%= link_to 'Publish', cv_path("cv[published]" => "1"), method: :put, class: 'btn btn-outline-primary mx-2', remote: true %>
           <% end %>
+
           <%= link_to 'Download', cv_download_path(format: :pdf), method: :put, class: 'btn btn-outline-primary mx-2' %>
-        <% else %>
+        <% elsif @user.present? && params[:preview] == 't' %> <!-- When CV owner is in preview mode ====== -->
+          <%= link_to 'Exit preview', cv_section_path(current_user.subdomain), class: 'btn btn-primary mx-2' %>
+        <% else %> <!-- When CV public view mode ====== -->
           <button class="btn btn-outline-primary mx-2">Hire <%= @user.first_name %></button>
         <% end %>
       </div>

@@ -17,16 +17,12 @@
             <!-- <i class="ml-1 fas fa-angle-down"></i> -->
             </a>
           </li>
-          <li class="nav-item mx-3">
-            <a class="badge badge-pill badge-primary badge-primary-light p-2 text-primary font-weight-normal" href="./views/cvpage.html" >
-            Your CV
-            <!-- <i class="ml-1 fas fa-angle-down"></i> -->
-            </a>
-          </li>
         </ul>
         <% if user_signed_in? %>
           <div class="d-flex justify-content-between justify-content-md-start border-top border-md-0 pt-3 pt-md-0 mt-3 mt-md-0">
-            <%= link_to 'Edit Your CV', cv_section_path(current_user.subdomain), class: 'btn btn-lg btn-outline-primary mr-2' %>
+            <% unless request.path == cv_section_path(current_user.subdomain) %>
+              <%= link_to 'Edit Your CV', cv_section_path(current_user.subdomain), class: 'btn btn-lg btn-outline-primary mr-2' %>
+            <% end %>
             <%= link_to t('layouts.nav.logout'), destroy_user_session_path, method: :delete, class: 'btn btn-lg btn-primary ml-2' %>
           </div>
         <% else %>
