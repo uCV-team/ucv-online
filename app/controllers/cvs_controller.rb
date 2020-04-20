@@ -7,6 +7,7 @@ class CvsController < ApplicationController
   def show
     if current_user.present? && current_user.id == @cv.user_id
       @cv_edit_controls = true # user can edit CV on root domain (owner)
+      @cv_edit_controls = false if params[:preview] == 't'
       @user = current_user
     elsif @cv.published?
       @cv_edit_controls = false # public view of CV on subdomain
