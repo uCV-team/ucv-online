@@ -13,7 +13,7 @@ class LanguagesController < ApplicationController
   def create
     @language = @cv.languages.build(language_params)
     if @language.save
-      redirect_to cv_url, flash: { success: t('success.language.create') }
+      redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.language.create') }
     else
       render 'languages/errors'
     end
@@ -21,7 +21,7 @@ class LanguagesController < ApplicationController
 
   def update
     if @language.update(language_params)
-      redirect_to cv_url, flash: { success: t('success.cv.update') }
+      redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.cv.update') }
     else
       render 'languages/errors'
     end
@@ -29,7 +29,7 @@ class LanguagesController < ApplicationController
 
   def destroy
     @language.destroy
-    redirect_to cv_url, flash: { success: t('success.language.destroy') }
+    redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.language.destroy') }
   end
 
   private

@@ -12,7 +12,7 @@ class LocationsController < ApplicationController
   def create
     @location = current_user.locations.build(location_params)
     if @location.save
-      redirect_to cv_url, flash: { success: t('success.location.create') }
+      redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.location.create') }
     else
       render 'locations/errors'
     end
@@ -20,7 +20,7 @@ class LocationsController < ApplicationController
 
   def update
     if @location.update(location_params)
-      redirect_to cv_url, flash: { success: t('success.cv.update') }
+      redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.cv.update') }
     else
       render 'locations/errors'
     end
@@ -28,7 +28,7 @@ class LocationsController < ApplicationController
 
   def destroy
     @location.destroy
-    redirect_to cv_url, flash: { success: t('success.location.destroy') }
+    redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.location.destroy') }
   end
 
   private

@@ -13,7 +13,7 @@ class ExperiencesController < ApplicationController
   def create
     @experience = @cv.experiences.build(experience_params)
     if @experience.save
-      redirect_to cv_url, flash: { success: t('success.experience.create') }
+      redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.experience.create') }
     else
       render 'experiences/errors'
     end
@@ -21,7 +21,7 @@ class ExperiencesController < ApplicationController
 
   def update
     if @experience.update(experience_params)
-      redirect_to cv_url, flash: { success: t('success.cv.update') }
+      redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.cv.update') }
     else
       render 'experiences/errors'
     end
@@ -29,7 +29,7 @@ class ExperiencesController < ApplicationController
 
   def destroy
     @experience.destroy
-    redirect_to cv_url, flash: { success: t('success.experience.destroy') }
+    redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.experience.destroy') }
   end
 
   private

@@ -13,7 +13,7 @@ class EducationsController < ApplicationController
   def create
     @education = @cv.educations.build(education_params)
     if @education.save
-      redirect_to cv_url, flash: { success: t('success.education.create') }
+      redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.education.create') }
     else
       render 'educations/errors'
     end
@@ -21,7 +21,7 @@ class EducationsController < ApplicationController
 
   def update
     if @education.update(education_params)
-      redirect_to cv_url, flash: { success: t('success.cv.update') }
+      redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.cv.update') }
     else
       render 'educations/errors'
     end
@@ -29,7 +29,7 @@ class EducationsController < ApplicationController
 
   def destroy
     @education.destroy
-    redirect_to cv_url, flash: { success: t('success.education.destroy') }
+    redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.education.destroy') }
   end
 
   private
