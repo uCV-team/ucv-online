@@ -15,7 +15,7 @@
           <% unless @cv.published? %>
             <%= link_to 'Publish', cv_path("cv[published]" => "1"), method: :put, class: 'btn btn-outline-primary mx-2', remote: true %>
           <% end %>
-          <button class="btn btn-outline-primary mx-2">Download</button>
+          <%= link_to 'Download', cv_download_path(format: :pdf), method: :put, class: 'btn btn-outline-primary mx-2' %>
         <% else %>
           <button class="btn btn-outline-primary mx-2">Hire <%= @user.first_name %></button>
         <% end %>

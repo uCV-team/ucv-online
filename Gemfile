@@ -22,6 +22,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'webpacker', '~> 3.5'
 # Amazon S3
 gem 'aws-sdk-s3'
+# PDF generation
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development do
   gem 'better_errors'

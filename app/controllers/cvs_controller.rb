@@ -1,7 +1,7 @@
 class CvsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :set_cv, only: [:show]
-  before_action :find_cv, only: %i[edit update]
+  before_action :find_cv, only: %i[edit update download]
   respond_to :html, :js
 
   def show
@@ -30,6 +30,17 @@ class CvsController < ApplicationController
     else
       render 'errors'
     end
+  end
+
+  def download
+    @cv_edit_controls = false
+    pdf_html = ActionController::Base.new.render_to_string(
+      template: 'cvs/show',
+      locals: {:@cv => @cv, :@cv_edit_controls => @cv_edit_controls, :@user => current_user },
+      layout: 'pdf'
+    )
+    pdf = WickedPdf.new.pdf_from_string(pdf_html)
+    send_data pdf, filename: 'cv.pdf'
   end
 
   private
