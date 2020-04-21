@@ -1,6 +1,6 @@
 class Subdomain
   def self.matches?(request)
-    request.domain.split('.').size > 1 && request.subdomain != 'www'
+    request.domain.split('.').size > 1 && request.subdomain != 'publicv-staging'
   end
 end
 
