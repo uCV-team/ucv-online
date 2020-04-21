@@ -11,7 +11,7 @@ class CvsController < ApplicationController
     elsif @cv.published?
       @cv_edit_controls = false # public view of CV on subdomain
     else
-      cv_not_found_or_unpublished
+      not_found
     end
   end
 
@@ -49,7 +49,7 @@ class CvsController < ApplicationController
     if @user
       @cv = @user.cv
     else
-      cv_not_found_or_unpublished
+      not_found
     end
   end
 
@@ -68,9 +68,5 @@ class CvsController < ApplicationController
 
   def subdomain
     request.subdomain.presence || params[:subdomain]
-  end
-
-  def cv_not_found_or_unpublished
-    render file: "#{Rails.root}/public/404.html", status: 404, layout: false
   end
 end
