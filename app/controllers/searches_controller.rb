@@ -13,7 +13,8 @@ class SearchesController < ApplicationController
 
   def initalize_variables
     @results = Cv.full_text_search(search_param)
-    @formatted_results = SearchesService.new(@results.first(10)).coordinates_list
+    @results = @results.page(params[:page]).per(10)
+    @formatted_results = SearchesService.new(@results).coordinates_list
   end
 
   def search_param

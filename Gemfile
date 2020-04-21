@@ -26,6 +26,7 @@ gem 'aws-sdk-s3'
 gem 'wicked_pdf'
 # gem 'wkhtmltopdf-binary'
 gem 'wkhtmltopdf-binary-edge'
+gem 'kaminari'
 
 group :development do
   gem 'better_errors'

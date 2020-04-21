@@ -16,9 +16,9 @@
               <% latest_experience = cv.experiences.chronological_order.take %>
               <div>
                 <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 p-2">
-                <%= latest_experience.title.upcase %>
+                <%= latest_experience&.title&.upcase %>
                 </span>
-                <span class="font-size-9"> at <%= latest_experience.company %></span>
+                <span class="font-size-9"> at <%= latest_experience&.company %></span>
               </div>
               <p class="mb-0 font-size-14 text-right">
                 <%= link_to cv_section_path(cv.user.subdomain) do %>
@@ -33,21 +33,5 @@
   <% end %>
 </div>
 <div class="text-center pt-5">
-  <nav class="d-inline-block">
-    <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <%= paginate @results, remote: true %>
 </div>
