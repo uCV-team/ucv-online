@@ -10,22 +10,25 @@
       <div class="row mt-4">
         <% if @cv_edit_controls %>
           <div class="col-12 col-md-6 col-lg-4 mb-3"><i class="icon-envelope mr-2"></i><%= @user.email %></div>
+          <div class="col-12 col-lg-6"></div>
           <% if @user.tel.present? %>
             <div class="col-12 col-md-6 col-lg-4 mb-3"><i class="icon-phone mr-2"></i><%= @user.tel %></div>
+            <div class="col-12 col-lg-6"></div>
           <% end %>
-          <div class="col-12 col-lg-4"></div>
         <% end %>
 
         <div class="col-12 col-md-6 col-lg-4 mb-3">
           <%= image_pack_tag 'icons/publicv-icon.svg', class: 'mr-2' %><%= @user.cv_public_url %>
         </div>
-        <div class="col-12 col-lg-4"></div>
+        <div class="col-12 col-lg-6"></div>
       </div>
     </div>
 
-    <div class="col-12 col-md-2 mb-2 mb-md-0">
-      <%= image_tag(@cv.headshot.url(:default), alt: "#{@cv.abbr_name} headshot", class: 'img-fluid') %>
-    </div>
+    <% if @cv_edit_controls || @cv.headshot.exists? %>
+      <div class="col-12 col-md-2 mb-2 mb-md-0">
+        <%= image_tag(@cv.headshot.url(:default), alt: "#{@cv.abbr_name} headshot", class: 'img-fluid') %>
+      </div>
+    <% end %>
   </div>
 
   <% if @cv_edit_controls %>
