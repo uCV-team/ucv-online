@@ -1,0 +1,18 @@
+<% languages = @cv.languages.chronological_order %>
+
+<% if languages.present? %>
+  <div class="border-top pt-5 pl-3 pl-md-6 pr-2">
+    <div class="d-flex align-items-center justify-content-between">
+      <h6><%= t('content.main.cv.show.languages.title') %></h6>
+    </div>
+
+    <% languages.each do |language| %>
+      <div class="d-flex flex-row font-size-14 pt-5">
+        <div class="ml-2 border-bottom w-100">
+          <h6><%= language.language %></h6>
+          <p><%= cefr_level language.level %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

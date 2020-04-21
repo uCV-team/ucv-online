@@ -1,0 +1,20 @@
+<% if @cv.working_skills.present? || @cv.skills.present? %>
+  <div class="border-top pt-5 pl-3 pl-md-6 pr-2">
+    <div class="d-flex align-items-center justify-content-between">
+      <h6><%= t('content.main.cv.show.skills.title') %></h6>
+    </div>
+
+    <div class="d-flex flex-row font-size-14 pt-5">
+      <div class="ml-2 pb-5 border-bottom w-100">
+        <% if @cv.working_skills.present? %>
+          <h6><%= t('content.main.cv.show.skills.working_skills') %></h6>
+          <p><%= @cv.working_skills.presence %></p>
+        <% end %>
+        <% if @cv.skills.present? %>
+          <h6><%= t('content.main.cv.show.skills.other_skills') %></h6>
+          <p><%= @cv.skills.presence %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

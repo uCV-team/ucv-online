@@ -33,8 +33,8 @@ class CvsController < ApplicationController
 
   def download
     @cv_edit_controls = false
-    pdf_html = ActionController::Base.new.render_to_string(
-      template: 'cvs/show',
+    pdf_html = ApplicationController.new.render_to_string(
+      template: 'cvs/printings/show',
       locals: {:@cv => @cv, :@cv_edit_controls => @cv_edit_controls, :@user => current_user },
       layout: 'pdf'
     )

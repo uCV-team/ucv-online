@@ -24,7 +24,8 @@ gem 'webpacker', '~> 3.5'
 gem 'aws-sdk-s3'
 # PDF generation
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
+# gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary-edge'
 
 group :development do
   gem 'better_errors'

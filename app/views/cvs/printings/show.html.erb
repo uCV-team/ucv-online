@@ -1,37 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>CV <%= @cv -%></title>
-  <%= stylesheet_pack_tag 'stylesheets', media: 'all' %>
-</head>
-
-<body> <!-- <body onload="window.print()"> -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12 mb-3">
-        <div class="float-right border-bottom">
-          <small>curriculum vitae generato con <b>publiCV.it</b> v.1</small>
-        </div>
-      </div>
-    </div>
-
-    <%= render 'cvs/printings/cv_sections/intro' %>
-    <%#= render 'cvs/printings/cv_sections/experience' %>
-    <%#= render 'cvs/printings/cv_sections/education' %>
-    <%#= render 'cvs/printings/cv_sections/languages' %>
-    <%#= render 'cvs/printings/cv_sections/skills' %>
-    <%#= render 'cvs/printings/cv_sections/extras' %>
-
-    <div class="row">
-      <div class="col-12 mt-3">
-        <div class="text-center">
-          <small>
-            Autorizzo il trattamento dei miei dati personali contenuti nel presente curriculum vitae ai sensi del Decreto Legislativo 30 giugno 2003, n. 196 “Codice in materia di protezione dei dati personali” e del GDPR (Regolamento UE 2016/679), ai fini di ricerca e selezione del personale.
-          </small>
-        </div>
-      </div>
+<!-- CV sections
+================================================== -->
+<div class="container middle-container-2 cvpage pb-40 pb-md-80">
+  <div class="border-top border-primary">
+    <div class="border py-6">
+      <%= render 'cvs/printings/cv_sections/intro' %>
+      <%= render 'cvs/printings/cv_sections/summary' %>
+      <%= render 'cvs/printings/cv_sections/experience' %>
+      <%= render 'cvs/printings/cv_sections/education' %>
+      <%= render 'cvs/printings/cv_sections/languages' %>
+      <%= render 'cvs/printings/cv_sections/skills' %>
+      <%= render 'cvs/printings/cv_sections/extras' %>
     </div>
   </div>
-</body>
-</html>
+</div>

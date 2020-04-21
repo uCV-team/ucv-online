@@ -1,0 +1,10 @@
+<% if @cv.about.present? %>
+  <div class="border-top py-5 pl-3 pl-md-6 pr-2">
+    <div class="d-flex align-items-center justify-content-between pb-4">
+      <h6><%= t('content.main.cv.show.summary.title') %></h6>
+    </div>
+    <div class="font-size-14">
+      <p><%= @cv.about.presence %></p>
+    </div>
+  </div>
+<% end %>
