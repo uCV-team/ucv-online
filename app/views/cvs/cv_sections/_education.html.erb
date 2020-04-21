@@ -1,34 +1,38 @@
-<div class="border-top pt-5 pl-3 pl-md-6 pr-2">
-  <div class="d-flex align-items-center justify-content-between">
-    <h6><%= t('content.main.cv.show.education.title') %></h6>
-    <% if @cv_edit_controls %>
-      <%= link_to new_cv_education_path, remote: true do %>
-        <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-plus"></i></span>
-      <% end %>
-    <% end %>
-  </div>
+<% educations = @cv.educations.chronological_order %>
 
-  <% @cv.educations.chronological_order.each do |education| %>
-    <div class="d-flex flex-row font-size-14 pt-5">
-      <div class="ml-2 pb-5 border-bottom w-100">
-        <h6><%= education.school %></h6>
-        <% if education.degree.present? %>
-          <h6 class="font-weight-normal mb-1"><%= t('content.main.cv.show.education.degree', degree: education.degree) %></h6>
-        <% end %>
-        <p><%= study_period(education.started_on, education.ended_on) %></p>
-        <p class="mb-0">Description: </p>
-        <span><%= education.description.presence %></span>
-      </div>
-
+<% if @cv_edit_controls || educations.present? %>
+  <div class="border-top pt-5 pl-3 pl-md-6 pr-2">
+    <div class="d-flex align-items-center justify-content-between">
+      <h6><%= t('content.main.cv.show.education.title') %></h6>
       <% if @cv_edit_controls %>
-        <%= link_to edit_cv_education_path(education), remote: true do %>
-          <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-pencil"></i></span>
-        <% end %>
-
-        <%= link_to cv_education_path(education), method: :delete, data: { confirm: t('confirmation') } do %>
-          <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="fas fa-trash-alt"></i></span>
+        <%= link_to new_cv_education_path, remote: true do %>
+          <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-plus"></i></span>
         <% end %>
       <% end %>
     </div>
-  <% end %>
-</div>
+
+    <% educations.each do |education| %>
+      <div class="d-flex flex-row font-size-14 pt-5">
+        <div class="ml-2 pb-5 border-bottom w-100">
+          <h6><%= education.school %></h6>
+          <% if education.degree.present? %>
+            <h6 class="font-weight-normal mb-1"><%= t('content.main.cv.show.education.degree', degree: education.degree) %></h6>
+          <% end %>
+          <p><%= study_period(education.started_on, education.ended_on) %></p>
+          <p class="mb-0">Description: </p>
+          <span><%= education.description.presence %></span>
+        </div>
+
+        <% if @cv_edit_controls %>
+          <%= link_to edit_cv_education_path(education), remote: true do %>
+            <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-pencil"></i></span>
+          <% end %>
+
+          <%= link_to cv_education_path(education), method: :delete, data: { confirm: t('confirmation') } do %>
+            <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="fas fa-trash-alt"></i></span>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
