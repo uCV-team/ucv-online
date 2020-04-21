@@ -1,10 +1,32 @@
-<h4 class="text-center"><%= t('content.main.search.header') %>
-</h4><%= form_tag search_path, method: :get, remote: true do
- %><div class="row">
-<div class="col mb-3">
-<%= text_field_tag :search_term, params[:search_term], class: 'form-control' %>
-</div></div><div class="row">
-<div class="col mb-3">
-<%= submit_tag t('content.main.buttons.search'), data: { disable_with: t('content.main.buttons.searching') },
-class: 'btn btn-standard' %>
-</div></div><% end %>
+<div class="px-3 px-md-5 pt-40 pt-md-80">
+  <%= form_tag search_path, method: :get, remote: true do %>
+    <div class="autocomplete">
+      <div class="form-group mb-5 input-with-icon-append">
+        <i class="icon-location-pin text-muted"></i>
+        <%= text_field_tag :original_address, '', class: 'form-control form-control-lg', placeholder: 'All Locations', id: "search_address" %>
+        <div class="autocomplete-results position-absolute" id="search_results">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group mb-5 input-with-icon-append">
+      <i class="icon-magnifier text-muted"></i>
+      <%= text_field_tag :search_term, params[:search_term], placeholder: 'What skills you are looking for?', class: 'form-control form-control-lg' %>
+    </div>
+
+    <div class="form-group mb-2">
+      <%= submit_tag t('content.main.buttons.search'), data: { disable_with: t('content.main.buttons.searching') }, class: 'btn btn-primary' %>
+    </div>
+    <div class="d-flex align-item-center justify-content-between mb-5">
+      <span class="badge badge-pill badge-light p-2">Categories <i class="fas fa-angle-down ml-2 text-primary"></i></span>
+      <span class="badge badge-pill badge-light p-2">More Filters <i class="fas fa-angle-down ml-2 text-primary"></i></span>
+      <span class="badge badge-pill badge-light p-2">Distance Radius <i class="fas fa-angle-down ml-2 text-primary"></i></span>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  initAutocomplete('search', '<%= api_token %>');
+</script>

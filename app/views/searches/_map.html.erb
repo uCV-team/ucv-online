@@ -1,5 +1,22 @@
-<% content_for :header do
- %><script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&amp;callback=initMap">
+<% content_for :header do %>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+  <!--
+      Use Unwired Maps JS & CSS in addition to Mapbox's GL library for the simplest implementation of Unwired Map Tiles
+  -->
+  <script src='https://tiles.unwiredmaps.com/v2/js/unwired-gl.js?v=0.1.6'></script>
+  <link href='https://tiles.unwiredmaps.com/v2/js/unwired-gl.css?v=0.1.6' rel='stylesheet' />
 
-</script><% end %><div class="google-map" id="map">
+  <style>
+      body { margin:0px; padding:0px; }
+      #map { position:absolute; top:0px; bottom:0px; width:100%; }
+  </style>
+<% end %>
+
+<div class="col-12 col-lg-6 px-0">
+  <div class="google-map" id="map"></div>
 </div>
+
+<script>
+  setUnwiredApiToken('<%= api_token %>');
+</script>

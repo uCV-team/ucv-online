@@ -1,7 +1,17 @@
-<div class="row flex-row-reverse w-100 m-0">
-<div class="col-lg-8 m-0 p-0">
-<%= render 'map' %>
-</div><div class="col-lg-4 my-3">
-<%= render 'form' %>
-<div id="search-results">
-</div></div></div>
+<!-- Content Container
+  ================================================== -->
+<div class="middle-container-1">
+  <div class="row mx-0 flex-column-reverse flex-lg-row">
+    <div class="col-12 col-lg-6 px-0">
+      <%= render 'form' %>
+
+      <div class="bg-light px-3 px-md-5 pb-40 pb-md-80" id="search-results">
+        <%= render 'results' %>
+      </div>
+      <div class="bg-light py-40 w-100 text-center border-top">
+        <span class="text-muted font-size-14">© 2020 Publicv. All Rights Reserved.</span>
+      </div>
+    </div>
+    <%= render 'map' %>
+  </div>
+</div>
