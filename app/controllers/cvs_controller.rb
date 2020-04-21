@@ -67,6 +67,8 @@ class CvsController < ApplicationController
   end
 
   def subdomain
-    request.subdomain.presence || params[:subdomain]
+    # TODO for staging bypass subdomain here
+    # request.subdomain.presence || params[:subdomain]
+    params[:subdomain]
   end
 end
