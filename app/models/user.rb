@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_one :cv, dependent: :destroy
   has_many :locations, dependent: :destroy
 
-  has_one :current_location, class_name: 'Location', dependent: :destroy
+  has_one :current_location, dependent: :destroy, class_name: 'Location'
 
   validates :first_name, :last_name, :subdomain, presence: true
   validates :subdomain, uniqueness: true

@@ -1,4 +1,4 @@
-<p class="mb-0 pt-5 font-size-14"><%= @results.count %> Results Found</p>
+<p class="mb-0 pt-5 font-size-14"><%= @total_results %> Results Found</p>
 <div class="row">
   <% @results.each do |cv| %>
     <div class="col-12 pt-5">
@@ -13,16 +13,16 @@
                 <span class="text-muted font-size-14 pl-1"><%= cv.user&.current_location&.original_address %></span>
               </div>
 
-              <% latest_experience = cv.experiences.chronological_order.take %>
               <div>
                 <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 p-2">
-                <%= latest_experience&.title&.upcase %>
+                  <%= cv.about.truncate(30,  separator: ' ') %>
                 </span>
-                <span class="font-size-9"> at <%= latest_experience&.company %></span>
               </div>
               <p class="mb-0 font-size-14 text-right">
-                <%= link_to cv_section_path(cv.user.subdomain) do %>
-                  <i class="ml-2 fas fa-angle-right"></i> View CV
+                <% if cv.user.subdomain.present? %>
+                  <%= link_to cv_section_path(cv.user.subdomain) do %>
+                    <i class="ml-2 fas fa-angle-right"></i> View CV
+                  <% end %>
                 <% end %>
               </p>
             </div>

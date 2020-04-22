@@ -1,5 +1,5 @@
-var map;
-var markers = [];
+let map, nav;
+let markers = [];
 
 
 //Define the map and configure the map's theme
@@ -12,19 +12,34 @@ window.initMap = function() {
         zoom: 11,
         center: [78.4008997, 17.4206485]
     });
+
+    //Add Navigation controls to the map to the top-right corner of the map
+    nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-right');
   });
 };
 
 window.generateMarkers = function(searchResultsList) {
+    let bounds = new mapboxgl.LngLatBounds();
+
     searchResultsList.forEach(entry => {
-        var el = document.createElement('div');
-        el.id = 'markerWithExternalCss';
-        markers.push(
-          new mapboxgl.Marker(el)
-              .setLngLat(entry.location)
-              .addTo(map)
-        );
+      let coordinates = Object.values(entry.location); // coordinates
+      let el = document.createElement('div'); // creating marker
+      el.className = 'marker';
+
+      let popup = new mapboxgl.Popup().setHTML('<b>'+entry.name+'</b>'); // Popup with user name
+
+      markers.push(
+        new mapboxgl.Marker(el)
+            .setLngLat(coordinates)
+            .setPopup(popup)
+            .addTo(map)
+      );
+      bounds.extend(coordinates);
     });
+
+  // Fit Bounds
+  map.fitBounds(bounds);
 };
 
 //Add your Unwired Maps Access Token here (not the API token!)
@@ -37,6 +52,5 @@ $(document).on('turbolinks:load', () => {
         initMap();
     }
 });
-
 
 window.setUnwiredApiToken = setUnwiredApiToken;

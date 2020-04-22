@@ -9,6 +9,7 @@ class Cv < ApplicationRecord
   has_many :experiences, dependent: :destroy
   has_many :languages, dependent: :destroy
   has_many :locations, through: :user
+  has_one  :current_location, through: :user
 
   validates :about, length: { maximum: ABOUT_MAX_LENGTH }
   validates :user, uniqueness: true
@@ -44,7 +45,7 @@ class Cv < ApplicationRecord
                       %i[language A],
                       %i[level B]
                     ],
-                    locations: [
+                    current_location: [
                       %i[city A],
                       %i[country B],
                       %i[geocoded_address A],

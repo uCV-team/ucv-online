@@ -6,10 +6,18 @@
   -->
   <script src='https://tiles.unwiredmaps.com/v2/js/unwired-gl.js?v=0.1.6'></script>
   <link href='https://tiles.unwiredmaps.com/v2/js/unwired-gl.css?v=0.1.6' rel='stylesheet' />
+  <% markerImagePath = asset_pack_path('images/marker.png') %>
 
   <style>
       body { margin:0px; padding:0px; }
       #map { position:absolute; top:0px; bottom:0px; width:100%; }
+      .marker {
+          background-image: url("<%= markerImagePath %>");
+          background-size: cover;
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+      }
   </style>
 <% end %>
 
