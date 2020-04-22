@@ -5,7 +5,7 @@
       <div class="card shadow-sm border-0 rounded">
         <div class="card-body p-3">
           <div class="d-flex align-items-center justify-content-between">
-            <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid') %>
+            <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid', style: 'width: 85px;') %>
             <div class="w-100 pl-3">
               <p class="mb-0 font-size-14 text-right"><%= cv.created_at.strftime("%B %d, %Y") %></p>
               <div class="d-flex">
@@ -15,14 +15,12 @@
 
               <div>
                 <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 p-2">
-                  <%= cv.about.truncate(30,  separator: ' ') %>
+                  <%= short_desc(cv.about, 180) %>
                 </span>
               </div>
               <p class="mb-0 font-size-14 text-right">
-                <% if cv.user.subdomain.present? %>
-                  <%= link_to cv_section_path(cv.user.subdomain) do %>
-                    <i class="ml-2 fas fa-angle-right"></i> View CV
-                  <% end %>
+                <%= link_to cv_section_path(cv.user.subdomain) do %>
+                  <i class="ml-2 fas fa-angle-right"></i> View CV
                 <% end %>
               </p>
             </div>

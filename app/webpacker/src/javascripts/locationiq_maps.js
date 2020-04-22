@@ -1,7 +1,6 @@
 let map, nav;
 let markers = [];
 
-
 //Define the map and configure the map's theme
 window.initMap = function() {
   $('#map').each((_, mapElement) => {
@@ -17,17 +16,20 @@ window.initMap = function() {
     nav = new mapboxgl.NavigationControl();
     map.addControl(nav, 'top-right');
   });
+
+  // Load search results from home page if any
+  loadMarkersFromPage()
 };
 
 window.generateMarkers = function(searchResultsList) {
-    let bounds = new mapboxgl.LngLatBounds();
-
+    clearMarkers();
     searchResultsList.forEach(entry => {
       let coordinates = Object.values(entry.location); // coordinates
       let el = document.createElement('div'); // creating marker
       el.className = 'marker';
 
-      let popup = new mapboxgl.Popup().setHTML('<b>'+entry.name+'</b>'); // Popup with user name
+      let popup = new mapboxgl.Popup()
+        .setHTML('<b>'+entry.name+'</b>'); // Popup with user name
 
       markers.push(
         new mapboxgl.Marker(el)
@@ -35,16 +37,35 @@ window.generateMarkers = function(searchResultsList) {
             .setPopup(popup)
             .addTo(map)
       );
-      bounds.extend(coordinates);
     });
 
-  // Fit Bounds
-  map.fitBounds(bounds);
+    centerMap();
 };
+
+function centerMap() {
+    if (markers.length > 0) {
+        const bounds = new mapboxgl.LngLatBounds();
+        markers.forEach(marker => {
+            bounds.extend(marker.getLngLat());
+        });
+        map.fitBounds(bounds);
+    }
+}
+
+function clearMarkers() {
+    markers.forEach(marker => {
+       marker.remove();
+    });
+    markers = [];
+}
 
 //Add your Unwired Maps Access Token here (not the API token!)
 function setUnwiredApiToken(token) {
   unwired.key = mapboxgl.accessToken = token;
+}
+
+function loadMarkersFromPage(){
+  if (window.searchResultsList.length > 0) generateMarkers(window.searchResultsList)
 }
 
 $(document).on('turbolinks:load', () => {

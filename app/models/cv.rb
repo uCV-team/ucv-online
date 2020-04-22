@@ -23,6 +23,8 @@ class Cv < ApplicationRecord
   validates_attachment :headshot, size: { in: 40..4000.kilobytes },
                                   content_type: { content_type: ['image/jpeg', 'image/png'] }
 
+  scope :published, -> { where(published: true) }
+
   # TODO: Replace hard coded dictionary with locale
   pg_search_scope :full_text_search,
                   against: {

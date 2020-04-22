@@ -13,6 +13,10 @@ module CvsHelper
     I18n.t('content.main.cv.show.intro.birth_date', day: cv.birth_day, month: cv.birth_month, year: cv.birth_year)
   end
 
+  def short_desc(text, len)
+    text.truncate(len,  separator: ' ') if text.present?
+  end
+
   private
 
   def get_period(start_date, end_date)
