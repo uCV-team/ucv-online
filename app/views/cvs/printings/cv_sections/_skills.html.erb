@@ -14,6 +14,10 @@
           <h6><%= t('content.main.cv.show.skills.other_skills') %></h6>
           <p><%= @cv.skills.presence %></p>
         <% end %>
+        <% if @cv.learning_skills.present? %>
+          <h6><%= t('content.main.cv.show.skills.learning_skills') %></h6>
+          <p><%= @cv.learning_skills.presence %></p>
+        <% end %>
       </div>
     </div>
   </div>

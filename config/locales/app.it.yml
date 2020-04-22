@@ -43,7 +43,7 @@ it:
           skills:
             title: "Edit skills"
           summary:
-            title: "Modifica riepilogo"
+            title: "Modifica riepilogo e obiettivi professionali"
         new:
           education:
             degree: "Degree"
@@ -92,8 +92,9 @@ it:
             other_skills: "Other skills"
             title: "Skills"
             working_skills: "Work skills"
+            learning_skills: "Competenze che vorrei imparare o migliorare"
           summary:
-            title: "Sommario"
+            title: "Riepilogo e obiettivi professionali"
           about: "Informazioni (massimo 255 caratteri)"
           prefer_not_to_disclose: "Preferisco non rivelare"
           male: "Maschile"

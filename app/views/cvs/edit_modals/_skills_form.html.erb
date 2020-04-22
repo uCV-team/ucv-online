@@ -16,8 +16,13 @@
               <%= f.text_field :skills, class: 'form-control', "aria-label" => "skills" %>
             </div>
           </div>
+          <div class="col-12">
+            <div class="form-group mb-5">
+              <%= f.label :learning_skills, t('content.main.cv.show.skills.learning_skills'), class: 'text-muted d-block' %>
+              <%= f.text_field :learning_skills, class: 'form-control', "aria-label" => "learning_skills" %>
+            </div>
+          </div>
         </div>
-
         <div class="row">
           <div class="col-12 text-right">
             <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-primary' %>
