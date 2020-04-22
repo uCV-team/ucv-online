@@ -143,25 +143,95 @@
     </div>
   </div>
   <div class="container pt-40 pt-md-80">
-    <div class="border-bottom">
+    <div class="text-center">
       <h3>Why PubliCV?</h3>
-      <p class="mb-3">Lorem ipsum dolor sit amet</p>
     </div>
   </div>
   <div class="container py-40 py-md-80">
     <div class="row">
-      <div class="col-12 col-md-6 col-xl-4 mb-5">
+      <div class="col-12 col-lg-6 pr-xl-5">
+        <h4 class="pb-40">For Jobseekers</h4>
+        <div>
+          <div class="d-flex pb-40">
+            <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
+            <span class="ml-2">Instead of being buried under some agency’s drawer, your CV will be public. Like ours: Duccio, Vishal, Anuj.</span>
+          </div>
+          <div class="d-flex pb-40">
+            <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
+            <span class="ml-2">Standard CVs are ugly, ineffective and outdated. PubliCV is the new standard for digital CVs. You will be guided to create yours, download pdf or send it via a public link.</span>
+          </div>
+          <div class="d-flex pb-40">
+            <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
+            <span class="ml-2">We put you first. Your CV will be live at: your-name.publicv.org and this will be your professional page.</span>
+          </div>
+          <div class="d-flex pb-40">
+            <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
+            <span class="ml-2">PubliCV is straight to the point: you’re not here to make friends, connect to people, build your network, being monitored by your HR, nor tweet like a bird… You’re here to find a job and get paid for it.</span>
+          </div>
+          <div class="d-flex pb-40">
+            <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
+            <span class="ml-2">Value your time by being contacted only by Companies that are willing to show real interest or even pay to contact you.</span>
+          </div>
+        </div>
+        <div class="pt-4 pt-lg-40">
+          <%= link_to t('home.create_your_cv_now'), new_user_registration_path, class: 'btn btn-lg btn-primary' %>
+          <button class="btn btn-primary">Create Your CV Now <i class="fas fa-angle-right"></i></button>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-6 mt-40 mt-lg-0 pl-xl-5">
+        <h4 class="pb-40">For Company</h4>
+        <div>
+          <div class="d-flex pb-40">
+            <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
+            <span class="ml-2">
+              Access immediately a searchable database of candidates to/for hire. As and when required to fill open Vacancies.
+            </span>
+          </div>
+          <div class="d-flex pb-40">
+            <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
+            <span class="ml-2">
+              Cut the middlemen out: contact directly the candidates you like.
+            </span>
+          </div>
+          <div class="d-flex pb-40">
+            <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
+            <span class="ml-2">
+              Hire directly the people you chose. We’ll stay out of any agreement between you and your candidate. We will not profit from their wages.
+            </span>
+          </div>
+          <div class="d-flex pb-40">
+            <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
+            <span class="ml-2">
+              Save time and money because you pay only if you need to contact several candidates for the same job at the same time. Please note that during this crisis this service will be completely free.
+            </span>
+          </div>
+          <div class="d-flex pb-40">
+            <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
+            <span class="ml-2">
+              Avoid the time-wasters: we’ll go great lengths to keep CVs up to date. If the CV is here it is very likely that the person behind it is genuinely interested in a job.
+            </span>
+          </div>
+        </div>
+        <div class="pt-4 pt-lg-40">
+          <button class="btn btn-primary">Hire Candidate Now <i class="fas fa-angle-right"></i></button>
+        </div>
+      </div>
+
+
+
+      <%# <div class="col-12 col-md-6 col-xl-4 mb-5">
         <div class="card border-0 h-100">
           <div class="card-body py-0 pl-0 pr-5">
             <h4 class="mb-3">Jobseekers</h4>
             <p class="mb-5">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing habitant massa aliquet enim.
-            </p>
-            <%= link_to t('home.create_your_cv_now'), new_user_registration_path, class: 'btn btn-lg btn-primary' %>
-          </div>
+            </p> %>
+            <%# <%= link_to t('home.create_your_cv_now'), new_user_registration_path, class: 'btn btn-lg btn-primary' %>
+          <%# </div>
         </div>
-      </div>
-      <div class="col-12 col-md-6 col-xl-4 mb-5">
+      </div> %>
+      <%# <div class="col-12 col-md-6 col-xl-4 mb-5">
         <div class="card rounded h-100">
           <div class="card-body p-4">
             <i class="icon-globe-alt font-size-32"></i>
@@ -215,10 +285,10 @@
             </span>
           </div>
         </div>
-      </div>
+      </div> %>
     </div>
   </div>
-  <div class="container py-0 py-md-80">
+  <%# <div class="container py-0 py-md-80">
     <div class="row">
       <div class="col-12 col-md-6 col-xl-4 mb-5">
         <div class="card border-0 h-100">
@@ -287,11 +357,11 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> %>
+
   <div class="container pt-40 pt-lg-80">
-    <div class="border-bottom">
+    <div class="text-center">
       <h3>Stakeholder</h3>
-      <p class="mb-3">Lorem ipsum dolor sit amet</p>
     </div>
     <div class="row">
       <div class="col-12 col-md-6 pt-40 pb-3 py-md-80">

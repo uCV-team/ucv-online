@@ -1,34 +1,28 @@
 .profile-logo {
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;
-  position: relative;
-  box-shadow: 0 5px 8px rgba(black, 0.35);
-  overflow: hidden;
-  line-height: 28px;
-  &.squared {
-    border-radius: 0;
-  }
+  // margin: 0 auto;
+  // position: relative;
+  // box-shadow: 0 5px 8px rgba(black, 0.35);
+  // overflow: hidden;
+  // line-height: 28px;
+  // &.squared {
+  //   border-radius: 0;
+  // }
   .preview {
-    img {
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      max-height: 100%;
-    }
+    width: 12.25rem;
+    height: 13.5rem;
   }
-  button {
-    position: absolute;
-    background-color: #000;
-    opacity: 0.75;
-    color: #fff;
-    bottom: -11px;
-    padding: 7px 135px 17px;
-    line-height: 16px;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
+  // button {
+  //   position: absolute;
+  //   background-color: #000;
+  //   opacity: 0.75;
+  //   color: #fff;
+  //   bottom: -11px;
+  //   padding: 7px 135px 17px;
+  //   line-height: 16px;
+  //   font-size: 14px;
+  //   text-transform: uppercase;
+  //   font-weight: 500;
+  // }
 }
 
 .autocomplete-results {
@@ -41,4 +35,22 @@
       padding: 0px 10px 0px 0px;
     }
   }
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+  background-color: #fff;
+  border: 2px solid $primary;
+}
+.custom-radio .custom-control-input:checked~.custom-control-label::after {
+  background-image: url();
+  border: 1px solid $primary;
+  border-radius: 50%;
+  background-color: $primary;
+  height: 0.5rem;
+  width: 0.5rem;
+  margin: 0.25rem;
+}
+.custom-control-label::before {
+  width: 1rem;
+  height: 1rem;
 }

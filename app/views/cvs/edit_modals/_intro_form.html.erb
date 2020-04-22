@@ -3,63 +3,108 @@
     <div class="modal-body p-5">
       <div class="alert alert-danger d-none"></div>
       <div class="row">
-        <%= f.fields_for :user, @cv.user do |user_fields| %>
-          <div class="col-4">
-            <div class="form-group mb-5">
-              <%= user_fields.label :first_name, t('content.main.cv.edit.intro.first_name'), class: 'text-muted d-block' %>
-              <%= user_fields.text_field :first_name, class: 'form-control form-control-lg', placeholder: 'First Name', "aria-label" => "first_name" %>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="form-group mb-5">
-              <%= user_fields.label :last_name, t('content.main.cv.edit.intro.last_name'), class: 'text-muted d-block' %>
-              <%= user_fields.text_field :last_name, class: 'form-control form-control-lg', placeholder: 'Last Name', "aria-label" => "last_name" %>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="form-group mb-5">
-              <%= user_fields.label :tel, t('content.main.cv.edit.intro.tel'), class: 'text-muted d-block' %>
-              <%= user_fields.text_field :tel, class: 'form-control form-control-lg', placeholder: 'Telephone', "aria-label" => "telephone" %>
-            </div>
-          </div>
-        <% end %>
-      </div>
+        <div class="col-12 col-xl-8">
+          <div class="row">
+            <%= f.fields_for :user, @cv.user do |user_fields| %>
+              <div class="col-12 col-xl-6">
+                <div class="form-group mb-5">
+                  <%= user_fields.label :first_name, t('content.main.cv.edit.intro.first_name'), class: 'text-muted d-block' %>
+                  <%= user_fields.text_field :first_name, class: 'form-control form-control-lg', placeholder: 'First Name', "aria-label" => "first_name" %>
+                </div>
+              </div>
 
-      <div class="row">
-        <div class="col-6">
-          <div class="form-group mb-5">
-            <%= f.label :birth_date, t('content.main.cv.edit.intro.birth_date'), class: "text-muted d-block" %>
-            <small class="day text-muted">Day:</small>
-            <%= f.select :birth_day, options_for_select((1..31).to_a.insert(0, nil), f.object.birth_day), {}, class: 'form-control' %>
-            <small class="month text-muted">Month:</small>
-            <%= f.select :birth_month, options_for_select(Date::MONTHNAMES, f.object.birth_month), {}, class: 'form-control' %>
-            <small class="year text-muted">Year:</small>
-            <%= f.select :birth_year, options_for_select((1900..(Date.current.year - 20)).to_a.reverse.insert(0, nil), f.object.birth_year), {}, class: 'form-control' %>
+              <div class="col-12 col-xl-6">
+                <div class="form-group mb-5">
+                  <%= user_fields.label :last_name, t('content.main.cv.edit.intro.last_name'), class: 'text-muted d-block' %>
+                  <%= user_fields.text_field :last_name, class: 'form-control form-control-lg', placeholder: 'Last Name', "aria-label" => "last_name" %>
+                </div>
+              </div>
+
+              <div class="col-12 col-xl-6">
+                <div class="form-group mb-5">
+                  <%= user_fields.label :last_name, t('content.main.cv.edit.intro.last_name'), class: 'text-muted d-block' %>
+                  <%= user_fields.text_field :last_name, class: 'form-control form-control-lg', placeholder: 'Last Name', "aria-label" => "last_name" %>
+                </div>
+              </div>
+
+              <div class="col-12 col-xl-6">
+                <div class="form-group mb-5">
+                  <%= user_fields.label :tel, t('content.main.cv.edit.intro.tel'), class: 'text-muted d-block' %>
+                  <%= user_fields.text_field :tel, class: 'form-control form-control-lg', placeholder: 'Telephone', "aria-label" => "telephone" %>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-group mb-5">
+                  <%= user_fields.label :email, t('content.main.cv.edit.intro.email'), class: 'text-muted d-block' %>
+                  <%= user_fields.text_field :email, class: 'form-control form-control-lg', placeholder: 'Email', "aria-label" => "email" %>
+                </div>
+              </div>
+            <% end %>
+
+            <div class="col-12">
+              <%= f.label :birth_date, t('content.main.cv.edit.intro.birth_date'), class: "text-muted d-block" %>
+              <div class="d-flex mb-5">
+                <div>
+                  <small class="text-muted">Day</small>
+                  <%= f.select :birth_day, options_for_select((1..31).to_a.insert(0, nil), f.object.birth_day), {}, class: 'custom-select custom-select-lg' %>
+                </div>
+                <div class="mx-3">
+                  <small class="text-muted">Month</small>
+                  <%= f.select :birth_month, options_for_select(Date::MONTHNAMES, f.object.birth_month), {}, class: 'custom-select custom-select-lg' %>
+                </div>
+                <div>
+                  <small class="text-muted">Year</small>
+                  <%= f.select :birth_year, options_for_select((1900..(Date.current.year - 20)).to_a.reverse.insert(0, nil), f.object.birth_year), {}, class: 'custom-select custom-select-lg' %>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
-        <div class="col-6">
+
+        <div class="col-12 col-xl-4">
           <div class="form-group mb-5">
             <%= f.label :headshot, class: 'text-muted d-block' %>
-            <div class="profile-logo squared" data-behavior="image-uploader">
+            <div class="profile-logo" data-behavior="image-uploader">
               <div class="preview">
                 <% if @cv.headshot.present? %>
-                  <%= image_tag @cv.headshot.url, width: "100%" %>
+                  <%= image_tag @cv.headshot.url, class: "w-100 rounded border" %>
                 <% else %>
-                  <%= image_pack_tag 'images/head_shot.png', alt: "" %>
+                  <%= image_pack_tag 'images/head-shot.png', alt: "" %>
                 <% end %>
               </div>
 
-              <button type='button'>Edit</button>
+              <button type='button' class="btn btn-primary btn-sm mt-2">Upload Photo <i class="icon-cloud-upload"></i></button>
               <%= f.file_field :headshot, accept: 'image/jpeg, image/png', class: 'form-control form-control-lg d-none' %>
             </div>
           </div>
         </div>
-      </div>
+        <div class="col-12 mb-5">
+          <label class="d-block text-muted">Gender</label>
+          <div class="custom-control custom-radio custom-control-inline">
+            <%= f.radio_button :gender, "m", id: "maschile", class: 'custom-control-input' %>
+            <%= f.label :gender, for: "maschile", class: 'custom-control-label text-muted' do %>
+            <%= t('content.main.cv.show.male') %>
+            <% end %>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <%= f.radio_button :gender, "f", id:"femminile", class: 'custom-control-input' %>
+            <%= f.label :gender, for: "femminile", class: 'custom-control-label text-muted' do %>
+              <%= t('content.main.cv.show.female') %>
+            <% end %>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <%= f.radio_button :gender, "", id:"prefer_not_disclose", class: 'custom-control-input' %>
+            <%= f.label :gender, for: "prefer_not_disclose", class: 'custom-control-label text-muted' do %>
+              <%= t('content.main.cv.show.prefer_not_to_disclose') %>
+            <% end %>
+          </div>
+        </div>
 
-      <div class="row">
         <%= f.fields_for :user, @cv.user do |user| %>
           <%= user.fields_for :current_location, @cv.user.current_location.present? ? @cv.user.current_location : @cv.user.build_current_location do |location| %>
-            <div class="autocomplete col-6">
+            <div class="autocomplete col-12">
               <div class="form-group mb-5">
                 <%= location.label :original_address, t('content.main.cv.new.location.address'), for: "edit_cv_intro_address", class: 'text-muted d-block' %>
                 <%= location.text_field :original_address, autocomplete: 'off', class: 'form-control', id: "edit_cv_intro_address" %>
@@ -73,32 +118,12 @@
           <% end %>
         <% end %>
 
-        <div class="col-6 pt-4 pb-2">
-          <div class="form-check">
-            <%= f.radio_button :gender, "", id:"prefer_not_disclose", class: 'form-check-input' %>
-            <%= f.label :gender, for: "prefer_not_disclose", class: 'form-check-label' do %>
-              <%= t('content.main.cv.show.prefer_not_to_disclose') %>
-            <% end %>
-          </div>
-           <div class="form-check">
-             <%= f.radio_button :gender, "m", id: "maschile", class: 'form-check-input' %>
-             <%= f.label :gender, for: "maschile", class: 'form-check-label' do %>
-              <%= t('content.main.cv.show.male') %>
-             <% end %>
-          </div>
-          <div class="form-check">
-            <%= f.radio_button :gender, "f", id:"femminile", class: 'form-check-input' %>
-            <%= f.label :gender, for: "femminile", class: 'form-check-label' do %>
-              <%= t('content.main.cv.show.female') %>
-            <% end %>
-          </div>
-        </div>
       </div>
 
       <div class="row">
         <div class="col-12 text-right">
-          <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-primary' %>
-          <%= f.submit t('content.main.buttons.save'), class: 'btn btn-primary' %>
+          <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-outline-primary rounded mx-3' %>
+          <%= f.submit t('content.main.buttons.save'), class: 'btn btn-primary rounded' %>
         </div>
       </div>
     </div>
