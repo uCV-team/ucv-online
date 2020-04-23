@@ -27,6 +27,7 @@ gem 'wicked_pdf'
 # gem 'wkhtmltopdf-binary'
 gem 'wkhtmltopdf-binary-edge'
 gem 'kaminari'
+gem 'maxminddb' # GeoLite2 City database for local IP geocoding
 
 group :development do
   gem 'better_errors'
