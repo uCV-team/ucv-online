@@ -1,3 +1,6 @@
+.map-container {
+  height: 40rem;
+}
 .map-search {
   bottom: 4.5rem;
   .form-control:focus, .custom-select:focus {
@@ -15,7 +18,7 @@
 }
 
 .card-width {
-  width: 260px;
+  width: 16.25rem;
 }
 
 .carousel-indicators .active {
@@ -35,7 +38,7 @@
 }
 
 @include media-breakpoint-down(md){
-  .map-image-container{
+  .map-container {
     height: 35rem;
   }
   .enable-btn {
@@ -44,22 +47,5 @@
   }
   .map-search {
     bottom: 3rem;
-    .form-control:focus, .custom-select:focus {
-      box-shadow: none;
-    }
-    .map-search-container{
-      background-color: inherit;
-      box-shadow: 0 0;
-      border-radius: 0rem;
-    }
   }
-}
-
-/* Temp */
-.map-search{
-  bottom: 0px;
-  top: 12rem;
-}
-.map-container {
-  height: 300px;
 }

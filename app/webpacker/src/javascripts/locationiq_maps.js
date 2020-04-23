@@ -14,7 +14,7 @@ window.initMap = function() {
 
     //Add Navigation controls to the map to the top-right corner of the map
     nav = new mapboxgl.NavigationControl();
-    map.addControl(nav, 'top-right');
+    map.addControl(nav, 'top-left');
   });
 
   // Load search results from home page if any

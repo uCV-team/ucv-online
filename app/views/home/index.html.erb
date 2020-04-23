@@ -16,16 +16,14 @@
 
     <div class="w-100 position-absolute map-search">
       <div class="row mx-0">
-        <div class="col-11 col-lg-10 mx-auto py-2 map-search-container">
+        <div class="col-11 col-lg-6 mx-auto py-2 map-search-container">
           <%= form_tag search_path, method: :get do %>
-            <div class="row">
-              <div class="col-12 col-lg-11 border-lg-right mb-3 mb-lg-0">
-                <%= text_field_tag :search_term, params[:search_term], placeholder: 'What skills you are looking for?', class: 'form-control form-control-lg border-lg-0' %>
+            <div class="d-flex justify-content-between">
+              <div class="w-100">
+                <%= text_field_tag :search_term, params[:search_term], placeholder: 'What skills you are looking for?', class: 'form-control form-control-lg border-0' %>
               </div>
-              <div class="col-12 col-lg-1 mb-3 mb-lg-0">
-                <div>
-                  <%= submit_tag t('content.main.search.header'), data: { disable_with: t('content.main.buttons.searching') }, class: 'btn btn-primary' %>
-                </div>
+              <div>
+                <%= submit_tag t('content.main.search.header'), data: { disable_with: t('content.main.buttons.searching') }, class: 'btn btn-primary' %>
               </div>
             </div>
           <% end %>
@@ -44,10 +42,10 @@
                   <div class="card card-width shadow-sm border-0 rounded mx-3">
                     <div class="card-body p-4">
                       <div class="pb-3 d-flex align-items-center justify-content-between border-bottom">
-                        <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid rounded-circle', style: 'width: 85px;') %>
-                        <div class="">
+                        <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size') %>
+                        <div class="pr-3">
                           <h6><%= cv.full_name %></h6>
-                          <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9">
+                          <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 text-wrap">
                             <%= short_desc(cv.about, 20) %>
                           </span>
                         </div>
@@ -72,7 +70,7 @@
   </div>
   <div class="container pt-40 pt-md-80">
     <div class="text-center">
-      <h3>Why PubliCV?</h3>
+      <h3 class="text-primary">Why <%= image_pack_tag 'images/logo.svg', class: 'img-fluid', alt: 'logo' %> ?</h3>
     </div>
   </div>
   <div class="container py-40 py-md-80">
@@ -82,15 +80,15 @@
         <div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
-            <span class="ml-2">Instead of being buried under some agency’s drawer, your CV will be public. Like ours: Duccio, Vishal, Anuj.</span>
+            <span class="ml-2">Instead of being buried under some agency’s drawer, your CV will be <%= link_to "public", "#", class: 'text-primary' %>. Like ours: <%= link_to "Duccio", "#", class: 'text-primary' %>, <%= link_to "Vishal", "#", class: 'text-primary' %>, <%= link_to "Anuj", "#", class: 'text-primary' %>.</span>
           </div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
-            <span class="ml-2">Standard CVs are ugly, ineffective and outdated. PubliCV is the new standard for digital CVs. You will be guided to create yours, download pdf or send it via a public link.</span>
+            <span class="ml-2">Standard CVs are ugly, ineffective and outdated. PubliCV is the new standard for digital CVs. You will be <%= link_to "guided to create yours", "#", class: 'text-primary' %>, download pdf or send it via a public link.</span>
           </div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
-            <span class="ml-2">We put you first. Your CV will be live at: your-name.publicv.org and this will be your professional page.</span>
+            <span class="ml-2">We put you first. Your CV will be live at: <strong>your-name.publicv.org</strong> and this will be your professional page.</span>
           </div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
@@ -288,9 +286,20 @@
     </div>
   </div> %>
 
+  <div class="bg-light py-40 my-40">
+    <div class="container text-center">
+      <h3 class="text-primary">Powered By</h3>
+      <div class="d-flex flex-column flex-md-row mx-auto w-md-75 w-50 justify-content-between align-items-center">
+        <%= image_pack_tag 'images/logo_corsidia.svg', class: 'img-fluid my-5 my-md-0', alt: 'logo' %>
+        <%= image_pack_tag 'images/logo_bluebash.svg', class: 'img-fluid my-3 my-md-0', alt: 'logo' %>
+      </div>
+    </div>
+  </div>
+
   <div class="container pt-40 pt-lg-80">
     <div class="text-center">
-      <h3>Stakeholder</h3>
+      <h3 class="text-primary">Stakeholder</h3>
+      <span class="text-muted">Some copy for sub title of section stakeholder</span>
     </div>
     <div class="row">
       <div class="col-12 col-md-6 pt-40 pb-3 py-md-80">

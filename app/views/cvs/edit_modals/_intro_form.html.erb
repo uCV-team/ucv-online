@@ -20,7 +20,14 @@
                 </div>
               </div>
 
-              <div class="col-12 col-xl-12">
+              <div class="col-12 col-xl-6">
+                <div class="form-group mb-5">
+                  <%= user_fields.label :tel, t('content.main.cv.edit.intro.email'), class: 'text-muted d-block' %>
+                  <%= user_fields.email_field :email, class: 'form-control form-control-lg bg-light', placeholder: 'Email', "aria-label" => "email", disabled: true %>
+                </div>
+              </div>
+
+              <div class="col-12 col-xl-6">
                 <div class="form-group mb-5">
                   <%= user_fields.label :tel, t('content.main.cv.edit.intro.tel'), class: 'text-muted d-block' %>
                   <%= user_fields.text_field :tel, class: 'form-control form-control-lg', placeholder: 'Telephone', "aria-label" => "telephone" %>
@@ -30,16 +37,16 @@
 
             <div class="col-12">
               <%= f.label :birth_date, t('content.main.cv.edit.intro.birth_date'), class: "text-muted d-block" %>
-              <div class="d-flex mb-5">
-                <div>
+              <div class="d-flex w-100 mb-5">
+                <div class="w-25">
                   <small class="text-muted">Day</small>
                   <%= f.select :birth_day, options_for_select((1..31).to_a.insert(0, nil), f.object.birth_day), {}, class: 'custom-select custom-select-lg' %>
                 </div>
-                <div class="mx-3">
+                <div class="mx-3 w-50">
                   <small class="text-muted">Month</small>
                   <%= f.select :birth_month, options_for_select(Date::MONTHNAMES, f.object.birth_month), {}, class: 'custom-select custom-select-lg' %>
                 </div>
-                <div>
+                <div class="w-25">
                   <small class="text-muted">Year</small>
                   <%= f.select :birth_year, options_for_select((1900..(Date.current.year - 20)).to_a.reverse.insert(0, nil), f.object.birth_year), {}, class: 'custom-select custom-select-lg' %>
                 </div>
@@ -60,8 +67,10 @@
                   <%= image_pack_tag 'images/head-shot.png', alt: "" %>
                 <% end %>
               </div>
-
-              <button type='button' class="btn btn-primary btn-sm mt-2">Upload Photo <i class="icon-cloud-upload"></i></button>
+              <div>
+                <button type='button' class="btn btn-primary btn-sm mt-2 mr-3">Upload Photo <i class="icon-cloud-upload"></i></button>
+                <button type="button" class="btn btn-sm btn-primary mt-2 ml-3"><i class="fas fa-trash"></i></button>
+             </div>
               <%= f.file_field :headshot, accept: 'image/jpeg, image/png', class: 'form-control form-control-lg d-none' %>
             </div>
           </div>
