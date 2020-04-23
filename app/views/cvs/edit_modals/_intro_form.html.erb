@@ -67,11 +67,15 @@
                   <%= image_pack_tag 'images/head-shot.png', alt: "" %>
                 <% end %>
               </div>
+              <div class='default-preview d-none'>
+                <%= image_pack_tag 'images/head-shot.png', alt: "" %>
+              </div>
               <div>
-                <button type='button' class="btn btn-primary btn-sm mt-2 mr-3">Upload Photo <i class="icon-cloud-upload"></i></button>
-                <button type="button" class="btn btn-sm btn-primary mt-2 ml-3"><i class="fas fa-trash"></i></button>
+                <button type='button' id='uploader' class="btn btn-primary btn-sm mt-2 mr-3">Upload Photo <i class="icon-cloud-upload"></i></button>
+                <button type="button" id= 'profile_img' class="btn btn-sm btn-primary mt-2 ml-3"><i class="fas fa-trash"></i></button>
              </div>
               <%= f.file_field :headshot, accept: 'image/jpeg, image/png', class: 'form-control form-control-lg d-none' %>
+              <%= f.hidden_field :remove_headshot %>
             </div>
           </div>
         </div>

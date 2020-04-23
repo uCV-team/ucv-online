@@ -22,9 +22,11 @@ class Cv < ApplicationRecord
                     default_url: '/images/:style/missing_headshot.png'
   validates_attachment :headshot, size: { in: 40..4000.kilobytes },
                                   content_type: { content_type: ['image/jpeg', 'image/png'] }
+  attr_accessor :remove_headshot
 
   scope :published, -> { where("published = ? and published_at IS NOT NULL", true ) }
 
+  before_save :delete_headshot, if: -> { remove_headshot == '1' }
   after_save :update_published_at, if: :saved_change_to_published?
 
   # TODO: Replace hard coded dictionary with locale
@@ -72,6 +74,12 @@ class Cv < ApplicationRecord
 
   def gender_female?
     gender == 'f'
+  end
+
+  private
+
+  def delete_headshot
+    self.headshot = nil
   end
 
   def update_published_at

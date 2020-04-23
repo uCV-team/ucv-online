@@ -4,7 +4,7 @@
 var imageUploder = $('div[data-behavior~=image-uploader]');
 if (imageUploder.length > 0) {
   var fileInput = imageUploder.find('input[type=file]')
-  imageUploder.find('button').on('click', (e) => {
+  imageUploder.find('button#uploader').on('click', (e) => {
     e.preventDefault();
     fileInput.click();
   })
@@ -18,7 +18,21 @@ if (imageUploder.length > 0) {
         var preview = imageUploder.find('.preview')
         preview.empty();
         preview.append(`<img src=${e.target.result} width="200" />`);
+
+        $('.default-preview').addClass('d-none');
+        preview.removeClass('d-none');
+        $("#cv_remove_headshot").val('0')
+        $("#profile_img").removeClass('d-none')
       }
     }
   });
 }
+
+$("#profile_img").on('click', function(e){
+  if (confirm("Are you sure?")) {
+    $("#cv_remove_headshot").val('1')
+    $('.preview').addClass('d-none').html('')
+    $('.default-preview').removeClass('d-none')
+    this.classList.add('d-none')
+  }
+});
