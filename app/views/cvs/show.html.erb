@@ -1,16 +1,16 @@
 <!-- CV sections
 ================================================== -->
 <div class="container middle-container-2 cvpage pb-40 pb-md-80">
-  <% if @user.present? %>
+  <% if @user.present? && @cv_edit_controls.present? %>
     <% if @cv.published? %>
       <p class="border-bottom border-primary text-muted py-3 mb-0">
         <i class="icon-info mr-2"></i>
-        Your resume is publised and visible to job providers
+        <%= t('content.main.cv.show.published') %>
       </p>
     <% else %>
       <p class="border-bottom border-primary text-muted py-3 mb-0">
         <i class="icon-info mr-2"></i>
-        Your resume is only visible to you until you publish.
+        <%= t('content.main.cv.show.unpublished') %>
       </p>
     <% end %>
   <% end %>

@@ -23,7 +23,9 @@ class Cv < ApplicationRecord
   validates_attachment :headshot, size: { in: 40..4000.kilobytes },
                                   content_type: { content_type: ['image/jpeg', 'image/png'] }
 
-  scope :published, -> { where(published: true) }
+  scope :published, -> { where("published = ? and published_at IS NOT NULL", true ) }
+
+  after_save :update_published_at, if: :saved_change_to_published?
 
   # TODO: Replace hard coded dictionary with locale
   pg_search_scope :full_text_search,
@@ -70,5 +72,9 @@ class Cv < ApplicationRecord
 
   def gender_female?
     gender == 'f'
+  end
+
+  def update_published_at
+    published? ? update_column(:published_at, Time.zone.now) : update_column(:published_at, nil)
   end
 end

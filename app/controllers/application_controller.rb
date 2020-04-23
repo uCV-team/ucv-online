@@ -27,20 +27,12 @@ class ApplicationController < ActionController::Base
   def set_current_location
     return if cookies[:geo_loc].present?
 
-    @loc ||= Geocoder.search('173.192.128.238').first
-    coordinates = invalid_location_data ? [78.4008997, 17.4206485] : [@loc.latitude, @loc.longitude]
+    @loc ||= Geocoder.search(request.remote_ip).first
+    coordinates = @loc.data['error'].present? || @loc.data.empty? ? [78.4008997, 17.4206485] : [@loc.longitude, @loc.latitude]
     cookies[:geo_loc] = { value: coordinates, path: '/', expires: 2.days.from_now }
   end
 
   def not_found
     render file: "#{Rails.root}/public/404.html", status: 404, layout: false
-  end
-
-  private
-
-  def invalid_location_data
-    @loc.data['error'].present? ||
-    @loc.data.empty? ||
-    [@loc.latitude, @loc.longitude].any? { |x| x > 90 || x < -90}
   end
 end

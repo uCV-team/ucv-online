@@ -98,6 +98,8 @@ en:
           prefer_not_to_disclose: "Prefer not to disclose"
           male: "Male"
           female: "Female"
+          published: "Your resume is publised and visible to job providers"
+          unpublished: "Your resume is only visible to you until you publish."
       search:
         header: "Search"
   layouts:

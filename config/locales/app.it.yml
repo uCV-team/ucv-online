@@ -99,6 +99,8 @@ it:
           prefer_not_to_disclose: "Preferisco non rivelare"
           male: "Maschile"
           female: "Femminile"
+          published: "Il tuo curriculum è pubblicato e visibile ai fornitori di lavoro"
+          unpublished: "Il tuo curriculum è visibile solo a te fino alla pubblicazione."
       search:
         header: "Search"
   layouts:
