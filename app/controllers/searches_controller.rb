@@ -1,6 +1,4 @@
 class SearchesController < ApplicationController
-  before_action :authenticate_user!
-
   def index
     initalize_variables
     respond_to do |format|
@@ -12,7 +10,7 @@ class SearchesController < ApplicationController
   private
 
   def initalize_variables
-    results = Cv.full_text_search(search_param)
+    results = Cv.published.full_text_search(search_param)
     @total_results = results.count
     @results = results.page(params[:page]).per(10)
     @formatted_results = SearchesService.new(@results).coordinates_list
