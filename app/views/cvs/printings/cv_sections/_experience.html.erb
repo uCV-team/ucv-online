@@ -1,7 +1,7 @@
 <% experiences = @cv.experiences.chronological_order %>
 
 <% if experiences.present? %>
-  <div class="border-top pt-5 pl-3 pl-md-6 pr-2">
+  <div class="border-top py-5 pl-3 pl-md-6 pr-2">
     <div class="d-flex align-items-center justify-content-between">
       <h6><%= t('content.main.cv.show.experience.title') %></h6>
     </div>
@@ -18,7 +18,7 @@
           <% end %>
         </span>
 
-        <div class="ml-2 pb-5 w-100 <%= (index == experiences.size - 1) ? '' : 'border-bottom' %>"">
+        <div class="ml-2 pb-5 w-100 <%= (index == experiences.size - 1) ? '' : 'border-bottom' %>" >
           <h6><%= experience.title %></h6>
           <h6 class="font-weight-normal mb-1"><%= experience.company %></h6>
           <% if experience.location.present? %>
