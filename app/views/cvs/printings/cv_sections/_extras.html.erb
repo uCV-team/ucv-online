@@ -1,19 +1,19 @@
 <% if @cv.interests.present? || @cv.future_plans.present? %>
-  <div class="border-top py-5 pl-3 pl-md-6 pr-2">
+  <div class="border-top py-5 px-3 pl-md-6">
     <div class="d-flex align-items-center justify-content-between">
       <h6><%= t('content.main.cv.show.extras') %></h6>
     </div>
 
     <div class="row font-size-14">
       <% if @cv.interests.present? %>
-        <div class="col-12 col-md-6 pt-5">
+        <div class="col-12 col-md-6 pt-4">
           <h6><%= t('content.main.cv.show.interests') %></h6>
           <p><%= @cv.interests.presence %></p>
         </div>
       <% end %>
 
       <% if @cv.future_plans.present? %>
-        <div class="col-12 col-md-6 pt-5">
+        <div class="col-12 col-md-6 pt-4">
           <h6><%= t('content.main.cv.show.future_plans') %></h6>
           <p><%= @cv.future_plans.presence %></p>
         </div>

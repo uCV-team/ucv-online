@@ -43,9 +43,9 @@
                     <div class="card-body p-4">
                       <div class="pb-3 d-flex align-items-center justify-content-between border-bottom">
                         <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size') %>
-                        <div class="pr-3">
+                        <div class="pl-3">
                           <h6><%= cv.abbr_name %></h6>
-                          <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 text-wrap">
+                          <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 text-wrap text-left">
                             <%= short_desc(cv.about, 40) %>
                           </span>
                         </div>

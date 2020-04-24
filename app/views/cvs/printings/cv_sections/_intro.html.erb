@@ -1,7 +1,7 @@
-<div class="d-flex pl-3 pl-md-6 pr-2 pb-4">
+<div class="d-flex px-3 pl-md-6 pb-4">
   <div class="w-100">
     <div class="row flex-column-reverse flex-md-row">
-      <div class="col-12 col-md-10 mt-2 mb-md-0">
+      <div class="col-10">
         <h2><%= @cv.abbr_name %></h2>
         <h6 class="font-weight-normal"><%= birth_info_for(@cv) %></h6>
         <% if @user.current_location.present? %>
@@ -17,7 +17,7 @@
       </div>
 
       <% if @cv.headshot.exists? %>
-        <div class="col-12 col-md-2 mb-2 mb-md-0">
+        <div class="col-2">
           <%= wicked_pdf_image_tag(@cv.headshot.url(:default), alt: "#{@cv.abbr_name} headshot", class: 'img-fluid') %>
         </div>
       <% end %>

@@ -23,7 +23,18 @@
             <% unless request.path == cv_section_path(current_user.subdomain) %>
               <%= link_to 'Edit Your CV', cv_section_path(current_user.subdomain), class: 'btn btn-lg btn-outline-primary mr-2' %>
             <% end %>
-            <%= link_to t('layouts.nav.logout'), destroy_user_session_path, method: :delete, class: 'btn btn-lg btn-primary ml-2' %>
+            <div class="dropdown">
+              <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= image_pack_tag 'images/user-avtar-1.svg', class: 'img-fluid rounded-circle', alt: 'avatar', width: '32' %>
+                <span class="mx-2">Hi John!</span>
+                <i class="fas fa-angle-down"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right border-0 shadow mt-2" aria-labelledby="dropdownMenuButton">
+                <%= link_to t('layouts.nav.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item py-2' %>
+                <a class="dropdown-item py-2" href="#">Action</a>
+                <a class="dropdown-item py-2" href="#">Another action</a>
+              </div>
+            </div>
           </div>
         <% else %>
           <div class="d-flex justify-content-between justify-content-md-start border-top border-md-0 pt-3 pt-md-0 mt-3 mt-md-0">
