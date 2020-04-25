@@ -34,7 +34,7 @@
         <div class="col-12">
           <div class="form-group mb-5">
             <%= f.label :description, t('content.main.cv.show.entries.description'), for: "#{id}_description", class: 'text-muted d-block'%>
-            <%= f.text_area :description, class: 'form-control', rows: 8, id: "#{id}_description" %>
+            <%= f.text_area :description, class: 'form-control', rows: 8, maxlength: 255, id: "#{id}_description" %>
           </div>
         </div>
       </div>

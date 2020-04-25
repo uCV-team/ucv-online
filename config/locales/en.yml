@@ -66,7 +66,7 @@ en:
             title: "Add new location"
         show:
           entries:
-            description: "Description"
+            description: "Description (max. 255 characters)"
             on_going: "%{started_on} - Present"
           education:
             degree: "Degree: %{degree}"
@@ -94,7 +94,7 @@ en:
             learning_skills: "Skills I'd like to learn or improve"
           summary:
             title: "Professional summary and goals"
-          about: "About (max. 255 scharacters)"
+          about: "About (max. 255 characters)"
           prefer_not_to_disclose: "Prefer not to disclose"
           male: "Male"
           female: "Female"
