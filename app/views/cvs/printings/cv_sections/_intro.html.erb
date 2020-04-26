@@ -10,7 +10,8 @@
 
         <div class="row mt-4">
           <div class="col-12 col-md-6 col-lg-4 mb-3">
-            <%= image_tag wicked_pdf_asset_path("packs/icons/publicv-icon.svg"), class: 'mr-2' %><%= @user.cv_public_url %>
+            <!-- Wicked pdf asset path issue with wepack assets on production env, use s3 URL instead -->
+            <%= wicked_pdf_image_tag("//publicv-master.s3.eu-central-1.amazonaws.com/assets/publicv-icon.png", class: 'mr-2') %><%= @user.cv_public_url %>
           </div>
           <div class="col-12 col-lg-6"></div>
         </div>
