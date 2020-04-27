@@ -1,0 +1,24 @@
+<%= render 'shared/modal_header', id: 'edit_cv_authorization', title: t('content.main.cv.edit.authorization.title') do %>
+  <%= form_with model: @cv do |f| %>
+    <div class="modal-body p-5">
+      <div class="alert alert-danger d-none"></div>
+      <div class="needs-validation" novalidate="">
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group mb-5">
+              <%= f.label :authorization_statement, t('content.main.cv.show.authorization_statement'), class: 'text-muted d-block' %>
+              <%= f.text_area :authorization_statement, class: 'form-control form-control-lg', rows: 8, maxlength: 255, "aria-label" => "authorization_statement" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 text-right">
+            <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-outline-primary rounded' %>
+            <%= f.submit t('content.main.buttons.save'), class: 'btn btn-primary rounded' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

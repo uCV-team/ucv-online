@@ -1,4 +1,4 @@
-var modals = $("#edit_cv_skills, #edit_cv_summary, #edit_cv_intro, #edit_cv_extras")
+var modals = $("#edit_cv_skills, #edit_cv_summary, #edit_cv_intro, #edit_cv_extras, #edit_cv_authorization")
 modals.find('.alert.alert-danger').empty().addClass('d-none')
 modals.modal('hide');
 
@@ -6,3 +6,4 @@ $(".intro-section").html("<%= j render 'cvs/cv_sections/intro' %>");
 $(".summary-section").html("<%= j render 'cvs/cv_sections/summary' %>");
 $(".skills-section").html("<%= j render 'cvs/cv_sections/skills' %>");
 $(".extras-section").html("<%= j render 'cvs/cv_sections/extras' %>");
+$(".authorization-section").html("<%= j render 'cvs/cv_sections/authorization' %>");

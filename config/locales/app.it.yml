@@ -44,6 +44,8 @@ it:
             title: "Edit skills"
           summary:
             title: "Modifica riepilogo e obiettivi professionali"
+          authorization:
+            title: "Modifica la dichiarazione di autorizzazione"
         new:
           education:
             degree: "Degree"
@@ -101,6 +103,10 @@ it:
           female: "Femminile"
           published: "Il tuo curriculum è pubblicato e visibile ai fornitori di lavoro"
           unpublished: "Il tuo curriculum è visibile solo a te fino alla pubblicazione."
+          authorization_statement: "Dichiarazione di autorizzazione (massimo 255 caratteri)"
+          authorization:
+            title: "Dichiarazione di autorizzazione"
+            content: "Autorizzo il trattamento dei miei dati personali presenti nel curriculum vitae ai sensi del Decreto Legislativo 30 giugno 2003, n. 196 e del GDPR (Regolamento UE 2016/679)."
       search:
         header: "Search"
   layouts:

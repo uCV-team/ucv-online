@@ -2,7 +2,7 @@ class Cv < ApplicationRecord
   include PgSearch
 
   ABOUT_MAX_LENGTH = 255
-  CV_SECTIONS = %w[intro summary skills extras].freeze
+  CV_SECTIONS = %w[intro summary skills extras authorization].freeze
 
   belongs_to :user
   has_many :educations, dependent: :destroy
@@ -11,7 +11,7 @@ class Cv < ApplicationRecord
   has_many :locations, through: :user
   has_one  :current_location, through: :user
 
-  validates :about, length: { maximum: ABOUT_MAX_LENGTH }
+  validates :about, :authorization_statement, length: { maximum: ABOUT_MAX_LENGTH }
   validates :user, uniqueness: true
   delegate :email, :tel, to: :user
 
@@ -27,6 +27,7 @@ class Cv < ApplicationRecord
   scope :published, -> { where("published = ? and published_at IS NOT NULL", true ) }
 
   before_save :delete_headshot, if: -> { remove_headshot == '1' }
+  before_create :set_authorization_statement
   after_save :update_published_at, if: :saved_change_to_published?
 
   # TODO: Replace hard coded dictionary with locale
@@ -77,6 +78,10 @@ class Cv < ApplicationRecord
   end
 
   private
+
+  def set_authorization_statement
+    self.authorization_statement = I18n.t('content.main.cv.show.authorization.content')
+  end
 
   def delete_headshot
     self.headshot = nil
