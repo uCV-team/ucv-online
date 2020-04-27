@@ -1,0 +1,6 @@
+<h4><%= t('content.main.contact.error.title', count: contact.errors.count) %></h4>
+<ul>
+<% contact.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+<% end %>
+</ul>

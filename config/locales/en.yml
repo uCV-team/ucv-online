@@ -108,6 +108,13 @@ en:
             content: "I hereby give consent for my personal data included in the application to be processed for the purposes of the recruitment process in accordance with Art. 6 paragraph 1 letter a of the Regulation of the European Parliament and of the Council (EU)"
       search:
         header: "Search"
+      contact:
+        title: "New Contact"
+        name: "Your Name"
+        message: "What would you like to ask?"
+        phone: "Telephone number to receive the answer"
+        email: "Email for the response"
+        accept: "I declare to accept the terms, the privacy policy and to receive offer related to the requested service."
   layouts:
     nav:
       home: "Home"

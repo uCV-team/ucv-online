@@ -1,0 +1,44 @@
+<%= form_with model: @contact do |f| %>
+  <div class="modal-body p-5">
+    <div class="alert alert-danger d-none"></div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group mb-5">
+            <%= f.label :name, t('content.main.contact.name'), for: "#{id}_name", class: 'text-muted d-block' %>
+            <%= f.text_field :name, class: 'form-control', id: "#{id}_name" %>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group mb-5">
+            <%= f.label :message, t('content.main.contact.message'), for: "#{id}_message", class: 'text-muted d-block' %>
+            <%= f.text_area :message, class: 'form-control', id: "#{id}_message" %>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group mb-5">
+            <%= f.label :phone, t('content.main.contact.phone'), for: "#{id}_phone", class: 'text-muted d-block' %>
+            <%= f.text_field :phone, class: 'form-control', id: "#{id}_phone" %>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group mb-5">
+            <%= f.label :email, t('content.main.contact.email'), for: "#{id}_email", class: 'text-muted d-block' %>
+            <%= f.email_field :email, class: 'form-control', id: "#{id}_email" %>
+            <%= f.hidden_field :user_id, value: @user.id %>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="custom-control custom-checkbox mb-5">
+            <input type="checkbox" class="custom-control-input" id="customCheck1">
+            <label class="custom-control-label text-muted" for="customCheck1"><%= t('content.main.contact.accept') %></label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-right">
+          <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-primary' %>
+          <%= f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') }, class: 'btn btn-primary' %>
+        </div>
+      </div>
+  </div>
+<% end %>

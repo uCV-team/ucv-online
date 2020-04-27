@@ -109,6 +109,13 @@ it:
             content: "Autorizzo il trattamento dei miei dati personali presenti nel curriculum vitae ai sensi del Decreto Legislativo 30 giugno 2003, n. 196 e del GDPR (Regolamento UE 2016/679)."
       search:
         header: "Search"
+      contact:
+        title: "New Contact"
+        name: "Your Name"
+        message: "What would you like to ask?"
+        phone: "Telephone number to receive the answer"
+        email: "Email for the response"
+        accept: "I declare to accept the terms, the privacy policy and to receive offer related to the requested service."
   layouts:
     nav:
       home: "Home"

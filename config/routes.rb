@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   resources :cvs, only: [:show] do
     get '/print', to: 'cvs/printings#show', as: :print
   end
+  resources :contacts, only: %i[new create]
   resolve('Cv') { [:cv] }
 
   # resources :locations, except: %i[index show]
