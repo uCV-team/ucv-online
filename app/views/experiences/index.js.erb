@@ -1,0 +1,4 @@
+<% modalId = params[:action] == 'create' ? "#new_cv_experience" : "#edit_cv_experience_#{@experience.id}" %>
+$("<%= modalId %>").find('.alert.alert-danger').empty().addClass('d-none')
+$("<%= modalId %>").modal('hide');
+$(".experience-section").html("<%= j render 'cvs/cv_sections/experience' %>");

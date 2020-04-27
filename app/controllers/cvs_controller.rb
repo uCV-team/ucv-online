@@ -24,10 +24,15 @@ class CvsController < ApplicationController
   end
 
   def update
-    if @cv.update(cv_params)
-      redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.cv.update') }
-    else
-      render 'errors'
+    @user = current_user
+    @cv_edit_controls = true
+
+    respond_to do |format|
+      if @cv.update(cv_params)
+        format.js {}
+      else
+        format.js { render 'errors' }
+      end
     end
   end
 

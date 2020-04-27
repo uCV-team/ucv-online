@@ -12,18 +12,22 @@ class ExperiencesController < ApplicationController
 
   def create
     @experience = @cv.experiences.build(experience_params)
-    if @experience.save
-      redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.experience.create') }
-    else
-      render 'experiences/errors'
+    respond_to do |format|
+      if @experience.save
+        format.js { render 'index' }
+      else
+        format.js { render 'experiences/errors' }
+      end
     end
   end
 
   def update
-    if @experience.update(experience_params)
-      redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.cv.update') }
-    else
-      render 'experiences/errors'
+    respond_to do |format|
+      if @experience.update(experience_params)
+        format.js { render 'index' }
+      else
+        format.js { render 'experiences/errors' }
+      end
     end
   end
 
@@ -36,6 +40,7 @@ class ExperiencesController < ApplicationController
 
   def set_cv
     @cv = current_user.cv
+    @cv_edit_controls = true
   end
 
   def set_experience

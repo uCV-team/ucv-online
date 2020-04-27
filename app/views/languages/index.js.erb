@@ -1,0 +1,4 @@
+<% modalId = params[:action] == 'create' ? "#new_cv_language" : "#edit_cv_language_#{@language.id}" %>
+$("<%= modalId %>").find('.alert.alert-danger').empty().addClass('d-none')
+$("<%= modalId %>").modal('hide');
+$(".languages-section").html("<%= j render 'cvs/cv_sections/languages' %>");

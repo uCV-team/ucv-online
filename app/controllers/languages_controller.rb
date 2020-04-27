@@ -12,18 +12,22 @@ class LanguagesController < ApplicationController
 
   def create
     @language = @cv.languages.build(language_params)
-    if @language.save
-      redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.language.create') }
-    else
-      render 'languages/errors'
+    respond_to do |format|
+      if @language.save
+        format.js { render 'index' }
+      else
+        format.js { render 'languages/errors' }
+      end
     end
   end
 
   def update
-    if @language.update(language_params)
-      redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.cv.update') }
-    else
-      render 'languages/errors'
+    respond_to do |format|
+      if @language.update(language_params)
+        format.js { render 'index' }
+      else
+        format.js { render 'languages/errors' }
+      end
     end
   end
 
@@ -36,6 +40,7 @@ class LanguagesController < ApplicationController
 
   def set_cv
     @cv = current_user.cv
+    @cv_edit_controls = true
   end
 
   def set_language
