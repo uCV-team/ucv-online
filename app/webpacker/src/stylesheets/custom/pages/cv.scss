@@ -37,7 +37,7 @@
   }
 }
 
-.custom-control-input:checked~.custom-control-label::before {
+.radio-input:checked~.custom-control-label::before {
   background-color: #fff;
   border: 2px solid $primary;
 }

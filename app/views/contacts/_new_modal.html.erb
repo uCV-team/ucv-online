@@ -1,4 +1,4 @@
 <%= render 'shared/modal_header', id: 'new_contact',
-title: t('content.main.contact.title') do
+title: t('content.main.contact.title', user_name: @user.first_name) do
  %><%= render 'form', id: 'new_contact' %>
 <% end %>

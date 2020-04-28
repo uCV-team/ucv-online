@@ -110,7 +110,7 @@ it:
       search:
         header: "Search"
       contact:
-        title: "Nuovo contatto"
+        title: "Contatto %{user_name}"
         name: "Il tuo nome"
         message: "Cosa vorresti chiedere?"
         phone: "Numero di telefono per ricevere la risposta"

@@ -82,19 +82,19 @@
         <div class="col-12 mb-5">
           <label class="d-block text-muted">Gender</label>
           <div class="custom-control custom-radio custom-control-inline">
-            <%= f.radio_button :gender, "m", id: "maschile", class: 'custom-control-input' %>
+            <%= f.radio_button :gender, "m", id: "maschile", class: 'radio-input custom-control-input' %>
             <%= f.label :gender, for: "maschile", class: 'custom-control-label text-muted' do %>
             <%= t('content.main.cv.show.male') %>
             <% end %>
           </div>
           <div class="custom-control custom-radio custom-control-inline">
-            <%= f.radio_button :gender, "f", id:"femminile", class: 'custom-control-input' %>
+            <%= f.radio_button :gender, "f", id:"femminile", class: 'radio-input custom-control-input' %>
             <%= f.label :gender, for: "femminile", class: 'custom-control-label text-muted' do %>
               <%= t('content.main.cv.show.female') %>
             <% end %>
           </div>
           <div class="custom-control custom-radio custom-control-inline">
-            <%= f.radio_button :gender, "", id:"prefer_not_disclose", class: 'custom-control-input' %>
+            <%= f.radio_button :gender, "", id:"prefer_not_disclose", class: 'radio-input custom-control-input' %>
             <%= f.label :gender, for: "prefer_not_disclose", class: 'custom-control-label text-muted' do %>
               <%= t('content.main.cv.show.prefer_not_to_disclose') %>
             <% end %>

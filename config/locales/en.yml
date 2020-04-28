@@ -109,7 +109,7 @@ en:
       search:
         header: "Search"
       contact:
-        title: "New Contact"
+        title: "Contact %{user_name}"
         name: "Your Name"
         message: "What would you like to ask?"
         phone: "Telephone number to receive the answer"
