@@ -21,6 +21,8 @@ window.initMap = function() {
     map.addControl(nav, 'top-left');
   });
 
+  if (isHomePage()) map.scrollZoom.disable();
+
   // Load search results from home page if any
   loadMarkersFromPage()
 };
@@ -87,6 +89,10 @@ function mapCenterCoordinates(){
   let loc = getCookie('geo_loc');
   if (loc == null) loc = "78.4008997&17.4206485"
   return loc;
+}
+
+function isHomePage(){
+  return location.pathname == "/"; // Equals true if we're at the root
 }
 
 $(document).on('turbolinks:load', () => {
