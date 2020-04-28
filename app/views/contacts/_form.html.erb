@@ -29,15 +29,15 @@
         </div>
         <div class="col-12">
           <div class="custom-control custom-checkbox mb-5">
-            <input type="checkbox" class="custom-control-input" id="customCheck1">
-            <label class="custom-control-label text-muted" for="customCheck1"><%= t('content.main.contact.accept') %></label>
+            <input type="checkbox" class="custom-control-input" id="confirmSubscribe">
+            <label class="custom-control-label text-muted" for="confirmSubscribe"><%= t('content.main.contact.accept_html', privacy: '/privacy-policy') %></label>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-12 text-right">
           <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-primary' %>
-          <%= f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') }, class: 'btn btn-primary' %>
+          <%= f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') }, class: 'btn btn-primary', id: 'contact-save', disabled: true %>
         </div>
       </div>
   </div>

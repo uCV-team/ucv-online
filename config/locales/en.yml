@@ -114,7 +114,7 @@ en:
         message: "What would you like to ask?"
         phone: "Telephone number to receive the answer"
         email: "Email for the response"
-        accept: "I declare to accept the terms, the privacy policy and to receive offer related to the requested service."
+        accept_html: "I declare to accept the terms, the <a href='/privacy-policy'>privacy policy</a> and to receive offer related to the requested service."
   layouts:
     nav:
       home: "Home"

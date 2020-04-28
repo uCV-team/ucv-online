@@ -110,12 +110,12 @@ it:
       search:
         header: "Search"
       contact:
-        title: "New Contact"
-        name: "Your Name"
-        message: "What would you like to ask?"
-        phone: "Telephone number to receive the answer"
-        email: "Email for the response"
-        accept: "I declare to accept the terms, the privacy policy and to receive offer related to the requested service."
+        title: "Nuovo contatto"
+        name: "Il tuo nome"
+        message: "Cosa vorresti chiedere?"
+        phone: "Numero di telefono per ricevere la risposta"
+        email: "Email per la risposta"
+        accept: "Dichiaro di accettare i termini, l'<a href='/privacy-policy'>informativa sulla privacy</a> e di ricevere l'offerta relativa al servizio richiesto."
   layouts:
     nav:
       home: "Home"
