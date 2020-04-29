@@ -57,7 +57,7 @@ function displayResults(data) {
     }
 
     if (data && Array.isArray(data) && data.length > 0) {
-        formattedAddresses = data.map(address => address.display_address);
+        formattedAddresses = data.map(address => address.display_name);
         resultsList.empty();
         formattedAddresses.forEach(address => {
             resultsList.append(`<li><span><i class="fas fa-map-marker-alt"></i></span>${address}</li>`);
