@@ -25,8 +25,8 @@ class SearchesService
 
   def location_coordinates(location)
     {
-      lat: location.latitude,
-      lng: location.longitude
+      lng: location.longitude,
+      lat: location.latitude
     }
   end
 end
