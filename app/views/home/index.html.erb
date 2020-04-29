@@ -41,10 +41,10 @@
                         <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size') %>
                         <div class="pl-3">
                           <h6><%= cv.abbr_name %></h6>
-                          <% if cv.user.current_location.present? && cv.user.current_location.original_address.present? %>
+                          <% if cv.user.current_location.present? && cv.user.current_location.city.present? %>
                             <small>
                               <i class="fas fa-map-marker"></i>  
-                              <%= cv.user&.current_location&.original_address %>
+                              <%= cv.user&.current_location&.city %>
                             </small>
                           <% end %>
                           <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 text-wrap text-left">
@@ -292,8 +292,12 @@
     <div class="container text-center">
       <h3 class="text-primary">Powered By</h3>
       <div class="d-flex flex-column flex-md-row mx-auto w-md-75 w-50 justify-content-between align-items-center">
-        <%= image_pack_tag 'images/logo_corsidia.svg', class: 'img-fluid my-5 my-md-0', alt: 'logo' %>
-        <%= image_pack_tag 'images/logo_bluebash.svg', class: 'img-fluid my-3 my-md-0', alt: 'logo' %>
+        <div>
+          <%= image_pack_tag 'images/logo_corsidia.svg', class: 'img-fluid my-5 my-md-0', alt: 'logo' %>
+        </div>
+        <dir>
+          <%= image_pack_tag 'images/Logo_Bluebash.svg', class: 'img-fluid my-3 my-md-0', alt: 'logo' %>
+        </dir>
       </div>
     </div>
   </div>

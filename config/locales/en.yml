@@ -17,6 +17,7 @@ en:
         saving: "Saving..."
         search: "Go!"
         searching: "Searching..."
+        download: "Download"
       cv:
         error:
           title:
@@ -66,6 +67,7 @@ en:
             address: "Address *"
             radius: "Radius (in km)"
             title: "Add new location"
+            city: "Current City/Province"
         show:
           entries:
             description: "Description (max. 255 characters)"
@@ -94,6 +96,7 @@ en:
             title: "Skills"
             working_skills: "Work skills"
             learning_skills: "Skills I'd like to learn or improve"
+            placeholder: "Please enter your skills comma seperated"
           summary:
             title: "Professional summary and goals"
           about: "About (max. 255 characters)"
@@ -106,6 +109,8 @@ en:
           authorization:
             title: "Authorization Statement"
             content: "I hereby give consent for my personal data included in the application to be processed for the purposes of the recruitment process in accordance with Art. 6 paragraph 1 letter a of the Regulation of the European Parliament and of the Council (EU)"
+          pdf: "PDF"
+        pdf_only: " (PDF only)"
       search:
         header: "Search"
         home: "Search Candidates"

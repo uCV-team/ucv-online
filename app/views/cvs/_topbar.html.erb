@@ -21,11 +21,11 @@
 
           <div class="dropdown">
             <button class="btn btn-outline-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              More <i class="fas fa-angle-down pl-1"></i>
+              <%= t('content.main.buttons.download') %><i class="fas fa-angle-down pl-1"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right border-0 shadow mt-2" aria-labelledby="dropdownMenuButton">
               <%= link_to cv_download_path(format: :pdf), method: :put, class: 'dropdown-item py-2' do %>
-                <i class="fas fa-arrow-circle-down mr-2"></i> Download CV
+                <i class="fas fa-arrow-circle-down mr-2"></i><%= t('content.main.cv.show.pdf') %>
               <% end %>
             </div>
           </div>

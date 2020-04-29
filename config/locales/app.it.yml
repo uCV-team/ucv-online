@@ -17,6 +17,7 @@ it:
         saving: "Saving..."
         search: "Go!"
         searching: "Searching..."
+        download: "Download"
       cv:
         error:
           title:
@@ -67,6 +68,7 @@ it:
             address: "Città o indirizzo *"
             radius: "Raggio (in km), minimo 1"
             title: "Aggiungi Zona in cui cerchi lavoro"
+            city: "Città / Provincia attuale"
         show:
           entries:
             description: "Description"
@@ -95,6 +97,7 @@ it:
             title: "Skills"
             working_skills: "Work skills"
             learning_skills: "Competenze che vorrei imparare o migliorare"
+            placeholder: "Inserisci le tue abilità virgola separate"
           summary:
             title: "Riepilogo e obiettivi professionali"
           about: "Informazioni (massimo 255 caratteri)"
@@ -107,6 +110,8 @@ it:
           authorization:
             title: "Dichiarazione di autorizzazione"
             content: "Autorizzo il trattamento dei miei dati personali presenti nel curriculum vitae ai sensi del Decreto Legislativo 30 giugno 2003, n. 196 e del GDPR (Regolamento UE 2016/679)."
+          pdf: "PDF"
+        pdf_only: " (Solo PDF)"
       search:
         header: "Search"
         home: "Cerca candidati"

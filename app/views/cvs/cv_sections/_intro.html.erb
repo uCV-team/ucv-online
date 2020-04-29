@@ -10,19 +10,25 @@
 
         <div class="row mt-4">
           <% if @cv_edit_controls %>
-            <div class="col-12 col-md-6 col-lg-4 mb-3"><i class="icon-envelope mr-2"></i><%= @user.email %></div>
-            <div class="col-12 col-lg-6"></div>
+            <div class="col-12 col-md-6 col-lg-6 mb-3"><i class="icon-envelope mr-2"></i><%= @user.email %><i class="far fa-file-pdf ml-2"><%= t('content.main.cv.pdf_only') %></i></div>
+            <div class="col-12 col-lg-4"></div>
             <% if @user.tel.present? %>
-              <div class="col-12 col-md-6 col-lg-4 mb-3"><i class="icon-phone mr-2"></i><%= @user.tel %></div>
+              <div class="col-12 col-md-6 col-lg-4 mb-3"><i class="icon-phone mr-2"></i><%= @user.tel %><i class="far fa-file-pdf ml-2"><%= t('content.main.cv.pdf_only') %></i></div>
               <div class="col-12 col-lg-6"></div>
             <% end %>
           <% end %>
 
           <div class="col-12 col-md-6 col-lg-4 mb-3">
-            <%= image_pack_tag 'icons/publicv-icon.svg', class: 'mr-2' %><%= @user.cv_public_url %>
+            <%= image_pack_tag 'icons/publicv-icon.svg', class: 'mr-2' %><%= link_to @user.cv_public_url, {}, target: '_blank' %>
           </div>
           <div class="col-12 col-lg-6"></div>
         </div>
+
+        <% unless @cv_edit_controls %>
+          <div class="row">
+            <%= link_to "Hire #{@user.first_name}", new_contact_path("contact[user_id]" => @user.id), class: "btn btn-outline-primary btn-sm mx-2", remote: true %>
+          </div>
+        <% end %>
       </div>
 
       <% if @cv_edit_controls || @cv.headshot.exists? %>
