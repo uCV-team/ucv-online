@@ -60,4 +60,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  protected
+
+  def after_sign_up_path_for(resource)
+    cv_section_path(resource.subdomain) # Or :prefix_to_your_route
+  end
 end

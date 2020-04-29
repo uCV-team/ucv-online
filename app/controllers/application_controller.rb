@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
-  before_action :set_current_location
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -20,16 +19,12 @@ class ApplicationController < ActionController::Base
                   end
   end
 
-  def tld
-    @tld ||= request.host.split('.').last
+  def after_sign_in_path_for(resource)
+    cv_section_path(resource.subdomain)
   end
 
-  def set_current_location
-    return if cookies[:geo_loc].present?
-
-    @loc ||= Geocoder.search(request.remote_ip).first
-    coordinates = @loc.data['error'].present? || @loc.data.empty? ? [78.4008997, 17.4206485] : [@loc.longitude, @loc.latitude]
-    cookies[:geo_loc] = { value: coordinates, path: '/', expires: 2.days.from_now }
+  def tld
+    @tld ||= request.host.split('.').last
   end
 
   def not_found

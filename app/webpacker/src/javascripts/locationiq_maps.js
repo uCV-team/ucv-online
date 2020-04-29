@@ -4,7 +4,6 @@ let markers = [];
 //Define the map and configure the map's theme
 window.initMap = function() {
   center = mapCenterCoordinates()
-  center = center.split('&').map((e) => parseFloat(e))
   console.log(center)
 
   $('#map').each((_, mapElement) => {
@@ -12,6 +11,7 @@ window.initMap = function() {
         container: mapElement,
         attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
         style: unwired.getLayer("streets"), //get Unwired's style template
+        maxZoom: 11,
         zoom: 11,
         center: center
     });
@@ -74,21 +74,8 @@ function loadMarkersFromPage(){
   if (window.searchResultsList.length > 0) generateMarkers(window.searchResultsList)
 }
 
-function getCookie(name) {
-    var cookieArr = document.cookie.split(";");
-    for(var i = 0; i < cookieArr.length; i++) {
-        var cookiePair = cookieArr[i].split("=");
-        if(name == cookiePair[0].trim()) {
-            return decodeURIComponent(cookiePair[1]);
-        }
-    }
-    return null;
-}
-
 function mapCenterCoordinates(){
-  let loc = getCookie('geo_loc');
-  if (loc == null) loc = "78.4008997&17.4206485"
-  return loc;
+  return window.currentLatLng || [78.4008997, 17.4206485]
 }
 
 function isHomePage(){
