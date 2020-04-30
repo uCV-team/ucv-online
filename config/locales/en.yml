@@ -42,6 +42,9 @@ en:
             title: "Edit location"
           skills:
             title: "Edit skills"
+            other_skills: "Other skills (comma seperated)"
+            working_skills: "Work skills (comma seperated)"
+            learning_skills: "Skills I'd like to learn or improve (comma seperated)"
           summary:
             title: "Edit professional summary and goals"
           authorization:
@@ -96,7 +99,12 @@ en:
             title: "Skills"
             working_skills: "Work skills"
             learning_skills: "Skills I'd like to learn or improve"
-            placeholder: "Please enter your skills comma seperated"
+          working_skills:
+            placeholder: "Web development, Marketing, Structural analysis"
+          other_skills:
+            placeholder: "Good communication, Teamwork, Problem solving"
+          learning_skills:
+            placeholder: "SEO, Youtube, Photogarphy"
           summary:
             title: "Professional summary and goals"
           about: "About (max. 255 characters)"
@@ -111,6 +119,7 @@ en:
             content: "I hereby declare that all the details mentioned above are in accordance with the truth and fact as per my knowledge and I hold the responsibility for the correctness of the above-mentioned particulars."
           pdf: "PDF"
         pdf_only: " (PDF only)"
+        pdf_tag_line: "Genereted by publicv.org"
       search:
         header: "Search"
         home: "Search Candidates"

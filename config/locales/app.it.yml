@@ -43,6 +43,9 @@ it:
             title: "Edit location"
           skills:
             title: "Edit skills"
+            other_skills: "Other skills (virgola separata)"
+            working_skills: "Work skills (virgola separata)"
+            learning_skills: "Competenze che vorrei imparare o migliorare (virgola separata)"
           summary:
             title: "Modifica riepilogo e obiettivi professionali"
           authorization:
@@ -97,7 +100,12 @@ it:
             title: "Skills"
             working_skills: "Work skills"
             learning_skills: "Competenze che vorrei imparare o migliorare"
-            placeholder: "Inserisci le tue abilità virgola separate"
+          working_skills:
+            placeholder: "Sviluppo web, marketing, analisi strutturale"
+          other_skills:
+            placeholder: "Buona comunicazione, lavoro di squadra, risoluzione dei problemi"
+          learning_skills:
+            placeholder: "SEO, Youtube, Fotogarphy"
           summary:
             title: "Riepilogo e obiettivi professionali"
           about: "Informazioni (massimo 255 caratteri)"
@@ -112,6 +120,7 @@ it:
             content: "Autorizzo il trattamento dei miei dati personali presenti nel curriculum vitae ai sensi del Decreto Legislativo 30 giugno 2003, n. 196 e del GDPR (Regolamento UE 2016/679)."
           pdf: "PDF"
         pdf_only: " (Solo PDF)"
+        pdf_tag_line: "Generato da publicv.it"
       search:
         header: "Search"
         home: "Cerca candidati"
