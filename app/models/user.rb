@@ -18,8 +18,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :cv, :current_location
 
   def cv_public_url
-    domain_suffix = locale == 'en' ? 'org' : locale
-    "#{subdomain}.publicv.#{domain_suffix}"
+    domain_suffix = locale.present? ? (locale == 'en' ? 'org' : locale) : 'org'
+    "http://#{subdomain}.publicv.#{domain_suffix}"
   end
 
   private
