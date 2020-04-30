@@ -28,7 +28,8 @@ class ApplicationController < ActionController::Base
     @tld ||= request.host.split('.').last
   end
 
-  def not_found
-    render file: "#{Rails.root}/public/404.html", status: 404, layout: false
+  def redirect_to_root_domain
+    root_domain = locale.to_s == 'en' ? ENV['EN_SERVER_HOST'] : ENV['IT_SERVER_HOST']
+    redirect_to root_domain
   end
 end

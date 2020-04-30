@@ -15,7 +15,8 @@ class User < ApplicationRecord
 
   after_initialize :prepare_blank_cv, if: :new_record?
 
-  accepts_nested_attributes_for :cv, :current_location
+  accepts_nested_attributes_for :cv
+  accepts_nested_attributes_for :current_location, reject_if: proc { |attributes| attributes['id'].blank? && attributes['original_address'].blank? }
 
   def cv_public_url
     domain_suffix = locale.present? ? (locale == 'en' ? 'org' : locale) : 'org'

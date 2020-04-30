@@ -55,7 +55,7 @@ class CvsController < ApplicationController
     if @user
       @cv = @user.cv
     else
-      not_found
+      redirect_to_root_domain
     end
   end
 
@@ -70,12 +70,11 @@ class CvsController < ApplicationController
   def cv_params
     params.require(:cv).permit(:about, :birth_date, :birth_place, :birth_day, :birth_month, :birth_year, :future_plans, :gender, :headshot, :interests, :published,
                                :section, :skills, :working_skills, :learning_skills, :remove_headshot, :authorization_statement,
-                               user_attributes: [:id, :first_name, :last_name, :tel, current_location_attributes: %i[id original_address radius]])
+                               user_attributes: [:id, :first_name, :last_name, :tel, current_location_attributes: %i[id original_address]])
   end
 
   def subdomain
-    # TODO for staging bypass subdomain here
-    # request.subdomain.presence || params[:subdomain]
-    params[:subdomain]
+    return params[:subdomain] if ENV['SERVER_ENV'] == 'staging'
+    request.subdomain.presence || params[:subdomain]
   end
 end

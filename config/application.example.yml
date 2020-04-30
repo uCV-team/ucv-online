@@ -14,3 +14,16 @@ SECRET_KEY_BASE: 'rails secret'
 
 LOCATIONIQ_API_KEY: 'locationiq api key'
 LOCATIONIQ_PUBLIC_KEY: 'locationiq public key'
+
+# Storage
+AWS_ACCESS_KEY_ID: 'access key'
+AWS_ALIAS: 'aws alise'
+AWS_REGION: 'aws region'
+AWS_S3_BUCKET_NAME: 's3 bucket name'
+AWS_S3_HOST_NAME: 's3 host name'
+AWS_SECRET_ACCESS_KEY: 'aws secret access key'
+
+# Environment
+SERVER_ENV: 'server-env'
+EN_SERVER_HOST: 'host URL for en locale'
+IT_SERVER_HOST: 'host URL for it locale'
