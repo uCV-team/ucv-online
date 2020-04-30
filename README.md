@@ -1,35 +1,37 @@
 # PubliCV
+https://publicv.org/
 
-This is the PubliCV project for Corsidia.
+## Requirements
 
-## Environments
+Make sure you have installed:
 
-| Branch  | Domain                              | Deployment | CI                                      |
-| ------- | ----------------------------------- | ---------- | --------------------------------------- |
-| master  | https://publicv-master.renuoapp.ch  | release    | [![Build Status](https://semaphoreci.com/api/v1/projects/bb5125b5-4ab3-4dbd-916d-d1f4d5e40d88/2263178/badge.svg)](https://semaphoreci.com/renuo/publicv)  |
-| develop | https://publicv-develop.renuoapp.ch | auto       | [![Build Status](https://semaphoreci.com/api/v1/projects/bb5125b5-4ab3-4dbd-916d-d1f4d5e40d88/2263178/badge.svg)](https://semaphoreci.com/renuo/publicv) |
-| testing | https://publicv-testing.renuoapp.ch | auto       | [![Build Status](https://semaphoreci.com/api/v1/projects/bb5125b5-4ab3-4dbd-916d-d1f4d5e40d88/2263178/badge.svg)](https://semaphoreci.com/renuo/publicv) |
+* Ruby 2.4.0
+* PostgreSQL (10+)
+* Yarn
+
+For Rails version and gems see Gemfile.
 
 ## Setup
 
-```sh
-git clone git@github.com:renuo/publicv.git
-cd [project-name]
-bin/setup
-```
+### Database
+This is pretty standard to RoR apps, but always nice to remember: just set up the `config/database.yml` file with your local database credentials. Sample already exists at `config/database.yml.example` for reference
 
-### Run
+## Installation
 
-```sh
-bin/run
-```
+So far so good. Now that you are all set up, you can begin to install it.
 
-### Tests / Checks
+### Ruby on Rails Application
 
-```sh
-bin/check
-```
+Run the standard RoR app setup commands:
 
-## Copyright
+1. `bundle install`
+2. `rake db:create`
+3. `rake db:migrate`
 
-Coypright 2018 [Renuo AG](https://www.renuo.ch/).
+## Running
+
+A simple way you can run the application is by doing:
+
+# Contributing
+
+Publicv is an open source project and we encourage contributions
