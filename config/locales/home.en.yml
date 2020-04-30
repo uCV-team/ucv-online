@@ -12,51 +12,51 @@ en:
       jobseeker: Jobseeker
       jobseeker_cta: Create your publiCV now
       jobseeker_copy_1: |
-        Instead of being buried under some agency’s drawer, with your permission, your CV will be <b>public</b>.
-          Like ours: <a href="https://duccio.publicv.org" class="text-primary">Duccio</a>, <a href="https://vishal.publicv.org" class="text-primary">Vishal</a>, <a href="https://anuj.publicv.org" class="text-primary">Anuj</a>. So that <b>hiring companies</b> can find us <u>directly</u>, without any middlemen.
+        Rather than being left in the drawer of some kind of agencies with your permission, your CV will be <b>public</b>.
+          Just like ours: <a href="https://duccio.publicv.org" class="text-primary">Duccio</a>, <a href="https://vishal.publicv.org" class="text-primary">Vishal</a>, <a href="https://anuj.publicv.org" class="text-primary">Anuj</a>. So that <b>hiring companies</b> can find us <u>directly</u>, without any middlemen.
       jobseeker_copy_2: |
         Standard CVs are ugly, ineffective and outdated.
         PubliCV is the new standard for digital CVs.
-        You will be <a href="#" class="text-primary">guided to create yours</a>, download PDF or send it via a public link.
+        You will be <a href="#" class="text-primary">guided to create yours</a>, download its PDF version, or send it via a public link.
       jobseeker_copy_3: |
         We put you first. Your CV will be live at:
         <span style="text-align:center;display:block"><b>your-name</b>.publicv.org</span>and this will be your professional homepage.
       jobseeker_copy_4: |
-        PubliCV is straight to the point: you’re not here to make friends, connect to people, build your network,
-        being monitored by your HR, nor tweet like a bird… You’re here to find a job and <b>get paid</b> for it.
+        PubliCV goes straight to the point: you’re not here to make new friends, connect with people, build your network,
+        being monitored by your HR, nor to tweet like a bird… You’re here to find a job and <b>get paid</b> for it.
       jobseeker_copy_5: |
         <b>Value your time</b> by being contacted only by Companies that are willing to show real interest and even pay to contact you.
       company: Company
       company_cta: Browse Candidates Now
       company_copy_1: |
-        Access immediately a searchable database of candidates to/for hire. As and when required to fill open Vacancies.
+        Access immediately a searchable database of candidates to hire, when you need to cover vacancies.
         <!-- TODO: I mean, [immediately](TODO: link). -->
       company_copy_2: |
         Cut the middlemen out: <b>contact directly</b> the candidates you like.
       company_copy_3: |
-        <b>Hire directly</b> the people you chose.
+        <b>Hire directly</b> the people you choose.
         <br/>We’ll stay out of any agreement between you and your candidate.
         <br/>We will not profit from their wages.
       company_copy_4: |
-        Save time and money because you pay only if you need to contact several candidates for the same job at the same time. Contacting a single candidate at a time is <b>free</b>.
+        Save time and money because you pay only if you need to contact several candidates for the same job at the same time. Contacting an individual candidate at a time is <b>free</b>.
         <br/><i>Please note that during this crisis this service will be completely free</i>.
       company_copy_5: |
         <b>Avoid the time-wasters</b>: we’ll go great lengths to keep CVs up to date.
-        If the CV is here it is very likely that the person behind it is genuinely interested in a job.
+        If the CV is here it is highly likely that the person behind is genuinely interested in a job.
       stakeholder: Human Being
       stakeholder_why: Discover how/why <b>publiCV is also yours</b> and what it can do for you, even if you're not currently looking for a job, nor workers.
       stakeholder_why_1: PubliCV went live on May the 1st, on the <b>International Workers' Day</b> of 2020, for a good reason.
       stakeholder_copy_1: |
-        <br/>The difference with the other platforms is that on publiCV you actually <b>own</b>
-        all of your <b>data</b> and even the <a href="https://github.com/publicv-org/publicv" class="text-primary"><b>code</b></a> associated to you. This is why <b>publiCV is also yours</b>.
-        See our legal license granting you these rights in both the <a href="https://creativecommons.org/licenses/by/4.0/" class="text-primary">simplified</a> and the <a href="https://creativecommons.org/licenses/by/4.0/legalcode" class="text-primary">extended</a> version.
+        <br/>The difference with other platforms is that on publiCV you actually <b>own</b>
+        all your <b>data</b> and even the <a rel="nofollow" href="https://github.com/publicv-org/publicv" class="text-primary"><b>code</b></a> associated with you. This is why <b>publiCV is also yours</b>.
+        See our legal license that grants you these rights in both <a rel="nofollow" href="https://creativecommons.org/licenses/by/4.0/" class="text-primary">simplified</a> and <a rel="nofollow" href="https://publicv.org/legal/terms" class="text-primary">extended</a> versions.
         <br/><br/>PubliCV is a gift to the world of work.
       stakeholder_why_2: Facing COVID-19 together.
       stakeholder_copy_2: |
         PubliCV <span class="font-weight-normal">will be free during this crisis.</span>
       stakeholder_why_3: B-Corp with a simple business model
       stakeholder_copy_3: |
-        After, it will become a B-Corp with a simple business model: contacting one candidate at a time, by hand, putting your time into writing a message to them, will be always free. Contacting more than one candidate simultaneously will cost a reasonable fee with no spam
+        LAter, it will become a B-Corp with a simple business model: contacting one candidate at a time, taking the time into writing a message to them, will be always free. However, contacting more than one candidate at the same time will then have a reasonable cost. This will also serve the purpose to protect them from spam.
       stakeholder_why_4: No Tracking
       stakeholder_copy_4: |
         We do not employ any tracking technology. All we know about you is what you included in your publiCV. You can <span class="text-danger">delete</span> it at any time.
