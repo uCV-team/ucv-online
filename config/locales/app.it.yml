@@ -131,12 +131,15 @@ it:
         phone: "Numero di telefono per ricevere la risposta"
         email: "Email per la risposta"
         accept: "Dichiaro di accettare i termini, l'<a href='/privacy-policy'>informativa sulla privacy</a> e di ricevere l'offerta relativa al servizio richiesto."
+      confirm:
+        delete_account: "Sei sicuro, Vuoi eliminare il tuo account da PubliCV ?"
   layouts:
     nav:
       home: "Home"
       login: "Login"
       logout: "Logout"
       search: "Search"
+      delete_account: "Eliminare l'account"
   success:
     cv:
       update: "Changes have been saved successfully."

@@ -31,6 +31,7 @@
               </button>
               <div class="dropdown-menu dropdown-menu-right border-0 shadow mt-2" aria-labelledby="dropdownMenuButton">
                 <%= link_to t('layouts.nav.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item py-2' %>
+                <%= link_to t('layouts.nav.delete_account'), account_path(current_user), method: :delete, remote: true, data: {confirm: t('content.main.confirm.delete_account') }, class: 'dropdown-item py-2' %>
               </div>
             </div>
           </div>

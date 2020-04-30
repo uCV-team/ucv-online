@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
+  resources :accounts, only: :destroy
   resource :cv, except: %i[new edit create destroy show] do
     resources :educations, except: %i[index show]
     resources :experiences, except: %i[index show]

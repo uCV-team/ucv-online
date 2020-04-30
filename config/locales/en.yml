@@ -130,6 +130,8 @@ en:
         phone: "Telephone number to receive the answer"
         email: "Email for the response"
         accept_html: "I declare to accept the terms, the <a href='/privacy-policy'>privacy policy</a> and to receive offer related to the requested service."
+      confirm:
+        delete_account: "Are you sure, You want to delete your account from PubliCV ?"
   layouts:
     nav:
       home: "Home"
@@ -138,6 +140,7 @@ en:
       search: "Search"
       create_your_cv: "Create Your CV"
       hire_someone: "Hire Candidate"
+      delete_account: "Delete Account"
   success:
     cv:
       update: "Changes have been saved successfully."
