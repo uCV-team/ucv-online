@@ -25,3 +25,5 @@ AWS_SECRET_ACCESS_KEY: 'aws secret access key'
 
 # Environment
 SERVER_ENV: 'server-env'
+EN_SERVER_HOST: 'host URL for en locale'
+IT_SERVER_HOST: 'host URL for it locale'

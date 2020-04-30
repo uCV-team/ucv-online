@@ -28,6 +28,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_root_domain
-    redirect_to t('server_host')
+    root_domain = locale.to_s == 'en' ? ENV['EN_SERVER_HOST'] : ENV['IT_SERVER_HOST']
+    redirect_to root_domain
   end
 end
