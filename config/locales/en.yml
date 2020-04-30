@@ -108,7 +108,7 @@ en:
           authorization_statement: "Authorization Statement (max. 255 characters)"
           authorization:
             title: "Authorization Statement"
-            content: "I hereby give consent for my personal data included in the application to be processed for the purposes of the recruitment process in accordance with Art. 6 paragraph 1 letter a of the Regulation of the European Parliament and of the Council (EU)"
+            content: "I hereby declare that all the details mentioned above are in accordance with the truth and fact as per my knowledge and I hold the responsibility for the correctness of the above-mentioned particulars."
           pdf: "PDF"
         pdf_only: " (PDF only)"
       search:
