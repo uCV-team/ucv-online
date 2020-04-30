@@ -12,7 +12,7 @@
           <i class="fas fa-md fa-building text-light-2"></i>
         </span>
         <div class="pr-5">
-          <div class="pl-2 <%= (index == educations.size - 1) ? '' : 'pb-5 border-bottom' %>">
+          <div class="pl-2 <%= (index == educations.size - 1) ? '' : 'pb-5' %>">
             <h6><%= education.school %></h6>
             <% if education.degree.present? %>
               <h6 class="font-weight-normal mb-1"><%= t('content.main.cv.show.education.degree', degree: education.degree) %></h6>

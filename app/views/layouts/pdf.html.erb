@@ -14,15 +14,19 @@
         display: -webkit-box;
         display: flex;
       }
+      .row {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+      }
       .row > div {
         -webkit-box-flex: 1;
         -webkit-flex: 1;
-        flex: 1;
-      }
+        flex: 1; }
       .font-weight-bold {
         font-weight: 600 !important;
       }
-  </style>
+    </style>
   </head>
   <body>
     <%= yield %>
