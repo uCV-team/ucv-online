@@ -43,11 +43,11 @@
                           <h6><%= cv.abbr_name %></h6>
                           <% if cv.user.current_location.present? && cv.user.current_location.city.present? %>
                             <small>
-                              <i class="fas fa-map-marker"></i>  
+                              <i class="fas fa-map-marker"></i>
                               <%= cv.user&.current_location&.city %>
                             </small>
                           <% end %>
-                          <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 text-wrap text-left">
+                          <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 text-wrap text-left mt-2">
                             <%= short_desc(cv.about, 40) %>
                           </span>
                         </div>

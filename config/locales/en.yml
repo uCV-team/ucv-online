@@ -103,7 +103,7 @@ en:
           prefer_not_to_disclose: "Prefer not to disclose"
           male: "Male"
           female: "Female"
-          published: "Your resume is publised and visible to job providers"
+          published: "Your resume is publised and visible to job providers and your last name and contact data will be published only on the pdf version that you can download. On the online version, when published, you’ll have a contact form."
           unpublished: "Your resume is only visible to you until you publish and your last name and contact data will be published only on the pdf version that you can download. On the online version, when published, you’ll have a contact form."
           authorization_statement: "Authorization Statement (max. 255 characters)"
           authorization:
