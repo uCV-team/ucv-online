@@ -29,6 +29,7 @@ class CvsController < ApplicationController
 
     respond_to do |format|
       if @cv.update(cv_params)
+        format.html { redirect_to cv_section_path(@user.subdomain) }
         format.js {}
       else
         format.js { render 'errors' }

@@ -14,9 +14,9 @@
           <%= link_to 'Preview', cv_section_path(current_user.subdomain, preview: 't'), class: 'btn btn-primary mx-2' %>
 
           <% if @cv.published? %>
-            <%= link_to 'Unpublish', cv_path("cv[published]" => "0"), method: :put, class: 'btn btn-outline-primary mx-2', remote: true %>
+            <%= link_to 'Unpublish', cv_path("cv[published]" => "0"), method: :put, class: 'btn btn-outline-primary mx-2' %>
           <% else %>
-            <%= link_to 'Publish', cv_path("cv[published]" => "1"), method: :put, class: 'btn btn-outline-primary mx-2', remote: true %>
+            <%= link_to 'Publish', cv_path("cv[published]" => "1"), method: :put, class: 'btn btn-outline-primary mx-2' %>
           <% end %>
 
           <div class="dropdown">
