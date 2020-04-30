@@ -2,7 +2,7 @@ class Location < ApplicationRecord
   belongs_to :user
 
   validates :original_address, presence: true
-  validates :radius, numericality: { greater_than_or_equal_to: 0 }
+  # validates :radius, numericality: { greater_than_or_equal_to: 0 }
 
   after_validation :geocode, if: ->(obj) { obj.original_address.present? && obj.original_address_changed? }
 

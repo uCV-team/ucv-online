@@ -22,3 +22,6 @@ AWS_REGION: 'aws region'
 AWS_S3_BUCKET_NAME: 's3 bucket name'
 AWS_S3_HOST_NAME: 's3 host name'
 AWS_SECRET_ACCESS_KEY: 'aws secret access key'
+
+# Environment
+SERVER_ENV: 'server-env'

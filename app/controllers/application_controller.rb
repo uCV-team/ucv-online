@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     @tld ||= request.host.split('.').last
   end
 
-  def not_found
-    render file: "#{Rails.root}/public/404.html", status: 404, layout: false
+  def redirect_to_root_domain
+    redirect_to t('server_host')
   end
 end
