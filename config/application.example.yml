@@ -2,17 +2,15 @@ APP_HOST: 'publicv.localhost'
 APP_PORT: '3000'
 
 # Mail
-MAIL_HOST: ''
-MAIL_USERNAME: ''
-MAIL_PASSWORD: ''
-MAIL_SENDER: 'yourname+publicv@renuo.ch'
+MAIL_FROM: 'example@reply.com'
+MAILGUN_API_KEY: 'api key'
+MAILGUN_DOMAIN: 'domain'
+MAIL_REPLY_TO: 'example@reply.com'
 
 # Secrets
 DEVISE_PEPPER: 'rails secret'
 DEVISE_SECRET_KEY: 'rails secret'
 SECRET_KEY_BASE: 'rails secret'
 
-
 LOCATIONIQ_API_KEY: 'locationiq api key'
 LOCATIONIQ_PUBLIC_KEY: 'locationiq public key'
-GOOGLE_API_KEY: 'google maps js api key'
