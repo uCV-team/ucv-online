@@ -28,9 +28,4 @@ class User < ApplicationRecord
   def prepare_blank_cv
     self.cv ||= Cv.new
   end
-
-  # Allow unconfirmed users to use application
-  def confirmation_required?
-    false
-  end
 end
