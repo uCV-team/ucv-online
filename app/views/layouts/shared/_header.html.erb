@@ -39,7 +39,14 @@
           <div class="d-flex justify-content-between justify-content-md-start border-top border-md-0 pt-3 pt-md-0 mt-3 mt-md-0">
             <%= link_to t('layouts.nav.create_your_cv'), new_user_registration_path, class: 'btn btn-lg btn-outline-primary mr-2' %>
             <a class="btn btn-lg btn-primary ml-2" href="/#search"><%= t('layouts.nav.hire_someone') %></a>
+            <div class="ml-2">
+              <select class="custom-select language-switcher" id="inputGroupSelect01">
+                <option value=".org/">English</option>
+                <option value=".it/">Italian</option>
+              </select>
+            </div>
           </div>
+
         <% end %>
       </div>
     </nav>
