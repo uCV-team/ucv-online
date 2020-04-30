@@ -13,7 +13,7 @@ en:
       jobseeker_cta: Create your publiCV now
       jobseeker_copy_1: |
         Instead of being buried under some agency’s drawer, with your permission, your CV will be <b>public</b>.
-          Like ours: <a href="https://publicv-staging.herokuapp.com/cv/duccio" class="text-primary">Duccio</a>, <a href="https://publicv-staging.herokuapp.com/cv/vishal" class="text-primary">Vishal</a>, <a href="https://publicv-staging.herokuapp.com/cv/devendar" class="text-primary">Devendar</a>. So that <b>hiring companies</b> can find us <u>directly</u>, without any middlemen.
+          Like ours: <a href="https://duccio.publicv.org" class="text-primary">Duccio</a>, <a href="https://vishal.publicv.org" class="text-primary">Vishal</a>, <a href="https://anuj.publicv.org" class="text-primary">Anuj</a>. So that <b>hiring companies</b> can find us <u>directly</u>, without any middlemen.
       jobseeker_copy_2: |
         Standard CVs are ugly, ineffective and outdated.
         PubliCV is the new standard for digital CVs.

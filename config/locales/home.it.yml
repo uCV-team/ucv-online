@@ -13,7 +13,7 @@ it:
       jobseeker: Lavoratore <small>(o in cerca di lavoro)</small>
       jobseeker_copy_1: |
         Invece di finire in fondo al cassetto di qualche agenzia, col tuo permesso, il tuo CV sarà <b>pubblico</b>.
-          Come i nostri: <a href="https://publicv-staging.herokuapp.com/cv/duccio" class="text-primary">Duccio</a>, <a href="https://publicv-staging.herokuapp.com/cv/vishal" class="text-primary">Vishal</a>, <a href="https://publicv-staging.herokuapp.com/cv/devendar" class="text-primary">Devendar</a>.
+          Come i nostri: <a href="https://duccio.publicv.it" class="text-primary">Duccio</a>, <a href="https://vishal.publicv.it" class="text-primary">Vishal</a>, <a href="https://anuj.publicv.it" class="text-primary">Anuj</a>.
           Così che i <b>datori di lavoro</b> possano trovarti <u>direttamente</u>, senza intermediari. (Nota che nella versione pubblica i dati più sensibili sono comunque omessi).
       jobseeker_copy_2: |
         I CV tradizionali sono inefficaci e superati.
