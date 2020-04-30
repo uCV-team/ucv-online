@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
+    return I18n.locale = ENV['DEVELOPMENT_LOCALE'].to_sym if ENV['DEVELOPMENT_LOCALE'].present?
     I18n.locale = case tld
                   when 'it'
                     :it

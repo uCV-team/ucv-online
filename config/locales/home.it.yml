@@ -1,3 +1,71 @@
+
 it:
   home:
-    create_your_cv_now: "Create Your CV Now"
+    coming_soon:
+      launching_in: Sarà online fra...
+      your_email_address: Il tuo indirizzo email
+      notify_me: Avvisami!
+    index:
+      why: Perché
+      because: |
+        Perché è anche <u><a class="text-primary" href="#stakeholder">tuo</a></u>.
+      jobseeker_cta: Crea il tuo publiCV adesso
+      jobseeker: Lavoratore <small>(o in cerca di lavoro)</small>
+      jobseeker_copy_1: |
+        Invece di finire in fondo al cassetto di qualche agenzia, col tuo permesso, il tuo CV sarà <b>pubblico</b>.
+          Come i nostri: <a href="https://duccio.publicv.it" class="text-primary">Duccio</a>, <a href="https://vishal.publicv.it" class="text-primary">Vishal</a>, <a href="https://anuj.publicv.it" class="text-primary">Anuj</a>.
+          Così che i <b>datori di lavoro</b> possano trovarti <u>direttamente</u>, senza intermediari. (Nota che nella versione pubblica i dati più sensibili sono comunque omessi).
+      jobseeker_copy_2: |
+        I CV tradizionali sono inefficaci e superati.
+        PubliCV è il nuovo standard per <b>il tuo Curriculum Vitae digitale</b>.
+        Segui la <a href="#" class="text-primary">procedura guidata per creare il tuo</a>, potrai scaricarlo in PDF o inviarlo tramite un semplice link.
+      jobseeker_copy_3: |
+        Ti mettiamo al primo posto. Il tuo <i>publiCV</i> sarà online all'indirizzo:
+        <span style="text-align:center;display:block"><b>tuo-nome</b>.publicv.it</span>
+        che sarà la tua pagina web professionale.
+      jobseeker_copy_4: |
+        PubliCV va dritto al punto: non sei qui per farti nuovi amici, collegarti coi colleghi, costruire il tuo network,
+        farti monitorare dalle Risorse Umane e nemmeno per cinguettare come un uccellino… Sei qui per trovare un lavoro e <b>farti pagare</b>.
+      jobseeker_copy_5: |
+        <b>Dai valore al tuo tempo</b> facendoti contattare solo da Aziende e datori di lavoro che abbiano mostrato un vero interesse per il tuo profilo.
+      company: Datore di Lavoro
+      company_cta: Cerca Candidati adesso
+      company_copy_1: |
+        Accedi immediatamente a un database con candidati disponibili. Trovali come ti servono, dove ti servono, quanto di servono.
+        <!-- TODO: I mean, [immediately](TODO: link). -->
+      company_copy_2: |
+        Taglia fuori gli intermediari: <b>contatta direttamente</b> i candidati di tuo interesse.
+      company_copy_3: |
+        <b>Tratta direttamente</b> con le persone che scegli.
+        <br/>Noi staremo fuori da ogni eventuale contratto fra te e i tuoi candidati.
+        <br/>Non chiederemo nessuna percentuale e non trarremo profitto dai loro compensi o stipendi.
+      company_copy_4: |
+        Risparmia soldi e tempo perché pagherai soltanto se vorrai contattare molti candidati con caratteristiche simili <i>contemporaneamente</i>.
+        Contattare un singolo candidato alla volta sarà sempre <b>gratuito</b>, senza limiti.
+        <br/><i>Per favore nota che durante questa crisi il servizio <b>publiCV</b> sarà completamente gratuito.</i>.
+      company_copy_5: |
+        <b>Evita i perditempo</b>: faremo tutto il possibile per mantenere aggiornati i publiCV che troverai.
+        Se il publiCV è disponibile è molto probabile che la persona dietro di esso sia genuinamente interessata a un lavoro.
+      stakeholder: Essere Umano
+      stakeholder_why: Scopri perché <b>publiCV è anche tuo</b> e cosa può fare per te, anche se non stai attualmente cercando un lavoro, né lavoratori.
+      stakeholder_why_1: PubliCV andrà online il <b>Primo Maggio</b> 2020, per un buon motivo.
+      stakeholder_copy_1: |
+        <br/>La differenza con le altre piattaforme sta nel fatto che su publiCV tu sei <b>davvero il proprietario</b> di tutti i tuoi dati e perfino del
+        <a href="https://github.com/publicv-org/publicv" class="text-primary"><b>codice</b></a> associato a te. Per questo <b>publiCV è anche tuo</b>.
+        La nostra licenza, disponibile sia in forma <a href="https://creativecommons.org/licenses/by/4.0/deed.it" class="text-primary">semplificata</a> che in forma
+        <a href="https://creativecommons.org/licenses/by/4.0/legalcode.it" class="text-primary">estesa</a>, ti garantisce questi diritti.
+        <br/><br/>PubliCV è il nostro regalo al Mondo del Lavoro.
+      stakeholder_why_2: Affrontiamo questa emergenza insieme.
+      stakeholder_copy_2: |
+        PubliCV sarà <span class="font-weight-normal">completamente gratuito</span> durante la crisi sanitaria.
+      stakeholder_why_3: Società Benefit
+      stakeholder_copy_3: |
+        Dopo la crisi, publiCV diventerà una Società Benefit con un semplice modello di business:
+        contattare un candidato alla volta, prendendoti quindi il tempo di scrivere un messaggio a lui dedicato, sarà sempre gratuito.
+        Contattare più di un candidato contemporaneamente avrà un costo ragionevole, e servirà anche a evitare lo spam.
+      stakeholder_why_4: Nessun Tracciamento
+      stakeholder_copy_4: |
+        Non adottiamo alcuna tecnologia di tracciamento o "traking". Tutto quello che sappiamo di te è il tuo IP (anonimizzato) e quello che decidi di inserire nel tuo publiCV,
+        che puoi <span class="text-danger">cancellare</span> in qualsiasi momento.
+      stakeholder_why_5: Open Source
+      stakeholder_copy_5: 'Il codice sorgente è aperto e <b>puoi utilizzarlo senza chiedere il permesso</b> a nessuno. Eccolo qui:'

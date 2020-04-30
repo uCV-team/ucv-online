@@ -137,6 +137,7 @@ en:
       logout: "Logout"
       search: "Search"
       create_your_cv: "Create Your CV"
+      edit_your_cv: Edit your CV
       hire_someone: "Hire Candidate"
   success:
     cv:

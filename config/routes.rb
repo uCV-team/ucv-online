@@ -10,10 +10,11 @@ Rails.application.routes.draw do
   end
 
   root 'home#index'
-
   # Static pages
-  get '/about', to: 'home#about'
-  get '/privacy-policy', to: 'home#privacy'
+  get 'legal/privacy-policy', to: 'legal#privacy'
+  get 'legal/cookie-policy', to: 'legal#cookie'
+  # TODO: get '/about', to: 'home#about'
+  get 'legal/terms', to: 'legal#terms'
 
   get 'cv/:subdomain', to: 'cvs#show', as: 'cv_section'
   get 'cv/edit/:section', to: 'cvs#edit', as: 'edit_cv_section'

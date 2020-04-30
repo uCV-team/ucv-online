@@ -16,7 +16,7 @@
           <%= form_tag search_path, method: :get do %>
             <div class="d-flex justify-content-between">
               <div class="w-100">
-                <%= text_field_tag :search_term, params[:search_term], placeholder: 'What skills you are looking for?', class: 'form-control form-control-lg border-0' %>
+                <%= text_field_tag :search_term, params[:search_term], placeholder: t('search.placeholder'), class: 'form-control form-control-lg border-0' %>
               </div>
               <div>
                 <%= submit_tag t('content.main.search.home'), data: { disable_with: t('content.main.buttons.searching') }, class: 'btn btn-primary' %>
@@ -71,226 +71,86 @@
     </div>
   </div>
   <div class="container pt-40 pt-md-80">
-    <div class="text-center">
-      <h3 class="text-primary">Why <%= image_pack_tag 'images/logo.svg', class: 'img-fluid', alt: 'logo' %> ?</h3>
+    <div class="text-center" id="why">
+      <h3 class="text-primary"><%= t('.why') -%> <%= image_pack_tag 'images/logo.svg', class: 'img-fluid', alt: 'logo' %> ?</h3>
+      <p class="text-center"><%== t('.because') -%></p>
     </div>
   </div>
   <div class="container py-40 py-md-80">
     <div class="row">
       <div class="col-12 col-lg-6 pr-xl-5">
-        <h4 class="pb-40">For Jobseekers</h4>
+        <h4 class="pb-40"><%== t('home.index.jobseeker') -%></h4>
         <div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
-            <span class="ml-2">Instead of being buried under some agency’s drawer, your CV will be <%= link_to "public", "#", class: 'text-primary' %>. Like ours: <%= link_to "Duccio", "#", class: 'text-primary' %>, <%= link_to "Vishal", "#", class: 'text-primary' %>, <%= link_to "Anuj", "#", class: 'text-primary' %>.</span>
+            <span class="ml-2"><%== t('home.index.jobseeker_copy_1') -%></span>
           </div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
-            <span class="ml-2">Standard CVs are ugly, ineffective and outdated. PubliCV is the new standard for digital CVs. You will be <%= link_to "guided to create yours", "#", class: 'text-primary' %>, download pdf or send it via a public link.</span>
+            <span class="ml-2"><%== t('home.index.jobseeker_copy_2') -%></span>
           </div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
-            <span class="ml-2">We put you first. Your CV will be live at: <strong>your-name.publicv.org</strong> and this will be your professional page.</span>
+            <span class="ml-2"><%== t('home.index.jobseeker_copy_3') -%></span>
           </div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
-            <span class="ml-2">PubliCV is straight to the point: you’re not here to make friends, connect to people, build your network, being monitored by your HR, nor tweet like a bird… You’re here to find a job and get paid for it.</span>
+            <span class="ml-2"><%== t('home.index.jobseeker_copy_4') -%></span>
           </div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
-            <span class="ml-2">Value your time by being contacted only by Companies that are willing to show real interest or even pay to contact you.</span>
+            <span class="ml-2"><%== t('home.index.jobseeker_copy_5') -%></span>
           </div>
         </div>
         <div class="pt-4 pt-lg-40">
           <%= link_to new_user_registration_path, class: 'btn btn-primary' do %>
-            <%= t('home.create_your_cv_now') %> <i class="fas fa-angle-right"></i>
+            <%= t('home.index.jobseeker_cta') %> <i class="fas fa-angle-right"></i>
           <% end %>
         </div>
       </div>
 
       <div class="col-12 col-lg-6 mt-40 mt-lg-0 pl-xl-5">
-        <h4 class="pb-40">For Company</h4>
+        <h4 class="pb-40"><%== t('home.index.company') -%></h4>
         <div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
             <span class="ml-2">
-              Access immediately a searchable database of candidates to/for hire. As and when required to fill open Vacancies.
+              <%== t('home.index.company_copy_1') -%>
             </span>
           </div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
             <span class="ml-2">
-              Cut the middlemen out: contact directly the candidates you like.
+              <%== t('home.index.company_copy_2') -%>
             </span>
           </div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
             <span class="ml-2">
-              Hire directly the people you chose. We’ll stay out of any agreement between you and your candidate. We will not profit from their wages.
+              <%== t('home.index.company_copy_3') -%>
             </span>
           </div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
             <span class="ml-2">
-              Save time and money because you pay only if you need to contact several candidates for the same job at the same time. Please note that during this crisis this service will be completely free.
+              <%== t('home.index.company_copy_4') -%>
             </span>
           </div>
           <div class="d-flex pb-40">
             <i class="fas fa-check-circle text-primary mr-2 pt-1"></i>
             <span class="ml-2">
-              Avoid the time-wasters: we’ll go great lengths to keep CVs up to date. If the CV is here it is very likely that the person behind it is genuinely interested in a job.
+              <%== t('home.index.company_copy_5') -%>
             </span>
           </div>
         </div>
         <div class="pt-4 pt-lg-40">
-          <a class="btn btn-primary" href='#search'>Hire Candidate Now <i class="fas fa-angle-right"></i></a>
+          <a class="btn btn-primary" href='#search'> <%= t('home.index.company_cta') -%> <i class="fas fa-angle-right"></i></a>
         </div>
       </div>
-
-
-
-      <%# <div class="col-12 col-md-6 col-xl-4 mb-5">
-        <div class="card border-0 h-100">
-          <div class="card-body py-0 pl-0 pr-5">
-            <h4 class="mb-3">Jobseekers</h4>
-            <p class="mb-5">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing habitant massa aliquet enim.
-            </p> %>
-            <%# <%= link_to t('home.create_your_cv_now'), new_user_registration_path, class: 'btn btn-lg btn-primary' %>
-          <%# </div>
-        </div>
-      </div> %>
-      <%# <div class="col-12 col-md-6 col-xl-4 mb-5">
-        <div class="card rounded h-100">
-          <div class="card-body p-4">
-            <i class="icon-globe-alt font-size-32"></i>
-            <h5 class="my-3">Global public CV</h5>
-            <span class="text-muted">
-            Instead of being buried under some agency’s drawer, your CV will be public. Like ours: Duccio, Vishal, Anuj.
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-xl-4 mb-5">
-        <div class="card rounded h-100">
-          <div class="card-body p-4">
-            <i class="icon-globe-alt font-size-32"></i>
-            <h5 class="my-3">It’s digital and effective</h5>
-            <span class="text-muted">
-            Standard CVs are ugly, ineffective and outdated. PubliCV is the new standard for digital CVs. You will be guided to create yours, download pdf or send it via a public link.
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-xl-4 mb-5 mb-xl-0">
-        <div class="card rounded h-100">
-          <div class="card-body p-4">
-            <i class="icon-globe-alt font-size-32"></i>
-            <h5 class="my-3">We put you first</h5>
-            <span class="text-muted">
-            We put you first. Your CV will be live at: your-name.publicv.org and this will be your professional page.
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-xl-4 mb-5 mb-xl-0">
-        <div class="card rounded h-100">
-          <div class="card-body p-4">
-            <i class="icon-globe-alt font-size-32"></i>
-            <h5 class="my-3">Find a job and get paid</h5>
-            <span class="text-muted">
-            PubliCV is straight to the point: you’re not here to make friends, connect to people, build your network, being monitored by your HR, nor tweet like a bird… You’re here to find a job and get paid for it.
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-xl-4 mb-5 mb-xl-0">
-        <div class="card rounded h-100">
-          <div class="card-body p-4">
-            <i class="icon-globe-alt font-size-32"></i>
-            <h5 class="my-3">We value your time</h5>
-            <span class="text-muted">
-            Value your time by being contacted only by Companies that are willing to show real interest or even pay to contact you.
-            </span>
-          </div>
-        </div>
-      </div> %>
-    </div>
-  </div>
-  <%# <div class="container py-0 py-md-80">
-    <div class="row">
-      <div class="col-12 col-md-6 col-xl-4 mb-5">
-        <div class="card border-0 h-100">
-          <div class="card-body py-0 pl-0 pr-5">
-            <h4 class="mb-3">Company</h4>
-            <p class="mb-5">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing habitant massa aliquet enim.
-            </p>
-            <button class="btn btn-lg btn-primary">Hire Candidate Now</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-xl-4 mb-5">
-        <div class="card rounded h-100">
-          <div class="card-body p-4">
-            <i class="icon-globe-alt font-size-32"></i>
-            <h5 class="my-3">Search to hire candidates</h5>
-            <span class="text-muted">
-            Access immediately a searchable database of candidates to/for hire. As and when required to fill open Vacancies.
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-xl-4 mb-5">
-        <div class="card rounded h-100">
-          <div class="card-body p-4">
-            <i class="icon-globe-alt font-size-32"></i>
-            <h5 class="my-3">Direct contact</h5>
-            <span class="text-muted">
-            Cut the middlemen out: contact directly the candidates you like.
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-xl-4 mb-5 mb-xl-0">
-        <div class="card rounded h-100">
-          <div class="card-body p-4">
-            <i class="icon-globe-alt font-size-32"></i>
-            <h5 class="my-3">We stay out of deal</h5>
-            <span class="text-muted">
-            Hire directly the people you chose. We’ll stay out of any agreement between you and your candidate. We will not profit from their wages.
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-xl-4 mb-5 mb-xl-0">
-        <div class="card rounded h-100">
-          <div class="card-body p-4">
-            <i class="icon-globe-alt font-size-32"></i>
-            <h5 class="my-3">Save time, save money</h5>
-            <span class="text-muted">
-            Save time and money because you pay only if you need to contact several candidates for the same job at the same time. Please note that during this crisis this service will be completely free.
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-xl-4 mb-5 mb-xl-0">
-        <div class="card rounded h-100">
-          <div class="card-body p-4">
-            <i class="icon-globe-alt font-size-32"></i>
-            <h5 class="my-3">Genuine and interested only</h5>
-            <span class="text-muted">
-            Avoid the time-wasters: we’ll go great lengths to keep CVs up to date. If the CV is here it is very likely that the person behind it is genuinely interested in a job.
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> %>
 
   <div class="bg-light py-40 my-40">
     <div class="container text-center">
-      <h3 class="text-primary">Powered By</h3>
+      <h3 class="text-primary"><%== t('.powered_by') -%></h3>
       <div class="d-flex flex-column flex-md-row mx-auto w-md-75 w-50 justify-content-between align-items-center">
         <div>
           <%= image_pack_tag 'images/logo_corsidia.svg', class: 'img-fluid my-5 my-md-0', alt: 'logo' %>
@@ -304,14 +164,15 @@
 
   <div class="container pt-40 pt-lg-80">
     <div class="text-center">
-      <h3 class="text-primary">Stakeholder</h3>
-      <span class="text-muted">Some copy for sub title of section stakeholder</span>
+      <h3 class="text-primary"><%== t('home.index.stakeholder') -%></h3>
+      <span class="text-muted"><%== t('home.index.stakeholder_why') -%></span>
     </div>
     <div class="row">
       <div class="col-12 col-md-6 pt-40 pb-3 py-md-80">
         <div class="pr-0 pr-md-80 d-flex flex-column justify-content-center h-100">
           <div><span class="badge badge-danger font-weight-normal align-middle mb-2">Live</span></div>
-          <h5>PubliCV <span class="font-weight-normal">went live on May, 1st 2020 for a good reason.</span></h5>
+          <h5><%== t('home.index.stakeholder_why_1') -%></h5>
+          <span><%== t('home.index.stakeholder_copy_1') -%></span>
         </div>
       </div>
       <div class="col-12 col-md-6 pt-3 pb-40 py-md-80">
@@ -325,16 +186,16 @@
       <div class="col-12 col-md-6 pt-40 pb-3 py-md-80">
         <div class="pl-0 pl-md-80 d-flex flex-column justify-content-center h-100">
           <div><span class="badge badge-success font-weight-normal align-middle mb-2">Free</span></div>
-          <h5>Facing COVID-19 together.</h5>
-          <h5>PubliCV <span class="font-weight-normal">will be free during this crisis.</span></h5>
+          <h5><%== t('home.index.stakeholder_why_2') -%></h5>
+          <span><%== t('home.index.stakeholder_copy_2') -%></span>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-12 col-md-6 pt-40 pb-3 py-md-80">
         <div class="pr-0 pr-md-80 d-flex flex-column justify-content-center h-100">
-          <h5 class="mb-3">B Corp with a simple business model</h5>
-          <span>After, it will become a B-Corp with a simple business model: contacting one candidate at a time, by hand, putting your time into writing a message to them, will be always free. Contacting more than one candidate simultaneously will cost a reasonable fee with no spam</span>
+          <h5 class="mb-3"><%== t('home.index.stakeholder_why_3') -%></h5>
+          <span><%== t('home.index.stakeholder_copy_3') -%></span>
         </div>
       </div>
       <div class="col-12 col-md-6 pt-3 pb-40 py-md-80">
@@ -347,17 +208,17 @@
       </div>
       <div class="col-12 col-md-6 pt-40 pb-3 py-md-80">
         <div class="pl-0 pl-md-80 d-flex flex-column justify-content-center h-100">
-          <h5>No Tracking</h5>
-          <span>We do not employ any tracking technology. All we know about you is what you included in your publiCV. You can <span class="text-danger">delete</span> it at any time.</span>
+          <h5><%== t('home.index.stakeholder_why_4') -%></h5>
+          <span><%== t('home.index.stakeholder_copy_4') -%></span>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-12 col-md-6 pt-40 pb-3 py-md-80">
         <div class="pr-0 pr-md-80 d-flex flex-column justify-content-center h-100">
-          <h5 class="mb-3">Open Source</h5>
-          <h5 class="font-weight-normal mb-5">Most of the code is and will stay opensource.</h5>
-          <span class="text-primary">Git Hub <i class="ml-2 fas fa-angle-right"></i></span>
+          <h5 class="mb-3"><%== t('home.index.stakeholder_why_5') -%></h5>
+          <span class="font-weight-normal mb-5"><%== t('home.index.stakeholder_copy_5') -%></span>
+          <a href="https://github.com/publicv-org/publicv" class="text-primary"><i class="fab fa-github"></i> GitHub <i class="ml-2 fas fa-angle-right"></i></a>
         </div>
       </div>
       <div class="col-12 col-md-6 pt-3 pb-80 py-md-80">

@@ -308,27 +308,28 @@ it:
             title: "Skills"
             working_skills: "Work skills"
       search:
-        header: "Search"
+        header: "Cerca"
   layouts:
     nav:
       home: "Home"
       login: "Login"
       logout: "Logout"
-      search: "Search"
-      create_your_cv: "Create Your CV"
-      hire_someone: "Hire Candidate"
+      search: "Cerca"
+      create_your_cv: "Crea il tuo CV"
+      edit_your_cv: "Modifica CV"
+      hire_someone: "Cerca Candidato"
   success:
     cv:
-      update: "Changes have been saved successfully."
+      update: "Modifiche salvate con successo."
     education:
-      create: "Education entry successfully saved."
-      destroy: "Education entry successfully removed."
+      create: "Modifiche salvate con successo."
+      destroy: "Education eliminata."
     experience:
-      create: "Experience entry successfully saved."
-      destroy: "Experience entry successfully removed."
+      create: "Modifiche salvate con successo."
+      destroy: "Experience eliminata."
     language:
-      create: "Language successfully saved."
-      destroy: "Language successfully removed."
+      create: "Modifiche salvate con successo."
+      destroy: "Language eliminata."
     location:
-      create: "Location successfully saved."
-      destroy: "Location successfully removed."
+      create: "Modifiche salvate con successo."
+      destroy: "Location eliminata."
