@@ -2,7 +2,7 @@ ActionMailer::Base.default_options = {
   from: ENV['MAIL_FROM'],
   reply_to: ENV['MAIL_REPLY_TO']
 }
-ActionMailer::Base.default_url_options = { host: ENV['APP_HOST'], port: ENV['APP_PORT'] }
+# ActionMailer::Base.default_url_options = { host: ENV['APP_HOST'], port: ENV['APP_PORT'] }
 
 if Rails.env.development?
   ActionMailer::Base.delivery_method = :letter_opener
