@@ -24,7 +24,6 @@
           <div class="form-group mb-5">
             <%= f.label :location, t('content.main.cv.new.experience.location'), for: "#{id}_location", class: 'text-muted d-block' %>
             <%= f.text_field :location, autocomplete: 'off', class: 'form-control', id: "#{id}_address" %>
-            <%= hidden_field_tag "#{id}_restrict", 1 %>
             <div class="autocomplete-results position-absolute" id="<%= id %>_results">
               <ul>
               </ul>

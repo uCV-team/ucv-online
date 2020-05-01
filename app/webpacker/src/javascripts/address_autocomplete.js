@@ -1,13 +1,12 @@
 import {throttle} from "lodash";
 
 let token;
-let inputField, resultsContainer, _restrictResults;
+let inputField, resultsContainer;
 
 function initAutocomplete(modalId, api_token) {
     token = api_token;
     inputField = $(`#${modalId}_address`);
     resultsContainer = $(`#${modalId}_results`);
-    _restrictResults = $(`#${modalId}_restrict`);
 
     autocomplete();
 }
@@ -31,8 +30,6 @@ async function fetchData() {
     let locale = window.currentLocale;
     let api_link = `https://api.locationiq.com/v1/autocomplete.php?key=${token}&q=${query}&normalizecity=0&limit=5&accept-language=${locale}`;
     // let api_link = `https://search-maps.yandex.ru/v1/text=${query}&type=geo&lang=it&results=5`
-
-    if (_restrictResults.val() == '1') api_link = api_link+'&tag=place:city';
 
     if (inputField.val().length > 0) {
         try {
