@@ -11,7 +11,7 @@ class CvsController < ApplicationController
     elsif @cv.published?
       @cv_edit_controls = false # public view of CV on subdomain
     else
-      not_found
+      redirect_to_root_domain
     end
   end
 
