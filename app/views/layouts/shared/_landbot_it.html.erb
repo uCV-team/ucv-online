@@ -1,0 +1,18 @@
+<script SameSite="None; Secure" src="https://static.landbot.io/landbot-widget/landbot-widget-1.0.0.js"></script>
+<script>
+  var myLandbot = new LandbotLivechat({
+    index: 'https://landbot.io/u/H-459749-I1F73L2UDWXC0SYA/index.html',
+  });
+</script><script>
+  // Show a proactive message after 5 seconds
+  setTimeout(function() {
+    myLandbot.sendProactive({
+  "message": "Posso aiutarti?",
+  "author": "Ciao, sono Civì!",
+  "avatar": "https://storage.googleapis.com/media.helloumi.com/71167/channels/6F48KPVPB093MWN8YQAEJ4JEO51Q37JA.png",
+  "extra": {
+    "hide_textbox": true
+  }
+});
+  }, 5000);
+</script>
