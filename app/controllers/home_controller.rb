@@ -6,7 +6,13 @@ class HomeController < ApplicationController
   end
 
   def set_current_location
-    @loc ||= Geocoder.search('169.149.220.44').first
-    @coordinates = @loc.data['error'].present? || @loc.data.empty? ? [78.4008997, 17.4206485] : [@loc.longitude, @loc.latitude]
+    @loc ||= Geocoder.search(request.remote_ip).first
+    @coordinates = @loc.data['error'].present? || @loc.data.empty? ? default_coordinates : [@loc.longitude, @loc.latitude]
+  end
+
+  private
+
+  def default_coordinates
+    locale.to_s == 'it' ? [12.5674, 41.8719] : [78.4008997, 17.4206485]
   end
 end
