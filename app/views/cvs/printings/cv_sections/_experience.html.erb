@@ -14,8 +14,7 @@
           <% if has_website %>
             <%= wicked_pdf_image_tag "http://www.google.com/s2/favicons?domain=#{experience.website_url}" %>
           <% else %>
-            <!-- Wicked pdf asset path issue with wepack assets on production env, use s3 URL instead -->
-            <%= wicked_pdf_image_tag("//publicv-master.s3.eu-central-1.amazonaws.com/assets/gogle-logo.png") %>
+            <i class="fas fa-md fa-building text-light-2"></i>
           <% end %>
         </span>
         <div class="pr-5">
