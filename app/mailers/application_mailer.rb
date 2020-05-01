@@ -1,4 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com' # TODO need to change this
+  include DefaultUrlOptions
+
+  default from: ENV['MAIL_FROM']
   layout 'mailer'
 end

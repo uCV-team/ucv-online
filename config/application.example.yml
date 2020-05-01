@@ -1,5 +1,5 @@
-APP_HOST: 'publicv.localhost'
-APP_PORT: '3000'
+# APP_HOST: 'publicv.localhost'
+SERVER_PORT: '3000'
 
 # Mail
 MAIL_FROM: 'mail from'

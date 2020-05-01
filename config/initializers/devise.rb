@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Devise.setup do |config|
+  config.mailer = 'DeviseMailer'
   config.secret_key = ENV['SECRET_KEY_BASE']
   config.mailer_sender = ENV['MAIL_FROM']
   require 'devise/orm/active_record'
