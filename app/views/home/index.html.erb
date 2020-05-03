@@ -27,7 +27,10 @@
       </div>
     </div>
   </div>
-  <div class="bg-light py-40 py-md-80">
+  <div class="bg-light pt-40">
+    <div class="text-center pb-40">
+      <h5 class="text-primary"><%= t('.last_cvs') -%></h5>
+    </div>
     <div class="container px-0">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -68,6 +71,7 @@
           </div>
         </div>
       </div>
+      <div class="text-center pb-40"><%== t('.updated_last_30_days', count: @cvs_last_updated_count) -%></div>
     </div>
   </div>
   <div class="container pt-40 pt-md-80">
