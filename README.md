@@ -1,5 +1,7 @@
 # PubliCV
-https://publicv.org/
+PubliCV is the open source platform to help Jobseekers find their next Employer, and vice versa, _directly_ (with no intermediaries). See: https://publicv.org
+
+The source code of the core service is released under the MIT license (see LICENSE and the [term of service](https://publicv.org/legal/terms) for more).
 
 ## Requirements
 
@@ -9,7 +11,7 @@ Make sure you have installed:
 * PostgreSQL (10+)
 * Yarn
 
-For Rails version and gems see Gemfile.
+For Rails version and gems see the Gemfile.
 
 ## Setup
 
@@ -28,10 +30,6 @@ Run the standard RoR app setup commands:
 2. `rake db:create`
 3. `rake db:migrate`
 
-## Running
-
-A simple way you can run the application is by doing:
-
 # Contributing
 
-Publicv is an open source project and we encourage contributions
+PubliCV is an open source project and we encourage contributions.
