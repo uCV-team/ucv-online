@@ -31,13 +31,11 @@ it:
         other: Utenti
   devise:
     confirmations:
-      form_label: 'Resend confirmation instructions'
       confirmed: Il tuo account è stato correttamente confermato.
       new:
         resend_confirmation_instructions: Invia di nuovo le istruzioni per la conferma
       send_instructions: Riceverai un messaggio email con le istruzioni per confermare il tuo account entro qualche minuto.
       send_paranoid_instructions: Se la tua email esiste nel nostro database, riceverai un messaggio email con le istruzioni per confermare il tuo account entro qualche minuto.
-      button: 'Resend confirmation instructions'
     failure:
       already_authenticated: Hai già effettuato l'accesso.
       inactive: Il tuo account non è stato ancora attivato.
@@ -79,8 +77,8 @@ it:
       failure: Non è stato possibile autorizzarti da %{kind} perchè "%{reason}".
       success: Autorizzato con successo dall'account %{kind}.
     passwords:
-      change_form_label: 'Change your password'
-      confirm_password: 'Confirm Your Password'
+      change_form_label: 'Cambia la tua passowrd'
+      confirm_password: 'Conferma la tua password'
       edit:
         change_my_password: Cambia la mia password
         change_your_password: Cambia la tua password
@@ -96,14 +94,14 @@ it:
       updated_not_active: La tua password è stata cambiata.
     registrations:
       placeholder:
-        subdomain: 'vishal-garg'
-        first_name: 'Vishal'
-        last_name: 'Garg'
-        email: 'vishal@bluebash.co'
-        tel: '+1-541-754-3010'
-        subdomain_example: 'Example: vishal-garg.publicv.it'
-      subdomain: 'Subdomain'
-      signup_label: 'Create your account, and then PubliCV'
+        subdomain: 'tuo-nome'
+        first_name: 'Nome'
+        last_name: 'Cognome'
+        email: 'tuaemail@gmail.com'
+        tel: '+39 123 456 7890'
+        subdomain_example: 'Example: tuo-nome.publicv.it'
+      subdomain: 'Sottodominio'
+      signup_label: 'Crea il tuo account, poi il tuo publiCV'
       first_name: "Nome"
       last_name: "Cognome"
       email: "Email"
