@@ -3,6 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @cvs = Cv.published.with_headshot.order(published_at: :desc)
+    @cvs_last_updated_count = Cv.where('updated_at > ?', 30.days.ago).count
   end
 
   def set_current_location
