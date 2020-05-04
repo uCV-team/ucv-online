@@ -1,35 +1,35 @@
 it:
   cefr_levels:
-    a1: "A1 - Beginner"
-    a2: "A2 - Elementary"
-    b1: "B1 - Intermediate"
-    b2: "B2 - Upper intermediate"
-    c1: "C1 - Advanced"
-    c2: "C2 - Proficiency"
-  confirmation: "Are you sure?"
+    a1: "A1 - Principiante"
+    a2: "A2 - Elementare"
+    b1: "B1 - Intermedio"
+    b2: "B2 - Intermedio avanzato"
+    c1: "C1 - Fluente"
+    c2: "C2 - Madrelingua"
+  confirmation: "Sei sicuro/a?"
   content:
     main:
       aria_labels:
-        close: "Close"
+        close: "Chiudi"
       buttons:
         reset: "Reset"
-        save: "Save"
-        saving: "Saving..."
-        search: "Go!"
-        searching: "Searching..."
-        download: "Download"
+        save: "Salva"
+        saving: "Sto Salvando..."
+        search: "Vai!"
+        searching: "Sto cercando..."
+        download: "Scarica"
       cv:
         error:
           title:
-            one: "Could not save due to the following error:"
-            other: "Could not save due to the following errors:"
+            one: "Non ho potuto salvare per il seguente errore:"
+            other: "Non ho potuto salvare per i seguenti errori:"
         edit:
           education:
-            title: "Edit education"
+            title: "Modifica Formazione"
           experience:
-            title: "Edit experience"
+            title: "Modifica Esperienza"
           extras:
-            title: "Edit extras"
+            title: "Modific Extra"
           intro:
             about: "Presentazione breve (è importantissima!)"
             birth_date: "Data di nascita"
@@ -38,13 +38,13 @@ it:
             last_name: "Cognome *"
             tel: "Num. di Cellulare"
           languages:
-            title: "Edit language"
+            title: "Modifica Lingua"
           locations:
-            title: "Edit location"
+            title: "Modifica Zona"
           skills:
-            title: "Edit skills"
-            other_skills: "Other skills (virgola separata)"
-            working_skills: "Work skills (virgola separata)"
+            title: "Modifica Competenza"
+            other_skills: "Altre competenze (separa con virgola)"
+            working_skills: "Competenze lavorative (separa con virgola)"
             learning_skills: "Competenze che vorrei imparare o migliorare (virgola separata)"
           summary:
             title: "Modifica riepilogo e obiettivi professionali"
@@ -52,21 +52,21 @@ it:
             title: "Modifica la dichiarazione di autorizzazione"
         new:
           education:
-            degree: "Degree"
-            school: "School *"
-            title: "Add new education"
+            degree: "Livello"
+            school: "Scuola *"
+            title: "Aggiungi formazione"
           experience:
-            company: "Company *"
-            from: "From"
-            job_title: "Title *"
-            location: "Location"
-            title: "Add new experience"
-            to: "To (blank if on-going)"
-            website_url: "Website URL"
+            company: "Azienda *"
+            from: "Da"
+            job_title: "Titolo professionale *"
+            location: "Luogo"
+            title: "Aggiungi Esperienza lavorativa"
+            to: "A (lascia in bianco se in corso)"
+            website_url: "Sito web URL"
           language:
-            language: "Language *"
-            level: "Level"
-            title: "Add new language"
+            language: "Lingua *"
+            level: "Livello"
+            title: "Aggiungi lingua"
           location:
             address: "Città o indirizzo *"
             radius: "Raggio (in km), minimo 1"
@@ -74,38 +74,37 @@ it:
             city: "Città / Provincia attuale"
         show:
           entries:
-            description: "Description"
-            on_going: "%{started_on} - Present"
+            description: "Descrizione"
+            on_going: "%{started_on} - in corso"
           education:
-            degree: "Degree: %{degree}"
-            ended_on: "To year (blank if on-going)"
-            school: "School"
-            started_on: "From year"
-            title: "Education"
+            degree: "Livello: %{degree}"
+            ended_on: "All'anno (lascia in bianco se in corso)"
+            school: "Scuola"
+            started_on: "Dall'anno"
+            title: "Formazione"
           experience:
             location: "in %{location}"
-            title: "Experience"
-          extras: "Other information"
-          future_plans: "Plans for the future"
-          interests: "Interests"
+            title: "Esperienza"
+          extras: "Altre informazioni"
+          future_plans: "Piani per il futuro"
+          interests: "Interessi"
           intro:
-            birth_date: "Born on %{day}. %{month}, %{year}"
-            contact_me_button: "Contact"
-            contact_me_html: "Interested? %{link} me!"
+            birth_date: "Nato/a il %{day}. %{month}, %{year}"
+            contact_me_button: "Contatti"
           languages:
-            no_entry: "%{full_name} didn't add any language entries yet."
-            title: "Languages"
+            no_entry: "%{full_name} non ha ancora aggiunto nessuna lingua."
+            title: "Lingue"
           skills:
-            other_skills: "Other skills"
-            title: "Skills"
-            working_skills: "Work skills"
+            other_skills: "Altre competenze"
+            title: "Competenze"
+            working_skills: "Competenze lavorative"
             learning_skills: "Competenze che vorrei imparare o migliorare"
           working_skills:
             placeholder: "Sviluppo web, marketing, analisi strutturale"
           other_skills:
             placeholder: "Buona comunicazione, lavoro di squadra, risoluzione dei problemi"
           learning_skills:
-            placeholder: "SEO, Youtube, Fotogarphy"
+            placeholder: "Inglese, Fotografia, Excel"
           summary:
             title: "Riepilogo e obiettivi professionali"
           about: "Informazioni (massimo 255 caratteri)"
@@ -136,22 +135,25 @@ it:
   layouts:
     nav:
       home: "Home"
-      login: "Login"
-      logout: "Logout"
-      search: "Search"
+      login: "Accedi"
+      logout: "Esci"
+      search: "Cerca"
+      create_your_cv: "Crea il tuo CV"
+      edit_your_cv: "Modifica CV"
+      hire_someone: "Cerca Candidato"
       delete_account: "Eliminare l'account"
   success:
     cv:
-      update: "Changes have been saved successfully."
+      update: "Modifiche salvate con successo."
     education:
-      create: "Education entry successfully saved."
-      destroy: "Education entry successfully removed."
+      create: "Formazione salvata con successo."
+      destroy: "Formazione rimossa."
     experience:
-      create: "Experience entry successfully saved."
-      destroy: "Experience entry successfully removed."
+      create: "Esperienza salvata con successo."
+      destroy: "Esperienza rimossa."
     language:
-      create: "Language successfully saved."
-      destroy: "Language successfully removed."
+      create: "Lingua salvata."
+      destroy: "Lingua rimossa"
     location:
-      create: "Location successfully saved."
-      destroy: "Location successfully removed."
+      create: "Zona salvata."
+      destroy: "Zona rimossa."

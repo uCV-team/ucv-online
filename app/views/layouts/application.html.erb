@@ -17,7 +17,6 @@
     <%= render 'layouts/shared/header' %>
     <%= yield %>
     <%= render 'layouts/shared/footer' %>
-    <main></main>
-    <%= render "layouts/shared/landbot_#{I18n.locale}" -%>
+    <%= render "layouts/shared/landbot_#{I18n.locale}" unless current_user -%>
   </body>
 </html>
