@@ -74,7 +74,7 @@ it:
             city: "Città / Provincia attuale"
         show:
           entries:
-            description: "Descrizioen"
+            description: "Descrizione"
             on_going: "%{started_on} - in corso"
           education:
             degree: "Livello: %{degree}"
