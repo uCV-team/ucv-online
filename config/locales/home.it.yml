@@ -34,7 +34,7 @@ it:
       company: Datore di Lavoro
       company_cta: Cerca Candidati adesso
       company_copy_1: |
-        Accedi immediatamente a un database con candidati disponibili. Trovali come ti servono, dove ti servono, quanto di servono.
+        Accedi immediatamente a un database con candidati disponibili. Trovali come ti servono, dove ti servono, quando di servono.
         <!-- TODO: I mean, [immediately](TODO: link). -->
       company_copy_2: |
         Taglia fuori gli intermediari: <b>contatta direttamente</b> i candidati di tuo interesse.
@@ -68,7 +68,7 @@ it:
         Contattare più di un candidato contemporaneamente avrà un costo ragionevole, e servirà anche a evitare lo spam.
       stakeholder_why_4: Nessun Tracciamento
       stakeholder_copy_4: |
-        Non adottiamo alcuna tecnologia di tracciamento o "traking". Tutto quello che sappiamo di te è il tuo IP (anonimizzato) e quello che decidi di inserire nel tuo publiCV,
+        Non adottiamo alcuna tecnologia di tracciamento o "tracking". Tutto quello che sappiamo di te è il tuo IP (anonimizzato) e quello che decidi di inserire nel tuo publiCV,
         che puoi <span class="text-danger">cancellare</span> in qualsiasi momento.
       stakeholder_why_5: Open Source
       stakeholder_copy_5: 'Il codice sorgente è aperto e <b>puoi utilizzarlo senza chiedere il permesso</b> a nessuno. Eccolo qui:'
