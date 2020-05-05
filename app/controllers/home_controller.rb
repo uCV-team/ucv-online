@@ -7,8 +7,8 @@ class HomeController < ApplicationController
   end
 
   def set_current_location
-    @loc ||= Geocoder.search(request.remote_ip).first
-    @coordinates = @loc.data['error'].present? || @loc.data.empty? ? default_coordinates : [@loc.longitude, @loc.latitude]
+    loc = Geocoder.search(request.remote_ip).first
+    @coordinates = loc.data['error'].present? || loc.data.empty? ? default_coordinates : [loc.longitude, loc.latitude]
   end
 
   private

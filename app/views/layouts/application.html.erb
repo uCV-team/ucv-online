@@ -18,5 +18,6 @@
     <%= yield %>
     <%= render 'layouts/shared/footer' %>
     <%= render "layouts/shared/landbot_#{I18n.locale}" unless current_user -%>
+    <main></main> <!-- Empty tag used for opening dynamic modals -->
   </body>
 </html>
