@@ -55,7 +55,9 @@
   <% if params[:controller] == 'cvs' && params[:action] == 'show' %>
     <%= render partial: 'cvs/topbar' %>
   <% end %>
+
+<!-- Needs to move flash to middle container -->
+  <%= render 'layouts/shared/flash_messages' %>
 </div>
 <!-- Header Container / End -->
-
 <%= render partial: 'layouts/shared/js_vars' %>
