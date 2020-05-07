@@ -17,6 +17,10 @@ module CvsHelper
     text.truncate(len,  separator: ' ') if text.present?
   end
 
+  def cv_show_page?
+    params[:controller] == 'cvs' && params[:action] == 'show'
+  end
+
   private
 
   def get_period(start_date, end_date)

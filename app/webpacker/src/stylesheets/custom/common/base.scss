@@ -65,3 +65,33 @@ body {
     width: 100% !important;
   }
 }
+
+// Flash
+.flash {
+  border: none;
+  border-radius: 0;
+  left: 0;
+  margin: auto;
+  max-width: 320px;
+  padding: 20px;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 20%;
+  width: 100%;
+  z-index: 1;
+  opacity: .9;
+  box-shadow: 0 5px 5px rgba($black, .3);
+}
+
+.alert-expanded {
+  max-width: 60%;
+}
+
+.alert-error, .alert-alert {
+  @extend .alert-danger;
+}
+
+.alert-notice {
+  @extend .alert-info;
+}

@@ -6,8 +6,9 @@ class ContactsController < ApplicationController
   end
 
   def create
+    success = verify_recaptcha(action: 'contact_create', minimum_score: ENV['RECAPTCHA_MINIMUM_SCORE'].to_f)
     @contact = @user.contacts.build(contact_params)
-    if @contact.save
+    if success && @contact.save
       redirect_to cv_section_path(@user.subdomain)
     else
       render 'contacts/errors'
