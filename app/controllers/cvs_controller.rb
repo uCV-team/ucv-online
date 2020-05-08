@@ -6,7 +6,7 @@ class CvsController < ApplicationController
 
   def show
     if current_user.present? && current_user.id == @cv.user_id
-      @cv_edit_controls = params[:preview] == 't' ? false : true
+      @cv_edit_controls = params[:preview] != 't'
       @user = current_user
     elsif @cv.published?
       @cv_edit_controls = false # public view of CV on subdomain
@@ -41,7 +41,7 @@ class CvsController < ApplicationController
     @cv_edit_controls = false
     pdf_html = ApplicationController.new.render_to_string(
       template: 'cvs/printings/show',
-      locals: {:@cv => @cv, :@cv_edit_controls => @cv_edit_controls, :@user => current_user },
+      locals: { :@cv => @cv, :@cv_edit_controls => @cv_edit_controls, :@user => current_user },
       layout: 'pdf'
     )
     pdf = WickedPdf.new.pdf_from_string(pdf_html)
@@ -75,6 +75,7 @@ class CvsController < ApplicationController
 
   def subdomain
     return params[:subdomain] if ENV['SERVER_ENV'] == 'staging'
+
     request.subdomain.presence || params[:subdomain]
   end
 end
