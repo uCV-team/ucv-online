@@ -237,4 +237,5 @@
 </style>
 <script type="text/javascript">
   window.currentLatLng = <%= @coordinates %>;
+  window.searchResultsList = <%= raw @formatted_results.to_json %>
 </script>

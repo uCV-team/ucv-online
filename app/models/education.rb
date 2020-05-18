@@ -4,5 +4,5 @@ class Education < ApplicationRecord
   validates :school, presence: true
   validates :description, length: { maximum: DESCRIPTION_MAX_LENGTH }
 
-  scope :chronological_order, -> { order(created_at: :desc) }
+  scope :chronological_order, -> { order('ended_on IS NULL DESC, ended_on DESC, started_on DESC') }
 end

@@ -2,7 +2,7 @@
   <div class="w-100">
     <div class="row flex-column-reverse flex-md-row">
       <div class="col-10">
-        <h2><%= @cv.abbr_name %></h2>
+        <h2><%= @cv.full_name %></h2>
         <h6 class="font-weight-normal"><%= birth_info_for(@cv) %></h6>
         <% if @user.current_location.present? %>
           <h6 class="font-weight-normal"><%= @user.current_location&.original_address %></h6>

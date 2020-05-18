@@ -21,6 +21,10 @@ module CvsHelper
     params[:controller] == 'cvs' && params[:action] == 'show'
   end
 
+  def cv_user_name(cv_obj)
+    cv_obj.publish_last_name? ? cv_obj.full_name : cv_obj.abbr_name
+  end
+
   private
 
   def get_period(start_date, end_date)
