@@ -54,6 +54,7 @@ function centerMap() {
         markers.forEach(marker => {
             bounds.extend(marker.getLngLat());
         });
+        map.setMaxZoom(10);
         map.fitBounds(bounds);
     }
 }

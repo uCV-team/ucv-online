@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_161140) do
+ActiveRecord::Schema.define(version: 2020_05_08_112642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_04_27_161140) do
     t.string "learning_skills"
     t.datetime "published_at"
     t.string "authorization_statement", limit: 255
+    t.boolean "publish_last_name", default: false
     t.index ["user_id"], name: "index_cvs_on_user_id"
   end
 

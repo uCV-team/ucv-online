@@ -24,8 +24,8 @@ class Cv < ApplicationRecord
                                   content_type: { content_type: ['image/jpeg', 'image/png'] }
   attr_accessor :remove_headshot
 
-  scope :published, -> { where("published = ? and published_at IS NOT NULL", true ) }
-  scope :with_headshot, -> { where("headshot_file_name IS NOT NULL") }
+  scope :published, -> { where('published = ? and published_at IS NOT NULL', true) }
+  scope :with_headshot, -> { where('headshot_file_name IS NOT NULL') }
 
   before_save :delete_headshot, if: -> { remove_headshot == '1' }
   before_create :set_authorization_statement

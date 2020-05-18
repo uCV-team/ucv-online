@@ -37,6 +37,7 @@ it:
             first_name: "Nome *"
             last_name: "Cognome *"
             tel: "Num. di Cellulare"
+            publish_last_name: "Vuoi pubblicare il tuo cognome sul tuo CV?"
           languages:
             title: "Modifica Lingua"
           locations:

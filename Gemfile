@@ -22,15 +22,14 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'webpacker', '~> 3.5'
 # Amazon S3
 gem 'aws-sdk-s3'
-# PDF generation
-gem 'wicked_pdf'
-# gem 'wkhtmltopdf-binary'
-gem 'wkhtmltopdf-binary-edge'
 gem 'kaminari'
 gem 'maxminddb' # GeoLite2 City database for local IP geocoding
 # Basic functionality
 gem 'mailgun-ruby', '~>1.2.0'
-gem "recaptcha"
+gem 'recaptcha'
+# PDF generation
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary-edge'
 
 group :development do
   gem 'better_errors'
