@@ -34,6 +34,9 @@
           </div>
         </div>
       </div>
+      <div class="recaptcha-tag">
+        <%= recaptcha_v3(action: 'contact_create', turbolinks: true) %>
+      </div>
       <div class="row">
         <div class="col-12 text-right">
           <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-primary' %>

@@ -52,10 +52,9 @@
     </nav>
   </div>
 
-  <% if params[:controller] == 'cvs' && params[:action] == 'show' %>
+  <% if cv_show_page? %>
     <%= render partial: 'cvs/topbar' %>
   <% end %>
 </div>
 <!-- Header Container / End -->
-
 <%= render partial: 'layouts/shared/js_vars' %>

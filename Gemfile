@@ -30,6 +30,7 @@ gem 'kaminari'
 gem 'maxminddb' # GeoLite2 City database for local IP geocoding
 # Basic functionality
 gem 'mailgun-ruby', '~>1.2.0'
+gem "recaptcha"
 
 group :development do
   gem 'better_errors'
