@@ -58,6 +58,7 @@ group :test do
   gem 'capybara-selenium'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'minitest-reporters', '~> 1.0.5'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end

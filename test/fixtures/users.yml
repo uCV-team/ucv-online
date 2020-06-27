@@ -1,0 +1,7 @@
+user_john:
+  id: 1
+  first_name: John
+  last_name: Williams
+  email: john.williams@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "Password123") %>
+  subdomain: johnwilliams
