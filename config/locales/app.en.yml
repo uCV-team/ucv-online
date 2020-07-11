@@ -143,6 +143,14 @@ en:
       edit_your_cv: Edit your CV
       hire_someone: "Hire Candidate"
       delete_account: "Delete Account"
+    footer:
+      links: 'Helpful Links'
+      sign_in: 'Login'
+      sign_up: 'Create Account'
+      privacy: 'Privacy Policy'
+      cookie: 'Cookie Policy'
+      terms: 'Terms'
+      contact_us: 'Contact Us'
   success:
     cv:
       update: "Changes have been saved successfully."
