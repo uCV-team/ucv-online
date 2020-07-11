@@ -139,10 +139,12 @@ en:
       login: "Login"
       logout: "Logout"
       search: "Search"
-      create_your_cv: "Create Your CV"
+      your_cv: "Your CV"
       edit_your_cv: Edit your CV
       hire_someone: "Hire Candidate"
       delete_account: "Delete Account"
+      menuitem1: 'Sign up to create your profile and CV'
+      menuitem2: 'Sign in to update your profile and CV'
     footer:
       links: 'Helpful Links'
       sign_in: 'Login'

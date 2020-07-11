@@ -139,10 +139,12 @@ it:
       login: "Accedi"
       logout: "Esci"
       search: "Cerca"
-      create_your_cv: "Crea il tuo CV"
+      your_cv: "Il tuo CV"
       edit_your_cv: "Modifica CV"
       hire_someone: "Cerca Candidato"
       delete_account: "Eliminare l'account"
+      menuitem1: 'Iscriviti per creare il tuo profilo e CV'
+      menuitem2: 'Accedi per aggiornare il tuo profilo e CV'
     footer:
       links: 'Collegamenti utili'
       sign_in: 'Accesso'
