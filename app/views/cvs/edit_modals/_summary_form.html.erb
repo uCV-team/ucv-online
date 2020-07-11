@@ -7,7 +7,8 @@
           <div class="col-12">
             <div class="form-group mb-5">
               <%= f.label :about, t('content.main.cv.show.about'), class: 'text-muted d-block' %>
-              <%= f.text_area :about, class: 'form-control form-control-lg', rows: 8, maxlength: 255, "aria-label" => "about" %>
+              <%= f.text_area :about, class: 'form-control form-control-lg limit-desc', rows: 8, "aria-label" => "about" %>
+              <span class="text-muted">0/1000</span>
             </div>
           </div>
         </div>
@@ -15,7 +16,7 @@
         <div class="row">
           <div class="col-12 text-right">
             <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-outline-primary rounded' %>
-            <%= f.submit t('content.main.buttons.save'), class: 'btn btn-primary rounded' %>
+            <%= f.submit t('content.main.buttons.save'), class: 'btn btn-primary rounded submit-dt' %>
           </div>
         </div>
       </div>

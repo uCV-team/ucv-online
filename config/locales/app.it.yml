@@ -108,7 +108,7 @@ it:
             placeholder: "Inglese, Fotografia, Excel"
           summary:
             title: "Riepilogo e obiettivi professionali"
-          about: "Informazioni (massimo 255 caratteri)"
+          about: "Informazioni (massimo 1000 caratteri)"
           prefer_not_to_disclose: "Preferisco non rivelare"
           male: "Maschile"
           female: "Femminile"
