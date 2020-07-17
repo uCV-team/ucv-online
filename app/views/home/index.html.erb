@@ -1,8 +1,8 @@
 <!-- Content Container
-  ================================================== -->
+================================================== -->
 <div class="middle-container-1">
   <!-- Map
-    ================================================== -->
+  ================================================== -->
   <div class="map-container position-relative" id="search">
     <div class="row mx-0">
       <div class="col-12 px-0 map-image-container">
@@ -14,14 +14,14 @@
       <div class="row mx-0">
         <div class="col-11 col-lg-6 mx-auto py-2 map-search-container">
           <%= form_tag search_path, method: :get do %>
-            <div class="d-flex justify-content-between">
-              <div class="w-100">
-                <%= text_field_tag :search_term, params[:search_term], placeholder: t('search.placeholder'), class: 'form-control form-control-lg border-0' %>
-              </div>
-              <div>
-                <%= submit_tag t('content.main.search.home'), data: { disable_with: t('content.main.buttons.searching') }, class: 'btn btn-primary' %>
-              </div>
+          <div class="d-flex justify-content-between">
+            <div class="w-100">
+              <%= text_field_tag :search_term, params[:search_term], placeholder: t('search.placeholder'), class: 'form-control form-control-lg border-0' %>
             </div>
+            <div>
+              <%= submit_tag t('content.main.search.home'), data: { disable_with: t('content.main.buttons.searching') }, class: 'btn btn-primary' %>
+            </div>
+          </div>
           <% end %>
         </div>
       </div>
@@ -37,35 +37,35 @@
           <div class="carousel-item active">
             <div class="d-flex align-items-center">
               <% @cvs.each do |cv| %>
-                <div class="mb-5">
-                  <div class="card card-width shadow-sm border-0 rounded mx-3">
-                    <div class="card-body p-4">
-                      <div class="pb-3 d-flex align-items-center justify-content-between border-bottom">
-                        <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size') %>
-                        <div class="pl-3">
-                          <h6><%= cv.abbr_name %></h6>
-                          <% if cv.user.current_location.present? && cv.user.current_location.city.present? %>
-                            <small>
-                              <i class="fas fa-map-marker"></i>
-                              <%= cv.user&.current_location&.city %>
-                            </small>
-                          <% end %>
-                          <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 text-wrap text-left mt-2">
-                            <%= short_desc(cv.about, 40) %>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="pt-3 d-flex align-items-center justify-content-between">
-                        <small><%= cv.published_at&.strftime("%B %d, %Y") %></small>
+              <div class="mb-5">
+                <div class="card card-width shadow-sm border-0 rounded mx-3">
+                  <div class="card-body p-4">
+                    <div class="pb-3 d-flex align-items-center justify-content-between border-bottom">
+                      <%= image_tag(cv.headshot.url(:default), alt: "#{cv.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size') %>
+                      <div class="pl-3">
+                        <h6><%= cv.abbr_name %></h6>
+                        <% if cv.user.current_location.present? && cv.user.current_location.city.present? %>
                         <small>
-                          <%= link_to cv_section_path(cv.user.subdomain) do %>
-                            <i class="ml-2 fas fa-angle-right"></i> View CV
-                          <% end %>
+                          <i class="fas fa-map-marker"></i>
+                          <%= cv.user&.current_location&.city %>
                         </small>
+                        <% end %>
+                        <span class="badge badge-pill badge-primary badge-primary-light text-primary font-weight-normal font-size-9 text-wrap text-left mt-2">
+                          <%= short_desc(cv.about, 40) %>
+                        </span>
                       </div>
+                    </div>
+                    <div class="pt-3 d-flex align-items-center justify-content-between">
+                      <small><%= cv.published_at&.strftime("%B %d, %Y") %></small>
+                      <small>
+                        <%= link_to cv_section_path(cv.user.subdomain) do %>
+                        <i class="ml-2 fas fa-angle-right"></i> View CV
+                        <% end %>
+                      </small>
                     </div>
                   </div>
                 </div>
+              </div>
               <% end %>
             </div>
           </div>
@@ -108,7 +108,7 @@
         </div>
         <div class="pt-4 pt-lg-40">
           <%= link_to new_user_registration_path, class: 'btn btn-primary' do %>
-            <%= t('home.index.jobseeker_cta') %> <i class="fas fa-angle-right"></i>
+          <%= t('home.index.jobseeker_cta') %> <i class="fas fa-angle-right"></i>
           <% end %>
         </div>
       </div>
@@ -151,26 +151,19 @@
           <a class="btn btn-primary" href='#search'> <%= t('home.index.company_cta') -%> <i class="fas fa-angle-right"></i></a>
         </div>
       </div>
+    </div>
+  </div>
 
-  <div class="bg-light py-40 my-40">
+  <div id="stakeholder" class="bg-light py-40 my-40">
     <div class="container text-center">
-      <h3 class="text-primary"><%== t('.powered_by') -%></h3>
-      <div class="d-flex flex-column flex-md-row mx-auto w-md-75 w-50 justify-content-between align-items-center">
-        <div>
-          <%= image_pack_tag 'images/logo_corsidia.svg', class: 'img-fluid my-5 my-md-0', alt: 'logo' %>
-        </div>
-        <dir>
-          <%= image_pack_tag 'images/logo_bluebash.svg', class: 'img-fluid my-3 my-md-0', alt: 'logo' %>
-        </dir>
+      <div class="text-center">
+        <h3 class="text-primary"><%== t('home.index.stakeholder') -%></h3>
+        <span><%== t('home.index.stakeholder_why') -%></span>
       </div>
     </div>
   </div>
 
-  <div id="stakeholder" class="container pt-40 pt-lg-80">
-    <div class="text-center">
-      <h3 class="text-primary"><%== t('home.index.stakeholder') -%></h3>
-      <span class="text-muted"><%== t('home.index.stakeholder_why') -%></span>
-    </div>
+  <div class="container pt-40 pt-lg-80">
     <div class="row">
       <div class="col-12 col-md-6 pt-40 pb-3 py-md-80">
         <div class="pr-0 pr-md-80 d-flex flex-column justify-content-center h-100">

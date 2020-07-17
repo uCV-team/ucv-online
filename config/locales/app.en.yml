@@ -141,7 +141,7 @@ en:
       search: "Search"
       create_your_cv: "Create Your CV"
       edit_your_cv: Edit your CV
-      hire_someone: "Hire Candidate"
+      hire_someone: "Search Candidates"
       delete_account: "Delete Account"
   success:
     cv:
