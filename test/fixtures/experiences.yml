@@ -1,4 +1,4 @@
-experience:
+john_experience:
   company: Renuo AG
   description: Innovative software solutions
   ended_on: <%= Date.new(2011) %>

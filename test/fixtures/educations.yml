@@ -1,4 +1,4 @@
-education:
+john_education:
   cv_id: 1
   started_on: <%= Date.new(2008) %>
   degree: Bachelor of Science

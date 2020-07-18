@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CvTest < ActiveSupport::TestCase
   test 'about should not exceeded maximum length provided' do
-    cv = cvs(:cv)
+    cv = cvs(:john_cv)
     cv.about = Faker::Lorem.paragraph(256..260)
     assert_not cv.valid?
   end

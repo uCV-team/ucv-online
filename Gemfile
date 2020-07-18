@@ -61,6 +61,7 @@ group :test do
   gem 'minitest-reporters', '~> 1.0.5'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'rails-controller-testing'
 end
 
 group :production do

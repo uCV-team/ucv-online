@@ -31,10 +31,10 @@ end
 
 module ActionDispatch
   class IntegrationTest
-    include Devise::Test::ControllerHelpers
+    include Devise::Test::IntegrationHelpers
     include Warden::Test::Helpers
 
-    def sign_in(user, user_password = 'Password123')
+    def sign_in(user, user_password = 'supersecret')
       post user_session_path \
         'user[email]' => user.email,
         'user[password]' => user_password

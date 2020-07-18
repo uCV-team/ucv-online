@@ -4,3 +4,5 @@ new_york:
   radius: 10
   city: New York
   country: United States
+  latitude: 40.7143528
+  longitude: -74.0059731

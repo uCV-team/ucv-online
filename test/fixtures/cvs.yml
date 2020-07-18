@@ -1,4 +1,4 @@
-cv:
+john_cv:
   id: 1
   about: There is not that much to say about me. I am a friendly person, and I love to code!
   birth_date: <%= Date.new(1995, 0o5, 25) %>
@@ -7,3 +7,7 @@ cv:
   skills: Cooking, skiing, climbing
   working_skills: Programming
   user_id: 1
+
+search_user_cv:
+  id: 2
+  user_id: 2

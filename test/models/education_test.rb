@@ -2,7 +2,7 @@ require 'test_helper'
 
 class EducationTest < ActiveSupport::TestCase
   setup do
-    @education = educations(:education)
+    @education = educations(:john_education)
   end
 
   test 'school should be present' do

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ExperienceTest < ActiveSupport::TestCase
   setup do
-    @experience = experiences(:experience)
+    @experience = experiences(:john_experience)
   end
 
   test 'company should be present' do
