@@ -31,6 +31,10 @@ class EducationsController < ApplicationController
     end
   end
 
+  def update_positions
+    # TODO: Update education positions
+  end
+
   def destroy
     @education.destroy
     redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.education.destroy') }

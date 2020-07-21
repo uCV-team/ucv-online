@@ -31,6 +31,10 @@ class ExperiencesController < ApplicationController
     end
   end
 
+  def update_positions
+    # TODO: Update experiences positions
+  end
+
   def destroy
     @experience.destroy
     redirect_to cv_section_path(current_user.subdomain), flash: { success: t('success.experience.destroy') }
