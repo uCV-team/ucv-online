@@ -2,6 +2,8 @@ class EducationsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_cv
   before_action :set_education, only: %i[edit update destroy]
+  skip_before_action :verify_authenticity_token, only: [:update_positions]
+
   respond_to :html, :js
 
   def new

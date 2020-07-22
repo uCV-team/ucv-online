@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 2020_07_21_174346) do
     t.datetime "published_at"
     t.string "authorization_statement", limit: 255
     t.boolean "publish_last_name", default: false
+    t.boolean "custom_experience_sort", default: false
+    t.boolean "custom_education_sort", default: false
     t.index ["user_id"], name: "index_cvs_on_user_id"
   end
 
@@ -64,7 +66,6 @@ ActiveRecord::Schema.define(version: 2020_07_21_174346) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position", default: 0
-    t.boolean "custom_sort", default: false
     t.index ["cv_id"], name: "index_educations_on_cv_id"
   end
 
@@ -80,7 +81,6 @@ ActiveRecord::Schema.define(version: 2020_07_21_174346) do
     t.datetime "updated_at", null: false
     t.string "website_url"
     t.integer "position", default: 0
-    t.boolean "custom_sort", default: false
     t.index ["cv_id"], name: "index_experiences_on_cv_id"
   end
 

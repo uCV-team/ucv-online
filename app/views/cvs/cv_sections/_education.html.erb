@@ -1,4 +1,4 @@
-<% educations = @cv.educations.chronological_order %>
+<% educations = @cv.custom_education_sort ? @cv.educations.by_position : @cv.educations.chronological_order %>
 
 <% if @cv_edit_controls || educations.present? %>
   <div class="border-top py-5 pl-3 pl-md-6 pr-2">
