@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_30_095630) do
+ActiveRecord::Schema.define(version: 2020_07_21_174346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_05_30_095630) do
     t.bigint "user_id", null: false
     t.string "working_skills", limit: 255
     t.date "birth_date"
-    t.string "about", limit: 255
+    t.text "about"
     t.string "skills", limit: 255
     t.string "future_plans", limit: 255
     t.datetime "created_at", null: false
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 2020_05_30_095630) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position", default: 0
+    t.boolean "custom_sort", default: false
     t.index ["cv_id"], name: "index_educations_on_cv_id"
   end
 
@@ -77,7 +79,33 @@ ActiveRecord::Schema.define(version: 2020_05_30_095630) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "website_url"
+    t.integer "position", default: 0
+    t.boolean "custom_sort", default: false
     t.index ["cv_id"], name: "index_experiences_on_cv_id"
+  end
+
+  create_table "geonames", force: :cascade do |t|
+    t.integer "geonameid"
+    t.string "name", limit: 200
+    t.string "asciiname", limit: 200
+    t.text "alternatenames"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
+    t.string "feature_class", limit: 1
+    t.string "feature_code", limit: 10
+    t.string "country_code", limit: 2
+    t.string "cc2", limit: 200
+    t.string "admin1_code", limit: 20
+    t.string "admin2_code", limit: 80
+    t.string "admin3_code", limit: 20
+    t.string "admin4_code", limit: 20
+    t.bigint "population"
+    t.integer "elevation"
+    t.integer "dem"
+    t.string "timezone", limit: 40
+    t.datetime "modification_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "languages", force: :cascade do |t|
@@ -102,6 +130,7 @@ ActiveRecord::Schema.define(version: 2020_05_30_095630) do
     t.string "region", limit: 255
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "geoname_id"
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
