@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.0'
-ruby File.read('.ruby-version')
+# ruby File.read('.ruby-version')
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
@@ -46,9 +46,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'reek', require: false
-  gem 'rspec-rails'
   gem 'rubocop', require: false
-  gem 'rubocop-rspec', require: false
   gem 'scss_lint', require: false
   gem 'slim_lint', require: false
 end
@@ -58,8 +56,10 @@ group :test do
   gem 'capybara-selenium'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'minitest-reporters', '~> 1.0.5'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'rails-controller-testing'
 end
 
 group :production do
