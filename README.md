@@ -15,7 +15,8 @@ Make sure you have installed:
 
 * Ruby 2.4.0
 * PostgreSQL (10+)
-* Yarn
+* Yarn (1.22.4)
+* Node (12.16.2)
 
 For Rails version and gems see the Gemfile.
 
