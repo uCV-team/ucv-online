@@ -62,20 +62,23 @@
   document.addEventListener('turbolinks:load', function(){
     if (typeof jQuery.ui != 'undefined') {  // UI loaded
 
-      $('#sortable').sortable({
+      $('#sortable, #sortable-edu').sortable({
           axis: 'y',
-          update: function (event, ui) {
-            var data = $(this).sortable('serialize');
+          stop: function (event, ui) {
+            let data = $(this).sortable('serialize');
+            let dataURL = this.getAttribute('data-url');
+
+            console.log(data); // serialize data
 
             $.ajax({
                 data: data,
                 type: 'POST',
-                url: '/cv/experiences/update_positions'
+                url: dataURL
             });
           }
       });
 
-      $("#sortable").disableSelection();
+      $('#sortable, #sortable-edu').disableSelection();
     }
   })
 </script>
