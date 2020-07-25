@@ -46,7 +46,7 @@
 
     <% unless @cv_edit_controls %>
       <div class="row mt-2 justify-content-center">
-        <%= link_to "Hire #{@user.first_name}", new_contact_path("contact[user_id]" => @user.id), class: "btn btn-outline-primary mx-2", remote: true %>
+        <%= link_to "Contact #{@user.first_name}", new_contact_path("contact[user_id]" => @user.id), class: "btn btn-outline-primary mx-2", remote: true %>
       </div>
     <% end %>
   </div>

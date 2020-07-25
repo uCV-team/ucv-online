@@ -1,5 +1,4 @@
 class ContactMailer < ApplicationMailer
-
   # Hire candidate notification
   def send_notification_to_candidate(user_id, contact_id)
     @user = User.find_by(id: user_id)

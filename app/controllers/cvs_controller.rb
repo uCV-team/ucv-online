@@ -61,9 +61,9 @@ class CvsController < ApplicationController
 
   def find_cv
     @cv = if params[:id]
-      Cv.find(params[:id])
-    else
-      current_user.cv
+            Cv.find(params[:id])
+          else
+            current_user.cv
     end
   end
 
@@ -74,7 +74,7 @@ class CvsController < ApplicationController
   end
 
   def subdomain
-    return params[:subdomain] if ENV['SERVER_ENV'] == 'staging'
+    return params[:subdomain] unless Rails.env.production?
 
     request.subdomain.presence || params[:subdomain]
   end
