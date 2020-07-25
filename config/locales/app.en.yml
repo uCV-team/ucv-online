@@ -108,7 +108,7 @@ en:
             placeholder: "SEO, Youtube, Photogarphy"
           summary:
             title: "Professional summary and goals"
-          about: "About (max. 255 characters)"
+          about: "About (max. 1000 characters)"
           prefer_not_to_disclose: "Prefer not to disclose"
           male: "Male"
           female: "Female"
