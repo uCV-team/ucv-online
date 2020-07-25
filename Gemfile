@@ -46,9 +46,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'reek', require: false
-  gem 'rspec-rails'
   gem 'rubocop', require: false
-  gem 'rubocop-rspec', require: false
   gem 'scss_lint', require: false
   gem 'slim_lint', require: false
 end
