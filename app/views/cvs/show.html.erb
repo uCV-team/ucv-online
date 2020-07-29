@@ -2,12 +2,6 @@
 ================================================== -->
 <div class="container middle-container-2 cvpage pb-40 pb-md-80">
   <% if @user.present? && @cv_edit_controls.present? %>
-
-    <% content_for :header do %>
-      <%= javascript_include_tag 'https://code.jquery.com/jquery-1.12.4.js', 'data-turbolinks-track': 'reload' %>
-      <%= javascript_include_tag 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', 'data-turbolinks-track': 'reload' %>
-    <% end %>
-
     <% if @cv.published? %>
       <p class="border-bottom border-primary text-muted py-3 mb-0">
         <i class="icon-info mr-2"></i>
@@ -57,28 +51,3 @@
     <% end %>
   </div>
 </div>
-
-<script type="text/javascript">
-  document.addEventListener('turbolinks:load', function(){
-    if (typeof jQuery.ui != 'undefined') {  // UI loaded
-
-      $('#sortable, #sortable-edu').sortable({
-          axis: 'y',
-          stop: function (event, ui) {
-            let data = $(this).sortable('serialize');
-            let dataURL = this.getAttribute('data-url');
-
-            console.log(data); // serialize data
-
-            $.ajax({
-                data: data,
-                type: 'POST',
-                url: dataURL
-            });
-          }
-      });
-
-      $('#sortable, #sortable-edu').disableSelection();
-    }
-  })
-</script>
