@@ -57,9 +57,10 @@ group :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'minitest-reporters', '~> 1.0.5'
+  gem 'rails-controller-testing'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
-  gem 'rails-controller-testing'
 end
 
 group :production do
