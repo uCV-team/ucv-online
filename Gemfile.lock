@@ -407,6 +407,7 @@ DEPENDENCIES
   reek
   rubocop
   scss_lint
+  selenium-webdriver
   shoulda-matchers
   simplecov
   slim_lint
