@@ -55,7 +55,6 @@ class CvsController < ApplicationController
     if @user
       @cv = @user.cv
     else
-      byebug
       redirect_to_root_domain
     end
   end
