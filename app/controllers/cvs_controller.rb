@@ -74,8 +74,7 @@ class CvsController < ApplicationController
   end
 
   def subdomain
-       return params[:subdomain] unless ENV['SERVER_ENV'] == 'production'
-
+    return params[:subdomain] if request.subdomain == 'www'
     request.subdomain.presence || params[:subdomain]
   end
 end

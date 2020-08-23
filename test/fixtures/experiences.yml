@@ -5,7 +5,7 @@ john_experience:
   location: Zurich, Switzerland
   started_on: <%= Date.new(2007) %>
   title: Web Developer
-  cv_id: 1
+  cv: john_cv
 
 john_experience_2:
   company: <%= Faker::Company.name %>

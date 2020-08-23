@@ -34,6 +34,7 @@ gem 'wkhtmltopdf-binary-edge'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'i18n-tasks', '~> 0.9.31'
   gem 'letter_opener'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
@@ -57,6 +58,7 @@ group :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'minitest-reporters', '~> 1.0.5'
+  gem 'rails-controller-testing'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'rails-controller-testing'
