@@ -108,7 +108,7 @@ en:
             placeholder: "SEO, Youtube, Photogarphy"
           summary:
             title: "Professional summary and goals"
-          about: "About (max. 255 characters)"
+          about: "About (max. 1000 characters)"
           prefer_not_to_disclose: "Prefer not to disclose"
           male: "Male"
           female: "Female"
@@ -126,11 +126,11 @@ en:
         home: "Search Candidates"
       contact:
         title: "Contact %{user_name}"
-        name: "Your Name"
-        message: "What would you like to ask?"
+        name: "Your Name and professional title"
+        message: "Write your message here"
         phone: "Telephone number to receive the answer"
         email: "Email for the response"
-        accept_html: "I declare to accept the terms, the <a href='/privacy-policy'>privacy policy</a> and to receive offer related to the requested service."
+        accept_html: "I declare to accept the <a href='/legal/terms'>terms of service</a> and the <a href='/legal/privacy-policy'>privacy policy</a>."
       confirm:
         delete_account: "Are you sure, You want to delete your account from PubliCV ?"
   layouts:
@@ -139,10 +139,20 @@ en:
       login: "Login"
       logout: "Logout"
       search: "Search"
-      create_your_cv: "Create Your CV"
+      your_cv: "Your CV"
       edit_your_cv: Edit your CV
-      hire_someone: "Hire Candidate"
+      hire_someone: "Search Candidates"
       delete_account: "Delete Account"
+      menuitem1: 'Sign up to create your profile and CV'
+      menuitem2: 'Sign in to update your profile and CV'
+    footer:
+      links: 'Helpful Links'
+      sign_in: 'Login'
+      sign_up: 'Create Account'
+      privacy: 'Privacy Policy'
+      cookie: 'Cookie Policy'
+      terms: 'Terms'
+      contact_us: 'Contact Us'
   success:
     cv:
       update: "Changes have been saved successfully."

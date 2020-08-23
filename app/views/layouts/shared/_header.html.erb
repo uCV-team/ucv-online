@@ -37,7 +37,16 @@
           </div>
         <% else %>
           <div class="d-flex justify-content-between justify-content-md-start border-top border-md-0 pt-3 pt-md-0 mt-3 mt-md-0">
-            <%= link_to t('layouts.nav.create_your_cv'), new_user_registration_path, class: 'btn btn-lg btn-outline-primary mr-2' %>
+            <div class="dropdown">
+              <button class="btn btn-lg btn-outline-primary mr-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mx-2"><%= t('layouts.nav.your_cv') %></span>
+                <i class="fas fa-angle-down"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right border-0 shadow mt-2" aria-labelledby="dropdownMenuButton">
+                <%= link_to t('layouts.nav.menuitem1'), new_user_registration_path, class: 'dropdown-item py-2' %>
+                <%= link_to t('layouts.nav.menuitem2'), new_user_session_path, class: 'dropdown-item py-2' %>
+              </div>
+            </div>
             <a class="btn btn-lg btn-primary ml-2" href="/#search"><%= t('layouts.nav.hire_someone') %></a>
             <div class="ml-2">
               <select class="custom-select language-switcher" id="inputGroupSelect01">
@@ -46,15 +55,11 @@
               </select>
             </div>
           </div>
-
         <% end %>
       </div>
     </nav>
   </div>
-
-  <% if cv_show_page? %>
-    <%= render partial: 'cvs/topbar' %>
-  <% end %>
+  <%= render partial: 'cvs/topbar_controls' if cv_show_page? && current_user == @cv&.user %>
 </div>
 <!-- Header Container / End -->
 <%= render partial: 'layouts/shared/js_vars' %>
