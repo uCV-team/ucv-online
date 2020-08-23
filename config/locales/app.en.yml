@@ -126,11 +126,11 @@ en:
         home: "Search Candidates"
       contact:
         title: "Contact %{user_name}"
-        name: "Your Name"
-        message: "What would you like to ask?"
+        name: "Your Name and professional title"
+        message: "Write your message here"
         phone: "Telephone number to receive the answer"
         email: "Email for the response"
-        accept_html: "I declare to accept the terms, the <a href='/privacy-policy'>privacy policy</a> and to receive offer related to the requested service."
+        accept_html: "I declare to accept the <a href='/legal/terms'>terms of service</a> and the <a href='/legal/privacy-policy'>privacy policy</a>."
       confirm:
         delete_account: "Are you sure, You want to delete your account from PubliCV ?"
   layouts:
