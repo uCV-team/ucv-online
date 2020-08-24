@@ -5,7 +5,7 @@ class DragAndDropViewTest < ApplicationSystemTestCase
 
    setup do
     ActionController::Base.allow_forgery_protection = true
-    @user = users(:user_john)
+    @user = users(:john)
     manual_sign_in(@user.email)
   end
 

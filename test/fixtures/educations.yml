@@ -7,7 +7,7 @@ john_education:
   school: ETH
 
 john_education_2:
-  cv_id: 1
+  cv: john_cv
   started_on: <%= Date.new(2012) %>
   degree: <%= Faker::Educator.degree %>
   description: Learned a lot
