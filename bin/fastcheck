@@ -2,7 +2,7 @@
 
 set -e
 
-# bundle exec rubocop
+bundle exec rubocop
 
 # TODO: re-enable in separate PR
 # bundle exec brakeman

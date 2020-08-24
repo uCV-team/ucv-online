@@ -15,8 +15,11 @@ class HomeController < ApplicationController
 
   # Note: Distance is in miles
   def near_by_cvs
-    @cvs = Cv.from("(select cvs.id, SQRT(POW(69.1 * (latitude - #{@coordinates[1]}), 2) + POW(69.1 * ((#{@coordinates[0]} - longitude) * COS(latitude / 57.3)), 2)) AS distance FROM cvs INNER JOIN users ON users.id = cvs.user_id INNER JOIN locations ON locations.user_id = users.id ORDER BY distance) vt, cvs")
-             .where("vt.distance < ?", 311)
+    @cvs = Cv.from("(select cvs.id, SQRT(POW(69.1 * (latitude - #{@coordinates[1]}), 2) + POW(69.1 *
+                    ((#{@coordinates[0]} - longitude) * COS(latitude / 57.3)), 2)) AS distance FROM
+                    cvs INNER JOIN users ON users.id = cvs.user_id INNER JOIN locations ON
+                    locations.user_id = users.id ORDER BY distance) vt, cvs")
+             .where('vt.distance < ?', 311)
              .uniq
   end
 

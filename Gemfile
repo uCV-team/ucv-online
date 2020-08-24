@@ -59,10 +59,9 @@ group :test do
   gem 'faker'
   gem 'minitest-reporters', '~> 1.0.5'
   gem 'rails-controller-testing'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
-  gem 'rails-controller-testing'
-  gem 'selenium-webdriver'
 end
 
 group :production do

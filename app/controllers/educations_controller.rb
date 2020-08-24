@@ -36,7 +36,7 @@ class EducationsController < ApplicationController
   def update_positions
     params[:education].each_with_index do |edu_id, index|
       education = Education.find_by(id: edu_id)
-      education.update!(position: index) if education
+      education&.update!(position: index)
     end
 
     @cv.update(custom_education_sort: true) if params[:education].present?

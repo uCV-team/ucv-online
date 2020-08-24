@@ -36,7 +36,7 @@ class ExperiencesController < ApplicationController
   def update_positions
     params[:experience].each_with_index do |exp_id, index|
       experience = Experience.find_by(id: exp_id)
-      experience.update!(position: index) if experience
+      experience&.update!(position: index)
     end
 
     @cv.update(custom_experience_sort: true) if params[:experience].present?

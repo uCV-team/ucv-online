@@ -3,7 +3,7 @@ require 'test_helper'
 class DragAndDropViewTest < ApplicationSystemTestCase
   driven_by :selenium_chrome_headless
 
-   setup do
+  setup do
     ActionController::Base.allow_forgery_protection = true
     @user = users(:john)
     manual_sign_in(@user.email)
@@ -18,8 +18,8 @@ class DragAndDropViewTest < ApplicationSystemTestCase
 
     visit cv_section_path(@user.subdomain)
 
-    source = page.driver.browser.find_element(id: "experience_#{experience1.id}");
-    target = page.driver.browser.find_element(id: "experience_#{experience3.id}");
+    source = page.driver.browser.find_element(id: "experience_#{experience1.id}")
+    target = page.driver.browser.find_element(id: "experience_#{experience3.id}")
 
     page.driver.browser.action.drag_and_drop(source, target).perform
 
@@ -45,8 +45,8 @@ class DragAndDropViewTest < ApplicationSystemTestCase
 
     visit cv_section_path(@user.subdomain)
 
-    source = page.driver.browser.find_element(id: "education_#{education2.id}");
-    target = page.driver.browser.find_element(id: "education_#{education1.id}");
+    source = page.driver.browser.find_element(id: "education_#{education2.id}")
+    target = page.driver.browser.find_element(id: "education_#{education1.id}")
 
     page.driver.browser.action.drag_and_drop(source, target).perform
 
