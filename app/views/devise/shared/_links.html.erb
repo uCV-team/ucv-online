@@ -6,7 +6,7 @@
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <div class="d-flex align-items-center justify-content-center">
-    <%= link_to t('devise.links.shared.sign_up'), new_registration_path(resource_name) %>
+    <%= link_to t('.sign_up'), new_registration_path(resource_name) %>
   </div>
 <% end %>
 
