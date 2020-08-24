@@ -4,7 +4,7 @@ class UserSignInTest < ApplicationSystemTestCase
   driven_by :selenium_chrome_headless
 
   setup do
-    @user = users(:user_john)
+    @user = users(:john)
   end
 
   test 'user can sign_in' do
