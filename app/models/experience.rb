@@ -9,4 +9,5 @@ class Experience < ApplicationRecord
                                     message: 'is invalid' }, allow_blank: true
 
   scope :chronological_order, -> { order('ended_on IS NULL DESC, ended_on DESC, started_on DESC') }
+  scope :by_position, -> { order('position') }
 end
