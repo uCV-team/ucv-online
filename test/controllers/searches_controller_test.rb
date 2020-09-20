@@ -7,7 +7,7 @@ class SearchesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'GET #index returns a success response' do
-    get search_path
+    post searches_path
     assert_response :success
   end
 end
