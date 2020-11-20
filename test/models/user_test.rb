@@ -21,7 +21,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'subdomain should be of valid format' do
-    @user.subdomain = 'subdomain-'
+    @user.subdomain = Faker::Lorem.paragraph(30..100)
     assert_not @user.valid?
   end
 end
