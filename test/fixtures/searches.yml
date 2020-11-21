@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  query: MyString
-  slug: MyString
+  query: one
+  slug: one
 
 two:
-  query: MyString
-  slug: MyString
+  query: two
+  slug: two

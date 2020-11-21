@@ -23,5 +23,8 @@ class UserTest < ActiveSupport::TestCase
   test 'subdomain should be of valid format' do
     @user.subdomain = 'subdomain-'
     assert_not @user.valid?
+
+    @user.subdomain = 'subdomain '
+    assert_not @user.valid?
   end
 end

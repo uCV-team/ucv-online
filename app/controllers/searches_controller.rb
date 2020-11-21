@@ -1,5 +1,6 @@
 class SearchesController < ApplicationController
   def create
+    redirect_to_root_domain if search_param.blank?
     @search = Search.find_or_create_by!(query: search_param.downcase.squish.strip, locale: I18n.locale.to_s)
     redirect_to search_url(@search)
   end
