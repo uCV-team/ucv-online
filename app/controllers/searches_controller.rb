@@ -1,8 +1,12 @@
 class SearchesController < ApplicationController
   def create
-    redirect_to_root_domain if search_param.blank?
-    @search = Search.find_or_create_by!(query: search_param.downcase.squish.strip, locale: I18n.locale.to_s)
-    redirect_to search_url(@search)
+    if search_param.present?
+      @search = Search.find_or_create_by!(query: sanitized_query, locale: I18n.locale.to_s)
+      redirect_to search_url(@search)
+    else
+      flash[:error] = t('flash.searches.query_blank')
+      redirect_to_root_domain
+    end
   end
 
   def show
@@ -21,6 +25,10 @@ class SearchesController < ApplicationController
   private
 
   def search_param
-    params.permit(:search_term)[:search_term]
+    params.permit(:search_query)[:search_query]
+  end
+
+  def sanitized_query
+    Search.sanitized_query(search_param)
   end
 end

@@ -21,6 +21,10 @@ class Search < ApplicationRecord
     [:query, %i[query locale]]
   end
 
+  def self.sanitized_query(query)
+    query.downcase.squish.strip
+  end
+
   private
 
   def sanitize_query
