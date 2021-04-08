@@ -17,13 +17,26 @@ function handleSelect(){
 function handleCount(elem, count){
   if(count > 1000){
     elem.style.backgroundColor='rgb(255, 184, 194)';
-    $(elem).next().removeClass('text-muted').addClass('text-danger').html('You have exceeded character limit!')
+    $(elem).next().removeClass('text-muted').addClass('text-danger').html('You have exceeded character limit!(1000)')
     $(elem).parents('form').find('.submit-dt').prop('disabled', true);
   }
   else{
     elem.style.backgroundColor='#ffffff';
     $(elem).next().removeClass('text-danger').html(count + '/1000');
     $(elem).parents('form').find('.submit-dt').prop('disabled', false);
+  }
+}
+
+function handleCountExtras(elem, count){
+  if(count > 255){
+    elem.style.backgroundColor='rgb(255, 184, 194)';
+    $(elem).next().removeClass('text-muted').addClass('text-danger').html('You have exceeded character limit!(255)')
+    $(elem).parents('form').find('.submit-extras').prop('disabled', true);
+  }
+  else{
+    elem.style.backgroundColor='#ffffff';
+    $(elem).next().removeClass('text-danger').html(count + '/255');
+    $(elem).parents('form').find('.submit-extras').prop('disabled', false);
   }
 }
 
@@ -54,4 +67,8 @@ $(document).on('turbolinks:load', () => {
   $(document).on('input', '.limit-desc', function(){
     handleCount(this, this.value.length);
   });
+});
+
+$(document).on('input', '.limit-desc-extras', function(){
+  handleCountExtras(this, this.value.length);
 });
