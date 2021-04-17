@@ -44,6 +44,7 @@ Turbolinks.start();
 import 'jquery-ui-dist/jquery-ui';
 import 'bootstrap/dist/js/bootstrap';
 
+import '../src/javascripts/touch_sortable';
 $(function () {
   console.log('Hello World from Webpacker');
 });
