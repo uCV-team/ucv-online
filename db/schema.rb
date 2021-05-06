@@ -10,9 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_20_091803) do
+ActiveRecord::Schema.define(version: 2021_05_06_193527) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "dict_int"
+  enable_extension "fuzzystrmatch"
+  enable_extension "pg_trgm"
   enable_extension "plpgsql"
 
   create_table "contacts", force: :cascade do |t|
@@ -84,30 +87,6 @@ ActiveRecord::Schema.define(version: 2020_09_20_091803) do
     t.index ["cv_id"], name: "index_experiences_on_cv_id"
   end
 
-  create_table "geonames", force: :cascade do |t|
-    t.integer "geonameid"
-    t.string "name", limit: 200
-    t.string "asciiname", limit: 200
-    t.text "alternatenames"
-    t.decimal "latitude", precision: 10, scale: 6
-    t.decimal "longitude", precision: 10, scale: 6
-    t.string "feature_class", limit: 1
-    t.string "feature_code", limit: 10
-    t.string "country_code", limit: 2
-    t.string "cc2", limit: 200
-    t.string "admin1_code", limit: 20
-    t.string "admin2_code", limit: 80
-    t.string "admin3_code", limit: 20
-    t.string "admin4_code", limit: 20
-    t.bigint "population"
-    t.integer "elevation"
-    t.integer "dem"
-    t.string "timezone", limit: 40
-    t.datetime "modification_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "languages", force: :cascade do |t|
     t.bigint "cv_id", null: false
     t.string "language", limit: 255, null: false
@@ -130,7 +109,6 @@ ActiveRecord::Schema.define(version: 2020_09_20_091803) do
     t.string "region", limit: 255
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "geoname_id"
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
@@ -177,4 +155,22 @@ ActiveRecord::Schema.define(version: 2020_09_20_091803) do
   add_foreign_key "experiences", "cvs"
   add_foreign_key "languages", "cvs"
   add_foreign_key "locations", "users"
+
+  create_view "searchable_cvs", materialized: true, sql_definition: <<-SQL
+      SELECT cvs.id AS cv_id,
+      users.id AS user_id,
+      ((((((((setweight(to_tsvector('cv_en'::regconfig, COALESCE(cvs.about, ''::text)), 'B'::"char") || setweight(to_tsvector('cv_en'::regconfig, (COALESCE(cvs.skills, ''::character varying))::text), 'B'::"char")) || setweight(to_tsvector('cv_en'::regconfig, (COALESCE(cvs.working_skills, ''::character varying))::text), 'A'::"char")) || setweight(to_tsvector('cv_en'::regconfig, COALESCE(string_agg(((users.first_name)::text || (users.last_name)::text), ' '::text), ''::text)), 'A'::"char")) || setweight(to_tsvector('cv_en'::regconfig, COALESCE(string_agg(((locations.city)::text || (locations.country)::text), ' '::text), ''::text)), 'B'::"char")) || setweight(to_tsvector('cv_en'::regconfig, COALESCE(string_agg(((locations.geocoded_address)::text || (locations.original_address)::text), ' '::text), ''::text)), 'D'::"char")) || setweight(to_tsvector('cv_en'::regconfig, COALESCE(string_agg((((educations.degree)::text || educations.description) || (educations.school)::text), ' '::text), ''::text)), 'D'::"char")) || setweight(to_tsvector('cv_en'::regconfig, COALESCE(string_agg(((languages.language)::text || (languages.level)::text), ' '::text), ''::text)), 'C'::"char")) || setweight(to_tsvector('cv_en'::regconfig, COALESCE(string_agg((((experiences.company)::text || experiences.description) || (experiences.title)::text), ' '::text), ''::text)), 'C'::"char")) AS search_en_content_tsvector,
+      ((((((((setweight(to_tsvector('cv_it'::regconfig, COALESCE(cvs.about, ''::text)), 'B'::"char") || setweight(to_tsvector('cv_it'::regconfig, (COALESCE(cvs.skills, ''::character varying))::text), 'B'::"char")) || setweight(to_tsvector('cv_it'::regconfig, (COALESCE(cvs.working_skills, ''::character varying))::text), 'A'::"char")) || setweight(to_tsvector('cv_it'::regconfig, COALESCE(string_agg(((users.first_name)::text || (users.last_name)::text), ' '::text), ''::text)), 'A'::"char")) || setweight(to_tsvector('cv_it'::regconfig, COALESCE(string_agg(((locations.city)::text || (locations.country)::text), ' '::text), ''::text)), 'B'::"char")) || setweight(to_tsvector('cv_it'::regconfig, COALESCE(string_agg(((locations.geocoded_address)::text || (locations.original_address)::text), ' '::text), ''::text)), 'D'::"char")) || setweight(to_tsvector('cv_it'::regconfig, COALESCE(string_agg((((educations.degree)::text || educations.description) || (educations.school)::text), ' '::text), ''::text)), 'D'::"char")) || setweight(to_tsvector('cv_it'::regconfig, COALESCE(string_agg(((languages.language)::text || (languages.level)::text), ' '::text), ''::text)), 'C'::"char")) || setweight(to_tsvector('cv_it'::regconfig, COALESCE(string_agg((((experiences.company)::text || experiences.description) || (experiences.title)::text), ' '::text), ''::text)), 'C'::"char")) AS search_it_content_tsvector
+     FROM (((((cvs
+       JOIN users ON ((users.id = cvs.user_id)))
+       JOIN locations ON ((locations.user_id = users.id)))
+       JOIN educations ON ((educations.cv_id = cvs.id)))
+       JOIN languages ON ((languages.cv_id = cvs.id)))
+       JOIN experiences ON ((experiences.cv_id = cvs.id)))
+    WHERE (cvs.published = true)
+    GROUP BY cvs.id, users.id;
+  SQL
+  add_index "searchable_cvs", ["cv_id"], name: "index_searchable_cvs_on_cv_id"
+  add_index "searchable_cvs", ["user_id"], name: "index_searchable_cvs_on_user_id"
+
 end

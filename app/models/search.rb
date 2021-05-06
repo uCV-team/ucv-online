@@ -13,6 +13,11 @@ class Search < ApplicationRecord
     Cv.published.full_text_search(query)
   end
 
+  # Temp method subjected for testing
+  def new_results
+    SearchableCv.search(locale, query)
+  end
+
   def seo_title
     query.titleize
   end
