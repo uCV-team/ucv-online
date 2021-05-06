@@ -33,7 +33,6 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge'
 
 gem "scenic"
-gem "active_record_extended"
 
 group :development do
   gem 'better_errors'

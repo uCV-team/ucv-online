@@ -24,10 +24,6 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
-    active_record_extended (2.0.0)
-      activerecord (>= 5.1, < 6.2)
-      ar_outer_joins (~> 0.2)
-      pg (< 3.0)
     activejob (5.2.4.3)
       activesupport (= 5.2.4.3)
       globalid (>= 0.3.6)
@@ -49,8 +45,6 @@ GEM
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     ansi (1.5.0)
-    ar_outer_joins (0.2.0)
-      activerecord (>= 3.2)
     arel (9.0.0)
     ast (2.4.0)
     aws-eventstream (1.0.1)
@@ -400,7 +394,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_record_extended
   aws-sdk-s3
   better_errors
   binding_of_caller
