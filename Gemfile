@@ -32,7 +32,7 @@ gem 'recaptcha'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge'
 
-gem "scenic"
+gem 'scenic'
 
 group :development do
   gem 'better_errors'

@@ -17,6 +17,7 @@ class SearchesController < ApplicationController
     @results = @search.new_results.page(params[:page]).per(10)
     @formatted_results = @results.map do |result|
       next unless result.longitude
+
       result.formatted_map_results
     end.compact
     respond_to do |format|

@@ -11,12 +11,12 @@ class SearchableCv < ApplicationRecord
     against: :search_en_content_tsvector,
     using: {
       tsearch: {
-        dictionary: "cv_en",
-        tsvector_column: "search_en_content_tsvector",
+        dictionary: 'cv_en',
+        tsvector_column: 'search_en_content_tsvector',
         any_word: true
-      },
+      }
     },
-    ranked_by: ":tsearch"
+    ranked_by: ':tsearch'
   )
 
   pg_search_scope(
@@ -24,12 +24,12 @@ class SearchableCv < ApplicationRecord
     against: :search_it_content_tsvector,
     using: {
       tsearch: {
-        dictionary: "cv_it",
-        tsvector_column: "search_it_content_tsvector",
+        dictionary: 'cv_it',
+        tsvector_column: 'search_it_content_tsvector',
         any_word: true
-      },
+      }
     },
-    ranked_by: ":tsearch"
+    ranked_by: ':tsearch'
   )
 
   def formatted_map_results
@@ -38,7 +38,7 @@ class SearchableCv < ApplicationRecord
       location: {
         lng: longitude,
         lat: latitude
-       },
+      },
       subdomain: subdomain
     }
   end
