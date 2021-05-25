@@ -161,6 +161,9 @@ it:
       account: Modifica
       messages: 'Tutti i messaggi'
       presentation: 'il tuo CV Digitale'
+      newsletter: 'Newsletter'
+      new_newsletter: ' New Newsletter'
+      preference: 'Preference'
     footer:
       links: 'Collegamenti utili'
       sign_in: 'Accesso'

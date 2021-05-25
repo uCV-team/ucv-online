@@ -31,6 +31,8 @@ gem 'recaptcha'
 # PDF generation
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge'
+# editor
+gem 'trix-rails', require: 'trix'
 
 gem 'cancancan', '~> 3.2.0'
 gem 'jsonapi-serializer'
