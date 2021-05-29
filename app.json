@@ -12,6 +12,7 @@
    "environments": {
     "test": {
       "scripts": {
+        "test-setup": "bin/rails assets:precompile",
         "test": "bin/fastcheck"
       },
       "env": {  "POSTGRESQL_VERSION": "13", "REDIS_VERSION": "5"  },
