@@ -9,12 +9,11 @@ class Search < ApplicationRecord
   validates :query, presence: true, uniqueness: true
   validates :slug, presence: true, uniqueness: true
 
-  # Depreciate
   def results
     Cv.published.full_text_search(query)
   end
 
-  def new_results
+  def materialized_views_results
     SearchableCv.search(locale, query)
   end
 

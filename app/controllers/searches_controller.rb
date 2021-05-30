@@ -13,8 +13,8 @@ class SearchesController < ApplicationController
     @search = Search.friendly.find(params[:id])
     seo_tags_for(@search)
     @search.increment!(:views)
-    @total_results = @search.new_results.count
-    @results = @search.new_results.page(params[:page]).per(10)
+    @total_results = @search.materialized_views_results.count
+    @results = @search.materialized_views_results.page(params[:page]).per(10)
     @formatted_results = @results.map do |result|
       next unless result.longitude
 
