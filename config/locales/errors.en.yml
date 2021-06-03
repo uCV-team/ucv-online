@@ -10,3 +10,6 @@ en:
       title: Unauthorized page
       content_html: You are not authorized to access this page. <br>Possible reason for unauthorization could be your CV is not published.
       link: BACK TO HOME
+    attributes:
+      name: 'Name: cannot be left blank'
+      recipient_ids: 'Recipient ids: Cannot be left blank'
