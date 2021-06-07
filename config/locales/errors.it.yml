@@ -11,5 +11,6 @@ it:
       content_html: Il motivo dell'accesso non autorizzato potrebbe essere che il CV non è stato reso pubblico dal suo creatore.
       link: TORNA ALLA HOME
     attributes:
-      name: 'Name: cannot be left blank'
-      recipient_ids: 'Recipient ids: Cannot be left blank'
+      name: 'cannot be left blank'
+      recipient_ids: 'cannot be left blank'
+    default_message: 'Cannot be saved due to %{count} errors:'

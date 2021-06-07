@@ -163,6 +163,7 @@ en:
       presentation: 'your digital CV'
       newsletter: 'Newsletters'
       new_newsletter: ' New Newsletter'
+      edit_newsletter: ' Edit Newsletter'
       preference: 'Preferences'
     footer:
       links: 'Helpful Links'
