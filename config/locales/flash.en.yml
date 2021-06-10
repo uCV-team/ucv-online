@@ -15,3 +15,6 @@ en:
       flags:
         create:
           success: Marked the user as flag.
+    update: 'Update completed successfully.'
+    create: 'Successfully created.'
+    authorization: 'You are not authorized to perform this action.'

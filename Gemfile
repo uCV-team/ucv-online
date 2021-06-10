@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'pg_search'
 gem 'puma', '~> 4.3'
+gem 'pundit'
 gem 'rails', '~> 5.2.1'
 gem 'rails-i18n'
 # gem 'slim-rails'
@@ -33,6 +34,8 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge'
 # editor
 gem 'trix-rails', require: 'trix'
+# Email unsubscribe
+gem 'mailkick'
 
 gem 'cancancan', '~> 3.2.0'
 gem 'jsonapi-serializer'
