@@ -2,6 +2,7 @@ class User < ApplicationRecord
   DATATABLE_COLUMNS = %w[email first_name tel subdomain created_at].freeze
   devise :database_authenticatable, :recoverable, :registerable, :rememberable,
          :timeoutable, :trackable, :validatable, :confirmable
+  mailkick_user
 
   EMAIL_PREFERENCES = ['online_updates'].freeze
   has_one :cv, dependent: :destroy
