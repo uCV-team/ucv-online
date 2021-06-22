@@ -461,6 +461,7 @@ DEPENDENCIES
   paperclip
   pg (>= 0.18, < 2.0)
   pg_search
+  postmark-spam_check
   pry-byebug
   pry-rails
   puma (~> 4.3)
