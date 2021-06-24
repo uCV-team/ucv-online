@@ -58,7 +58,7 @@ Rails.application.routes.draw do
     end
   end
   namespace :admins do
-    resources :newsletters, except: %i[show destroy] do
+    resources :newsletters, except: %i[destroy] do
       get :preferences, on: :collection
       resources :submittal, only: [:create]
     end
