@@ -66,7 +66,6 @@ Rails.application.routes.draw do
   resources :preferences, only: %i[show update] do
     get :unsubscribe, on: :member
   end
-
   resources :attachments, only: [:create]
   # resources :locations, except: %i[index show]
 end
