@@ -33,6 +33,7 @@ import '../src/javascripts/custom';
 import '../src/javascripts/custom_navbar';
 import '../src/javascripts/homepage_scroller';
 import '../src/javascripts/preferences';
+// import '../src/javascripts/preferences';
 import '../src/javascripts/trix_attachments';
 import jQuery from 'jquery';
 import Rails from 'rails-ujs';
