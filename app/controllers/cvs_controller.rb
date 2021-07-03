@@ -61,7 +61,7 @@ class CvsController < ApplicationController
 
   def find_cv
     @cv = if params[:id]
-            Cv.find(params[:id])
+            Cv.find_by(id: params[:id], user_id: current_user.id)
           else
             current_user.cv
           end
