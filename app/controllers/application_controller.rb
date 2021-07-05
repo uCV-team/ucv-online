@@ -5,8 +5,12 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :notifications, if: proc { current_user.present? }
   helper_method :root_domain_url
-  include Pundit
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  rescue_from CanCan::AccessDenied do |_exception|
+    respond_to do |format|
+      format.json { head :forbidden }
+      format.html { redirect_to root_path, alert: I18n.t('flash.authorization') }
+    end
+  end
 
   rescue_from CanCan::AccessDenied do |_exception|
     respond_to do |format|

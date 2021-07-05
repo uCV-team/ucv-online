@@ -9,12 +9,17 @@ class Ability
     else
       user_permissions(current_user)
     end
+
+    return admin_permissions if current_user.admin?
+
+    user_permissions
   end
 
   def guest_permissions
     can :read, Location
     can :read, Cv, published: true
     can :create, Message
+    can :manage, Mailkick::OptOut
   end
 
   def admin_permissions
@@ -29,5 +34,14 @@ class Ability
     can :manage, Experience
     can :manage, Language
     can :manage, Location
+  end
+
+  def admin_permissions
+    can :manage, Newsletter
+    can :create, Attachment
+  end
+
+  def user_permissions
+    can :manage, User
   end
 end
