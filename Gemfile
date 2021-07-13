@@ -71,4 +71,7 @@ group :production do
   gem 'lograge'
   gem 'newrelic_rpm'
   gem 'wkhtmltopdf-heroku'
+  # Error notification
+  gem 'sentry-rails'
+  gem 'sentry-ruby'
 end
