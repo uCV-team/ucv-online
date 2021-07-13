@@ -31,9 +31,6 @@ gem 'recaptcha'
 # PDF generation
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge'
-# Error notification
-gem 'sentry-rails'
-gem 'sentry-ruby'
 
 group :development do
   gem 'better_errors'
@@ -71,4 +68,7 @@ end
 group :production do
   gem 'lograge'
   gem 'wkhtmltopdf-heroku'
+  # Error notification
+  gem 'sentry-rails'
+  gem 'sentry-ruby'
 end
