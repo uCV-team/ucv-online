@@ -3,14 +3,14 @@
     <div class="form-group mt-5" id="cv_head">
       <div class="row profile-logo" data-behavior="image-uploader">
         <div class="col-md-6 col-12 d-flex justify-content-center">
-          <div class="preview" >
+          <div id="profile-pic" class="preview" >
             <% if @cv.headshot.present? %>
               <%= image_tag(@cv.headshot.url(:default), class: 'w-100 rounded border' ) %>
             <% else %>
               <%= image_pack_tag 'images/head-shot.png', alt: "" %>
             <% end %>
           </div>
-          <div class='default-preview d-none'>
+          <div id="default-pic" class='default-preview d-none'>
             <%= image_pack_tag 'images/head-shot.png', alt: "" %>
           </div>
         </div>

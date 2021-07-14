@@ -28,11 +28,11 @@ if (imageUploder.length > 0) {
   });
 }
 
-$("#profile_img").on('click', function(e){
+document.getElementById('profile_img').addEventListener('click', function (e) {
   if (confirm("Are you sure?")) {
-    $("#cv_remove_headshot").val('1')
-    $('.preview').addClass('d-none').html('')
-    $('.default-preview').removeClass('d-none')
+    document.getElementById('cv_remove_headshot').value = '1'
+    document.getElementById('profile-pic').classList.add("d-none")
+    document.getElementById('default-pic').classList.remove("d-none")
     this.classList.add('d-none')
   }
 });
