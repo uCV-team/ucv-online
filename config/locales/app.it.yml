@@ -52,7 +52,7 @@ it:
           authorization:
             title: "Modifica la dichiarazione di autorizzazione"
           headshot:
-            title: "Edit CV profile picture"
+            title: "Modifica foto"
         new:
           education:
             degree: "Livello"
