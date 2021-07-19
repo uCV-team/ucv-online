@@ -18,7 +18,7 @@ You can request permission by emailing info@publicv.org.
 Make sure you have installed:
 
 * Ruby 2.4.0
-* PostgreSQL (10+)
+* PostgreSQL (13+)
 * Yarn (1.22.4)
 * Node (12.16.2)
 
