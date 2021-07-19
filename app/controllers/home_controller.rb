@@ -3,11 +3,11 @@ class HomeController < ApplicationController
 
   def index
     @seo_title = I18n.t('home.seo_title')
-    near_by_cvs # Fetch cvs near by to user current location within radius of 500 Km
+    nearby_cvs # Fetch cvs near by to user current location within radius of 500 Km
     @featured_cvs = Cv.published.headshot_present.about_present.order(updated_at: :desc).limit(4)
     @featured_searches = Search.ordered.localized.limit(15)
-    @cvs_last_updated_count = Cv.where('updated_at > ?', 30.days.ago).count
-    @cvs_last_created_count = Cv.where('created_at > ?', 30.days.ago).count
+    @cvs_last_updated_count = Cv.where('updated_at > ?', 30.days.ago.beginning_of_day).count
+    @cvs_last_created_count = Cv.where('created_at > ?', 30.days.ago.beginning_of_day).count
     @formatted_results = SearchesService.new(Cv.published.includes(:user, :locations)).coordinates_list
   end
 
@@ -17,7 +17,7 @@ class HomeController < ApplicationController
   end
 
   # Note: Distance is in miles
-  def near_by_cvs
+  def nearby_cvs
     @cvs = Cv.from("(select cvs.id, SQRT(POW(69.1 * (latitude - #{@coordinates[1]}), 2) + POW(69.1 *
                     ((#{@coordinates[0]} - longitude) * COS(latitude / 57.3)), 2)) AS distance FROM
                     cvs INNER JOIN users ON users.id = cvs.user_id INNER JOIN locations ON
