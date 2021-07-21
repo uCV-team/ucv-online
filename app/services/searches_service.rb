@@ -5,30 +5,46 @@ class SearchesService
 
   # :reek:FeatureEnvy
   def coordinates_list
-    @search_results.map do |result|
-      next if result.locations.empty?
-
-      name = result.abbr_name
-      subdomain = result.subdomain
-      location = location_coordinates(result.locations.first)
-      formatted_element(name, location, subdomain)
-    end.compact
+    {
+      type: 'FeatureCollection',
+      crs: {
+        type: 'name',
+        properties: {
+          name: 'urn:ogc:def:crs:OGC:1.3:CRS84'
+        }
+      },
+      features: features
+    }
   end
 
   private
 
-  def formatted_element(name, location, subdomain)
+  def features
+    @search_results.map do |result|
+      next if result.locations.empty?
+      {
+        type: 'Feature',
+        properties: properties(result),
+        geometry: geometry(result.locations.first)
+      }
+    end.compact
+  end
+
+  def properties(result)
     {
-      name: name,
-      location: location,
-      subdomain: subdomain
+      id: result.id,
+      subdomain: result.subdomain,
+      name: result.abbr_name
     }
   end
 
-  def location_coordinates(location)
+  def geometry(location)
     {
-      lng: location.longitude,
-      lat: location.latitude
+      type: 'Point',
+      coordinates: [
+        location.longitude,
+        location.latitude
+      ]
     }
   end
 end

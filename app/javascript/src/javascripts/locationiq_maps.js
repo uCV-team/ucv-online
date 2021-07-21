@@ -10,8 +10,7 @@ window.initMap = function() {
     map = new mapboxgl.Map({
         container: mapElement,
         attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
-        style: unwired.getLayer("streets"), //get Unwired's style template
-        maxZoom: 11,
+        style: 'https://tiles.locationiq.com/v3/streets/vector.json?key='+unwired.key,
         zoom: 11,
         center: center
     });
@@ -22,44 +21,109 @@ window.initMap = function() {
     });
     map.addControl(nav, 'top-left');
   });
-  // used for disabling scrolling on homepage so that map works using buttons.
-  // if (isHomePage()) map.scrollZoom.disable();
 
-  loadMarkersFromPage() // Load search results from home page if any
-  multiTouchSupport() // disable drapPan for mobile on single touch
-};
-
-window.generateMarkers = function(searchResultsList) {
-    clearMarkers();
-    searchResultsList.forEach(entry => {
-      let coordinates = Object.values(entry.location); // coordinates
-      let el = document.createElement('div'); // creating marker
-      el.className = 'marker';
-
-      let popup = new mapboxgl.Popup()
-        .setHTML('<a href="/cv/'+entry.subdomain+'">'+entry.name+'</a>'); // Popup with user name
-
-      markers.push(
-        new mapboxgl.Marker(el)
-            .setLngLat(coordinates)
-            .setPopup(popup)
-            .addTo(map)
-      );
+  map.on('load', function (e) {
+    map.addSource('user_location', {
+      type: 'geojson',
+      data: window.searchResultsList,
+      cluster: true,
+      clusterRadius: 50
+    });
+    map.addLayer({
+      id: 'clusters',
+      type: 'circle',
+      source: 'user_location',
+      filter: ['has', 'point_count'],
+      paint: {
+        'circle-color': [
+          'step',
+          ['get', 'point_count'],
+          '#51bbd6',
+          10,
+          '#ffff33',
+          20,
+          '#ff0000'
+        ],
+        'circle-radius': [
+          'step',
+          ['get', 'point_count'],
+          15,
+          10,
+          21,
+          30,
+          28
+        ]
+      }
     });
 
-    centerMap();
-};
+    map.addLayer({
+      id: 'cluster-count',
+      type: 'symbol',
+      source: 'user_location',
+      filter: ['has', 'point_count'],
+      layout: {
+      'text-field': '{point_count_abbreviated}',
+      'text-font': ['Arial Unicode MS Bold'],
+      'text-size': 12,
+      'text-allow-overlap' : true,
+      }
+    });
 
-function centerMap() {
-    if (markers.length > 0) {
-        const bounds = new mapboxgl.LngLatBounds();
-        markers.forEach(marker => {
-            bounds.extend(marker.getLngLat());
-        });
-        map.setMaxZoom(10);
-        map.fitBounds(bounds);
-    }
-}
+    map.addLayer({
+      id: 'unclustered-point',
+      type: 'circle',
+      source: 'user_location',
+      filter: ['!', ['has', 'point_count']],
+      paint: {
+      'circle-color': '#91076C',
+      'circle-radius': 6,
+      'circle-stroke-width': 2,
+      'circle-stroke-color': '#fff'
+      }
+    });
+    // inspect a cluster on click
+    map.on('click', 'clusters', function (e) {
+      var features = map.queryRenderedFeatures(e.point, {
+        layers: ['clusters']
+      });
+      var clusterId = features[0].properties.cluster_id;
+      map.getSource('user_location').getClusterExpansionZoom(
+        clusterId,
+        function (err, zoom) {
+          if (err) return;
+          map.easeTo({
+            center: features[0].geometry.coordinates,
+            zoom: zoom
+          });
+        }
+      );
+    });
+    map.on('click', 'unclustered-point', function (e) {
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      new mapboxgl.Popup()
+          .setHTML(
+            '<a href="/cv/'+e.features[0].properties.subdomain+'">'+e.features[0].properties.name+'</a>'
+          )
+          .setLngLat(coordinates)
+          .addTo(map)
+    });
+
+    map.on('mouseenter', 'clusters', function () {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'clusters', function () {
+      map.getCanvas().style.cursor = '';
+    });
+  });
+
+  // used for disabling scrolling on homepage so that map works using buttons.
+  // if (isHomePage()) map.scrollZoom.disable();
+  multiTouchSupport() // disable drapPan for mobile on single touch
+};
 
 function clearMarkers() {
     markers.forEach(marker => {
@@ -88,13 +152,8 @@ function multiTouchSupport(){
   }
 }
 
-//Add your Unwired Maps Access Token here (not the API token!)
 function setUnwiredApiToken(token) {
   unwired.key = mapboxgl.accessToken = token;
-}
-
-function loadMarkersFromPage(){
-  if (window.searchResultsList.length > 0) generateMarkers(window.searchResultsList)
 }
 
 function mapCenterCoordinates(){
