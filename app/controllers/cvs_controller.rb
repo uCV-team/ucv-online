@@ -6,10 +6,12 @@ class CvsController < ApplicationController
 
   def show
     if request.path == root_path
-      @cv_edit_controls = false # public view of CV on subdomain
+      @cv_edit_controls = false
     elsif current_user.present? && current_user.id == @cv.user_id
       @cv_edit_controls = params[:preview] != 't'
       @user = current_user
+    elsif @cv.published?
+      @cv_edit_controls = false
     else
       redirect_to root_domain_url
     end
