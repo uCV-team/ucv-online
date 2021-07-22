@@ -10,13 +10,12 @@ class ContactsController < ApplicationController
     @contact = @user.contacts.build(contact_params)
     if recaptcha_passed && @contact.save
       session.delete(:contact_us_params)
-      redirect_to cv_section_path(@user.subdomain)
     else
       session[:contact_us_params] = contact_params
       flash[:error] = t('flash.contacts.recaptcha') unless recaptcha_passed
       flash[:error] = @contact.errors.full_messages.join(', ') if recaptcha_passed
-      redirect_to cv_section_path(@user.subdomain)
     end
+    redirect_to cv_section_path(@user.subdomain)
   end
 
   private
