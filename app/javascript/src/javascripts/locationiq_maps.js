@@ -1,5 +1,6 @@
 let map, nav, center;
 let markers = [];
+let bounds;
 
 //Define the map and configure the map's theme
 window.initMap = function() {
@@ -11,9 +12,46 @@ window.initMap = function() {
         container: mapElement,
         attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
         style: 'https://tiles.locationiq.com/v3/streets/vector.json?key='+unwired.key,
-        zoom: 11,
+        zoom: 5,
         center: center
     });
+
+    map.on('idle', function() {
+      getCoordinates();
+      sendRequest()
+    });
+
+    function getCoordinates() {
+      var coordinates = map.getBounds()
+      var top = coordinates.getNorthEast().lat
+      var bottom = coordinates.getSouthWest().lat
+      var left = coordinates.getSouthWest().lng
+      var right = coordinates.getNorthEast().lng
+      bounds = [top, left, bottom, right]
+    };
+
+    function sendRequest() {
+      bound_params = JSON.stringify(bounds)
+      var form = new FormData;
+      form.append("bounds", bound_params)
+      url = window.fetch_markers_url;
+
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("POST", url, true);
+
+      var csrfToken = $('meta[name="csrf-token"]').attr('content');
+      xmlHttp.setRequestHeader("X-CSRF-Token", csrfToken);
+
+      xmlHttp.onreadystatechange = function () {
+        if(xmlHttp.readyState === XMLHttpRequest.DONE) {
+          var status = xmlHttp.status;
+          if (status === 0 || (status >= 200 && status < 400)) {
+            clusterLoad(xmlHttp.responseText);
+          }
+        }
+      }
+      xmlHttp.send(form)
+    };
 
     //Add Navigation controls to the map to the top-right corner of the map
     nav = new mapboxgl.NavigationControl({
@@ -22,10 +60,11 @@ window.initMap = function() {
     map.addControl(nav, 'top-left');
   });
 
-  map.on('load', function (e) {
+  function clusterLoad(results) {
+    var data = JSON.parse(results);
     map.addSource('user_location', {
       type: 'geojson',
-      data: window.searchResultsList,
+      data: data,
       cluster: true,
       clusterRadius: 50
     });
@@ -118,21 +157,14 @@ window.initMap = function() {
     map.on('mouseleave', 'clusters', function () {
       map.getCanvas().style.cursor = '';
     });
-  });
+  };
 
   // used for disabling scrolling on homepage so that map works using buttons.
   // if (isHomePage()) map.scrollZoom.disable();
   multiTouchSupport() // disable drapPan for mobile on single touch
 };
 
-function clearMarkers() {
-    markers.forEach(marker => {
-       marker.remove();
-    });
-    markers = [];
-}
-
-function multiTouchSupport(){
+function multiTouchSupport() {
   if ($(window).width() < 767) {
 
     map.dragPan.enable(); //used to enable dragging map on mobile.
@@ -156,11 +188,11 @@ function setUnwiredApiToken(token) {
   unwired.key = mapboxgl.accessToken = token;
 }
 
-function mapCenterCoordinates(){
+function mapCenterCoordinates() {
   return window.currentLatLng || [78.4008997, 17.4206485]
 }
 
-function isHomePage(){
+function isHomePage() {
   return location.pathname == "/"; // Equals true if we're at the root
 }
 

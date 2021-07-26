@@ -22,6 +22,7 @@ class SearchesService
   def features
     @search_results.map do |result|
       next if result.locations.empty?
+
       {
         type: 'Feature',
         properties: properties(result),
