@@ -46,7 +46,12 @@ window.initMap = function() {
         if(xmlHttp.readyState === XMLHttpRequest.DONE) {
           var status = xmlHttp.status;
           if (status === 0 || (status >= 200 && status < 400)) {
-            clusterLoad(xmlHttp.responseText);
+            var parsedResults = JSON.parse(xmlHttp.responseText);
+            if (map.getLayer('clusters')) {
+              map.getSource('user_location').setData(parsedResults);
+            }else{
+              clusterLoad(parsedResults);
+            }
           }
         }
       }
@@ -61,10 +66,9 @@ window.initMap = function() {
   });
 
   function clusterLoad(results) {
-    var data = JSON.parse(results);
     map.addSource('user_location', {
       type: 'geojson',
-      data: data,
+      data: results,
       cluster: true,
       clusterRadius: 50
     });
@@ -154,6 +158,7 @@ window.initMap = function() {
     map.on('mouseenter', 'clusters', function () {
       map.getCanvas().style.cursor = 'pointer';
     });
+
     map.on('mouseleave', 'clusters', function () {
       map.getCanvas().style.cursor = '';
     });

@@ -21,12 +21,10 @@ class SearchesService
 
   def features
     @search_results.map do |result|
-      next if result.locations.empty?
-
       {
         type: 'Feature',
-        properties: properties(result),
-        geometry: geometry(result.locations.first)
+        properties: properties(result.cv),
+        geometry: geometry(result)
       }
     end.compact
   end
