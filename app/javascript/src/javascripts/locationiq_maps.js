@@ -17,19 +17,16 @@ window.initMap = function() {
     });
 
     map.on('load', function() {
-      console.log('A load event occurred.');
       getCoordinates();
       sendRequest()
     });
 
     map.on('zoomend', function() {
-      console.log('A zoomend event occurred.');
       getCoordinates();
       sendRequest()
     });
 
     map.on('dragend', function() {
-      console.log('A dragend event occurred.');
       getCoordinates();
       sendRequest()
     });
