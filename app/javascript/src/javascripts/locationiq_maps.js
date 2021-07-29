@@ -16,7 +16,20 @@ window.initMap = function() {
         center: center
     });
 
-    map.on('idle', function() {
+    map.on('load', function() {
+      console.log('A load event occurred.');
+      getCoordinates();
+      sendRequest()
+    });
+
+    map.on('zoomend', function() {
+      console.log('A zoomend event occurred.');
+      getCoordinates();
+      sendRequest()
+    });
+
+    map.on('dragend', function() {
+      console.log('A dragend event occurred.');
       getCoordinates();
       sendRequest()
     });
@@ -32,12 +45,10 @@ window.initMap = function() {
 
     function sendRequest() {
       bound_params = JSON.stringify(bounds)
-      var form = new FormData;
-      form.append("bounds", bound_params)
       url = window.fetch_markers_url;
 
       var xmlHttp = new XMLHttpRequest();
-      xmlHttp.open("POST", url, true);
+      xmlHttp.open("GET", url+"?bounds="+bound_params, true);
 
       var csrfToken = $('meta[name="csrf-token"]').attr('content');
       xmlHttp.setRequestHeader("X-CSRF-Token", csrfToken);
@@ -48,14 +59,14 @@ window.initMap = function() {
           if (status === 0 || (status >= 200 && status < 400)) {
             var parsedResults = JSON.parse(xmlHttp.responseText);
             if (map.getLayer('clusters')) {
-              map.getSource('user_location').setData(parsedResults);
+              map.getSource('map_cv_markers').setData(parsedResults);
             }else{
               clusterLoad(parsedResults);
             }
           }
         }
       }
-      xmlHttp.send(form)
+      xmlHttp.send()
     };
 
     //Add Navigation controls to the map to the top-right corner of the map
@@ -66,7 +77,7 @@ window.initMap = function() {
   });
 
   function clusterLoad(results) {
-    map.addSource('user_location', {
+    map.addSource('map_cv_markers', {
       type: 'geojson',
       data: results,
       cluster: true,
@@ -75,7 +86,7 @@ window.initMap = function() {
     map.addLayer({
       id: 'clusters',
       type: 'circle',
-      source: 'user_location',
+      source: 'map_cv_markers',
       filter: ['has', 'point_count'],
       paint: {
         'circle-color': [
@@ -102,7 +113,7 @@ window.initMap = function() {
     map.addLayer({
       id: 'cluster-count',
       type: 'symbol',
-      source: 'user_location',
+      source: 'map_cv_markers',
       filter: ['has', 'point_count'],
       layout: {
       'text-field': '{point_count_abbreviated}',
@@ -115,7 +126,7 @@ window.initMap = function() {
     map.addLayer({
       id: 'unclustered-point',
       type: 'circle',
-      source: 'user_location',
+      source: 'map_cv_markers',
       filter: ['!', ['has', 'point_count']],
       paint: {
       'circle-color': '#91076C',
@@ -130,7 +141,7 @@ window.initMap = function() {
         layers: ['clusters']
       });
       var clusterId = features[0].properties.cluster_id;
-      map.getSource('user_location').getClusterExpansionZoom(
+      map.getSource('map_cv_markers').getClusterExpansionZoom(
         clusterId,
         function (err, zoom) {
           if (err) return;

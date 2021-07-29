@@ -17,8 +17,6 @@ class SearchesService
     }
   end
 
-  private
-
   def features
     @search_results.map do |result|
       {
@@ -28,6 +26,8 @@ class SearchesService
       }
     end.compact
   end
+
+  private
 
   def properties(result)
     {
