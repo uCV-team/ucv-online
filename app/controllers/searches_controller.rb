@@ -15,11 +15,7 @@ class SearchesController < ApplicationController
     @search.increment!(:views)
     @total_results = @search.materialized_views_results.count
     @results = @search.materialized_views_results.page(params[:page]).per(10)
-    @formatted_results = @results.map do |result|
-      next unless result.longitude
-
-      result.formatted_map_results
-    end.compact
+    @formatted_results = SearchesService.new(@results).coordinates_list
     respond_to do |format|
       format.html
       format.js { render partial: 'search_results' }
