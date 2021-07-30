@@ -113,10 +113,10 @@ window.initIndexMap = function() {
       source: 'map_cv_markers',
       filter: ['has', 'point_count'],
       layout: {
-      'text-field': '{point_count_abbreviated}',
-      'text-font': ['Arial Unicode MS Bold'],
-      'text-size': 12,
-      'text-allow-overlap' : true,
+        'text-field': '{point_count_abbreviated}',
+        'text-font': ['Arial Unicode MS Bold'],
+        'text-size': 12,
+        'text-allow-overlap' : true,
       }
     });
 
@@ -126,10 +126,10 @@ window.initIndexMap = function() {
       source: 'map_cv_markers',
       filter: ['!', ['has', 'point_count']],
       paint: {
-      'circle-color': '#91076C',
-      'circle-radius': 6,
-      'circle-stroke-width': 2,
-      'circle-stroke-color': '#fff'
+        'circle-color': '#fff',
+        'circle-radius': 4,
+        'circle-stroke-width': 5,
+        'circle-stroke-color': '#91076C'
       }
     });
 
@@ -170,6 +170,14 @@ window.initIndexMap = function() {
     });
 
     map.on('mouseleave', 'clusters', function () {
+      map.getCanvas().style.cursor = '';
+    });
+
+    map.on('mouseenter', 'unclustered-point', function () {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+
+    map.on('mouseleave', 'unclustered-point', function () {
       map.getCanvas().style.cursor = '';
     });
   };

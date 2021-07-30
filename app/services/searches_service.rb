@@ -19,6 +19,8 @@ class SearchesService
 
   def features
     @search_results.map do |result|
+      next if result.latitude.nil?
+
       {
         type: 'Feature',
         properties: properties(result.cv),

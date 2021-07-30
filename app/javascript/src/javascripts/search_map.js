@@ -75,10 +75,10 @@ window.initSearchMap = function() {
       source: 'map_cv_markers',
       filter: ['!', ['has', 'point_count']],
       paint: {
-        'circle-color': '#91076C',
-        'circle-radius': 6,
-        'circle-stroke-width': 2,
-        'circle-stroke-color': '#fff'
+        'circle-color': '#fff',
+        'circle-radius': 4,
+        'circle-stroke-width': 5,
+        'circle-stroke-color': '#91076C'
       }
     });
 
@@ -119,6 +119,14 @@ window.initSearchMap = function() {
     });
 
     map.on('mouseleave', 'clusters', function () {
+      map.getCanvas().style.cursor = '';
+    });
+
+    map.on('mouseenter', 'unclustered-point', function () {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+
+    map.on('mouseleave', 'unclustered-point', function () {
       map.getCanvas().style.cursor = '';
     });
   });
