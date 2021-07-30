@@ -18,13 +18,13 @@ it:
         I CV tradizionali sono brutti, inefficaci e superati.
         PubliCV è il nuovo standard per <b>il tuo CV digitale</b>.
         Segui la <a href="#" class="text-primary">procedura guidata per creare il tuo Curriculum Vitae</a>,
-        potrai scaricarlo in <b>PDF</b> o inviarlo tramite un semplice link.
+        potrai scaricarlo in <b>PDF</b> o condividerlo con un link, come una pagina web.
       jobseeker_copy_2: |
-        Invece di finire in fondo al cassetto di qualche agenzia, col tuo permesso, il tuo CV sarà <b>pubblico</b>.
+        Invece di finire in fondo al cassetto di qualche agenzia, col tuo permesso, il tuo CV diventerà un <b>mini-sito online</b>.
           Come i nostri: <a href="https://duccio.publicv.it" class="text-primary">Duccio</a>, <a href="https://alessio.publicv.it/" class="text-primary">Alessio</a>, <a href="https://vishal.publicv.it" class="text-primary">Vishal</a>.
-          Cosicché i <b>datori di lavoro</b> possano trovarti direttamente, senza intermediari.
+          In modo che i <b>datori di lavoro</b> possano trovarti direttamente, senza intermediari.
       jobseeker_copy_3: |
-        Ti mettiamo al primo posto. Il tuo CV pubblico o <i>"publiCV"</i> sarà online come un vero sito web all'indirizzo:
+        Ti mettiamo al primo posto. Il tuo CV pubblico o <i>"publiCV"</i> sarà online all'indirizzo:
         <span style="text-align:center;display:block"><b>tuo-nome</b>.publicv.it</span>
       jobseeker_copy_4: |
         <b>PubliCV va dritto al punto</b>: non sei qui per farti nuovi amici, collegarti coi colleghi, costruire il tuo network,
@@ -56,7 +56,8 @@ it:
         <a rel="nofollow" href="https://github.com/publicv-org/publicv" class="text-primary"><b>codice</b></a> associato a te. Per questo <b>publiCV è anche tuo</b>.
         La nostra licenza, disponibile sia in forma <a rel="nofollow" href="https://creativecommons.org/licenses/by/4.0/deed.it" class="text-primary">semplificata</a> che in forma
         <a rel="nofollow" href="https://publicv.it/legal/terms" class="text-primary">estesa</a>, ti garantisce questi diritti.
-        <br/><br/>PubliCV è il nostro regalo al Mondo del Lavoro.
+        <br/><br/>Di più: <b>puoi partecipare alla gestione e allo sviluppo di PubliCV</b>, se vuoi,
+        <a href="https://github.com/publicv-org/publicv/discussions/172" class="text-primary">fai già parte del team</a>.
       stakeholder_why_2: Affrontiamo questa emergenza insieme.
       stakeholder_copy_2: |
         PubliCV sarà <span class="font-weight-normal">completamente gratuito</span> durante la crisi sanitaria. Dopo, sarà sempre gratuito per chi cerca lavoro.
