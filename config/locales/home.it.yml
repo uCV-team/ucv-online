@@ -6,8 +6,6 @@ it:
       your_email_address: Il tuo indirizzo email
       notify_me: Avvisami!
     index:
-      created_last_30_days: |
-        <b class="text-primary">%{count} CV</b> aggiunti e
       last_cvs: Ultimi CV pubblicati
       updated_last_30_days: |
         <b class="text-primary">%{count}</b> aggiornati nell'ultimo mese.
