@@ -34,10 +34,9 @@ it:
       company: Datore di Lavoro
       company_cta: Cerca Candidati adesso
       company_copy_1: |
-        Accedi immediatamente a un database con candidati disponibili. Trovali come ti servono, dove ti servono, quando ti servono.
-        <!-- TODO: I mean, [immediately](TODO: link). -->
+        Utilizza il form di ricerca per trovare i <strong>CV dei candidati in cerca di lavoro</strong>, non serve alcuna registrazione né pagamento perché il curriculum, qui su <b>PubliCV</b>, è il sito web del candidato.
       company_copy_2: |
-        Niente intermediari: <b>contatta direttamente</b> i candidati di tuo interesse.
+        <b>Niente intermediari:</b> contatta immediatamente i candidati di tuo interesse dal loro <em>CV pubblico</em> o <em>publiCV</em>.
       company_copy_3: |
         <b>Tratta direttamente</b> con le persone che scegli.
         <br/>Noi staremo fuori da ogni eventuale contratto fra te e i tuoi candidati.
@@ -47,7 +46,7 @@ it:
         Contattare un singolo candidato alla volta sarà sempre <b>gratuito</b>, senza limiti.
       company_copy_5: |
         <b>Evita i perditempo</b>: faremo tutto il possibile per mantenere aggiornati i publiCV che troverai.
-        Se il publiCV è disponibile è molto probabile che la persona dietro di esso sia genuinamente interessata a un lavoro.
+        Se il publiCV è disponibile è molto probabile che quella persona sia genuinamente interessata a un lavoro.
       stakeholder: 👋Ciao!
       stakeholder_why: Scopri perché <b>publiCV è anche tuo</b> e cosa può fare per te, anche se non stai attualmente cercando un lavoro, né lavoratori.
       stakeholder_why_1: PubliCV è stato lanciato il <b>Primo Maggio</b> 2020, per un buon motivo 😉
