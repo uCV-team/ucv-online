@@ -5,21 +5,19 @@ window.initSearchMap = function() {
   center = mapCenterCoordinates()
   console.log(center)
 
-  $('#search-map').each((_, mapElement) => {
-    map = new mapboxgl.Map({
-        container: mapElement,
-        attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
-        style: 'https://tiles.locationiq.com/v3/streets/vector.json?key='+unwired.key, //get Unwired's style template
-        zoom: 5,
-        center: center
-    });
-
-    //Add Navigation controls to the map to the top-right corner of the map
-    nav = new mapboxgl.NavigationControl({
-      showZoom: false //removed map buttons
-    });
-    map.addControl(nav, 'top-left');
+  map = new mapboxgl.Map({
+      container: 'search-map',
+      attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
+      style: 'https://tiles.locationiq.com/v3/streets/vector.json?key='+unwired.key, //get Unwired's style template
+      zoom: 5,
+      center: center
   });
+
+  //Add Navigation controls to the map to the top-right corner of the map
+  nav = new mapboxgl.NavigationControl({
+    showZoom: false //removed map buttons
+  });
+  map.addControl(nav, 'top-left');
 
   map.on('load', function (e) {
     map.addSource('map_cv_markers', {
@@ -149,8 +147,8 @@ function mapCenterCoordinates() {
   return window.currentLatLng || [78.4008997, 17.4206485]
 }
 
-$(document).on('turbolinks:load', () => {
-    if ('mapboxgl' in window) {
+document.addEventListener("turbolinks:load", function() {
+    if (document.getElementById('search-map')) {
         initSearchMap();
     }
 });

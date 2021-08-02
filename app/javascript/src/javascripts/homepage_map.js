@@ -6,71 +6,69 @@ window.initIndexMap = function() {
   center = mapCenterCoordinates()
   console.log(center)
 
-  $('#map').each((_, mapElement) => {
-    map = new mapboxgl.Map({
-        container: mapElement,
-        attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
-        style: 'https://tiles.locationiq.com/v3/streets/vector.json?key='+unwired.key,
-        zoom: 5,
-        center: center
-    });
+  map = new mapboxgl.Map({
+      container: 'map',
+      attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
+      style: 'https://tiles.locationiq.com/v3/streets/vector.json?key='+unwired.key,
+      zoom: 5,
+      center: center
+  });
 
-    map.on('load', function() {
-      getCoordinates();
-      sendRequest()
-    });
+  map.on('load', function() {
+    getCoordinates();
+    sendRequest()
+  });
 
-    map.on('zoomend', function() {
-      getCoordinates();
-      sendRequest()
-    });
+  map.on('zoomend', function() {
+    getCoordinates();
+    sendRequest()
+  });
 
-    map.on('dragend', function() {
-      getCoordinates();
-      sendRequest()
-    });
+  map.on('dragend', function() {
+    getCoordinates();
+    sendRequest()
+  });
 
-    function getCoordinates() {
-      var coordinates = map.getBounds()
-      var top = coordinates.getNorthEast().lat
-      var bottom = coordinates.getSouthWest().lat
-      var left = coordinates.getSouthWest().lng
-      var right = coordinates.getNorthEast().lng
-      bounds = [top, left, bottom, right]
-    };
+  function getCoordinates() {
+    var coordinates = map.getBounds()
+    var top = coordinates.getNorthEast().lat
+    var bottom = coordinates.getSouthWest().lat
+    var left = coordinates.getSouthWest().lng
+    var right = coordinates.getNorthEast().lng
+    bounds = [top, left, bottom, right]
+  };
 
-    function sendRequest() {
-      bound_params = JSON.stringify(bounds)
-      url = window.fetch_markers_url;
+  function sendRequest() {
+    bound_params = JSON.stringify(bounds)
+    url = window.fetch_markers_url;
 
-      var xmlHttp = new XMLHttpRequest();
-      xmlHttp.open("GET", url+"?bounds="+bound_params, true);
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", url+"?bounds="+bound_params, true);
 
-      var csrfToken = $('meta[name="csrf-token"]').attr('content');
-      xmlHttp.setRequestHeader("X-CSRF-Token", csrfToken);
+    var csrfToken = $('meta[name="csrf-token"]').attr('content');
+    xmlHttp.setRequestHeader("X-CSRF-Token", csrfToken);
 
-      xmlHttp.onreadystatechange = function () {
-        if(xmlHttp.readyState === XMLHttpRequest.DONE) {
-          var status = xmlHttp.status;
-          if (status === 0 || (status >= 200 && status < 400)) {
-            var parsedResults = JSON.parse(xmlHttp.responseText);
-            if (map.getLayer('clusters')) {
-              map.getSource('map_cv_markers').setData(parsedResults);
-            }else{
-              clusterLoad(parsedResults);
-            }
+    xmlHttp.onreadystatechange = function () {
+      if(xmlHttp.readyState === XMLHttpRequest.DONE) {
+        var status = xmlHttp.status;
+        if (status === 0 || (status >= 200 && status < 400)) {
+          var parsedResults = JSON.parse(xmlHttp.responseText);
+          if (map.getLayer('clusters')) {
+            map.getSource('map_cv_markers').setData(parsedResults);
+          }else{
+            clusterLoad(parsedResults);
           }
         }
       }
-      xmlHttp.send()
-    };
+    }
+    xmlHttp.send()
+  };
 
-    //Add Navigation controls to the map to the top-right corner of the map
-    nav = new mapboxgl.NavigationControl({
-      showZoom: false //removed map buttons
-    });
-    map.addControl(nav, 'top-left');
+  //Add Navigation controls to the map to the top-right corner of the map
+  nav = new mapboxgl.NavigationControl({
+    showZoom: false //removed map buttons
   });
+  map.addControl(nav, 'top-left');
 
   function clusterLoad(results) {
     map.addSource('map_cv_markers', {
@@ -219,8 +217,8 @@ function isHomePage() {
   return location.pathname == "/"; // Equals true if we're at the root
 }
 
-$(document).on('turbolinks:load', () => {
-    if ('mapboxgl' in window) {
+document.addEventListener("turbolinks:load", function() {
+    if (document.getElementById('map')) {
         initIndexMap();
     }
 });

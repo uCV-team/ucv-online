@@ -16,7 +16,7 @@ class SearchesController < ApplicationController
     all_results = @search.materialized_views_results
     @total_results = all_results.count
     @results = all_results.page(params[:page]).per(10)
-    @formatted_results = SearchesService.new(all_results).coordinates_list
+    @formatted_results = SearchesService.new(all_results.includes(cv: [:user])).coordinates_list
     respond_to do |format|
       format.html
       format.js { render partial: 'search_results' }
