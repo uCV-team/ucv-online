@@ -129,17 +129,26 @@ window.initSearchMap = function() {
     });
   });
 
-  // used for disabling scrolling on homepage so that map works using buttons.
-  // if (isHomePage()) map.scrollZoom.disable();
-
   multiTouchSupport() // disable drapPan for mobile on single touch
 };
 
 function multiTouchSupport() {
   if ($(window).width() < 767) {
 
-    map.dragPan.enable(); //used to enable dragging map on mobile.
+    map.dragPan.disable();
     map.scrollZoom.disable();
+
+    // Enable dragging if two fingers used on mobile
+    map.on('touchstart', event => {
+      const e = event.originalEvent;
+      if (e && 'touches' in e) {
+        if (e.touches.length > 1) {
+          map.dragPan.enable();
+        } else {
+          map.dragPan.disable();
+        }
+      }
+    });
   }
 }
 
@@ -147,7 +156,7 @@ function mapCenterCoordinates() {
   return window.currentLatLng || [78.4008997, 17.4206485]
 }
 
-document.addEventListener("turbolinks:load", function() {
+document.addEventListener('turbolinks:load', function() {
     if (document.getElementById('search-map')) {
         initSearchMap();
     }
