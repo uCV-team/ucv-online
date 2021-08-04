@@ -13,13 +13,10 @@ class SearchesController < ApplicationController
     @search = Search.friendly.find(params[:id])
     seo_tags_for(@search)
     @search.increment!(:views)
-    @total_results = @search.materialized_views_results.count
-    @results = @search.materialized_views_results.page(params[:page]).per(10)
-    @formatted_results = @results.map do |result|
-      next unless result.longitude
-
-      result.formatted_map_results
-    end.compact
+    all_results = @search.materialized_views_results
+    @total_results = all_results.count
+    @results = all_results.page(params[:page]).per(10)
+    @formatted_results = SearchesService.new(all_results.includes(cv: [:user])).coordinates_list
     respond_to do |format|
       format.html
       format.js { render partial: 'search_results' }

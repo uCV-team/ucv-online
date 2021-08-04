@@ -1,5 +1,6 @@
 class Location < ApplicationRecord
   belongs_to :user
+  has_one :cv, through: :user
 
   validates :original_address, presence: true
   # validates :radius, numericality: { greater_than_or_equal_to: 0 }

@@ -27,7 +27,8 @@
 
 import 'babel-polyfill';
 import '../src/javascripts/address_autocomplete';
-import '../src/javascripts/locationiq_maps';
+import '../src/javascripts/homepage_map';
+import '../src/javascripts/search_map'
 import '../src/javascripts/custom';
 import '../src/javascripts/custom_navbar';
 import jQuery from 'jquery';

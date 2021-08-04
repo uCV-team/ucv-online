@@ -1,6 +1,6 @@
 <% content_for :header do %>
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
   <!--
       Use Unwired Maps JS & CSS in addition to Mapbox's GL library for the simplest implementation of Unwired Map Tiles
   -->
@@ -10,7 +10,7 @@
 
   <style>
       body { margin:0px; padding:0px; }
-      #map { position:relative; top:0px; bottom:0px; width:100%; height:40rem;}
+      #map, #search-map { position:relative; top:0px; bottom:0px; width:100%; height:40rem;}
       .marker {
           background-image: url("<%= markerImagePath %>");
           background-size: cover;
@@ -19,7 +19,7 @@
           cursor: pointer;
       }
       @media screen and (max-width: 992px) {
-        #map {
+        #map, #search-map {
           height: 35rem;
         }
       }
@@ -28,4 +28,5 @@
 
 <script>
   setUnwiredApiToken('<%= api_token %>');
+  window.fetch_markers_url = '<%= cv_markers_path %>';
 </script>

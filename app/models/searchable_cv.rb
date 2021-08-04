@@ -32,17 +32,6 @@ class SearchableCv < ApplicationRecord
     ranked_by: ':tsearch'
   )
 
-  def formatted_map_results
-    {
-      name: abbr_name,
-      location: {
-        lng: longitude,
-        lat: latitude
-      },
-      subdomain: subdomain
-    }
-  end
-
   def abbr_name
     "#{first_name} #{last_name[0]}."
   end

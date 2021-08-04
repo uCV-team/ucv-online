@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   end
   resources :contacts, only: %i[new create]
   resources :searches, only: %i[create show]
+  resources :cv_markers, only: %i[index]
   resolve('Cv') { [:cv] }
 
   # resources :locations, except: %i[index show]
