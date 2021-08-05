@@ -37,6 +37,7 @@ gem 'scenic'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'bullet'
   gem 'i18n-tasks', '~> 0.9.31'
   gem 'letter_opener'
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -59,7 +60,6 @@ group :test do
   gem 'capybara'
   gem 'capybara-selenium'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'minitest-reporters', '~> 1.0.5'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
@@ -75,3 +75,5 @@ group :production do
   gem 'sentry-rails'
   gem 'sentry-ruby'
 end
+
+gem 'faker'
