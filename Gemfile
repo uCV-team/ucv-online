@@ -43,6 +43,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+  gem 'bullet'
 end
 
 group :development, :test do
@@ -59,7 +60,6 @@ group :test do
   gem 'capybara'
   gem 'capybara-selenium'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'minitest-reporters', '~> 1.0.5'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
@@ -75,3 +75,5 @@ group :production do
   gem 'sentry-rails'
   gem 'sentry-ruby'
 end
+
+gem 'faker'

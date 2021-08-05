@@ -78,6 +78,9 @@ GEM
       msgpack (~> 1.0)
     brakeman (4.5.0)
     builder (3.2.4)
+    bullet (6.1.4)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     byebug (11.0.1)
     capybara (3.16.0)
       addressable
@@ -382,6 +385,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.7)
     unicode-display_width (1.5.0)
+    uniform_notifier (1.14.2)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -417,6 +421,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap (>= 1.1.0)
   brakeman
+  bullet
   capybara
   capybara-selenium
   devise
