@@ -75,5 +75,5 @@ group :production do
   gem 'sentry-rails'
   gem 'sentry-ruby'
 end
-gem 'temple'
 gem 'faker'
+gem 'temple'
