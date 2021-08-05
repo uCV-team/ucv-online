@@ -37,6 +37,8 @@ import Turbolinks from 'turbolinks';
 require.context('../images', true)
 require.context('../icons', true)
 
+import Sortable from 'sortablejs/Sortable.js';
+window.Sortable = Sortable;
 window.$ = jQuery;
 Rails.start();
 Turbolinks.start();
