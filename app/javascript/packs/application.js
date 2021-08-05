@@ -37,6 +37,8 @@ import Turbolinks from 'turbolinks';
 require.context('../images', true)
 require.context('../icons', true)
 
+import Sortable from 'sortablejs/Sortable.js';
+window.Sortable = Sortable;
 window.$ = jQuery;
 Rails.start();
 Turbolinks.start();
@@ -44,8 +46,6 @@ Turbolinks.start();
 import 'jquery-ui-dist/jquery-ui';
 import 'bootstrap/dist/js/bootstrap';
 
-import Sortable from 'sortablejs/Sortable.js';
-window.Sortable = Sortable;
 $(function () {
   console.log('Hello World from Webpacker');
 });
