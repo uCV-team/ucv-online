@@ -37,13 +37,13 @@ gem 'scenic'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'bullet'
   gem 'i18n-tasks', '~> 0.9.31'
   gem 'letter_opener'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
-  gem 'bullet'
 end
 
 group :development, :test do
