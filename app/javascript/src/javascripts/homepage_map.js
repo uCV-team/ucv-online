@@ -10,7 +10,7 @@ window.initIndexMap = function() {
       container: 'map',
       attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
       style: 'https://tiles.locationiq.com/v3/streets/vector.json?key='+unwired.key,
-      zoom: 5,
+      zoom: 8,
       center: center
   });
 

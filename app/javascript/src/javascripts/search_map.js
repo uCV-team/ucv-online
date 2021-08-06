@@ -9,7 +9,7 @@ window.initSearchMap = function() {
       container: 'search-map',
       attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
       style: 'https://tiles.locationiq.com/v3/streets/vector.json?key='+unwired.key, //get Unwired's style template
-      zoom: 5,
+      zoom: 8,
       center: center
   });
 
