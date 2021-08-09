@@ -1,22 +1,6 @@
 <% flash.each do |key, msg| %>
-  <div id = "flash_msg" class="flash alert alert-dismissible alert-<%= key %>">
+  <div class="flash alert alert-dismissible alert-<%= key %>">
     <button class="close" data-dismiss="alert" aria-label="Close">x</button>
     <p class="flash-message"><%= msg %></p>
   </div>
 <% end %>
-
-<script type="text/javascript">
-  var fadeTarget = document.getElementById("flash_msg");
-  if (fadeTarget){
-    var fadeEffect = setInterval(function () {
-      if (!fadeTarget.style.opacity) {
-        fadeTarget.style.opacity = 0.9;
-      }
-      if (fadeTarget.style.opacity > 0) {
-        fadeTarget.style.opacity -= 0.1;
-      } else {
-        clearInterval(fadeEffect);
-      }
-    }, 400);
-  }
-</script>
