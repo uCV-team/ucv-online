@@ -15,11 +15,11 @@ class HomeController < ApplicationController
       @set_zoom = 5
     else
       location = Geocoder.search(request.remote_ip).first
-      loc = Geocoder.search(location.country).first
       if location.data.empty?
         @coordinates = [20, 30]
         @set_zoom = 1.8
       else
+        loc = Geocoder.search(location.country).first
         @coordinates = [loc.longitude, loc.latitude]
         @set_zoom = 2.5
       end
