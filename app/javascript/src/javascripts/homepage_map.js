@@ -1,16 +1,17 @@
-let map, nav, center;
+let map, nav, center, zoom;
 let bounds;
 
 //Define the map and configure the map's theme
 window.initIndexMap = function() {
   center = mapCenterCoordinates()
+  zoom = setMapZoom()
   console.log(center)
 
   map = new mapboxgl.Map({
       container: 'map',
       attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
       style: 'https://tiles.locationiq.com/v3/streets/vector.json?key='+unwired.key,
-      zoom: 8,
+      zoom: zoom,
       center: center
   });
 
@@ -208,13 +209,17 @@ function setUnwiredApiToken(token) {
 }
 
 function mapCenterCoordinates() {
-  return window.currentLatLng || [78.4008997, 17.4206485]
+  return window.currentLatLng
+}
+
+function setMapZoom() {
+  return window.zoom_value
 }
 
 document.addEventListener('turbolinks:load', function() {
-    if (document.getElementById('map')) {
-        initIndexMap();
-    }
+  if (document.getElementById('map')) {
+    initIndexMap();
+  }
 });
 
 window.setUnwiredApiToken = setUnwiredApiToken;

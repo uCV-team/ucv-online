@@ -9,7 +9,7 @@ window.initSearchMap = function() {
       container: 'search-map',
       attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
       style: 'https://tiles.locationiq.com/v3/streets/vector.json?key='+unwired.key, //get Unwired's style template
-      zoom: 8,
+      zoom: 4,
       center: center
   });
 
@@ -157,7 +157,7 @@ function mapCenterCoordinates() {
 }
 
 document.addEventListener('turbolinks:load', function() {
-    if (document.getElementById('search-map')) {
-        initSearchMap();
-    }
+  if (document.getElementById('search-map')) {
+    initSearchMap();
+  }
 });
