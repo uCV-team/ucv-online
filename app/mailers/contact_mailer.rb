@@ -4,6 +4,10 @@ class ContactMailer < ApplicationMailer
     @user = User.find_by(id: user_id)
     @contact = Contact.find_by(id: contact_id)
     @current_locale = @user.locale
-    mail(to: @user.email, subject: "[PubliCV] #{@contact.name}")
+    mail(
+      to: @user.email,
+      subject: "[PubliCV] #{@contact.name}",
+      reply_to: @contact.email
+    )
   end
 end
