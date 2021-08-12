@@ -16,7 +16,7 @@ class ExperienceTest < ActiveSupport::TestCase
   end
 
   test 'website url should be valid' do
-    @experience.website_url = 'http://.mydomain.com'
+    @experience.website_url = '.mydomain'
     assert_not @experience.valid?
   end
 end
