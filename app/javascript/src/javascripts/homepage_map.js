@@ -3,9 +3,9 @@ let bounds;
 
 //Define the map and configure the map's theme
 window.initIndexMap = function() {
-  center = mapCenterCoordinates()
-  zoom = setMapZoom()
-  console.log(center)
+  center = mapCenterCoordinates();
+  zoom = setMapZoom();
+  console.log(center);
 
   map = new mapboxgl.Map({
       container: 'map',
