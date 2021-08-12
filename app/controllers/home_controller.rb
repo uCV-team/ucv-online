@@ -10,13 +10,19 @@ class HomeController < ApplicationController
   end
 
   def set_current_location
-    loc = Geocoder.search(request.remote_ip).first
-    @coordinates = loc.data['error'].present? || loc.data.empty? ? default_coordinates : [loc.longitude, loc.latitude]
-  end
-
-  private
-
-  def default_coordinates
-    locale.to_s == 'it' ? [12.5674, 41.8719] : [78.4008997, 17.4206485]
+    if current_user.present? && current_user.locations.present?
+      @coordinates = [current_user.locations.first.longitude, current_user.locations.first.latitude]
+      @set_zoom = 5
+    else
+      location = Geocoder.search(request.remote_ip).first
+      if location.data.empty?
+        @coordinates = [20, 30]
+        @set_zoom = 1.8
+      else
+        loc = Geocoder.search(location.country).first
+        @coordinates = [loc.longitude, loc.latitude]
+        @set_zoom = 2.5
+      end
+    end
   end
 end
