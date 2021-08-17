@@ -1,16 +1,17 @@
 let map, nav, center;
 
 //Define the map and configure the map's theme
-window.initSearchMap = function() {
+window.initSearchMap = function () {
   center = mapCenterCoordinates()
   console.log(center)
+  key = window.locationiqKey
 
   map = new mapboxgl.Map({
-      container: 'search-map',
-      attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
-      style: 'https://tiles.locationiq.com/v3/streets/vector.json?key='+unwired.key, //get Unwired's style template
-      zoom: 4,
-      center: center
+    container: 'search-map',
+    attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
+    style: 'https://tiles.locationiq.com/v3/streets/vector.json?key=' + key,
+    zoom: 4,
+    center: center
   });
 
   //Add Navigation controls to the map to the top-right corner of the map
@@ -63,7 +64,7 @@ window.initSearchMap = function() {
         'text-field': '{point_count_abbreviated}',
         'text-font': ['Arial Unicode MS Bold'],
         'text-size': 12,
-        'text-allow-overlap' : true,
+        'text-allow-overlap': true,
       }
     });
 
@@ -105,11 +106,11 @@ window.initSearchMap = function() {
       }
 
       new mapboxgl.Popup()
-          .setHTML(
-            '<a href="/cv/'+e.features[0].properties.subdomain+'">'+e.features[0].properties.name+'</a>'
-          )
-          .setLngLat(coordinates)
-          .addTo(map)
+        .setHTML(
+          '<a href="/cv/' + e.features[0].properties.subdomain + '">' + e.features[0].properties.name + '</a>'
+        )
+        .setLngLat(coordinates)
+        .addTo(map)
     });
 
     map.on('mouseenter', 'clusters', function () {
@@ -156,7 +157,7 @@ function mapCenterCoordinates() {
   return window.currentLatLng || [78.4008997, 17.4206485]
 }
 
-document.addEventListener('turbolinks:load', function() {
+document.addEventListener('turbolinks:load', function () {
   if (document.getElementById('search-map')) {
     initSearchMap();
   }

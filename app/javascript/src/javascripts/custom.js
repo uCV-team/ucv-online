@@ -14,49 +14,53 @@ function handleSelect(){
   }
 }
 
-window.enableSortable = function(){
+window.enableSortable = function () {
   var sort_edu = document.getElementById('sortable-edu');
-  var sortable = new Sortable(sort_edu, {
-    handle: '.sort_handler',
-    animation: 150,
+  if (sort_edu) {
+    var sortable = new Sortable(sort_edu, {
+      handle: '.sort_handler',
+      animation: 150,
 
-    onEnd: function(event){
-      sorting_section = document.querySelectorAll('.list_edu');
-      var sorting_params = [];
-      for (var i = 0; i < sorting_section.length; i++) {
-        data = sorting_section[i].dataset['id'];
-        sorting_params.push(data);
+      onEnd: function (event) {
+        sorting_section = document.querySelectorAll('.list_edu');
+        var sorting_params = [];
+        for (var i = 0; i < sorting_section.length; i++) {
+          data = sorting_section[i].dataset['id'];
+          sorting_params.push(data);
+        }
+        var json_arr = JSON.stringify(sorting_params);
+        var xmlhttp = new XMLHttpRequest();
+        var form = new FormData;
+        form.append("education", json_arr);
+        xmlhttp.open('POST', '/cv/educations/update_positions', true);
+        xmlhttp.setRequestHeader('X-CSRF-Token', document.querySelector('meta[name="csrf-token"]').content);
+        xmlhttp.send(form);
       }
-      var json_arr = JSON.stringify(sorting_params);
-      var xmlhttp = new XMLHttpRequest();
-      var form = new FormData;
-      form.append("education", json_arr);
-      xmlhttp.open('POST', '/cv/educations/update_positions', true);
-      xmlhttp.setRequestHeader('X-CSRF-Token', document.querySelector('meta[name="csrf-token"]').content);
-      xmlhttp.send(form);
-    }
-  });
+    });
+  }
   var sort_exp = document.getElementById('sortable');
-  var sortable = new Sortable(sort_exp, {
-    handle: '.sort_handler',
-    animation: 150,
+  if (sort_exp) {
+    var sortable = new Sortable(sort_exp, {
+      handle: '.sort_handler',
+      animation: 150,
 
-    onEnd: function(event){
-      sorting_section = document.querySelectorAll('.list_exp');
-      var sorting_params = [];
-      for (var i = 0; i < sorting_section.length; i++) {
-        data = sorting_section[i].dataset['id'];
-        sorting_params.push(data);
+      onEnd: function (event) {
+        sorting_section = document.querySelectorAll('.list_exp');
+        var sorting_params = [];
+        for (var i = 0; i < sorting_section.length; i++) {
+          data = sorting_section[i].dataset['id'];
+          sorting_params.push(data);
+        }
+        var json_arr = JSON.stringify(sorting_params);
+        var xmlhttp = new XMLHttpRequest();
+        var form = new FormData;
+        form.append("experience", json_arr);
+        xmlhttp.open('POST', '/cv/experiences/update_positions', true);
+        xmlhttp.setRequestHeader('X-CSRF-Token', document.querySelector('meta[name="csrf-token"]').content);
+        xmlhttp.send(form);
       }
-      var json_arr = JSON.stringify(sorting_params);
-      var xmlhttp = new XMLHttpRequest();
-      var form = new FormData;
-      form.append("experience", json_arr);
-      xmlhttp.open('POST', '/cv/experiences/update_positions', true);
-      xmlhttp.setRequestHeader('X-CSRF-Token', document.querySelector('meta[name="csrf-token"]').content);
-      xmlhttp.send(form);
-    }
-  });
+    });
+  }
 };
 
 document.addEventListener('turbolinks:load', () => {
