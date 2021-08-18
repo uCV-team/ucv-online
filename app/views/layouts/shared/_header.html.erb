@@ -4,7 +4,7 @@
   <section class="navigation">
     <div class="container">
       <div class="brand ml-1">
-        <%= link_to(root_domain_url ) do %>
+        <%= link_to(root_domain_url , "data-turbolinks": "false") do %>
           <% if current_user.present? %>
               <span class="brand-icon"><%= current_user.first_name %>'s </span>
           <% end %>
