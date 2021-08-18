@@ -13,3 +13,27 @@ search_user:
   encrypted_password: <%= Devise::Encryptor.digest(User, "supersecret") %>
   subdomain: <%= Faker::Name.first_name %>
   confirmed_at: <%= Time.zone.now %>
+
+john_2:
+  first_name: <%= Faker::Name.first_name %>
+  last_name: <%= Faker::Name.last_name %>
+  email: <%= Faker::Internet.email %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, "supersecret") %>
+  subdomain: <%= Faker::Name.first_name %>
+  confirmed_at: <%= Time.zone.now %>
+
+john_3:
+  first_name: <%= Faker::Name.first_name %>
+  last_name: <%= Faker::Name.last_name %>
+  email: <%= Faker::Internet.email %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, "supersecret") %>
+  subdomain: <%= Faker::Name.first_name %>
+  confirmed_at: <%= Time.zone.now %>
+
+john_4:
+  first_name: <%= Faker::Name.first_name %>
+  last_name: <%= Faker::Name.last_name %>
+  email: <%= Faker::Internet.email %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, "supersecret") %>
+  subdomain: <%= Faker::Name.first_name %>
+  confirmed_at: <%= Time.zone.now %>

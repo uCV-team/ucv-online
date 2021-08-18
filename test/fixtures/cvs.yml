@@ -10,3 +10,18 @@ john_cv:
 
 search_user_cv:
   user: search_user
+
+john_cv_2:
+  user: john_2
+  published: true
+  about: <%= Faker::Lorem.paragraph %>
+
+john_cv_3:
+  user: john_3
+  published: false
+  about: <%= Faker::Lorem.paragraph %>
+
+john_cv_4:
+  user: john_4
+  published: true
+  about: <%= Faker::Lorem.paragraph %>

@@ -6,7 +6,7 @@ window.initIndexMap = function () {
   center = mapCenterCoordinates()
   zoom = setMapZoom()
   console.log(center)
-  token = requiredToken();
+  token = window.setMapToken
   map = new mapboxgl.Map({
     container: 'map',
     attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
@@ -217,7 +217,3 @@ document.addEventListener('turbolinks:load', function () {
     initIndexMap();
   }
 });
-
-function requiredToken() {
-  return window.setMapToken
-}
