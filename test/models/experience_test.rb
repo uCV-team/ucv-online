@@ -19,7 +19,6 @@ class ExperienceTest < ActiveSupport::TestCase
     @experience.website_url = '.mydomain'
     assert_not @experience.valid?
   end
-  
 
   test 'website protocol is automatically added' do
     @experience.website_url = 'mydomain.tld'
