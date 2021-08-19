@@ -12,7 +12,7 @@ it:
       aria_labels:
         close: "Chiudi"
       buttons:
-        reset: "Reset"
+        back: "Back"
         save: "Salva"
         saving: "Sto Salvando..."
         search: "Vai!"
