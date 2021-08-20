@@ -1,4 +1,7 @@
 class SearchesController < ApplicationController
+  include InitialMapCentering
+  before_action :set_initial_map_position
+
   def create
     if search_param.present?
       @search = Search.find_or_create_by(query: sanitized_query, locale: I18n.locale.to_s)
