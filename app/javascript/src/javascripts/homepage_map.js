@@ -181,8 +181,21 @@ window.initIndexMap = function () {
     });
   };
 
+  scrollMap();
   multiTouchSupport() // disable drapPan for mobile on single touch
 };
+
+function scrollMap() {
+  map.on("wheel", event => {
+    if (event.originalEvent.ctrlKey) {
+      document.getElementById('scroll').classList.add('d-none')
+      return;
+    } else {
+      document.getElementById('scroll').classList.remove('d-none')
+    }
+    event.preventDefault();
+  });
+}
 
 function multiTouchSupport() {
   if ($(window).width() < 767) {

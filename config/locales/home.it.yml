@@ -6,6 +6,7 @@ it:
       your_email_address: Il tuo indirizzo email
       notify_me: Avvisami!
     index:
+      map_zoom: Use ctrl + scroll to zoom in/out the map
       last_cvs: Ultimi CV pubblicati
       updated_last_30_days: |
         <b class="text-primary">%{count} CV</b> aggiornati nell'ultimo mese.
