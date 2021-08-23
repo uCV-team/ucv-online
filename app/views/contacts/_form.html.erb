@@ -35,10 +35,13 @@
         </div>
       </div>
 
+      <hr class='pb-2'>
       <div class="row">
-        <div class="col-12 d-flex justify-content-end">
-          <%= f.button t('content.main.buttons.reset'), type: :reset, class: 'btn btn-primary' %>
-          <%= invisible_recaptcha_tags text: t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') }, class: 'btn btn-primary', id: 'contact-save', disabled: true %>
+        <div class="col-12 d-flex justify-content-center">
+          <%= f.button class: 'btn btn-outline-primary rounded mx-3', "data-dismiss": "modal" do %>
+            <i class="fas fa-angle-left"></i> <%= t('content.main.buttons.back') %>
+          <% end %>
+          <%= invisible_recaptcha_tags text: t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') }, class: 'btn btn-primary rounded', id: 'contact-save', disabled: true %>
         </div>
       </div>
   </div>
