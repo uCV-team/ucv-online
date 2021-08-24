@@ -5,12 +5,13 @@ window.initSearchMap = function () {
   center = mapCenterCoordinates()
   console.log(center)
   key = window.locationiqKey
+  zoom = window.zoomValue
 
   map = new mapboxgl.Map({
     container: 'search-map',
     attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
     style: 'https://tiles.locationiq.com/v3/streets/vector.json?key=' + key,
-    zoom: 4,
+    zoom: zoom,
     center: center
   });
 
@@ -154,7 +155,7 @@ function multiTouchSupport() {
 }
 
 function mapCenterCoordinates() {
-  return window.currentLatLng || [78.4008997, 17.4206485]
+  return window.latLong
 }
 
 document.addEventListener('turbolinks:load', function () {
