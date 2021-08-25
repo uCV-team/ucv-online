@@ -4,3 +4,4 @@ en:
       query_blank: please insert a search term in order to look for candidates!
     contacts:
       recaptcha: 'Recaptcha failed. Please try again'
+      success: Successfully sent the email to %{user_name}
