@@ -7,6 +7,7 @@ class CreateContacts < ActiveRecord::Migration[5.2]
       t.string :phone
       t.text   :message
       t.integer :user_id, index: true
+      t.string :status, default: "new", null: false
 
       t.timestamps
     end

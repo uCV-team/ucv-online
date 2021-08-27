@@ -227,6 +227,7 @@ CREATE TABLE public.contacts (
     phone character varying,
     message text,
     user_id integer,
+    status character varying DEFAULT 'new'::character varying NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );

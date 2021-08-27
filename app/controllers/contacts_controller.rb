@@ -1,5 +1,10 @@
 class ContactsController < ApplicationController
   before_action :find_candidate, only: %i[new create]
+  before_action :authenticate_user!, only: %i[index]
+
+  def index
+    @contacts = current_user.contacts.order('created_at DESC')
+  end
 
   def new
     @contact = Contact.new(session[:contact_us_params])
