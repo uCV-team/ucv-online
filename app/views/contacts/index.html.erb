@@ -28,6 +28,9 @@
           <% end %>
         </tbody>
       </table>
+      <div class="d-flex justify-content-center mb-5">
+        <%= paginate @contacts, window: 2 %>
+      </div>
     </div>
   </div>
 </div>
