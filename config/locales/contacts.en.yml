@@ -1,0 +1,8 @@
+en:
+  contacts:
+    name: Name
+    email: Email
+    phone: Phone
+    message: Message
+    received_at: Receved At
+    status: Status
