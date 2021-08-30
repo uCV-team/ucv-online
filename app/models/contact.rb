@@ -13,7 +13,7 @@ class Contact < ApplicationRecord
   end
 
   def check_for_spam
-    keys = ENV['SPAM_KEYWORDS'].split(',')
-    self.status = 'spam' if keys.any? { |x| message.include?(x) }
+    spam_keywords = ENV['SPAM_KEYWORDS'].split(',')
+    self.status = 'spam' if spam_keywords.any? { |spam_keyword| message.include?(spam_keyword) }
   end
 end
