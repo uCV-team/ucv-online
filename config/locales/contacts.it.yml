@@ -4,5 +4,5 @@ it:
     email: Email
     phone: Phone
     message: Message
-    received_at: Receved At
+    received_at: Received At
     status: Status
