@@ -1,6 +1,4 @@
 class Contact < ApplicationRecord
-  SPAM_KEYWORDS = %w[:// @ .com].freeze
-
   belongs_to :user
   validates :name, :email, :message, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
@@ -15,6 +13,7 @@ class Contact < ApplicationRecord
   end
 
   def check_for_spam
-    self.status = 'spam' if SPAM_KEYWORDS.any? { |x| message.include?(x) }
+    keys = ENV['SPAM_KEYWORDS'].split(',')
+    self.status = 'spam' if keys.any? { |x| message.include?(x) }
   end
 end
