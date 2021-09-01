@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   check_authorization unless: :devise_controller?
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :notifications
   helper_method :root_domain_url
 
   rescue_from CanCan::AccessDenied do |_exception|
@@ -45,5 +46,10 @@ class ApplicationController < ActionController::Base
 
   def root_domain_url
     locale.to_s == 'en' ? ENV['EN_SERVER_HOST'] : ENV['IT_SERVER_HOST']
+  end
+
+  def notifications
+    @all_contacts = current_user.contacts.where(status: 'new') if current_user.present?
+    @new_contacts = @all_contacts.limit(4) if current_user.present?
   end
 end

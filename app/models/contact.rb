@@ -6,6 +6,10 @@ class Contact < ApplicationRecord
   before_create :check_for_spam
   after_commit :send_notification, on: :create
 
+  def status_open
+    update_column(:status, 'open')
+  end
+
   private
 
   def send_notification

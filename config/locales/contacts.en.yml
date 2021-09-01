@@ -6,3 +6,6 @@ en:
     message: Message
     received_at: Received At
     status: Status
+    details: Contact Details
+    header: Hello, this is
+    dropdown: Received from:-

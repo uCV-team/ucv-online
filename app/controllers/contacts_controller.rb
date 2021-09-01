@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
   load_and_authorize_resource
   before_action :find_candidate, only: %i[new create]
+  before_action :set_contact, only: %i[show]
 
   def index
     @contacts = current_user.contacts.order('created_at DESC').page(params[:page]).per(10)
@@ -24,6 +25,10 @@ class ContactsController < ApplicationController
     redirect_to cv_section_path(@user.subdomain)
   end
 
+  def show
+    @contact.status_open if @contact.status == 'new'
+  end
+
   private
 
   def find_candidate
@@ -32,5 +37,9 @@ class ContactsController < ApplicationController
 
   def contact_params
     params.require(:contact).permit!
+  end
+
+  def set_contact
+    @contact = current_user.contacts.find(params[:id])
   end
 end

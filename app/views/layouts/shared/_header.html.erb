@@ -26,6 +26,21 @@
                   <%= link_to t('layouts.nav.edit_your_cv'), cv_section_path(current_user.subdomain) , class: 'btn btn-lg btn-outline-primary mx-2'%>
                 <% end %>
               </div>
+              <button class="btn text-primary notification pb-0" type="button" id="dropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <p class="notification">
+                  <h5 class ="fas fa-envelope mb-0 font-size-32" ></h5>
+                  <p class="badge-info rounded-circle counter"><%= @all_contacts.count %></p>
+                </p>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right border-0 shadow mt-2" aria-labelledby="dropdownMenuButton">
+                <% @new_contacts.each do |contact| %>
+                  <%= link_to contact_path(contact.id), class: 'text-decoration-none' do %>
+                    <div class="dropdown-item py-2 badge-primary-lt">
+                      <%= t('contacts.dropdown') %><b><%= contact.name.capitalize %></b>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
               <li>
                 <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <%= image_tag(current_user.cv.headshot.url(:default), alt: "profile-pic", class: 'img-fluid rounded-circle', width: '32') %>

@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   resources :cvs, only: [:show] do
     get '/print', to: 'cvs/printings#show', as: :print
   end
-  resources :contacts, only: %i[new create index]
+  resources :contacts, only: %i[new create index show]
   resources :searches, only: %i[create show]
   resources :cv_markers, only: %i[index]
   resolve('Cv') { [:cv] }

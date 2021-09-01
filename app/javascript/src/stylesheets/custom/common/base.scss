@@ -363,3 +363,23 @@ nav {
 .grecaptcha-badge {
   display: none;
 }
+.show_message{
+  color: black;
+}
+.show_message:hover{
+  color: #91076c;
+  text-decoration: none;
+}
+.notification {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+}
+.counter {
+  position: absolute;
+  top: -4px;
+  right: -2px;
+  padding: 2px 5px;
+}

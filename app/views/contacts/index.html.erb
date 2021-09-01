@@ -21,7 +21,7 @@
               <td><%= contact.name %></td>
               <td><%= contact.email %></td>
               <td><%= contact.phone %></td>
-              <td><%= contact.message %></td>
+              <td><%= link_to short_desc(contact.message, 40), contact_path(contact.id), class: 'show_message' %></td>
               <td><%= contact.created_at %></td>
               <td class="text-center"><%= contact_label(contact) %></td>
             </tr>
