@@ -1,4 +1,5 @@
 class ExperiencesController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_user!
   before_action :set_cv
   before_action :set_experience, only: %i[edit update destroy]

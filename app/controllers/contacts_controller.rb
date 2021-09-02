@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  load_and_authorize_resource
   before_action :find_candidate, only: %i[new create]
   before_action :authenticate_user!, only: %i[index]
 
