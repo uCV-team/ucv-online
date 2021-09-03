@@ -227,9 +227,9 @@ CREATE TABLE public.contacts (
     phone character varying,
     message text,
     user_id integer,
-    status character varying DEFAULT 'new'::character varying NOT NULL,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    status character varying DEFAULT 'new'::character varying NOT NULL
 );
 
 
@@ -859,5 +859,6 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210506190331'),
 ('20210506193527'),
 ('20210530194229');
+('20210903095035');
 
 
