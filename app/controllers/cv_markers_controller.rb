@@ -1,4 +1,6 @@
 class CvMarkersController < ApplicationController
+  load_and_authorize_resource class: Location
+
   def index
     bound_params = JSON.parse(params[:bounds])
     top, left, bottom, right = bound_params

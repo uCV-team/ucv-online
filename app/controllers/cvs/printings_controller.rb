@@ -1,6 +1,6 @@
 module Cvs
   class PrintingsController < ApplicationController
-    load_and_authorize_resource
+    load_and_authorize_resource class: Cv
     layout false
 
     def show
