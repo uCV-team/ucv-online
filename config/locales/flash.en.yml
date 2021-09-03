@@ -5,4 +5,5 @@ en:
     contacts:
       recaptcha: 'Recaptcha failed. Please try again'
       success: Successfully sent the email to %{user_name}
+      notice: Status updated to "%{status}" successfully
     authorization: You are not authorized to access this page.

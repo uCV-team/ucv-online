@@ -29,6 +29,13 @@ class ContactsController < ApplicationController
     @contact.status_open if @contact.status == 'new'
   end
 
+  def update
+    contact = Contact.find_by(id: params[:id])
+    status = contact.status == 'spam' ? 'not a spam' : 'spam'
+    contact.update(status: status)
+    redirect_back(fallback_location: contacts_path, notice: t('flash.contacts.notice', status: status))
+  end
+
   private
 
   def find_candidate

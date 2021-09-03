@@ -7,6 +7,8 @@ module ContactsHelper
       content_tag(:span, 'OPEN', class: 'badge badge-warning')
     when 'spam'
       content_tag(:span, 'SPAM', class: 'badge badge-danger')
+    when 'not a spam'
+      content_tag(:span, 'NOT A SPAM', class: 'badge badge-info')
     end
   end
 end
