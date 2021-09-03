@@ -31,9 +31,8 @@ class ContactsController < ApplicationController
 
   def update
     contact = Contact.find_by(id: params[:id])
-    status = contact.status == 'spam' ? 'not a spam' : 'spam'
-    contact.update(status: status)
-    redirect_back(fallback_location: contacts_path, notice: t('flash.contacts.notice', status: status))
+    contact.update(contact_params)
+    redirect_back(fallback_location: contacts_path, notice:  t('.success', scope: :flash))
   end
 
   private

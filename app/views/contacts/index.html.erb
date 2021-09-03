@@ -13,7 +13,7 @@
             <th><%= t('contacts.message') %></th>
             <th><%= t('contacts.received_at') %></th>
             <th class="text-center"><%= t('contacts.status') %></th>
-            <th class="text-center"><%= t('contacts.action') %></th>
+            <th class="text-center"><%= t('contacts.actions') %></th>
           </tr>
         </thead>
         <tbody>
@@ -26,8 +26,17 @@
               <td><%= contact.created_at %></td>
               <td class="text-center pt-3"><%= contact_label(contact) %></td>
               <td class="text-center">
-                <%= link_to contact_path(contact.id), method: :put do %>
-                  <i class="fa fa-flag mt-2 <%= contact.status == 'spam' ? "text-green" : "text-red"%>"></i>
+                <%= link_to contact_path(contact.id) do %>
+                  <i class="fa fa-eye fa_icon mr-2"></i>
+                <% end %>
+                <% if contact.status == 'spam'%>
+                  <%= link_to contact_path(contact.id, contact: { status: 'not a spam' }), method: :put do %>
+                    <i class="fa fa-flag mt-2 fa_icon text-success"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to contact_path(contact.id, contact: { status: 'spam' }), method: :put do %>
+                    <i class="fa fa-flag mt-2 fa_icon text-danger"></i>
+                  <% end %>
                 <% end %>
               </td>
             </tr>

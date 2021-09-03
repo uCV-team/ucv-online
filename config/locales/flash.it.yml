@@ -6,4 +6,6 @@ it:
       recaptcha: 'Test anti spam reCaptcha fallito, per favore riprova!'
       success: Messaggio inviato con successo a %{user_name}
       notice: Status updated to "%{status}" successfully
+      update:
+        success: Contact updated successfully!
     authorization: You are not authorized to access this page.
