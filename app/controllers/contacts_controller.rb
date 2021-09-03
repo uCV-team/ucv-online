@@ -32,7 +32,7 @@ class ContactsController < ApplicationController
   def update
     contact = Contact.find_by(id: params[:id])
     contact.update(contact_params)
-    redirect_back(fallback_location: contacts_path, notice:  t('.success', scope: :flash))
+    redirect_back(fallback_location: contacts_path, notice: t('.success', scope: :flash))
   end
 
   private
