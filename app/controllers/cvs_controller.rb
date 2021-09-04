@@ -1,6 +1,5 @@
 class CvsController < ApplicationController
   load_and_authorize_resource
-  before_action :authenticate_user!, except: [:show]
   before_action :set_cv, only: [:show]
   before_action :find_cv, only: %i[edit update download]
   respond_to :html, :js
