@@ -1,5 +1,6 @@
 it:
   contacts:
+    head: Contacts
     name: Name
     email: Email
     phone: Phone
