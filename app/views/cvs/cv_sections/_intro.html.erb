@@ -4,7 +4,7 @@
       <div class="col-12 col-md-9 mt-2 mb-md-0">
         <div class="d-flex justify-content-between justify-content-md-start">
           <h2><%= cv_user_name(@cv) %></h2>
-          <% if @cv_edit_controls %>
+          <% if can? :update, @cv %>
             <%= link_to edit_cv_section_path(section: :intro), remote: true, class: 'btn-cv btn-edit mt-2 ml-4' do %>
               <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-pencil"></i></span>
             <% end %>
@@ -16,7 +16,7 @@
         <% end %>
 
         <div class="row mt-4">
-          <% if @cv_edit_controls %>
+          <% if can? :update, @cv %>
             <div class="col-12 col-md-6 col-lg-6 mb-3"><i class="icon-envelope mr-2"></i><%= @user.email %><i class="far fa-file-pdf ml-2"><%= t('content.main.cv.pdf_only') %></i></div>
             <div class="col-12 col-lg-4"></div>
             <% if @user.tel.present? %>
@@ -31,17 +31,17 @@
           <div class="col-12 col-lg-6"></div>
         </div>
 
-        <% unless @cv_edit_controls %>
+        <% unless can? :update, @cv %>
           <div class="row">
             <%= link_to "Contact #{@user.first_name}", new_contact_path("contact[user_id]" => @user.id), class: "btn btn-outline-primary btn-sm mx-2", remote: true %>
           </div>
         <% end %>
       </div>
 
-      <% if @cv_edit_controls || @cv.headshot.exists? %>
+      <% if (can? :update, @cv) || @cv.headshot.exists? %>
         <div class="col-12 col-md-3 mb-2 mb-md-0 headshot-edit">
           <%= image_tag(@cv.headshot.url(:default), alt: "#{@cv.abbr_name} headshot", class: 'img-fluid') %>
-          <% if @cv_edit_controls %>
+          <% if can? :update, @cv %>
             <%= link_to edit_cv_section_path(section: :headshot), remote: true, class: 'btn-cv btn-edit popup-text' do %>
               <span class="badge rounded-circle p-2 edit-btn"><i class="icon-pencil"></i></span>
             <% end %>

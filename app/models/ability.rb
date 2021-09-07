@@ -16,7 +16,7 @@ class Ability
   def user_permissions(current_user)
     can :manage, User, id: current_user.id
     can :manage, Contact, user: current_user
-    can :manage, Cv
+    can :manage, Cv, user: current_user
     can :manage, Education
     can :manage, Experience
     can :manage, Language

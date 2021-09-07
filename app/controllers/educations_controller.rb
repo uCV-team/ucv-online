@@ -54,7 +54,6 @@ class EducationsController < ApplicationController
 
   def set_cv
     @cv = current_user.cv
-    @cv_edit_controls = true
   end
 
   def set_education
