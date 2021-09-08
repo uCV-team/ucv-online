@@ -4,7 +4,10 @@ class CvsController < ApplicationController
   before_action :find_cv, only: %i[edit update download]
   respond_to :html, :js
 
-  def show;end
+  def show
+    # cannot access unpublished Cv except self
+    authorize! :read, @cv
+  end
 
   def edit
     if Cv::CV_SECTIONS.include? params[:section]
@@ -28,10 +31,9 @@ class CvsController < ApplicationController
   end
 
   def download
-    @cv_edit_controls = false
     pdf_html = ApplicationController.new.render_to_string(
       template: 'cvs/printings/show',
-      locals: { :@cv => @cv, :@cv_edit_controls => @cv_edit_controls, :@user => current_user },
+      locals: { :@cv => @cv, :@user => current_user },
       layout: 'pdf'
     )
     pdf = WickedPdf.new.pdf_from_string(pdf_html, footer: { left: '[page] / [topage]' })

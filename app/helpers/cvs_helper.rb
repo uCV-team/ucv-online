@@ -32,6 +32,11 @@ module CvsHelper
     end
   end
 
+  # to show edit controls when Cv owner view it in edit mode
+  def edit_mode?
+    (can? :update, @cv) && params[:subdomain] && params[:preview] != 't'
+  end
+
   private
 
   def get_period(start_date, end_date)

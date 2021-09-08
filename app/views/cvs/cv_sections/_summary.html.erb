@@ -2,7 +2,7 @@
   <div class="border-top py-5 pl-3 pl-md-6 pr-2">
     <div class="d-flex align-items-center justify-content-between">
       <h6><%= t('content.main.cv.show.summary.title') %></h6>
-      <% if can? :update, @cv %>
+      <% if edit_mode? %>
         <%= link_to edit_cv_section_path(section: :summary), remote: true, class: 'btn-cv btn-edit top-right' do %>
           <span class="badge rounded-circle badge-primary-light text-primary p-2 ml-2"><i class="icon-pencil"></i></span>
         <% end %>
