@@ -47,7 +47,7 @@ en:
             working_skills: "Work skills (comma seperated)"
             learning_skills: "Skills I'd like to learn or improve (comma seperated)"
           summary:
-            title: "Edit professional summary and goals"
+            title: "Edit Professional Goals"
           authorization:
             title: "Edit authorization statement"
           headshot:
@@ -111,7 +111,7 @@ en:
           learning_skills:
             placeholder: "SEO, Youtube, Photogarphy"
           summary:
-            title: "Professional summary and goals"
+            title: "Professional Goals"
           about: "About (max. 1000 characters)"
           prefer_not_to_disclose: "Prefer not to disclose"
           male: "Male"
