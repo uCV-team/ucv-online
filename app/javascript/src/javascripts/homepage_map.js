@@ -2,30 +2,30 @@ let map, nav, center, zoom;
 let bounds;
 
 //Define the map and configure the map's theme
-window.initIndexMap = function() {
-  center = mapCenterCoordinates();
-  zoom = setMapZoom();
-  console.log(center);
-
+window.initIndexMap = function () {
+  center = mapCenterCoordinates()
+  zoom = setMapZoom()
+  console.log(center)
+  token = window.setMapToken
   map = new mapboxgl.Map({
-      container: 'map',
-      attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
-      style: 'https://tiles.locationiq.com/v3/streets/vector.json?key='+unwired.key,
-      zoom: zoom,
-      center: center
+    container: 'map',
+    attributionControl: false, //need this to show a compact attribution icon (i) instead of the whole text
+    style: 'https://tiles.locationiq.com/v3/streets/vector.json?key=' + token,
+    zoom: zoom,
+    center: center
   });
 
-  map.on('load', function() {
+  map.on('load', function () {
     getCoordinates();
     sendRequest()
   });
 
-  map.on('zoomend', function() {
+  map.on('zoomend', function () {
     getCoordinates();
     sendRequest()
   });
 
-  map.on('dragend', function() {
+  map.on('dragend', function () {
     getCoordinates();
     sendRequest()
   });
@@ -44,19 +44,19 @@ window.initIndexMap = function() {
     url = window.fetch_markers_url;
 
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", url+"?bounds="+bound_params, true);
+    xmlHttp.open("GET", url + "?bounds=" + bound_params, true);
 
     var csrfToken = $('meta[name="csrf-token"]').attr('content');
     xmlHttp.setRequestHeader("X-CSRF-Token", csrfToken);
 
     xmlHttp.onreadystatechange = function () {
-      if(xmlHttp.readyState === XMLHttpRequest.DONE) {
+      if (xmlHttp.readyState === XMLHttpRequest.DONE) {
         var status = xmlHttp.status;
         if (status === 0 || (status >= 200 && status < 400)) {
           var parsedResults = JSON.parse(xmlHttp.responseText);
           if (map.getLayer('clusters')) {
             map.getSource('map_cv_markers').setData(parsedResults);
-          }else{
+          } else {
             clusterLoad(parsedResults);
           }
         }
@@ -115,7 +115,7 @@ window.initIndexMap = function() {
         'text-field': '{point_count_abbreviated}',
         'text-font': ['Arial Unicode MS Bold'],
         'text-size': 12,
-        'text-allow-overlap' : true,
+        'text-allow-overlap': true,
       }
     });
 
@@ -157,11 +157,11 @@ window.initIndexMap = function() {
       }
 
       new mapboxgl.Popup()
-          .setHTML(
-            '<a href="/cv/'+e.features[0].properties.subdomain+'">'+e.features[0].properties.name+'</a>'
-          )
-          .setLngLat(coordinates)
-          .addTo(map)
+        .setHTML(
+          '<a href="/cv/' + e.features[0].properties.subdomain + '">' + e.features[0].properties.name + '</a>'
+        )
+        .setLngLat(coordinates)
+        .addTo(map)
     });
 
     map.on('mouseenter', 'clusters', function () {
@@ -181,8 +181,21 @@ window.initIndexMap = function() {
     });
   };
 
+  scrollMap();
   multiTouchSupport() // disable drapPan for mobile on single touch
 };
+
+function scrollMap() {
+  map.on("wheel", event => {
+    if (event.originalEvent.ctrlKey) {
+      document.getElementById('scroll').classList.add('d-none')
+      return;
+    } else {
+      document.getElementById('scroll').classList.remove('d-none')
+    }
+    event.preventDefault();
+  });
+}
 
 function multiTouchSupport() {
   if ($(window).width() < 767) {
@@ -204,10 +217,6 @@ function multiTouchSupport() {
   }
 }
 
-function setUnwiredApiToken(token) {
-  unwired.key = mapboxgl.accessToken = token;
-}
-
 function mapCenterCoordinates() {
   return window.currentLatLng
 }
@@ -216,10 +225,8 @@ function setMapZoom() {
   return window.zoom_value
 }
 
-document.addEventListener('turbolinks:load', function() {
+document.addEventListener('turbolinks:load', function () {
   if (document.getElementById('map')) {
     initIndexMap();
   }
 });
-
-window.setUnwiredApiToken = setUnwiredApiToken;

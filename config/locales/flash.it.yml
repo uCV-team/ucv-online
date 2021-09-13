@@ -4,3 +4,4 @@ it:
       query_blank: Per favore inserisci un termine di ricerca per poter trovare candidati!
     contacts:
       recaptcha: 'Test anti spam reCaptcha fallito, per favore riprova!'
+      success: Messaggio inviato con successo a %{user_name}

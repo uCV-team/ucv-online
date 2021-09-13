@@ -92,8 +92,19 @@ body {
   z-index: 1;
   opacity: .9;
   box-shadow: 0 5px 5px rgba($black, .3);
+  -webkit-animation: flashAnimation 3s forwards;
+  animation: flashAnimation 3s forwards;
 }
-
+@keyframes flashAnimation {
+  0%   {opacity: 1;}
+  60%  {opacity: 1;}
+  100% {opacity: 0; visibility: hidden}
+}
+@-webkit-keyframes flashAnimation {
+  0%   {opacity: 1;}
+  60%  {opacity: 1}
+  100% {opacity: 0; visibility: hidden}
+}
 .alert-expanded {
   max-width: 60%;
 }
@@ -348,4 +359,7 @@ nav {
 }
 .sort_handler:hover {
   cursor: move;
+}
+.grecaptcha-badge {
+  display: none;
 }

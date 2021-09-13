@@ -6,3 +6,30 @@ new_york:
   country: United States
   latitude: 40.7143528
   longitude: -74.0059731
+
+new_york_2:
+  user: john_2
+  original_address: Brooklyn
+  radius: 10
+  city: Brooklyn
+  country: United States
+  latitude: 43
+  longitude: -78
+
+new_york_3:
+  user: john_3
+  original_address: Queens
+  radius: 10
+  city: Queens
+  country: United States
+  latitude: 37
+  longitude: -70
+
+new_york_4:
+  user: john_4
+  original_address: Manhattan
+  radius: 10
+  city: Manhattan
+  country: United States
+  latitude: 40
+  longitude: -74

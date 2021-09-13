@@ -1,7 +1,7 @@
 Rails:
   Enabled: true
 
-Rails/SkipsModelValidations:
+Layout/EmptyLineAfterGuardClause:
   Enabled: false
 
 Metrics/LineLength:
@@ -12,6 +12,9 @@ Metrics/MethodLength:
 
 Metrics/AbcSize:
   Max: 33
+
+Rails/SkipsModelValidations:
+  Enabled: false
 
 Style/WordArray:
   EnforcedStyle: percent

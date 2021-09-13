@@ -12,5 +12,8 @@
   </div>
 </div>
 <script>
+  window.latLong = <%= @coordinates %>;
+  window.zoomValue = <%= @set_zoom %>;
+  window.locationiqKey = '<%= api_token %>'
   window.searchResultsList = <%= raw @formatted_results.to_json %>
 </script>
