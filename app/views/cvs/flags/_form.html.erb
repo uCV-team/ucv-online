@@ -1,0 +1,45 @@
+<% index = 0 %>
+<%= form_for(@flag, url: cvs_flags_path) do |f| %>
+  <div class='ml-2 pb-2'>
+    <%= t('content.main.cv.flag.desc') %>
+  </div>
+  <%= f.hidden_field :cv_id, value: params[:cv_id] %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <% t('content.main.cv.flag.radio').each do |key, value| %>
+    <div class="radio_button ml-5">
+      <label>
+        <%= f.radio_button :reason, "#{value}", checked: index == 0, onchange: "textFieldHandler(this)"  %>
+        <%= value %>
+      </label>
+    </div>
+  <% index += 1 %>
+  <% end %>
+
+  <div class="text-center ml-4">
+    <%= text_area_tag 'flag[reason]', nil, class:'d-none w-100', disabled: true %>
+  </div>
+
+  <hr class='pb-2'>
+  <div class="row">
+    <div class="col-12 text-center">
+      <%= f.button class: 'btn btn-outline-primary rounded mx-3', "data-dismiss": "modal" do %>
+        <i class="fas fa-angle-left"></i> <%= t('content.main.buttons.back') %>
+      <% end %>
+      <%= f.submit t('content.main.buttons.save'), class: 'btn btn-primary rounded' %>
+    </div>
+  </div>
+<% end %>
+
+<script>
+  function textFieldHandler(e){
+    other_text_field = document.getElementById('flag_reason');
+    if(e.value == 'Others'){
+      other_text_field.disabled = false;
+      other_text_field.classList.remove('d-none');
+    } else {
+      other_text_field.disabled = true ;
+      other_text_field.classList.add('d-none')
+    }
+  }
+</script>

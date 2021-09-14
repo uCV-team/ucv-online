@@ -353,6 +353,39 @@ ALTER SEQUENCE public.experiences_id_seq OWNED BY public.experiences.id;
 
 
 --
+-- Name: flags; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.flags (
+    id bigint NOT NULL,
+    user_id integer,
+    cv_id integer,
+    reason character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: flags_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.flags_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: flags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.flags_id_seq OWNED BY public.flags.id;
+
+
+--
 -- Name: languages; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -581,6 +614,13 @@ ALTER TABLE ONLY public.experiences ALTER COLUMN id SET DEFAULT nextval('public.
 
 
 --
+-- Name: flags id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.flags ALTER COLUMN id SET DEFAULT nextval('public.flags_id_seq'::regclass);
+
+
+--
 -- Name: languages id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -684,6 +724,14 @@ ALTER TABLE ONLY public.educations
 
 ALTER TABLE ONLY public.experiences
     ADD CONSTRAINT experiences_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: flags flags_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.flags
+    ADD CONSTRAINT flags_pkey PRIMARY KEY (id);
 
 
 --
@@ -883,6 +931,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210506193527'),
 ('20210530194229'),
 ('20210903095035'),
+('20210910055819'),
 ('20210923121737');
 
 
