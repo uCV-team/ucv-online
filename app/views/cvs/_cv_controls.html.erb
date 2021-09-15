@@ -2,12 +2,18 @@
   <div class="container">
     <div class="d-flex align-items-center justify-content-center py-2 border-md-0 w-100">
       <% if @cv_edit_controls %> <!-- When CV owner is in edit mode ====== -->
-        <%= link_to 'Preview', cv_section_path(current_user.subdomain, preview: 't'), class: 'btn btn-primary mx-2' %>
+        <%= link_to 'Preview', cv_section_path(current_user.subdomain, preview: 't'), class: 'btn btn-primary' %>
 
         <% if @cv.published? %>
-          <%= link_to 'Unpublish', cv_path("cv[published]" => "0"), method: :put, class: 'btn btn-outline-primary mx-2' %>
+          <%= link_to 'Unpublish', cv_path("cv[published]" => "0"), method: :put, class: 'btn btn-outline-primary mx-3' %>
         <% else %>
-          <%= link_to 'Publish', cv_path("cv[published]" => "1"), method: :put, class: 'btn btn-outline-primary mx-2' %>
+          <% if current_user.confirmed? %>
+            <%= link_to 'Publish', cv_path("cv[published]" => "1"), method: :put, class: 'btn btn-outline-primary mx-3' %>
+          <% else %>
+            <button class="btn btn-outline-primary mx-3 disabled" data-toggle="tooltip" data-placement="top" title="<%= t('tooltips.buttons.publish') %>">
+              Publish
+            </button>
+          <% end %>
         <% end %>
 
         <div class="dropdown dropup">
