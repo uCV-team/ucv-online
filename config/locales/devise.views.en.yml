@@ -138,6 +138,7 @@ en:
           current: Current Password* (we need current password to confirm changes)
         subdomain: 'Change Subdomain* (For instance: "your-name")'
         update: 'Update your account'
+        updating_details: Updating account...
       new:
         sign_up: Sign up
       signed_up: Welcome! You have signed up successfully.
