@@ -20,27 +20,15 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test 'subdomain should be of valid format' do
-    @user.subdomain = 'subdomain-' # not valid with dash at the end
-    assert @user.valid?
-    assert_equal 'subdomain', @user.subdomain # changed to withoud dash
-
-    @user.subdomain = 'name-surname' # valid with dash in the middle
-    assert @user.valid?
-    assert_equal 'name-surname', @user.subdomain # not changed
-
-    @user.subdomain = 'name--surname' # not valid with two dashes
-    assert @user.valid?
-    assert_equal 'name-surname', @user.subdomain # changed to one dash
-
-    @user.subdomain = 'subdomain ' # space
-    assert @user.valid?
-    assert_equal 'subdomain', @user.subdomain # space removed
-
-    @user.subdomain = 'a' * 64 # too long
-    assert_not @user.valid?
-
-    @user.subdomain = 'www' # reserved
-    assert_not @user.valid?
+  test 'subdomain should be downcase' do
+    user = User.create(
+      first_name: 'AbCdEf',
+      last_name: 'xyz',
+      email: 'abc@example.com',
+      password: 'password',
+      subdomain: 'ABcd-2345'
+    )
+    assert user.valid?
+    assert_equal 'abcdef', user.subdomain.split('-').first
   end
 end

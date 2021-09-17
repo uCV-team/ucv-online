@@ -1,7 +1,7 @@
 en:
   errors:
     subdomain:
-      length: 'length mus te between 3 and 63 chars (the shorder, the beteter).'
+      length: 'length must be between 3 and 63 chars (the shorter, the better).'
       dashes: 'cannot contain dashes (--).'
       format: 'invalid format, use only downcase letters.'
       reserved: 'you cannot choose this name for a subdomain because it is a reserved name.'
