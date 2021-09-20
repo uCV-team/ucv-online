@@ -17,4 +17,16 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
       click_button('user_log_in')
     end
   end
+
+  def manual_sign_up
+    visit new_user_registration_path
+    within(:css, 'form#new_user') do
+      fill_in('user_first_name', with: 'newUser')
+      fill_in('user_last_name', with: Faker::Name.last_name)
+      fill_in('user_email', with: 'example@reply.com')
+      fill_in('user_password', with: 'secretpassword')
+      fill_in('user_password_confirmation', with: 'secretpassword')
+      click_button('register_user')
+    end
+  end
 end

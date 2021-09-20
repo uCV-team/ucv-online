@@ -41,8 +41,8 @@ class User < ApplicationRecord
 
   def set_subdomain
     self.subdomain = loop do
-      random_subdomain = "#{first_name.downcase}-#{rand.to_s[2..5]}".tr('.', '-')
-      break random_subdomain unless self.class.exists?(subdomain: random_subdomain)
+      unique_subdomain = "#{first_name.downcase + rand.to_s[2..4]}".tr('.', '-')
+      break unique_subdomain unless self.class.exists?(subdomain: unique_subdomain)
     end
   end
 end

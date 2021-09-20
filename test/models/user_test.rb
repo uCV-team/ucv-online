@@ -20,15 +20,14 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test 'subdomain should be downcase' do
+  test 'subdomain should get created' do
     user = User.create(
       first_name: 'AbCdEf',
       last_name: 'xyz',
       email: 'abc@example.com',
       password: 'password',
-      subdomain: 'ABcd-2345'
     )
     assert user.valid?
-    assert_equal 'abcdef', user.subdomain.split('-').first
+    assert user.subdomain.present?
   end
 end
