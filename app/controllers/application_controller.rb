@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   check_authorization unless: :devise_controller?
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :notifications
+  before_action :notifications, if: proc { current_user.present? }
   helper_method :root_domain_url
 
   rescue_from CanCan::AccessDenied do |_exception|
@@ -49,7 +49,6 @@ class ApplicationController < ActionController::Base
   end
 
   def notifications
-    @all_contacts = current_user.contacts.where(status: 'new') if current_user.present?
-    @new_contacts = @all_contacts.limit(4) if current_user.present?
+    @all_contacts = current_user.contacts.where(status: 'new')
   end
 end
