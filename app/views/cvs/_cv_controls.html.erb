@@ -10,9 +10,9 @@
           <% if current_user.confirmed? %>
             <%= link_to 'Publish', cv_path("cv[published]" => "1"), method: :put, class: 'btn btn-outline-primary mx-3' %>
           <% else %>
-            <button class="btn btn-outline-primary mx-3 disabled" data-toggle="tooltip" data-placement="top" title="<%= t('tooltips.buttons.publish') %>">
-              Publish
-            </button>
+            <%= button_tag 'Publish', class: 'btn btn-outline-primary mx-3 disabled',
+                                      data: {toggle: 'tooltip', placement: 'top'},
+                                      title: t('tooltips.buttons.publish', url: new_user_confirmation_path)  %>
           <% end %>
         <% end %>
 
