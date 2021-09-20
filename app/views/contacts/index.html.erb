@@ -29,8 +29,8 @@
                 <%= link_to contact_path(contact.id) do %>
                   <i class="fa fa-eye fa_icon mr-2"></i>
                 <% end %>
-                <% if contact.status == 'spam'%>
-                  <%= link_to contact_path(contact.id, contact: { status: 'not a spam' }), method: :put do %>
+                <% if contact.status == 'spam' %>
+                  <%= link_to contact_path(contact.id, contact: { status: 'open' }), method: :put do %>
                     <i class="fa fa-flag mt-2 fa_icon text-success"></i>
                   <% end %>
                 <% else %>
