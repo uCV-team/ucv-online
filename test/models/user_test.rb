@@ -25,7 +25,7 @@ class UserTest < ActiveSupport::TestCase
       first_name: 'AbCdEf',
       last_name: 'xyz',
       email: 'abc@example.com',
-      password: 'password',
+      password: 'password'
     )
     assert user.valid?
     assert user.subdomain.present?
