@@ -1,13 +1,13 @@
 it:
   contacts:
-    head: Contacts
-    name: Name
+    head: Messaggi
+    name: Nome
     email: Email
-    phone: Phone
-    message: Message
-    received_at: Received At
-    status: Status
-    details: Contact Details
-    header: Sender:-
-    dropdown: Received from:-
-    actions: Actions
+    phone: Telefono
+    message: Messaggio
+    received_at: Ricevuto
+    status: Stato
+    details: Dettagli
+    header: Mittente
+    dropdown: Ricevuto da:-
+    actions: Azioni
