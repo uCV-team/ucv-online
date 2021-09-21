@@ -58,7 +58,7 @@ en:
             reason_1: Hateful or abusive content.
             reason_2: Spam or misleading
             reason_3: Infringes my rights
-            description: Others
+            description: Other
         new:
           education:
             degree: "Degree"
