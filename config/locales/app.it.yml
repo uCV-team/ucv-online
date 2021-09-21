@@ -150,7 +150,7 @@ it:
       delete_account: "Eliminare l'account"
       menuitem1: 'Iscriviti per creare il tuo CV digitale'
       menuitem2: 'Accedi per aggiornare il tuo CV'
-      account: Edit account
+      account: Modifica
     footer:
       links: 'Collegamenti utili'
       sign_in: 'Accesso'
