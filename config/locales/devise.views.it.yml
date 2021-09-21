@@ -125,11 +125,11 @@ it:
         update: Aggiorna
         email: Email* (Your registered email)
         password:
-          new: New Password (leave blank if you don't want to change)
-          re_enter: Re-Enter (leave blank if you don't want to change)
-          current: Current Password* (we need current password to confirm changes)
-        subdomain: 'Change Subdomain* (For instance: "your-name")'
-        update: 'Update your account'
+          new: Nuova Password (lascia in bianco se non vuoi cambiarla)
+          re_enter: Ripeti Password (lascia in bianco se non vuoi cambiarla)
+          current: Password attuale* (serve la tua password per confermare queste modifiche)
+        subdomain: 'Cambia Sottodominio* (Per esempio: "tuo-nome")'
+        update: Aggiorna il tuo account
         updating_details: Updating account...
       new:
         sign_up: Registrati
