@@ -25,6 +25,9 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
+  namespace :admin do
+    resource :home, only: [:show]
+  end
   resources :accounts, only: :destroy
   resource :cv, except: %i[new edit create destroy show] do
     resources :educations, except: %i[index show] do
