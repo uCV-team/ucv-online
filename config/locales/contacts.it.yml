@@ -7,5 +7,5 @@ it:
     received_at: Received At
     status: Status
     details: Contact Details
-    header: Hello, this is
+    header: Sender:-
     dropdown: Received from:-
