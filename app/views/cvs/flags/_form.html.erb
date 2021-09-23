@@ -9,7 +9,7 @@
   <% t('content.main.cv.flag.radio').each do |key, value| %>
     <div class="radio_button ml-5">
       <label>
-        <%= f.radio_button :reason, "#{value}", checked: index == 0, onchange: "textFieldHandler(this)"  %>
+        <%= f.radio_button :reason, "#{key}", checked: index == 0, onchange: "textFieldHandler(this)"  %>
         <%= value %>
       </label>
     </div>
@@ -34,7 +34,7 @@
 <script>
   function textFieldHandler(e){
     other_text_field = document.getElementById('flag_reason');
-    if(e.value == 'Others'){
+    if(e.value == 'infringing' || e.value == 'other'){
       other_text_field.disabled = false;
       other_text_field.classList.remove('d-none');
     } else {

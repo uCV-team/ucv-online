@@ -56,10 +56,10 @@ it:
         flag:
           desc: Aiutaci a capire il problema di questo publiCV
           radio:
-            reason_1: Contenuto offensivo o ingiurioso
-            reason_2: Spam o ingannevole
-            reason_3: Viola i miei diritti
-            description: Altro
+            hateful: Contenuto offensivo o ingiurioso
+            spam: Spam o ingannevole
+            infringing: Viola i miei diritti
+            other: Altro
         new:
           education:
             degree: "Livello"
