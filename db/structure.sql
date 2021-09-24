@@ -218,7 +218,6 @@ CREATE TABLE public.ar_internal_metadata (
 --
 --
 
-);
 
 
 --
