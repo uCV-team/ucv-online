@@ -2,7 +2,7 @@ it:
   flash:
     searches:
       query_blank: Per favore inserisci un termine di ricerca per poter trovare candidati!
-    contacts:
+    messages:
       recaptcha: 'Test anti spam reCaptcha fallito, per favore riprova!'
       success: Messaggio inviato con successo a %{user_name}
       notice: Status updated to "%{status}" successfully

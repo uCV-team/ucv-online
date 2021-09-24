@@ -216,28 +216,16 @@ CREATE TABLE public.ar_internal_metadata (
 
 
 --
--- Name: contacts; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.contacts (
     id bigint NOT NULL,
-    title character varying,
-    name character varying,
-    email character varying,
-    phone character varying,
-    message text,
-    user_id integer,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    status character varying DEFAULT 'new'::character varying NOT NULL
 );
 
 
 --
--- Name: contacts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE public.contacts_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -246,10 +234,8 @@ CREATE SEQUENCE public.contacts_id_seq
 
 
 --
--- Name: contacts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE public.contacts_id_seq OWNED BY public.contacts.id;
 
 
 --
@@ -455,6 +441,43 @@ ALTER SEQUENCE public.locations_id_seq OWNED BY public.locations.id;
 
 
 --
+-- Name: messages; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.messages (
+    id bigint NOT NULL,
+    title character varying,
+    name character varying,
+    email character varying,
+    phone character varying,
+    content text,
+    user_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    status character varying DEFAULT 'new'::character varying NOT NULL
+);
+
+
+--
+-- Name: messages_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.messages_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: messages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.messages_id_seq OWNED BY public.messages.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -547,10 +570,8 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- Name: contacts id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.contacts ALTER COLUMN id SET DEFAULT nextval('public.contacts_id_seq'::regclass);
 
 
 --
@@ -586,6 +607,13 @@ ALTER TABLE ONLY public.languages ALTER COLUMN id SET DEFAULT nextval('public.la
 --
 
 ALTER TABLE ONLY public.locations ALTER COLUMN id SET DEFAULT nextval('public.locations_id_seq'::regclass);
+
+
+--
+-- Name: messages id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.messages ALTER COLUMN id SET DEFAULT nextval('public.messages_id_seq'::regclass);
 
 
 --
@@ -653,11 +681,8 @@ ALTER TABLE ONLY public.ar_internal_metadata
 
 
 --
--- Name: contacts contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.contacts
-    ADD CONSTRAINT contacts_pkey PRIMARY KEY (id);
 
 
 --
@@ -693,6 +718,14 @@ ALTER TABLE ONLY public.locations
 
 
 --
+-- Name: messages messages_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.messages
+    ADD CONSTRAINT messages_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -709,10 +742,8 @@ ALTER TABLE ONLY public.searches
 
 
 --
--- Name: index_contacts_on_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_contacts_on_user_id ON public.contacts USING btree (user_id);
 
 
 --
@@ -748,6 +779,13 @@ CREATE INDEX index_languages_on_cv_id ON public.languages USING btree (cv_id);
 --
 
 CREATE INDEX index_locations_on_user_id ON public.locations USING btree (user_id);
+
+
+--
+-- Name: index_messages_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_messages_on_user_id ON public.messages USING btree (user_id);
 
 
 --
@@ -859,6 +897,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210506190331'),
 ('20210506193527'),
 ('20210530194229'),
-('20210903095035');
+('20210903095035'),
+('20210923121737');
 
 

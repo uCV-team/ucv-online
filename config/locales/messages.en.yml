@@ -1,13 +1,13 @@
 en:
-  contacts:
-    head: Contacts
+  messages:
+    head: Messages
     name: Name
     email: Email
     phone: Phone
-    message: Message
+    content: Content
     received_at: Received At
     status: Status
-    details: Contact Details
+    details: Message Details
     header: Sender:-
     dropdown: Received from:-
     actions: Actions

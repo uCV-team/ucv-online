@@ -1,4 +1,4 @@
-contact:
+message:
   user: john
   name: <%= Faker::Name.name %>
   email: <%= Faker::Internet.email %>

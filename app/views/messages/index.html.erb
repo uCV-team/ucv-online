@@ -1,0 +1,51 @@
+<div class="container middle-container-1 cvpage">
+  <div class="pt-5">
+    <h1 class="text-primary ml-2">
+      <%= t('messages.head') %>
+    </h1>
+    <div class="table-responsive-sm">
+      <table class="table table-striped table-bordered my-5">
+        <thead>
+          <tr class="box-header table-active">
+            <th><%= t('messages.name') %></th>
+            <th><%= t('messages.email') %></th>
+            <th><%= t('messages.phone') %></th>
+            <th><%= t('messages.content') %></th>
+            <th><%= t('messages.received_at') %></th>
+            <th class="text-center"><%= t('messages.status') %></th>
+            <th class="text-center"><%= t('messages.actions') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @messages.each do |message| %>
+            <tr>
+              <td><%= message.name %></td>
+              <td><%= message.email %></td>
+              <td><%= message.phone %></td>
+              <td><%= link_to short_desc(message.content, 40), message_path(message.id), class: 'show_message' %></td>
+              <td><%= message.created_at %></td>
+              <td class="text-center pt-3"><%= message_label(message) %></td>
+              <td class="text-center">
+                <%= link_to message_path(message.id) do %>
+                  <i class="fa fa-eye fa_icon mr-2"></i>
+                <% end %>
+                <% if message.status == 'spam' %>
+                  <%= link_to message_path(message.id, message: { status: 'open' }), method: :put do %>
+                    <i class="fa fa-flag mt-2 fa_icon text-success"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to message_path(message.id, message: { status: 'spam' }), method: :put do %>
+                    <i class="fa fa-flag mt-2 fa_icon text-danger"></i>
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center mb-5">
+        <%= paginate @messages, window: 2 %>
+      </div>
+    </div>
+  </div>
+</div>

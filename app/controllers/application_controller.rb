@@ -49,6 +49,6 @@ class ApplicationController < ActionController::Base
   end
 
   def notifications
-    @all_contacts = current_user.contacts.where(status: 'new')
+    @all_messages = current_user.messages.where(status: 'new')
   end
 end

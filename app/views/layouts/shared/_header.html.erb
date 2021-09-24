@@ -29,19 +29,19 @@
               <button class="btn text-primary notification pb-0" type="button" id="dropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <p class="notification">
                   <h5 class ="fas fa-envelope mb-0 font-size-32" ></h5>
-                  <p class="badge-info rounded-circle counter <%= 'd-none' if @all_contacts.count == 0 %>"><%= @all_contacts.count %></p>
+                  <p class="badge-info rounded-circle counter <%= 'd-none' if @all_messages.count == 0 %>"><%= @all_messages.count %></p>
                 </p>
               </button>
               <div class="dropdown-menu dropdown-menu-right border-0 shadow mt-2" aria-labelledby="dropdownMenuButton">
-                <% @all_contacts.order(created_at: :desc).first(4).each do |contact| %>
-                  <%= link_to contact_path(contact.id), class: 'text-decoration-none' do %>
+                <% @all_messages.order(created_at: :desc).first(4).each do |message| %>
+                  <%= link_to message_path(message.id), class: 'text-decoration-none' do %>
                     <div class="dropdown-item py-2 badge-primary-lt">
-                      <%= t('contacts.dropdown') %><b> <%= contact.name.capitalize %></b>
+                      <%= t('messages.dropdown') %><b> <%= message.name.capitalize %></b>
                     </div>
                   <% end %>
                 <% end %>
                 <hr class="my-1">
-                <%= link_to t('layouts.nav.contacts'), contacts_path, class: 'dropdown-item py-2 badge-primary-lt font-weight-bold' %>
+                <%= link_to t('layouts.nav.messages'), messages_path, class: 'dropdown-item py-2 badge-primary-lt font-weight-bold' %>
               </div>
               <li>
                 <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

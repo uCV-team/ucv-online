@@ -1,6 +1,6 @@
-module ContactsHelper
-  def contact_label(contact)
-    case contact.status
+module MessagesHelper
+  def message_label(message)
+    case message.status
     when 'new'
       content_tag(:span, 'NEW',  class: 'badge badge-success')
     when 'open'

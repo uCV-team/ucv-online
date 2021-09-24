@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   has_one :cv, dependent: :destroy
   has_many :locations, dependent: :destroy
-  has_many :contacts, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   has_one :current_location, dependent: :destroy, class_name: 'Location'
 

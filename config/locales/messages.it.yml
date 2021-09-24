@@ -1,10 +1,10 @@
 it:
-  contacts:
+  messages:
     head: Messaggi
     name: Nome
     email: Email
     phone: Telefono
-    message: Messaggio
+    content: Messaggio
     received_at: Ricevuto
     status: Stato
     details: Dettagli
