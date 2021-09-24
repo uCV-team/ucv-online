@@ -218,25 +218,11 @@ CREATE TABLE public.ar_internal_metadata (
 --
 --
 
-    id bigint NOT NULL,
-    created_at timestamp without time zone NOT NULL,
 );
 
 
 --
 --
-
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
---
-
-
 
 --
 -- Name: cvs; Type: TABLE; Schema: public; Owner: -
