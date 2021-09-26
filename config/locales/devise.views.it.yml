@@ -119,11 +119,18 @@ it:
         are_you_sure: Sei sicuro?
         cancel_my_account: Rimuovi il mio account
         currently_waiting_confirmation_for_email: 'In attesa di conferma per: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: lascia in bianco se non vuoi cambiarla
-        title: Modifica %{resource}
+        leave_blank: leave blank if you don't want to change it
+        title: Edit your account
         unhappy: Scontento
         update: Aggiorna
-        we_need_your_current_password_to_confirm_your_changes: abbiamo bisogno della tua password attuale per confermare i cambiamenti
+        email: Email* (Your registered email)
+        password:
+          new: Nuova Password (lascia in bianco se non vuoi cambiarla)
+          re_enter: Ripeti Password (lascia in bianco se non vuoi cambiarla)
+          current: Password attuale* (serve la tua password per confermare queste modifiche)
+        subdomain: 'Cambia Sottodominio* (Per esempio: "tuo-nome")'
+        update: Aggiorna il tuo account
+        updating_details: Updating account...
       new:
         sign_up: Registrati
       signed_up: Iscrizione eseguita correttamente. Se abilitata, una conferma è stata inviata al tuo indirizzo email.

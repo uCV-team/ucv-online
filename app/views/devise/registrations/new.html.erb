@@ -26,13 +26,6 @@
                 </div>
               </div>
               <div class="col-12">
-                <div class="form-group mb-5">
-                  <label class="text-muted d-block"><%= t('devise.registrations.subdomain') %>*</label>
-                  <%= f.text_field :subdomain, placeholder: t('devise.registrations.placeholder.subdomain'), class: 'form-control form-control-lg' %>
-                  <label class="text-muted d-block"><%= t('devise.registrations.placeholder.subdomain_example') %></label>
-                </div>
-              </div>
-              <div class="col-12">
                 <div class="form-group mb-5 input-with-icon">
                   <label class="text-muted d-block"><%= t('devise.registrations.email') %>*</label>
                   <i class="icon-envelope text-muted"></i>
@@ -65,7 +58,7 @@
               </div>
             </div>
             <div class="py-5 w-100">
-              <%= f.submit t('devise.registrations.sign_up'), data: { disable_with: t('devise.registrations.signing_up') }, class: 'btn btn-primary w-100 rounded' %>
+              <%= f.submit t('devise.registrations.sign_up'), data: { disable_with: t('devise.registrations.signing_up') }, class: 'btn btn-primary w-100 rounded', id: 'register_user' %>
             </div>
           <% end %>
 

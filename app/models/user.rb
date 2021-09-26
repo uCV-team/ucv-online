@@ -8,12 +8,11 @@ class User < ApplicationRecord
 
   has_one :current_location, dependent: :destroy, class_name: 'Location'
 
-  before_validation :sanitize_subdomain
-
   validates :first_name, :last_name, presence: true
-  validates :subdomain, presence: true, uniqueness: true, subdomain: true
+  validates :subdomain, presence: true, uniqueness: true, subdomain: true, on: :update
 
   after_initialize :prepare_blank_cv, if: :new_record?
+  before_create :set_subdomain
 
   accepts_nested_attributes_for :cv
   accepts_nested_attributes_for :current_location, reject_if: proc { |attributes|
@@ -40,7 +39,10 @@ class User < ApplicationRecord
     self.cv ||= Cv.new
   end
 
-  def sanitize_subdomain
-    self.subdomain = subdomain.squish.strip.downcase.parameterize
+  def set_subdomain
+    self.subdomain = loop do
+      unique_subdomain = (first_name.downcase + rand.to_s[2..4]).to_s.tr('.', '-')
+      break unique_subdomain unless self.class.exists?(subdomain: unique_subdomain)
+    end
   end
 end

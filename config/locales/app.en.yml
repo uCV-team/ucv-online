@@ -150,6 +150,7 @@ en:
       delete_account: "Delete Account"
       menuitem1: 'Sign up to create your profile and CV'
       menuitem2: 'Sign in to update your profile and CV'
+      account: Edit account
     footer:
       links: 'Helpful Links'
       sign_in: 'Login'

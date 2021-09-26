@@ -127,11 +127,18 @@ en:
         are_you_sure: Are you sure?
         cancel_my_account: Cancel my account
         currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
-        title: Edit %{resource}
+        leave_blank: leave blank if you don't want to change it
+        title: Edit your account
         unhappy: Unhappy?
         update: Update
-        we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
+        email: Email* (Your registered email)
+        password:
+          new: New Password (leave blank if you don't want to change)
+          re_enter: Re-Enter (leave blank if you don't want to change)
+          current: Current Password* (we need current password to confirm changes)
+        subdomain: 'Change Subdomain* (For instance: "your-name")'
+        update: 'Update your account'
+        updating_details: Updating account...
       new:
         sign_up: Sign up
       signed_up: Welcome! You have signed up successfully.
