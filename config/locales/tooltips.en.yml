@@ -8,3 +8,5 @@ en:
     extras:
       interests: 'Short description of both your job-related and job-unrelated interests.'
       future_plans: 'What would you want to accomplish in the next 3 years, from a professional perspective?'
+    buttons:
+      publish_html: "<span class='text-white'>You need to confirm your PubliCV account first. <br>Click <a class='text-primary bg-light font-weight-bold text-decoration-none' href='%{url}'>here</a> to confirm</span>"

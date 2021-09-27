@@ -77,3 +77,10 @@ document.addEventListener('turbolinks:load', () => {
       return send.apply(this, arguments)
     }
 })()
+
+// Used to initialize tooltip on CV show page
+$(function () {
+  $('[data-placement="top"]').tooltip({
+    html: true
+  })
+})
