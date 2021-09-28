@@ -34,3 +34,6 @@ RECAPTCHA_SECRET_KEY_V2: "recaptcha secret key"
 
 # new Relic
 NEW_RELIC_LICENSE_KEY: 'new relic license key'
+
+# Spam_keywords
+SPAM_KEYWORDS: 'spam_keywords'

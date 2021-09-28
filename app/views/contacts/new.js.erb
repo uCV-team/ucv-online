@@ -1,7 +1,0 @@
-<%= render('shared/modal_toggle', id: '#new_contact') { j render 'new_modal' } %>
-
-$("#confirmSubscribe").on('click', function() {
-  let submitBtn = document.getElementById('contact-save')
-  if (this.checked) submitBtn.disabled = false;
-  else submitBtn.disabled = true;
-})

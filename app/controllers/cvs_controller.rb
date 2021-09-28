@@ -1,20 +1,12 @@
 class CvsController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  load_and_authorize_resource
   before_action :set_cv, only: [:show]
   before_action :find_cv, only: %i[edit update download]
   respond_to :html, :js
 
   def show
-    if request.path == root_path
-      @cv_edit_controls = false
-    elsif current_user.present? && current_user.id == @cv.user_id
-      @cv_edit_controls = params[:preview] != 't'
-      @user = current_user
-    elsif @cv.published?
-      @cv_edit_controls = false
-    else
-      redirect_to root_domain_url
-    end
+    # cannot access unpublished Cv except self
+    authorize! :read, @cv
   end
 
   def edit
@@ -27,7 +19,6 @@ class CvsController < ApplicationController
 
   def update
     @user = current_user
-    @cv_edit_controls = true
 
     respond_to do |format|
       if @cv.update(cv_params)
@@ -40,10 +31,9 @@ class CvsController < ApplicationController
   end
 
   def download
-    @cv_edit_controls = false
     pdf_html = ApplicationController.new.render_to_string(
       template: 'cvs/printings/show',
-      locals: { :@cv => @cv, :@cv_edit_controls => @cv_edit_controls, :@user => current_user },
+      locals: { :@cv => @cv, :@user => current_user },
       layout: 'pdf'
     )
     pdf = WickedPdf.new.pdf_from_string(pdf_html, footer: { left: '[page] / [topage]' })

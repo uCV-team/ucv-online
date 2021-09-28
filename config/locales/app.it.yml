@@ -128,10 +128,10 @@ it:
       search:
         header: "Search"
         home: "Cerca candidati"
-      contact:
+      message:
         title: "Contatto %{user_name}"
         name: "Il tuo nome e titolo professionale"
-        message: "Scrivi qui il tuo messaggio"
+        content: "Scrivi qui il tuo messaggio"
         phone: "Numero di telefono per ricevere la risposta"
         email: "Email per la risposta"
         accept_html: "Dichiaro di accettare i <a href='/legal/terms'>termini del servizio</a> e l'<a href='/legal/privacy-policy'>informativa sulla privacy</a>."
@@ -151,6 +151,7 @@ it:
       menuitem1: 'Iscriviti per creare il tuo CV digitale'
       menuitem2: 'Accedi per aggiornare il tuo CV'
       account: Modifica
+      messages: 'Tutti i messaggi'
     footer:
       links: 'Collegamenti utili'
       sign_in: 'Accesso'

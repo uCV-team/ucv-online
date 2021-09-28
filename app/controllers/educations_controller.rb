@@ -1,5 +1,5 @@
 class EducationsController < ApplicationController
-  before_action :authenticate_user!
+  load_and_authorize_resource
   before_action :set_cv
   before_action :set_education, only: %i[edit update destroy]
   skip_before_action :verify_authenticity_token, only: [:update_positions]
@@ -54,7 +54,6 @@ class EducationsController < ApplicationController
 
   def set_cv
     @cv = current_user.cv
-    @cv_edit_controls = true
   end
 
   def set_education

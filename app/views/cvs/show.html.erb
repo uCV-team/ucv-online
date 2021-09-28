@@ -1,7 +1,7 @@
 <!-- CV sections
 ================================================== -->
 <div class="container middle-container-2 cvpage pb-40 pb-md-80">
-  <% if @user.present? && @cv_edit_controls.present? %>
+  <% if can? :update, @cv %>
     <% if @cv.published? %>
       <p class="border-bottom border-primary text-muted py-3 mb-0">
         <i class="icon-info mr-2"></i>
@@ -44,9 +44,9 @@
       </div>
     </div>
 
-    <% unless @cv_edit_controls %>
+    <% unless edit_mode? %>
       <div class="row mt-2 justify-content-center">
-        <%= link_to "Contact #{@user.first_name}", new_contact_path("contact[user_id]" => @user.id), class: "btn btn-outline-primary mx-2", remote: true %>
+        <%= link_to "Contact #{@user.first_name}", new_message_path("message[user_id]" => @user.id), class: "btn btn-outline-primary mx-2", remote: true %>
       </div>
     <% end %>
   </div>

@@ -32,4 +32,49 @@ class CvsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_template 'cvs/errors'
   end
+
+  # accessibility tests
+
+  test 'logged in user can only read other user\'s published Cvs' do
+    # logged in as john
+    other_cv = cvs(:john_cv_2)
+    other_user = other_cv.user
+
+    # can read other user's published cv
+    get cv_section_path(other_user.subdomain)
+    assert_response :success
+
+    other_cv.published = false
+    other_cv.save!
+
+    # cannot read other user's unpublished cv
+    get cv_section_path(other_user.subdomain)
+    assert_response :redirect
+  end
+
+  test 'guest user can only read published Cvs' do
+    logout
+    cv = cvs(:john_cv_2)
+    user = cv.user
+
+    # can read user's published cv
+    get cv_section_path(user.subdomain)
+    assert_response :success
+
+    cv.published = false
+    cv.save!
+
+    # cannot read user's unpublished cv
+    get cv_section_path(user.subdomain)
+    assert_response :redirect
+  end
+
+  test 'Cv can only be modified by its owner' do
+    get edit_cv_section_path(section: 'summary'), xhr: true
+    assert_response :success
+
+    logout
+    get edit_cv_section_path(section: 'summary'), xhr: true
+    assert_response :redirect
+  end
 end

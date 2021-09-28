@@ -1,0 +1,7 @@
+<%= render('shared/modal_toggle', id: '#new_message') { j render 'new_modal' } %>
+
+$("#confirmSubscribe").on('click', function() {
+  let submitBtn = document.getElementById('message-save')
+  if (this.checked) submitBtn.disabled = false;
+  else submitBtn.disabled = true;
+})

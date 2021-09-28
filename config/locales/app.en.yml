@@ -128,10 +128,10 @@ en:
       search:
         header: "Search"
         home: "Search Candidates"
-      contact:
-        title: "Contact %{user_name}"
+      message:
+        title: "Message %{user_name}"
         name: "Your Name and professional title"
-        message: "Write your message here"
+        content: "Write your message here"
         phone: "Telephone number to receive the answer"
         email: "Email for the response"
         accept_html: "I declare to accept the <a href='/legal/terms'>terms of service</a> and the <a href='/legal/privacy-policy'>privacy policy</a>."
@@ -151,6 +151,7 @@ en:
       menuitem1: 'Sign up to create your profile and CV'
       menuitem2: 'Sign in to update your profile and CV'
       account: Edit account
+      messages: 'View all Messages'
     footer:
       links: 'Helpful Links'
       sign_in: 'Login'

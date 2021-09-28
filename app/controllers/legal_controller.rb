@@ -1,4 +1,6 @@
 class LegalController < ApplicationController
+  skip_authorization_check
+
   def terms
     render "legal/terms_#{I18n.locale}"
   end

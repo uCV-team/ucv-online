@@ -1,0 +1,4 @@
+<%= render 'shared/modal_header', id: 'new_message',
+title: t('content.main.message.title', user_name: @user.first_name) do
+ %><%= render 'form', id: 'new_message' %>
+<% end %>

@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   include InitialMapCentering
+  skip_authorization_check
   before_action :set_initial_map_position, only: [:index]
 
   def index

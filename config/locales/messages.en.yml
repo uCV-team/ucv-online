@@ -1,0 +1,13 @@
+en:
+  messages:
+    head: Messages
+    name: Name
+    email: Email
+    phone: Phone
+    content: Content
+    received_at: Received At
+    status: Status
+    details: Message Details
+    header: Sender:-
+    dropdown: Received from:-
+    actions: Actions

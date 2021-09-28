@@ -2,6 +2,10 @@ en:
   flash:
     searches:
       query_blank: please insert a search term in order to look for candidates!
-    contacts:
+    messages:
       recaptcha: 'Recaptcha failed. Please try again'
       success: Successfully sent the email to %{user_name}
+      notice: Status updated to "%{status}" successfully
+      update:
+        success: Message updated successfully!
+    authorization: You are not authorized to access this page.

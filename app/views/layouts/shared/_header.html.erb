@@ -26,6 +26,23 @@
                   <%= link_to t('layouts.nav.edit_your_cv'), cv_section_path(current_user.subdomain) , class: 'btn btn-lg btn-outline-primary mx-2'%>
                 <% end %>
               </div>
+              <button class="btn text-primary notification pb-0" type="button" id="dropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <p class="notification">
+                  <h5 class ="fas fa-envelope mb-0 font-size-32" ></h5>
+                  <p class="badge-info rounded-circle counter <%= 'd-none' if @all_messages.count == 0 %>"><%= @all_messages.count %></p>
+                </p>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right border-0 shadow mt-2" aria-labelledby="dropdownMenuButton">
+                <% @all_messages.order(created_at: :desc).first(4).each do |message| %>
+                  <%= link_to message_path(message.id), class: 'text-decoration-none' do %>
+                    <div class="dropdown-item py-2 badge-primary-lt">
+                      <%= t('messages.dropdown') %><b> <%= message.name.capitalize %></b>
+                    </div>
+                  <% end %>
+                <% end %>
+                <hr class="my-1">
+                <%= link_to t('layouts.nav.messages'), messages_path, class: 'dropdown-item py-2 badge-primary-lt font-weight-bold' %>
+              </div>
               <li>
                 <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <%= image_tag(current_user.cv.headshot.url(:default), alt: "profile-pic", class: 'img-fluid rounded-circle', width: '32') %>

@@ -1,5 +1,5 @@
 class LanguagesController < ApplicationController
-  before_action :authenticate_user!
+  load_and_authorize_resource
   before_action :set_cv
   before_action :set_language, only: %i[edit update destroy]
   respond_to :html, :js
@@ -40,7 +40,6 @@ class LanguagesController < ApplicationController
 
   def set_cv
     @cv = current_user.cv
-    @cv_edit_controls = true
   end
 
   def set_language

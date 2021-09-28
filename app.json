@@ -6,7 +6,7 @@
   "logo": "https://publicv.org/packs/images/logo-5b27f2a1351953d8f820754ff58586a0.svg",
   "buildpacks": [
     { "url": "heroku/ruby" },
-    { "url": "heroku/google-chrome" },
+    { "url": "https://github.com/Ottermad/heroku-buildpack-google-chrome" },
     { "url": "heroku/chromedriver" }
   ],
    "environments": {
