@@ -55,7 +55,7 @@ it:
             title: "Modifica foto"
         flag:
           desc: Aiutaci a capire il problema di questo publiCV
-          radio:
+          reasons:
             hateful: Contenuto offensivo o ingiurioso
             spam: Spam o ingannevole
             infringing: Viola i miei diritti

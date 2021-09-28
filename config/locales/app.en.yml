@@ -54,7 +54,7 @@ en:
             title: "Edit CV profile picture"
         flag:
           desc: Help us understand the problem with this publiCV profile.
-          radio:
+          reasons:
             hateful: Hateful or abusive content.
             spam: Spam or misleading
             infringing: Infringes my rights
