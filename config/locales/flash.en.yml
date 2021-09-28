@@ -9,3 +9,7 @@ en:
       update:
         success: Message updated successfully!
     authorization: You are not authorized to access this page.
+    cvs:
+      flags:
+        create:
+          success: Marked the user as flag.

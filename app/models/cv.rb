@@ -11,6 +11,7 @@ class Cv < ApplicationRecord
   has_many :languages, dependent: :destroy
   has_many :locations, through: :user
   has_one  :current_location, through: :user
+  has_many :flags, dependent: :destroy
 
   validates :about, :authorization_statement, length: { maximum: ABOUT_MAX_LENGTH }
   validates :future_plans, :authorization_statement, length: { maximum: INFO_MAX_LENGTH }
@@ -80,6 +81,10 @@ class Cv < ApplicationRecord
 
   def gender_female?
     gender == 'f'
+  end
+
+  def flagged_by?(user_id)
+    flags.where(user_id: user_id).any?
   end
 
   private

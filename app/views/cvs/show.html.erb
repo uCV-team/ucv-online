@@ -16,7 +16,30 @@
   <% end %>
 
   <div class="border-top border-primary">
-    <div class="border pt-6">
+    <div class="border <%= 'pt-6' if @cv_edit_controls %>">
+      <% unless @cv_edit_controls %>
+        <% if user_signed_in? %>
+          <% if @cv.flagged_by?(current_user.id) %>
+            <h4 class="text-right text-primary pt-2 mr-2">
+              <i class="fa fa-flag"></i>
+            </h4>
+          <% else %>
+            <%= link_to('#', data: { toggle: 'modal', target: '#newFlagModal',
+                        url: new_cvs_flag_path(cv_id: @cv.id)},
+                        id: 'flag-cv') do %>
+              <h4 class="text-right text-primary pt-2 mr-2">
+                <i class="fas fa-ellipsis-h"></i>
+              </h4>
+            <% end %>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path do %>
+            <h4 class="text-right text-primary pt-2 mr-2">
+              <i class="fas fa-ellipsis-h"></i>
+            </h4>
+          <% end %>
+        <% end %>
+      <% end %>
       <div class="intro-section">
         <%= render 'cvs/cv_sections/intro' %>
       </div>
@@ -52,3 +75,12 @@
   </div>
 </div>
 <%= render(partial: 'shared/custom') %>
+<%= render(partial: 'cvs/flags/new') %>
+<script>
+flag_icon = document.getElementById('flag-cv')
+if (flag_icon) {
+  document.getElementById('flag-cv').addEventListener('click',function(e) {
+    $("#flag-modal-body").load(this.getAttribute("data-url"));
+  })
+}
+</script>

@@ -52,6 +52,13 @@ en:
             title: "Edit authorization statement"
           headshot:
             title: "Edit CV profile picture"
+        flag:
+          desc: Help us understand the problem with this publiCV profile.
+          reasons:
+            hateful: Hateful or abusive content.
+            spam: Spam or misleading
+            infringing: Infringes my rights
+            other: Other
         new:
           education:
             degree: "Degree"

@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   resources :searches, only: %i[create show]
   resources :cv_markers, only: %i[index]
   resolve('Cv') { [:cv] }
-
+  namespace :cvs do
+    resources :flags, only: %i[new create]
+  end
   # resources :locations, except: %i[index show]
 end
