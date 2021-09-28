@@ -19,7 +19,7 @@ john_2:
   last_name: <%= Faker::Name.last_name %>
   email: <%= Faker::Internet.email %>
   encrypted_password: <%= Devise::Encryptor.digest(User, "supersecret") %>
-  subdomain: <%= Faker::Name.first_name %>
+  subdomain: <%= Faker::Name.first_name.downcase %>
   confirmed_at: <%= Time.zone.now %>
 
 john_3:
