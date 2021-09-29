@@ -1,5 +1,6 @@
 module Cvs
   class FlagsController < ApplicationController
+    skip_authorization_check
     before_action :flagged_cv, only: [:create]
     def new
       @flag = Flag.new
@@ -7,7 +8,7 @@ module Cvs
     end
 
     def create
-      @flag = Flag.new(flag_params)
+      @flag = Flag.new(sanitized_flag_params)
       if @flag.save
         flash[:success] = t('.success', scope: 'flash')
       else
@@ -20,6 +21,11 @@ module Cvs
 
     def flag_params
       params.require(:flag).permit(:cv_id, :user_id, :reason)
+    end
+
+    def sanitized_flag_params
+      flag_params[:reason] << ': ' + params[:flag][:message] if params[:flag][:message].present?
+      flag_params
     end
 
     def flagged_cv

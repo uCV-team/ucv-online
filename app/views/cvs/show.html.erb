@@ -16,8 +16,8 @@
   <% end %>
 
   <div class="border-top border-primary">
-    <div class="border <%= 'pt-6' if @cv_edit_controls %>">
-      <% unless @cv_edit_controls %>
+    <div class="border <%= 'pt-6' if can? :update, @cv %>">
+      <% unless can? :update, @cv %>
         <% if user_signed_in? %>
           <% if @cv.flagged_by?(current_user.id) %>
             <h4 class="text-right text-primary pt-2 mr-2">
