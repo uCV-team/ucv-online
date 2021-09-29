@@ -6,10 +6,10 @@
   <%= f.hidden_field :cv_id, value: params[:cv_id] %>
   <%= f.hidden_field :user_id, value: current_user.id %>
 
-  <% t('content.main.cv.flag.radio').each do |key, value| %>
+  <% t('content.main.cv.flag.reasons').each do |key, value| %>
     <div class="radio_button ml-5">
       <label>
-        <%= f.radio_button :reason, "#{key}", checked: index == 0, onchange: "textFieldHandler(this)"  %>
+        <%= f.radio_button :reason, "#{value}", checked: index == 0, data: { key: key }, onchange: "textFieldHandler(this)"  %>
         <%= value %>
       </label>
     </div>
@@ -17,7 +17,7 @@
   <% end %>
 
   <div class="text-center ml-4">
-    <%= text_area_tag 'flag[reason]', nil, class:'d-none w-100', disabled: true %>
+    <%= text_area_tag 'flag[message]', nil, class:'d-none w-100', disabled: true, required: true %>
   </div>
 
   <hr class='pb-2'>
@@ -33,8 +33,8 @@
 
 <script>
   function textFieldHandler(e){
-    other_text_field = document.getElementById('flag_reason');
-    if(e.value == 'infringing' || e.value == 'other'){
+    other_text_field = document.getElementById('flag_message');
+    if(e.dataset.key == 'infringing' || e.dataset.key == 'other'){
       other_text_field.disabled = false;
       other_text_field.classList.remove('d-none');
     } else {
