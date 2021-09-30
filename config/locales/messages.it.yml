@@ -10,4 +10,7 @@ it:
     details: Dettagli
     header: Mittente
     dropdown: Ricevuto da:-
-    actions: Azioni
+    actions:
+      title: Actions
+      spam: Mark as spam
+      not_spam: Remove spam

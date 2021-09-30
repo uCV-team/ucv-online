@@ -10,4 +10,7 @@ en:
     details: Message Details
     header: Sender:-
     dropdown: Received from:-
-    actions: Actions
+    actions:
+      title: Actions
+      spam: Mark as spam
+      not_spam: Remove spam
