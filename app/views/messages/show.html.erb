@@ -1,8 +1,8 @@
 <div class="container middle-container-1 cvpage">
   <div class="pt-5">
-    <h1 class="text-primary ml-2">
+    <h3 class="text-primary ml-3">
       <%= t('messages.details') %>
-    </h1>
+    </h3>
     <div class="card my-5 w-75 ml-3">
       <h5 class="card-header">
         <%= t('messages.header') %> <b><%= @message.name.upcase %></b>
@@ -15,7 +15,9 @@
         </h5>
         <p class="card-text mx-3"></b><%= @message.content %></p>
         <div class="d-flex justify-content-center mt-4">
-          <%= link_to t('content.main.buttons.back'), :back, class: 'btn btn-lg btn-primary' %>
+          <%= link_to messages_path, class: 'btn btn-primary' do %>
+            <%= t('content.main.buttons.back') %>
+          <% end %>
         </div>
       </div>
     </div>

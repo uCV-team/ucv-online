@@ -66,6 +66,7 @@ window.enableSortable = function () {
 document.addEventListener('turbolinks:load', () => {
   handleSelect();
   window.enableSortable();
+  loadTooltips();
 });
 
 (function() {
@@ -79,8 +80,8 @@ document.addEventListener('turbolinks:load', () => {
 })()
 
 // Used to initialize tooltip on CV show page
-$(function () {
-  $('[data-placement="top"]').tooltip({
+function loadTooltips(){
+  $('[data-toggle="tooltip"]').tooltip({
     html: true
   })
-})
+};
