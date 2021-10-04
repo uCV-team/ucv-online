@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  DATATABLE_COLUMNS = %w[email first_name tel subdomain created_at].freeze
   devise :database_authenticatable, :recoverable, :registerable, :rememberable,
          :timeoutable, :trackable, :validatable, :confirmable
 
@@ -32,6 +33,23 @@ class User < ApplicationRecord
 
   def cv_public_url
     "http://#{cv_public_domain}"
+  end
+
+  def self.datatable_filter(search_value, search_columns)
+    return all if search_value.blank?
+
+    result = none
+    search_columns.each do |key, value|
+      if value['searchable'] == 'true'
+        filter = where("#{DATATABLE_COLUMNS[key.to_i]} ILIKE ?", "%#{search_value}%")
+        result = result.or(filter)
+      end
+    end
+    result
+  end
+
+  def self.datatable_order(order_column_index, order_dir)
+    order("#{DATATABLE_COLUMNS[order_column_index]} #{order_dir}")
   end
 
   private
