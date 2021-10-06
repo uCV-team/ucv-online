@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :locations, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :flags, dependent: :destroy
+  has_and_belongs_to_many :roles
 
   has_one :current_location, dependent: :destroy, class_name: 'Location'
 
@@ -50,6 +51,10 @@ class User < ApplicationRecord
 
   def self.datatable_order(order_column_index, order_dir)
     order("#{DATATABLE_COLUMNS[order_column_index]} #{order_dir}")
+  end
+
+  def has_role?(user_role)
+    roles.any? { |role| role.name == user_role }
   end
 
   private

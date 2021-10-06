@@ -1,5 +1,4 @@
 class Admin::UsersController < Admin::BaseController
-  skip_authorization_check
   before_action :set_user, only: [:destroy]
   def index; end
 

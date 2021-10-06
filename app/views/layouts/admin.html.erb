@@ -22,6 +22,7 @@
       <%= render 'layouts/admin/header' %>
       <main class='main-content bgc-grey-100'>
         <div id='mainContent'>
+        <%= render 'layouts/shared/flash_messages' %>
           <%= yield %>
         </div>
       </main>
@@ -54,6 +55,11 @@
     border-radius: 100%;
     -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
     animation: sk-scaleout 1.0s infinite ease-in-out;
+  }
+  .alert-notice {
+    color: #114e7e;
+    background-color: #d3eafd;
+    border-color: #c1e2fc;
   }
 </style>
 <script>

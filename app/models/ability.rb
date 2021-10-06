@@ -4,13 +4,21 @@ class Ability
   def initialize(current_user)
     guest_permissions
     return unless current_user
-    user_permissions(current_user)
+    if current_user.has_role?('admin')
+      admin_permissions
+    else
+      user_permissions(current_user)
+    end
   end
 
   def guest_permissions
     can :read, Location
     can :read, Cv, published: true
     can :create, Message
+  end
+
+  def admin_permissions
+    can :manage, :all
   end
 
   def user_permissions(current_user)

@@ -27,7 +27,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resource :home, only: [:show]
-    resources :users, only: [:index, :destroy]
+    resources :users, only: %i[index destroy]
+    get 'users/records', to: 'users#records'
   end
   resources :accounts, only: :destroy
   resource :cv, except: %i[new edit create destroy show] do
