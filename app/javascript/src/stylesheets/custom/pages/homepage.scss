@@ -19,7 +19,10 @@
 }
 
 .card-width {
-  width: 16.25rem;
+  width: 26rem;
+}
+.card-height {
+  height: 15rem;
 }
 
 .carousel-indicators .active {
@@ -58,7 +61,15 @@
   display: flex;
   flex-wrap: nowrap;
   overflow: auto;
+  margin-left: 12rem;
+  margin-right: 12rem;
 }
 .scroller::-webkit-scrollbar {
   display: none;
+}
+@media only screen and (max-width: 768px) {
+  .scroller {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 }
