@@ -31,6 +31,7 @@ class Cv < ApplicationRecord
   scope :published, -> { where(published: true) }
   scope :headshot_present, -> { where.not(headshot_file_name: nil) }
   scope :about_present, -> { where('CHAR_LENGTH(about) > 140') }
+  scope :experience_present, -> { joins(:experiences).includes(:experiences) }
 
   before_save :delete_headshot, if: -> { remove_headshot == '1' }
   before_create :set_authorization_statement
