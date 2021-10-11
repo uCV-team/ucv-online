@@ -52,6 +52,10 @@ module Users
       devise_parameter_sanitizer.permit(:account_update, keys: [:subdomain])
     end
 
+    def after_update_path_for(resource)
+      cv_section_path(resource.subdomain)
+    end
+
     # The path used after sign up.
     # def after_sign_up_path_for(resource)
     #   super(resource)
