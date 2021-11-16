@@ -57,6 +57,10 @@ class User < ApplicationRecord
     roles.any? { |role| role.name == user_role }
   end
 
+  def full_name
+    "#{first_name.capitalize} #{last_name.capitalize}"
+  end
+
   private
 
   def prepare_blank_cv
