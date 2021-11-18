@@ -6,7 +6,7 @@ class Admin::ApplicationDatatable
     @view = view
   end
 
-  def as_json(options = {})
+  def as_json(_options = {})
     {
       recordsTotal: count,
       recordsFiltered: total_entries,
@@ -29,6 +29,6 @@ class Admin::ApplicationDatatable
   end
 
   def sort_direction
-    params[:order]['0'][:dir] == "desc" ? "desc" : "asc"
+    params[:order]['0'][:dir] == 'desc' ? 'desc' : 'asc'
   end
 end

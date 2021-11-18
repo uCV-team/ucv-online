@@ -1,11 +1,13 @@
 module Admin
   class FlagsDatatable < Admin::ApplicationDatatable
+    delegate :cv_section_path, to: :@view
+
     private
 
     def data
       flags.includes(:user, cv: [:user]).map do |flag|
         [].tap do |column|
-          column << flag.cv.full_name if flag.cv.present?
+          column << link_to(flag.cv.full_name, cv_section_path(flag.cv.subdomain), target: :_blank) if flag.cv.present?
           column << flag.user.full_name if flag.user.present?
           column << flag.reason
           column << format_datetime(flag.created_at)

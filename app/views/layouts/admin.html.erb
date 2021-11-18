@@ -8,15 +8,10 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%#= stylesheet_link_tag 'https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap' %>
-    <%# = favicon_link_tag asset_pack_path('icons/favicon.png') %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= yield :header %> 
   </head>
   <body class="app">
-    <div id='loader'>
-      <div class="spinner"></div>
-    </div>
     <%= render 'layouts/admin/sidebar' %>
     <div class="page-container">
       <%= render 'layouts/admin/header' %>
@@ -29,44 +24,3 @@
     </div>
   </body>
 </html>
-<style>
-  #loader {
-    transition: all 0.3s ease-in-out;
-    opacity: 1;
-    visibility: visible;
-    position: fixed;
-    height: 100vh;
-    width: 100%;
-    background: #fff;
-    z-index: 90000;
-  }
-
-  #loader.fadeOut {
-    opacity: 0;
-    visibility: hidden;
-  }
-  .spinner {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: calc(50% - 20px);
-    left: calc(50% - 20px);
-    background-color: #333;
-    border-radius: 100%;
-    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
-    animation: sk-scaleout 1.0s infinite ease-in-out;
-  }
-  .alert-notice {
-    color: #114e7e;
-    background-color: #d3eafd;
-    border-color: #c1e2fc;
-  }
-</style>
-<script>
-  window.addEventListener('load', function load() {
-    const loader = document.getElementById('loader');
-    setTimeout(function() {
-      loader.classList.add('fadeOut');
-    }, 300);
-  });
-</script>

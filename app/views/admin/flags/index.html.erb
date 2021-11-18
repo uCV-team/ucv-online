@@ -21,11 +21,12 @@
   </div>
 </div>
 <script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", function(event) {
+  document.addEventListener("turbolinks:load", function(event) {
     $('#dataTable_flags').dataTable({
       "scrollX": true,
       processing: true,
       serverSide: true,
+      "retrieve": true,
       "columns": [
           { "searchable": true },
           { "searchable": true },
