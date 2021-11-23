@@ -1,0 +1,22 @@
+it:
+  sidebar:
+    dashboard: Pannello
+    users: Utenti
+    flags: Bandiere
+  home_page:
+    header: Welcome to PubliCV Admin Panel
+  user_page:
+    header: All PubliCV users
+    datatable_columns:
+      email: E-mail
+      full_name: Nome e cognome
+      telephone: Telefono
+      subdomain: User's CV
+      created_at: Creato a
+  flag_page:
+    header: All Flags
+    datatable_columns:
+      flagged_cv: Flagged CV
+      flagged_by: Flagged By User
+      reason: Motivo
+      created_at: Creato a

@@ -34,8 +34,9 @@ module Admin
       end
 
       flags = Flag.order("#{sort_column} #{sort_direction}")
+      search_params = flags.sanitize_sql_for_conditions("%#{params[:search][:value]}%")
+      flags = flags.where(search_string.join(' or '), search: search_params)
       flags = flags.page(page).per(per_page)
-      flags = flags.where(search_string.join(' or '), search: "%#{params[:search][:value]}%")
     end
 
     def columns

@@ -1,5 +1,4 @@
 class Admin::UsersController < Admin::BaseController
-  before_action :set_user, only: [:destroy]
   def index; end
 
   def records
@@ -14,16 +13,5 @@ class Admin::UsersController < Admin::BaseController
                    draw: params['draw'].to_i,
                    recordsTotal: User.count,
                    recordsFiltered: filtered_users }
-  end
-
-  # def destroy
-  #   debugger
-  #   @user.destroy!
-  # end
-
-  private
-
-  def set_user
-    @user = User.find_by(id: params[:id])
   end
 end
