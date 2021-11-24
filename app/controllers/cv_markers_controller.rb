@@ -9,7 +9,7 @@ class CvMarkersController < ApplicationController
                       .joins(:cv)
                       .where('latitude > ? AND latitude < ? AND longitude > ? AND longitude < ? AND cvs.published = ?',
                              bottom.to_f, top.to_f, left.to_f, right.to_f, true)
-    @formatted_results = SearchesService.new(results_markers).coordinates_list
-    render json: @formatted_results
+    formatted_results = SearchesService.new(results_markers).coordinates_list
+    render json: formatted_results
   end
 end
