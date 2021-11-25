@@ -53,7 +53,7 @@ window.initIndexMap = function () {
       if (xmlHttp.readyState === XMLHttpRequest.DONE) {
         var status = xmlHttp.status;
         if (status === 0 || (status >= 200 && status < 400)) {
-          var parsedResults = JSON.parse(xmlHttp.responseText);
+          var parsedResults = coordinates_list(JSON.parse(xmlHttp.responseText));
           if (map.getLayer('clusters')) {
             map.getSource('map_cv_markers').setData(parsedResults);
           } else {
@@ -223,6 +223,55 @@ function mapCenterCoordinates() {
 
 function setMapZoom() {
   return window.zoom_value
+}
+
+function coordinates_list(clusterData) {
+  var markers = {
+    'type': 'FeatureCollection',
+    'crs': {
+      'type': 'name',
+      'properties': {
+        'name': 'urn:ogc:def:crs:OGC:1.3:CRS84'
+      }
+    },
+    'features': features(clusterData)
+  }
+  return markers;
+}
+
+function features(result) {
+  var features = [];
+  for (let i = 0; i < result.data.length; i++) {
+    location_data = result.data[i].attributes
+    cv_data = result.included[i].attributes
+    feature_hash = {
+      'type': 'Feature',
+      'properties': properties(cv_data),
+      'geometry': geometry(location_data)
+    }
+    features.push(feature_hash)
+  };
+  return features;
+}
+
+function properties(result) {
+  cv_properties = {
+    'id': result.id,
+    'subdomain': result.subdomain,
+    'name': result.abbr_name
+  }
+  return cv_properties;
+}
+
+function geometry(location) {
+  loc_properties = {
+    'type': 'Point',
+    'coordinates': [
+      location.longitude,
+      location.latitude
+    ]
+  }
+  return loc_properties;
 }
 
 document.addEventListener('turbolinks:load', function () {

@@ -1,4 +1,6 @@
 class Location < ApplicationRecord
+  include ActiveModel::Serialization
+
   belongs_to :user
   has_one :cv, through: :user
 

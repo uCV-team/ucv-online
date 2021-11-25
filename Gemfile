@@ -33,6 +33,7 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge'
 
 gem 'cancancan', '~> 3.2.0'
+gem 'jsonapi-serializer'
 gem 'scenic'
 
 group :development do
