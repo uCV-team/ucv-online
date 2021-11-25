@@ -4,7 +4,7 @@ class CvMarkersController < ApplicationController
   def index
     bound_params = JSON.parse(params[:bounds])
     top, left, bottom, right = bound_params
-    serialized_data = Rails.cache.fetch(markers_cache_key(bound_params), expires_in: 1.hour) do
+    serialized_data = Rails.cache.fetch(markers_cache_key(bound_params), expires_in: 1.day) do
       results_markers = Location
                         .includes(cv: [:user])
                         .joins(:cv)
