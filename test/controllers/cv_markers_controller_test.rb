@@ -9,7 +9,7 @@ class CvMarkersControllerTest < ActionDispatch::IntegrationTest
     get cv_markers_path, params: { bounds: '[45, -79, 35, -69 ]' }
 
     data = JSON.parse(@response.body)
-    assert_equal 3, data['features'].count
+    assert_equal 3, data['data'].count
 
     assert_response :success
   end
