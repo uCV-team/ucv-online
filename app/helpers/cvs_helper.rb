@@ -21,8 +21,16 @@ module CvsHelper
     params[:controller] == 'cvs' && params[:action] == 'show'
   end
 
+  def cv_full_name(cv_obj)
+    "#{cv_obj.first_name} #{cv_obj.last_name}"
+  end
+
+  def cv_abbr_name(cv_obj)
+    "#{cv_obj.first_name} #{cv_obj.last_name[0]}."
+  end
+
   def cv_user_name(cv_obj)
-    cv_obj.publish_last_name? ? cv_obj.full_name : cv_obj.abbr_name
+    cv_obj.publish_last_name? ? cv_full_name(cv_obj) : cv_abbr_name(cv_obj)
   end
 
   def tooltip_icon(title)

@@ -12,6 +12,9 @@ class Cv < ApplicationRecord
   has_many :locations, through: :user
   has_one  :current_location, through: :user
   has_many :flags, dependent: :destroy
+  has_one :most_recent_experience, lambda {
+    merge(Experience.most_recent_by_position)
+  }, class_name: 'Experience', inverse_of: :cv
 
   validates :about, :authorization_statement, length: { maximum: ABOUT_MAX_LENGTH }
   validates :future_plans, :authorization_statement, length: { maximum: INFO_MAX_LENGTH }
@@ -31,11 +34,43 @@ class Cv < ApplicationRecord
   scope :published, -> { where(published: true) }
   scope :headshot_present, -> { where.not(headshot_file_name: nil) }
   scope :about_present, -> { where('CHAR_LENGTH(about) > 140') }
-  scope :experience_present, -> { joins(:experiences).includes(:experiences) }
 
   before_save :delete_headshot, if: -> { remove_headshot == '1' }
   before_create :set_authorization_statement
   after_save :update_published_at, if: :saved_change_to_published?
+
+  scope :most_recent, lambda {
+    from(
+      <<~SQL
+        (
+          SELECT cvs.*,
+                 latest_experience.title  AS job_title,
+                 users.subdomain          AS user_subdomain,
+                 users.first_name         AS first_name,
+                 users.last_name          AS last_name
+          FROM   cvs
+                 INNER JOIN (SELECT experiences.*
+                             FROM   experiences
+                                    JOIN (SELECT cv_id,
+                                                 MIN(position) AS position
+                                          FROM   experiences
+                                          GROUP  BY cv_id) latest
+                                      ON experiences.position = latest.position
+                                         AND experiences.cv_id = latest.cv_id) AS
+                                       latest_experience
+                         ON latest_experience.cv_id = cvs.id
+                 LEFT JOIN users
+                         ON users.id = cvs.user_id
+          WHERE  published = true AND
+                 headshot_file_name IS NOT NULL AND
+                 CHAR_LENGTH(about) > 140
+          GROUP BY cvs.id, users.subdomain, latest_experience.title, users.first_name, users.last_name
+          ORDER BY cvs.updated_at DESC
+          LIMIT 4
+        ) cvs
+      SQL
+    )
+  }
 
   # TODO: Replace hard coded dictionary with locale
   pg_search_scope :full_text_search,
