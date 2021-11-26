@@ -11,11 +11,33 @@ class Experience < ApplicationRecord
 
   scope :chronological_order, -> { order('ended_on IS NULL DESC, ended_on DESC, started_on DESC') }
   scope :by_position, -> { order('position') }
+  before_create :set_position
+
+  scope :most_recent_by_position, lambda {
+    from(
+      <<~SQL
+        (
+          SELECT experiences.*
+          FROM experiences JOIN (
+             SELECT cv_id, min(position) AS position
+             FROM experiences
+             GROUP BY cv_id
+          ) latest
+          ON experiences.position = latest.position
+          AND experiences.cv_id = latest.cv_id
+        ) experiences
+      SQL
+    )
+  }
 
   private
 
   def check_website_url
     self.website_url = website_url.squish.strip.downcase
     self.website_url = "http://#{website_url}" unless website_url.start_with?('http')
+  end
+
+  def set_position
+    self.position = cv.experiences.count
   end
 end
