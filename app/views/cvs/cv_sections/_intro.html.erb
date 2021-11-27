@@ -3,7 +3,7 @@
     <div class="row flex-column-reverse flex-md-row">
       <div class="col-12 col-md-9 mt-2 mb-md-0">
         <div class="d-flex justify-content-between justify-content-md-start">
-          <h2><%= cv_user_name(@cv) %></h2>
+          <h2><%= display_name(@cv) %></h2>
           <% if edit_mode? %>
             <%= link_to edit_cv_section_path(section: :intro), remote: true, class: 'btn-cv btn-edit mt-2 ml-4' do %>
               <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-pencil"></i></span>

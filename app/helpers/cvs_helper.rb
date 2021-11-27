@@ -33,6 +33,10 @@ module CvsHelper
     cv_obj.publish_last_name? ? cv_full_name(cv_obj) : cv_abbr_name(cv_obj)
   end
 
+  def display_name(cv_obj)
+    cv_obj.publish_last_name? ? cv_obj.full_name : cv_obj.abbr_name
+  end
+
   def tooltip_icon(title)
     content_tag(:div, class: 'tool-tip text-muted mr-2', data: { toggle: 'tooltip', placement: 'left' },
                       title: t("tooltips.#{title}")) do
