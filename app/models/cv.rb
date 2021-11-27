@@ -39,7 +39,7 @@ class Cv < ApplicationRecord
   before_create :set_authorization_statement
   after_save :update_published_at, if: :saved_change_to_published?
 
-  scope :most_recent, lambda {
+  scope :featured_last_4, lambda {
     from(
       <<~SQL
         (

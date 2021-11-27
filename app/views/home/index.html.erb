@@ -39,44 +39,46 @@
       <h3 class="text-primary"><u><%= t('.last_cvs') -%></u></h3>
     </div>
 
-    <div class="scroller">
-      <div class="d-flex align-items-center">
-        <% @featured_cvs.each do |cv| %>
-          <div class="mb-5">
-            <div class="card card-width shadow-sm border-0 rounded mr-5 card-feature">
-              <%= link_to cv_section_path(cv.user_subdomain) do %>
-                <div class="card-body card-height p-4">
-                  <div class="d-flex align-items-center justify-content-between mb-2">
-                    <div>
-                      <h4 class="text-dark">
-                        <%= cv_user_name(cv).split.map(&:capitalize).join(' ') %>
-                      </h4>
-                      <p class="text-dark">
-                        <i class="fas fa-briefcase mr-1"></i>
-                        <%= short_desc(cv.job_title, 33) %>
-                      </p>
-                      <span class="short-text-cv text-muted font-size-14 text-wrap text-left mr-5">
-                        <%= short_desc(cv.about, 90) %>
-                      </span>
+    <% cache 'featured_cvs', expires_in: 1.hour do %>
+      <div class="scroller">
+        <div class="d-flex align-items-center">
+          <% @featured_cvs.each do |cv| %>
+            <div class="mb-5">
+              <div class="card card-width shadow-sm border-0 rounded mr-5 card-feature">
+                <%= link_to cv_section_path(cv.user_subdomain) do %>
+                  <div class="card-body card-height p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                      <div>
+                        <h4 class="text-dark">
+                          <%= cv_user_name(cv).split.map(&:capitalize).join(' ') %>
+                        </h4>
+                        <p class="text-dark">
+                          <i class="fas fa-briefcase mr-1"></i>
+                          <%= short_desc(cv.job_title, 33) %>
+                        </p>
+                        <span class="short-text-cv text-muted font-size-14 text-wrap text-left mr-5">
+                          <%= short_desc(cv.about, 90) %>
+                        </span>
+                      </div>
+                      <%= image_tag(cv.headshot.url(:default), alt: "#{cv_abbr_name(cv)} headshot", class: 'img-fluid rounded-circle default-img-size') %>
                     </div>
-                    <%= image_tag(cv.headshot.url(:default), alt: "#{cv_abbr_name(cv)} headshot", class: 'img-fluid rounded-circle default-img-size') %>
+                    <div class="pt-3 d-flex align-items-center justify-content-between border-top">
+                      <p class="text-dark">
+                        <%= cv.updated_at&.strftime("%B %d, %Y") %>
+                      </p>
+                      <p>
+                        <i class="fas fa-angle-right"></i>
+                        <%= t('.view_cv') %>
+                      </p>
+                    </div>
                   </div>
-                  <div class="pt-3 d-flex align-items-center justify-content-between border-top">
-                    <p class="text-dark">
-                      <%= cv.updated_at&.strftime("%B %d, %Y") %>
-                    </p>
-                    <p>
-                      <i class="fas fa-angle-right"></i>
-                      <%= t('.view_cv') %>
-                    </p>
-                  </div>
-                </div>
-              <% end %>
+                <% end %>
+              </div>
             </div>
-          </div>
-        <% end %>
-       </div>
-    </div>
+          <% end %>
+         </div>
+      </div>
+    <% end %>
     <div class="text-center pb-40"><%== t('.updated_last_30_days', count: @cvs_last_updated_count) -%></div>
   </div>
   <div class="container pt-40 pt-md-80">
