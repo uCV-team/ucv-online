@@ -2,7 +2,7 @@ class Experience < ApplicationRecord
   before_validation :check_website_url, if: :website_url?
   DESCRIPTION_MAX_LENGTH = 1000
 
-  belongs_to :cv
+  belongs_to :cv, touch: true
   validates :company, :title, presence: true
   validates :description, length: { maximum: DESCRIPTION_MAX_LENGTH }
   validates :website_url, format: { with: %r{[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]

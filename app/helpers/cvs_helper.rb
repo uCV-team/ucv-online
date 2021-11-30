@@ -49,6 +49,14 @@ module CvsHelper
     (can? :update, @cv) && params[:subdomain] && params[:preview] != 't'
   end
 
+  def show_page_cache_key(cv)
+    if !user_signed_in? || params[:preview].present?
+      "cv_section_#{cv.updated_at.to_i}_open"
+    else
+      "cv_section_#{cv.updated_at.to_i}"
+    end
+  end
+
   private
 
   def get_period(start_date, end_date)
