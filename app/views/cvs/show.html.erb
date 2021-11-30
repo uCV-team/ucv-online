@@ -40,31 +40,33 @@
           <% end %>
         <% end %>
       <% end %>
-      <div class="intro-section">
-        <%= render 'cvs/cv_sections/intro' %>
-      </div>
-      <%#= render 'cvs/cv_sections/locations' %>
-      <div class="summary-section">
-        <%= render 'cvs/cv_sections/summary' %>
-      </div>
-      <div class="experience-section">
-        <%= render 'cvs/cv_sections/experience' %>
-      </div>
-      <div class="education-section">
-        <%= render 'cvs/cv_sections/education' %>
-      </div>
-      <div class="languages-section">
-        <%= render 'cvs/cv_sections/languages' %>
-      </div>
-      <div class="skills-section">
-        <%= render 'cvs/cv_sections/skills' %>
-      </div>
-      <div class="extras-section">
-        <%= render 'cvs/cv_sections/extras' %>
-      </div>
-      <div class="authorization-section">
-        <%= render 'cvs/cv_sections/authorization' %>
-      </div>
+      <% cache show_page_cache_key(@cv), expires_in: 1.hour do %>
+        <div class="intro-section">
+          <%= render 'cvs/cv_sections/intro' %>
+        </div>
+        <%#= render 'cvs/cv_sections/locations' %>
+        <div class="summary-section">
+          <%= render 'cvs/cv_sections/summary' %>
+        </div>
+        <div class="experience-section">
+          <%= render 'cvs/cv_sections/experience' %>
+        </div>
+        <div class="education-section">
+          <%= render 'cvs/cv_sections/education' %>
+        </div>
+        <div class="languages-section">
+          <%= render 'cvs/cv_sections/languages' %>
+        </div>
+        <div class="skills-section">
+          <%= render 'cvs/cv_sections/skills' %>
+        </div>
+        <div class="extras-section">
+          <%= render 'cvs/cv_sections/extras' %>
+        </div>
+        <div class="authorization-section">
+          <%= render 'cvs/cv_sections/authorization' %>
+        </div>
+      <% end %>
     </div>
 
     <% unless edit_mode? %>
