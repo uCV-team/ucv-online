@@ -40,7 +40,7 @@
           <% end %>
         <% end %>
       <% end %>
-      <% cache show_page_cache_key(@cv), expires_in: 1.hour do %>
+      <% cache show_page_cache_key(@cv), expires_in: 1.day do %>
         <div class="intro-section">
           <%= render 'cvs/cv_sections/intro' %>
         </div>
