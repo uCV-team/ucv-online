@@ -253,6 +253,7 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rack-timeout (0.6.0)
     rails (5.2.4.3)
       actioncable (= 5.2.4.3)
       actionmailer (= 5.2.4.3)
@@ -452,6 +453,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma (~> 4.3)
+  rack-timeout
   rails (~> 5.2.1)
   rails-controller-testing
   rails-i18n
