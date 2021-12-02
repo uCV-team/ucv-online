@@ -33,7 +33,7 @@ class Cv < ApplicationRecord
 
   scope :published, -> { where(published: true) }
   scope :headshot_present, -> { where.not(headshot_file_name: nil) }
-  scope :about_present, -> { where('CHAR_LENGTH(about) > 140') }
+  scope :about_present, -> { where('CHAR_LENGTH(about) > 70') }
 
   before_save :delete_headshot, if: -> { remove_headshot == '1' }
   before_create :set_authorization_statement
@@ -63,7 +63,7 @@ class Cv < ApplicationRecord
                          ON users.id = cvs.user_id
           WHERE  published = true AND
                  headshot_file_name IS NOT NULL AND
-                 CHAR_LENGTH(about) > 140
+                 CHAR_LENGTH(about) > 70
           GROUP BY cvs.id, users.subdomain, latest_experience.title, users.first_name, users.last_name
           ORDER BY cvs.updated_at DESC
           LIMIT 4

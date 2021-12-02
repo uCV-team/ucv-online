@@ -56,13 +56,13 @@
                           <i class="fas fa-briefcase mr-1"></i>
                           <%= short_desc(cv.job_title, 33) %>
                         </p>
-                        <span class="short-text-cv text-muted font-size-14 text-wrap text-left mr-5">
-                          <%= short_desc(cv.about, 90) %>
+                        <span class="short-text-cv text-muted font-size-14 text-break text-left mr-5">
+                          <%= short_desc(cv.about, 65) %>
                         </span>
                       </div>
                       <%= image_tag(cv.headshot.url(:default), alt: "#{cv_abbr_name(cv)} headshot", class: 'img-fluid rounded-circle default-img-size') %>
                     </div>
-                    <div class="pt-3 d-flex align-items-center justify-content-between border-top">
+                    <div class="mt-3 pt-3 d-flex align-items-center justify-content-between border-top">
                       <p class="text-dark">
                         <%= cv.updated_at&.strftime("%B %d, %Y") %>
                       </p>
