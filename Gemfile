@@ -34,6 +34,7 @@ gem 'wkhtmltopdf-binary-edge'
 
 gem 'cancancan', '~> 3.2.0'
 gem 'jsonapi-serializer'
+gem 'rack-attack'
 gem 'rack-timeout'
 gem 'scenic'
 
