@@ -44,15 +44,18 @@ module Rack
     throttle('logins/ip/seconds', limit: 5, period: 10.seconds) do |req|
       req.ip  if req.path.include?('/searches/') || req.path.include?('/cv/') || req.base_url + "/" == req.url
     end
-    throttle('logins/ip/minutes', limit: 20, period: 10.minutes) do |req|
-      req.ip  if req.path.include?('/searches/') || req.path.include?('/cv/') || req.base_url + "/" == req.url
-    end
-    throttle('logins/ip/hours', limit: 50, period: 10.hours) do |req|
-      req.ip  if req.path.include?('/searches/') || req.path.include?('/cv/') || req.base_url + "/" == req.url
-    end
-    throttle('logins/ip/days', limit: 100, period: 10.days) do |req|
-      req.ip  if req.path.include?('/searches/') || req.path.include?('/cv/') || req.base_url + "/" == req.url
-    end
+
+    # throttle('logins/ip/minutes', limit: 20, period: 10.minutes) do |req|
+    #   req.ip  if req.path.include?('/searches/') || req.path.include?('/cv/') || req.base_url + "/" == req.url
+    # end
+
+    # throttle('logins/ip/hours', limit: 50, period: 10.hours) do |req|
+    #   req.ip  if req.path.include?('/searches/') || req.path.include?('/cv/') || req.base_url + "/" == req.url
+    # end
+
+    # throttle('logins/ip/days', limit: 100, period: 10.days) do |req|
+    #   req.ip  if req.path.include?('/searches/') || req.path.include?('/cv/') || req.base_url + "/" == req.url
+    # end
 
     # Throttle POST requests to /login by email param
     # (Not needed because we use the lockable module by Devise)
