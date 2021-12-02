@@ -49,11 +49,11 @@ module CvsHelper
     (can? :update, @cv) && params[:subdomain] && params[:preview] != 't'
   end
 
-  def show_page_cache_key(cv)
+  def cv_cache_key(cv)
     if !user_signed_in? || params[:preview].present?
-      "cv_section_#{cv.updated_at.to_i}_open"
+      "cv_section_#{locale}_#{cv.updated_at.to_i}_open"
     else
-      "cv_section_#{cv.updated_at.to_i}"
+      "cv_section_#{locale}_#{cv.updated_at.to_i}"
     end
   end
 
