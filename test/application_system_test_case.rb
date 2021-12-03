@@ -7,6 +7,8 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   include I18nHelpers
   include WaitForAjax
 
+  Rack::Attack.enabled = false # disabling protection against brute-force attacks
+
   private
 
   def manual_sign_in(email, password = 'supersecret')

@@ -42,7 +42,7 @@ module Rack
     #
     # Key: "rack::attack:#{Time.now.to_i/:period}:logins/ip:#{req.ip}"
     throttle('logins/ip/seconds', limit: 5, period: 10.seconds) do |req|
-      req.ip  if req.path.include?('/searches/') || req.path.include?('/cv/') || req.base_url + "/" == req.url
+      req.ip if req.path.include?('/searches/') || req.path.include?('/cv/') || req.base_url + '/' == req.url
     end
 
     # throttle('logins/ip/minutes', limit: 20, period: 10.minutes) do |req|
@@ -80,9 +80,9 @@ module Rack
     # If you want to return 503 so that the attacker might be fooled into
     # believing that they've successfully broken your app (or you just want to
     # customize the response), then uncomment these lines.
-    self.throttled_response = lambda do |env|
-     [ 503,  # status
-       {},   # headers
+    self.throttled_response = lambda do |_env|
+      [503, # status
+       {}, # headers
        []] # body
     end
   end
