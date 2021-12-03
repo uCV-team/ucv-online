@@ -42,7 +42,7 @@ module Rack
     #
     # Key: "rack::attack:#{Time.now.to_i/:period}:logins/ip:#{req.ip}"
     throttle('logins/ip/seconds', limit: 5, period: 10.seconds) do |req|
-      req.ip if req.path.include?('/searches/') || req.path.include?('/cv/') || req.base_url + '/' == req.url
+      req.ip if req.path.include?('/searches/') || req.path.include?('/cv/') || req.base_url + '/' == req.url || !req.url.include?('://publicv')
     end
 
     # throttle('logins/ip/minutes', limit: 20, period: 10.minutes) do |req|
