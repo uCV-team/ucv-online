@@ -6,13 +6,18 @@
       <div class="brand ml-1">
         <%= link_to(root_domain_url , "data-turbolinks": "false") do %>
           <% if current_user.present? %>
-              <span class="brand-icon"><%= current_user.first_name %>'s </span>
+            <span class="brand-icon"><%= current_user.first_name %>'s </span>
           <% end %>
           <%= image_pack_tag 'images/logo.svg' %>
         <% end %>
+        <% if !current_user.present? %>
+          <span class="text-primary font-weight-bold ml-md-2 overflow-hidden">
+            <%= t('layouts.nav.presentation') %>
+          </span>
+        <% end %>
       </div>
       <nav class="nav-main">
-        <div class="nav-mobile"><a id="nav-toggle"><span></span></a></div>
+        <div class="nav-mobile"><a id="nav-toggle" class="bg-white"><span></span></a></div>
         <ul class="nav-list" id="overlay-navbar">
           <li class="mr-5 d-none d-md-flex ">
             <a class="nav-link badge badge-pill badge-primary badge-primary-light mt-1 p-2 text-primary font-weight-normal" href="/#why">

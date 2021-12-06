@@ -159,6 +159,7 @@ en:
       menuitem2: 'Sign in to update your profile and CV'
       account: Edit account
       messages: 'View all Messages'
+      presentation: 'your digital CV'
     footer:
       links: 'Helpful Links'
       sign_in: 'Login'

@@ -159,6 +159,7 @@ it:
       menuitem2: 'Accedi per aggiornare il tuo CV'
       account: Modifica
       messages: 'Tutti i messaggi'
+      presentation: 'il tuo CV Digitale'
     footer:
       links: 'Collegamenti utili'
       sign_in: 'Accesso'
