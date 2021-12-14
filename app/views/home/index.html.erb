@@ -36,7 +36,7 @@
   </div>
   <div class="bg-light pt-40">
     <div class="text-center pb-40">
-      <h3 class="text-primary"><u><%= t('.last_cvs') -%></u></h3>
+      <h3 class="text-primary"><%= t('.last_cvs') -%></h3>
     </div>
     <% cache "featured_cvs_#{locale}", expires_in: 4.hours do %>
       <div class="scroller">
