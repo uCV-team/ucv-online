@@ -162,6 +162,7 @@ it:
       signed_in: Accesso effettuato con successo.
       signed_out: Sei uscito correttamente.
       username: 'Username'
+      login: We have sent an email to confirm your login activity.
     shared:
       links:
         back: Indietro

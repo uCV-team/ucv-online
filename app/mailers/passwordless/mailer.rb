@@ -9,13 +9,24 @@ module Passwordless
       @session = session
 
       @magic_link = send(Passwordless.mounted_as)
-                    .token_sign_in_url(session.token, only_path: true)
+                    .token_sign_in_url(session.token)
 
       email_field = @session.authenticatable.class.passwordless_email_field
       mail(
         to: @session.authenticatable.send(email_field),
         from: ENV['MAIL_FROM'],
         subject: I18n.t('passwordless.mailer.subject')
+      )
+    end
+
+    def user_confirmation_instructions(recipient, token)
+      @email = recipient.email
+      @magic_link = send(Passwordless.mounted_as)
+                    .token_sign_in_url(token)
+      mail(
+        to: recipient.email,
+        from: ENV['MAIL_FROM'],
+        subject: I18n.t('devise.mailer.confirmation_instructions.subject')
       )
     end
   end

@@ -33,7 +33,11 @@ module Passwordless
         else
           Passwordless.after_session_save.call(session)
         end
+        flash[:notice] = t('devise.sessions.login')
+      else
+        flash[:notice] = t('errors.sessions.sign_in_with_wrong_email')
       end
+
       redirect_to passwordless_success_redirect_path
     end
 

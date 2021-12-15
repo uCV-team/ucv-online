@@ -162,6 +162,7 @@ en:
       signed_out: Signed out successfully.
       signing_in: "Logging in..."
       username: 'Username'
+      login: We have sent an email to confirm your login activity.
     shared:
       links:
         back: Back

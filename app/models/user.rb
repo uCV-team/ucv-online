@@ -62,6 +62,19 @@ class User < ApplicationRecord
     confirmed_at.present?
   end
 
+  def confirm
+    self.confirmed_at = Time.now.utc
+    if unconfirmed_email.present?
+      self.email = unconfirmed_email
+      self.unconfirmed_email = nil
+    end
+    save!
+  end
+
+  def send_confirmation_instructions(token)
+    Passwordless::Mailer.user_confirmation_instructions(self, token).deliver_later
+  end
+
   private
 
   def prepare_blank_cv

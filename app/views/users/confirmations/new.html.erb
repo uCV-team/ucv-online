@@ -11,7 +11,7 @@
               <div class="form-group mb-5 input-with-icon">
                 <label class="text-muted d-block"><%= t('devise.sessions.email') %></label>
                 <i class="icon-envelope text-muted"></i>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: t('devise.sessions.email'), class: 'form-control form-control-lg pl-40' %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: t('devise.sessions.email'), required: :true, class: 'form-control form-control-lg pl-40' %>
               </div>
             </div>
             <div class="py-5 w-100">
