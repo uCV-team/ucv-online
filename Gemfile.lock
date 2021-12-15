@@ -261,6 +261,9 @@ GEM
     parallel (1.21.0)
     parser (3.0.3.2)
       ast (~> 2.4.1)
+    passwordless (0.10.0)
+      bcrypt (~> 3.1.11)
+      rails (>= 5.1.4)
     pg (1.2.3)
     pg_search (2.3.5)
       activerecord (>= 5.2)
@@ -476,6 +479,7 @@ DEPENDENCIES
   minitest-reporters (~> 1.0.5)
   newrelic_rpm
   paperclip!
+  passwordless
   pg (>= 0.18, < 2.0)
   pg_search
   postmark-spam_check

@@ -1,33 +1,35 @@
 # frozen_string_literal: true
 
 module Users
-  class ConfirmationsController < Devise::ConfirmationsController
+  class ConfirmationsController < ApplicationController
+    skip_authorization_check
+    before_action :load_user
+
     # GET /resource/confirmation/new
-    # def new
-    #   super
-    # end
+    def new; end
 
     # POST /resource/confirmation
-    # def create
-    #   super
-    # end
+    def create
+      # TODO: Confirmation mail.
+      resource = ::User.send_confirmation_instructions(user_params)
+      yield resource if block_given?
 
-    # GET /resource/confirmation?confirmation_token=abcdef
-    # def show
-    #   super
-    # end
+      flash[:notice] = if resource.errors.empty?
+                         'Mail will be sent if it exists'
+                       else
+                         'You will receive an email with the instructions'
+                       end
+      redirect_to root_path
+    end
 
-    # protected
+    protected
 
-    # The path used after resending confirmation instructions.
-    # def after_resending_confirmation_instructions_path_for(resource_name)
-    #   super(resource_name)
-    # end
+    def user_params
+      params.require(:user).permit!
+    end
 
-    # The path used after confirmation.
-    def after_confirmation_path_for(resource_name, resource)
-      sign_in(resource_name, resource) # Allow to automatically signin after confirmation
-      super(resource_name, resource)
+    def load_user
+      @user = ::User.find_by(id: params[:id]) || ::User.new
     end
   end
 end

@@ -1,10 +1,9 @@
 class User < ApplicationRecord
   DATATABLE_COLUMNS = %w[email first_name tel subdomain created_at].freeze
-  devise :database_authenticatable, :recoverable, :registerable, :rememberable,
-         :timeoutable, :trackable, :validatable, :confirmable
+  EMAIL_PREFERENCES = ['email_preference_online_updates'].freeze
+  passwordless_with :email # authentication and sessions
   mailkick_user
 
-  EMAIL_PREFERENCES = ['email_preference_online_updates'].freeze
   has_one :cv, dependent: :destroy
   has_many :locations, dependent: :destroy
   has_many :messages, dependent: :destroy
@@ -59,8 +58,8 @@ class User < ApplicationRecord
     roles.any? { |role| role.name == user_role }
   end
 
-  def full_name
-    "#{first_name.capitalize} #{last_name.capitalize}"
+  def confirmed?
+    confirmed_at.present?
   end
 
   private

@@ -25,9 +25,9 @@
             <div class="col-12 col-md-6 mb-4 mb-md-0">
               <h5 class="mb-3"><%= t('layouts.footer.links') %></h5>
               <div class="row">
-                <% unless user_signed_in? %>
-                  <div class="col-6 mb-3"><a href=<%= new_user_session_path %> class="text-muted font-size-14"><i class="mr-2 fas fa-angle-right"></i><%= t('layouts.footer.sign_in') %></a></div>
-                  <div class="col-6 mb-3"><a href=<%= new_user_registration_path %> class="text-muted font-size-14"><i class="mr-2 fas fa-angle-right"></i><%= t('layouts.footer.sign_up') %></a></div>
+                <% unless current_user.present? %>
+                  <div class="col-6 mb-3"><a href=<%= users.sign_in_path %> class="text-muted font-size-14"><i class="mr-2 fas fa-angle-right"></i><%= t('layouts.footer.sign_in') %></a></div>
+                  <div class="col-6 mb-3"><a href=<%= new_users_registrations_path %> class="text-muted font-size-14"><i class="mr-2 fas fa-angle-right"></i><%= t('layouts.footer.sign_up') %></a></div>
                 <% end %>
                 <div class="col-6 mb-3"><a rel="nofollow" href="/legal/privacy-policy" class="text-muted font-size-14"><i class="mr-2 fas fa-angle-right"></i><%= t('layouts.footer.privacy') %></a></div>
                 <div class="col-6 mb-3"><a rel="nofollow"  href="/legal/cookie-policy" class="text-muted font-size-14"><i class="mr-2 fas fa-angle-right"></i><%= t('layouts.footer.cookie') %></a></div>

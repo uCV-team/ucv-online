@@ -1,74 +1,63 @@
 # frozen_string_literal: true
 
 module Users
-  class RegistrationsController < Devise::RegistrationsController
-    # before_action :configure_sign_up_params, only: [:create]
-    before_action :configure_account_update_params, only: [:update]
+  class RegistrationsController < ::ApplicationController
+    skip_authorization_check
+    before_action :load_user
 
     # GET /resource/sign_up
-    # def new
-    #   super
-    # end
+    def new; end
 
-    # POST /resource
+    # Post signup page
     def create
-      super
-      sign_up(resource_name, resource) if resource.persisted?
+      resource = User.new(user_params)
+      resource.encrypted_password = SecureRandom.hex
+      passwordless = build_passwordless_session(resource)
+      passwordless.save!
+      resource.save
+      yield resource if block_given?
+      if resource.persisted?
+        flash[:notice] = 'Signed in successfully'
+        sign_in passwordless_session(passwordless.token, passwordless.authenticatable_type)
+        redirect_to after_sign_in_path_for(resource)
+      else
+        resource.errors[:terms_accepted_at].pop # errors[terms_accepted] will suffice
+        redirect_to root_path
+      end
     end
 
-    # GET /resource/edit
-    # def edit
-    #   super
-    # end
+    def edit
+      render :edit
+    end
 
-    # PUT /resource
     def update
-      super
+      @user.encrypted_password = SecureRandom.hex
+
+      resource_updated = @user.update!(user_params)
+      yield @user if block_given?
+      if resource_updated
+        flash[:notice] = t('devise.registrations.update_needs_confirmation') if is_flashing_format?
+        redirect_to cv_section_path(@user.subdomain)
+      else
+        render :edit
+      end
     end
 
-    # DELETE /resource
-    # def destroy
-    #   super
-    # end
+    private
 
-    # GET /resource/cancel
-    # Forces the session data which is usually expired after sign
-    # in to be expired now. This is useful if the user wants to
-    # cancel oauth signing in/up in the middle of the process,
-    # removing all OAuth session data.
-    # def cancel
-    #   super
-    # end
-
-    # protected
-
-    # If you have extra params to permit, append them to the sanitizer.
-    # def configure_sign_up_params
-    #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-    # end
-
-    # If you have extra params to permit, append them to the sanitizer.
-    def configure_account_update_params
-      devise_parameter_sanitizer.permit(:account_update, keys: [:subdomain])
+    def load_user
+      @user = current_user.presence || ::User.new
     end
 
-    def after_update_path_for(resource)
-      cv_section_path(resource.subdomain)
+    def user_params
+      params.require(:user).permit!
     end
 
-    # The path used after sign up.
-    # def after_sign_up_path_for(resource)
-    #   super(resource)
-    # end
-
-    # The path used after sign up for inactive accounts.
-    # def after_inactive_sign_up_path_for(resource)
-    #   super(resource)
-    # end
-    protected
-
-    def after_sign_up_path_for(resource)
-      cv_section_path(resource.subdomain) # Or :prefix_to_your_route
+    def passwordless_session(token, authenticatable_classname)
+      @passwordless_session = ::Passwordless::Session.find_by!(
+        authenticatable_type: authenticatable_classname,
+        token: token
+      )
     end
   end
 end

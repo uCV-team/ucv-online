@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get '/', to: 'cvs#show'
   end
 
+  passwordless_for :users
   root 'home#index'
   # Static pages
   get 'legal/privacy-policy', to: 'legal#privacy'
@@ -20,10 +21,11 @@ Rails.application.routes.draw do
   get 'cv/edit/:section', to: 'cvs#edit', as: 'edit_cv_section'
   put 'cv/download', to: 'cvs#download'
 
-  devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    confirmations: 'users/confirmations'
-  }
+  namespace :users do
+    resource :registrations, except: %i[show]
+    resource :confirmation, only: %i[new show create update]
+    resource :unlock, only: %i[new show create]
+  end
 
   namespace :admin do
     resource :dashboard, only: [:show]

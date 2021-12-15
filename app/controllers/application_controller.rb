@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :notifications, if: proc { current_user.present? }
   helper_method :root_domain_url
+  include Passwordless::ControllerHelpers
+  helper_method :current_user
+
   rescue_from CanCan::AccessDenied do |_exception|
     respond_to do |format|
       format.json { head :forbidden }
@@ -25,6 +28,15 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
+  def current_user
+    @current_user ||= authenticate_by_session(User)
+  end
+
+  def require_user!
+    return if current_user
+    redirect_to root_path, flash: { error: 'You are not worthy!' }
+  end
 
   def configure_permitted_parameters
     params[:user][:locale] = I18n.locale if params[:user].present?

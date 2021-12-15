@@ -18,7 +18,7 @@
   <div class="border-top border-primary">
     <div class="border <%= 'pt-6' if can? :update, @cv %>">
       <% unless can? :update, @cv %>
-        <% if user_signed_in? %>
+        <% if current_user.present? %>
           <% if @cv.flagged_by?(current_user.id) %>
             <h4 class="text-right text-primary pt-2 mr-2">
               <i class="fa fa-flag"></i>
@@ -33,7 +33,7 @@
             <% end %>
           <% end %>
         <% else %>
-          <%= link_to new_user_session_path do %>
+          <%= link_to users.sign_in_path do %>
             <h4 class="text-right text-primary pt-2 mr-2">
               <i class="fas fa-ellipsis-h"></i>
             </h4>
