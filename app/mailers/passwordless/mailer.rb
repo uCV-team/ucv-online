@@ -20,11 +20,11 @@ module Passwordless
     end
 
     def user_confirmation_instructions(recipient, token)
-      @email = recipient.email
+      @email = recipient.unconfirmed_email.presence || recipient.email
       @magic_link = send(Passwordless.mounted_as)
                     .token_sign_in_url(token)
       mail(
-        to: recipient.email,
+        to: @email,
         from: ENV['MAIL_FROM'],
         subject: I18n.t('devise.mailer.confirmation_instructions.subject')
       )

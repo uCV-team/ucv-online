@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   has_one :current_location, dependent: :destroy, class_name: 'Location'
 
-  validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, :email, presence: true
   validates :subdomain, presence: true, uniqueness: true, subdomain: true, on: :update
 
   after_initialize :prepare_blank_cv, if: :new_record?

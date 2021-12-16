@@ -10,8 +10,8 @@ module Users
 
     # POST /resource/confirmation
     def create
-      if @user.nil?
-        redirect_to new_users_confirmation_path, flash: { notice: t('devise.confirmations.send_paranoid_instructions') }
+      if @user.nil? || @user.confirmed?
+        redirect_to root_path, flash: { notice: t('devise.confirmations.send_paranoid_instructions') }
         return
       end
 
