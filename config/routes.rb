@@ -1,6 +1,6 @@
 class Subdomain
   def self.matches?(request)
-    request.domain.split('.').size > 1 && request.subdomain != 'publicv-staging' && request.subdomain.present?
+    request.subdomain.present? && request.domain.split('.').size > 1 && request.subdomain != 'publicv-staging'
   end
 end
 
@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   namespace :users do
     resource :registrations, except: %i[show]
     resource :confirmation, only: %i[new show create update]
-    resource :unlock, only: %i[new show create]
+  end
+  namespace :passwordless do
+    resource :sessions, only: %i[new show create destroy]
   end
 
   namespace :admin do

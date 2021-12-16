@@ -3,7 +3,7 @@ require 'test_helper'
 class CvsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:john)
-    sign_in(@user)
+    passwordless_sign_in(@user)
   end
 
   test 'GET #show returns a success response' do

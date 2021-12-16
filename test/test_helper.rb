@@ -6,6 +6,7 @@ require 'rails/test_help'
 require 'application_system_test_case'
 
 require 'minitest/reporters'
+require 'passwordless/test_helpers'
 
 Capybara.register_driver :selenium_chrome_headless do |app|
   options = Selenium::WebDriver::Chrome::Options.new

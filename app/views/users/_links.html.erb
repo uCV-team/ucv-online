@@ -1,18 +1,18 @@
 <hr>
 <%- unless params[:controller].include?('session') %>
   <div class="d-flex align-items-center justify-content-center">
-    <%= link_to t('.sign_in'), users.sign_in_path %><br />
+    <%= link_to t('devise.shared.links.sign_in'), users.sign_in_path %><br />
   </div>
 <% end %>
 
 <%- unless params[:controller].include?('registration') %>
   <div class="d-flex align-items-center justify-content-center">
-    <%= link_to t('.sign_up'), new_users_registrations_path(@user) %>
+    <%= link_to t('devise.shared.links.sign_up'), new_users_registrations_path(@user) %>
   </div>
 <% end %>
 
 <%- unless params[:controller].include?('confirmation') %>
   <div class="d-flex align-items-center justify-content-center text-center">
-    <%= link_to t('.didn_t_receive_confirmation_instructions'), new_users_confirmation_path(@user) %><br />
+    <%= link_to t('devise.shared.links.didn_t_receive_confirmation_instructions'), new_users_confirmation_path(@user) %><br />
   </div>
 <% end %>

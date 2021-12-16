@@ -2,7 +2,7 @@ john:
   first_name: John
   last_name: Williams
   email: john.williams@example.com
-  encrypted_password: <%= Devise::Encryptor.digest(User, "supersecret") %>
+  encrypted_password: <%= SecureRandom.hex %>
   subdomain: johnwilliams
   confirmed_at: <%= Time.zone.now %>
 
@@ -10,7 +10,7 @@ search_user:
   first_name: <%= Faker::Name.first_name %>
   last_name: <%= Faker::Name.last_name %>
   email: <%= Faker::Internet.email %>
-  encrypted_password: <%= Devise::Encryptor.digest(User, "supersecret") %>
+  encrypted_password: <%= SecureRandom.hex %>
   subdomain: <%= Faker::Name.first_name %>
   confirmed_at: <%= Time.zone.now %>
 
@@ -18,7 +18,7 @@ john_user2:
   first_name: <%= Faker::Name.first_name %>
   last_name: <%= Faker::Name.last_name %>
   email: <%= Faker::Internet.email %>
-  encrypted_password: <%= Devise::Encryptor.digest(User, "supersecret") %>
+  encrypted_password: <%= SecureRandom.hex %>
   subdomain: <%= Faker::Name.first_name.downcase %>
   confirmed_at: <%= Time.zone.now %>
 
@@ -26,7 +26,7 @@ john_3:
   first_name: <%= Faker::Name.first_name %>
   last_name: <%= Faker::Name.last_name %>
   email: <%= Faker::Internet.email %>
-  encrypted_password: <%= Devise::Encryptor.digest(User, "supersecret") %>
+  encrypted_password: <%= SecureRandom.hex %>
   subdomain: <%= Faker::Name.first_name %>
   confirmed_at: <%= Time.zone.now %>
 
@@ -34,6 +34,6 @@ john_4:
   first_name: <%= Faker::Name.first_name %>
   last_name: <%= Faker::Name.last_name %>
   email: <%= Faker::Internet.email %>
-  encrypted_password: <%= Devise::Encryptor.digest(User, "supersecret") %>
+  encrypted_password: <%= SecureRandom.hex %>
   subdomain: <%= Faker::Name.first_name %>
   confirmed_at: <%= Time.zone.now %>
