@@ -46,7 +46,7 @@ module CvsHelper
 
   # to show edit controls when Cv owner view it in edit mode
   def edit_mode?
-    (can? :update, @cv) && params[:subdomain] && params[:preview] != 't'
+    (can? :update, @cv) && params[:preview] != 't'
   end
 
   def cv_cache_key(cv)
