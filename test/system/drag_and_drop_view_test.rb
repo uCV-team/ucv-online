@@ -6,7 +6,7 @@ class DragAndDropViewTest < ApplicationSystemTestCase
   setup do
     ActionController::Base.allow_forgery_protection = true
     @user = users(:john)
-    manual_sign_in(@user.email)
+    passwordless_sign_in(@user)
   end
 
   test 'user can sort experiences' do

@@ -8,7 +8,7 @@ class CvEditTest < ApplicationSystemTestCase
   end
 
   test 'Cache displays CV correctly for edit, preview and show mode' do
-    sign_in(@user)
+    passwordless_sign_in(@user)
 
     visit cv_section_path(@user.subdomain)
     assert page.has_link?('Preview')
@@ -18,7 +18,7 @@ class CvEditTest < ApplicationSystemTestCase
     refresh
 
     assert page.has_link?('Exit preview')
-    logout
+    passwordless_sign_out
 
     visit cv_section_path(@user.subdomain)
     assert page.has_link?("Contact #{@user.first_name}")
@@ -26,7 +26,7 @@ class CvEditTest < ApplicationSystemTestCase
   end
 
   test 'Updated education is displayed instead of cached CVs education' do
-    sign_in(@user)
+    passwordless_sign_in(@user)
 
     visit cv_section_path(@user.subdomain)
     assert_text 'Learned a lot'
@@ -40,7 +40,7 @@ class CvEditTest < ApplicationSystemTestCase
   end
 
   test 'Updated experience is displayed instead of cached CVs experience' do
-    sign_in(@user)
+    passwordless_sign_in(@user)
 
     visit cv_section_path(@user.subdomain)
     assert_text 'Innovative software solutions'
@@ -54,7 +54,7 @@ class CvEditTest < ApplicationSystemTestCase
   end
 
   test 'Updated language is displayed instead of cached CVs language' do
-    sign_in(@user)
+    passwordless_sign_in(@user)
 
     visit cv_section_path(@user.subdomain)
     assert page.has_content?('B2')

@@ -36,7 +36,7 @@ module Users
 
       if @user.update(user_params)
         if @user.unconfirmed_email != @user.email
-          email_updated = @user.send_confirmation_instructions(@pl_session.token)
+          @user.send_confirmation_instructions(@pl_session.token)
           flash[:notice] = t('devise.registrations.update_needs_confirmation')
         else
           @user.update(unconfirmed_email: nil)

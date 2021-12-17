@@ -8,7 +8,7 @@ class CvEditTest < ApplicationSystemTestCase
   end
 
   test 'User can see edit controls for Cv after login' do
-    sign_in(@user)
+    passwordless_sign_in(@user)
 
     visit cv_section_path(@user.subdomain)
     assert page.has_link?('Preview')
@@ -16,7 +16,7 @@ class CvEditTest < ApplicationSystemTestCase
   end
 
   test 'User can\'t see edit controls when Cv is in preview mode' do
-    sign_in(@user)
+    passwordless_sign_in(@user)
 
     visit cv_section_path(@user.subdomain)
     click_link('Preview')
@@ -26,13 +26,13 @@ class CvEditTest < ApplicationSystemTestCase
   end
 
   test 'Guest or other users(not owner) cannot see edit controls for Cv' do
-    sign_in(users(:john_user2)) # other user
+    passwordless_sign_in(users(:john_user2))
 
     visit cv_section_path(@user.subdomain)
     assert_not page.has_link?('Preview')
     assert_not page.has_link?('Unpublish')
 
-    logout # for guest user
+    passwordless_sign_out # for guest user
     visit cv_section_path(@user.subdomain)
     assert_not page.has_link?('Preview')
     assert_not page.has_link?('Unpublish')
