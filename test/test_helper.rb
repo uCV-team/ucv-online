@@ -33,7 +33,6 @@ end
 
 module ActionDispatch
   class IntegrationTest
-    include Devise::Test::IntegrationHelpers
     include Warden::Test::Helpers
 
     def sign_in(user, user_password = 'supersecret')
