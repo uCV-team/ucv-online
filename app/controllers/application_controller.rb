@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
 
   def require_user!
     return if current_user
-    redirect_to root_path, flash: { error: 'You are not worthy!' }
+    redirect_to root_path, flash: { error: I18n.t('flash.authorization') }
   end
 
   def configure_permitted_parameters

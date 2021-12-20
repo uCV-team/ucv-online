@@ -1,7 +1,7 @@
 <p style="text-align: center">
-  Welcome <%= @email %>!<br><br>
+  <%= t('devise.mailer.confirmation_instructions.greeting'), recipient:@email %><br><br>
 
-  You can confirm your account email through the link below:<br><br>
+   <%= t('devise.mailer.confirmation_instructions.instruction') %><br><br>
 
-  <%= link_to 'Confirm my account', @magic_link %>
+  <%= link_to t('devise.mailer.confirmation_instructions.action'), @magic_link %>
 </p>

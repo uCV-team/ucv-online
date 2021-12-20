@@ -58,6 +58,7 @@ en:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your email has been changed to %{email}.
         subject: Email Changed
+      magic_link: I confirm my account on PubliCV
       password_change:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your password has been changed.
