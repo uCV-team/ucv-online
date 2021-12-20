@@ -7,6 +7,8 @@ class CvsController < ApplicationController
   def show
     # cannot access unpublished Cv except self
     authorize! :read, @cv
+  rescue CanCan::AccessDenied
+    redirect_to params[:subdomain] ? root_domain_url : unauthorized_path
   end
 
   def edit

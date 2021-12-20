@@ -6,3 +6,7 @@ it:
       format: 'il formato non è valido, usa solo lettere minuscole, senza spazi.'
       reserved: 'hai scelto un sottodominio riservato, prova a cambiarlo per favore.'
       character_limit: 'hai superato il limite di %{length} caratteri.'
+    unauthorized:
+      title: Unauthorized page
+      content_html: You are not authorized to access this page. <br>Possible reason for unauthorization could be your CV is not published.
+      link: BACK TO HOME
