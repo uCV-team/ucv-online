@@ -6,6 +6,9 @@
   <div class="map-container position-relative" id="search">
     <div class="row mx-0">
       <div class="col-12 px-0 map-image-container">
+        <div id = "scroll" class="position-absolute map-message text-primary font-weight-bold ml-2 d-none d-md-block">
+          <u><%= t('.map_zoom') %></u>
+        </div>
         <div class="google-map" id="map"></div>
         <%= render partial: 'shared/map' %>
       </div>
@@ -30,9 +33,6 @@
         </div>
       </div>
     </div>
-  </div>
-  <div id = "scroll" class="position-absolute ml-2 text-primary font-weight-bold d-none">
-    <u><%= t('.map_zoom') %></u>
   </div>
   <div class="bg-light pt-40">
     <div class="text-center pb-40">
@@ -253,6 +253,10 @@
 
 <style>
   .mapboxgl-map { overflow: unset !important; }
+  .map-message {
+    z-index: 9;
+    margin-top: 45px;
+  }
 </style>
 <script type="text/javascript">
   window.currentLatLng = <%= @coordinates %>;
