@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
-    "@rails/webpacker": "3.5",
+    "@rails/webpacker": "5.4.3",
     "autoprefixer": "^9.1.5",
     "bootstrap": "4.3.1",
     "jquery": "^3.5.0",
@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "webpack-dev-server": "3.1.11"
+    "webpack-dev-server": "4.7.0"
   },
   "resolutions": {
     "serialize-javascript": "^2.1.1"
