@@ -7,9 +7,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_pack_tag 'stylesheets', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap' %>
-    <%= favicon_link_tag asset_pack_path('icons/favicon.png') %>
+    <%= favicon_link_tag asset_pack_path('media/icons/favicon.png') %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= yield :header %>
   </head>
