@@ -20,7 +20,7 @@ gem 'rails-i18n'
 gem 'paperclip'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'webpacker', '~> 3.5'
+gem 'webpacker', '~> 5.2', '>= 5.2.2'
 # Amazon S3
 gem 'aws-sdk-s3'
 gem 'kaminari'
