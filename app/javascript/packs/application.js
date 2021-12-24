@@ -31,6 +31,7 @@ import '../src/javascripts/homepage_map';
 import '../src/javascripts/search_map'
 import '../src/javascripts/custom';
 import '../src/javascripts/custom_navbar';
+import '../src/javascripts/homepage_scroller';
 import jQuery from 'jquery';
 import Rails from 'rails-ujs';
 import Turbolinks from 'turbolinks';
