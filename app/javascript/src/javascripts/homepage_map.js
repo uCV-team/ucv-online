@@ -186,7 +186,7 @@ window.initIndexMap = function () {
 };
 
 function scrollMap() {
-  if ($(window).width() > 767) {
+  if (screen.width > 767) {
     map.on("wheel", event => {
       if (event.originalEvent.ctrlKey) {
         document.getElementById('scroll').classList.remove('map-message')
@@ -195,7 +195,7 @@ function scrollMap() {
         document.getElementById('scroll').classList.add('map-message')
       }
       event.preventDefault();
-      setTimeout(function(){
+      setTimeout(function () {
         document.getElementById('scroll').classList.remove('map-message')
       }, 1500);
     });
@@ -203,7 +203,7 @@ function scrollMap() {
 }
 
 function multiTouchSupport() {
-  if ($(window).width() < 767) {
+  if (screen.width < 767) {
 
     map.dragPan.disable();
     map.scrollZoom.disable();
