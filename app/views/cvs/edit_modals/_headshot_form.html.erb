@@ -7,11 +7,11 @@
             <% if @cv.headshot.present? %>
               <%= image_tag(@cv.headshot.url(:default), class: 'w-100 rounded border' ) %>
             <% else %>
-              <%= image_pack_tag 'images/head-shot.png', alt: "" %>
+              <%= image_pack_tag 'media/images/head-shot.png', alt: "" %>
             <% end %>
           </div>
           <div id="default-pic" class='default-preview d-none'>
-            <%= image_pack_tag 'images/head-shot.png', alt: "" %>
+            <%= image_pack_tag 'media/images/head-shot.png', alt: "" %>
           </div>
         </div>
         <div class="col-md-6 col-12 text-md-left text-center mb-2">

@@ -3,7 +3,7 @@ class Cv < ApplicationRecord
 
   ABOUT_MAX_LENGTH = 1000
   INFO_MAX_LENGTH = 255
-  CV_SECTIONS = %w[intro summary skills extras authorization headshot].freeze
+  CV_SECTIONS = %w[intro summary skills extras headshot].freeze
 
   belongs_to :user
   has_many :educations, dependent: :destroy

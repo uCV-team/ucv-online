@@ -8,7 +8,7 @@
           <% if current_user.present? %>
             <span class="brand-icon"><%= current_user.first_name %>'s </span>
           <% end %>
-          <%= image_pack_tag 'images/logo.svg' %>
+          <%= image_pack_tag 'media/images/logo.svg' %>
         <% end %>
         <% if !current_user.present? %>
           <span class="text-primary ml-md-2 overflow-hidden">
