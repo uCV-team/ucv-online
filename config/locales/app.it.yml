@@ -152,6 +152,7 @@ it:
       logout: "Esci"
       search: "Cerca"
       your_cv: "Il tuo CV"
+      create_cv: Crea il tuo CV
       edit_your_cv: "Modifica CV"
       hire_someone: "Cerca Candidato"
       delete_account: "Eliminare l'account"
