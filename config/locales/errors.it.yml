@@ -7,6 +7,6 @@ it:
       reserved: 'hai scelto un sottodominio riservato, prova a cambiarlo per favore.'
       character_limit: 'hai superato il limite di %{length} caratteri.'
     unauthorized:
-      title: Unauthorized page
-      content_html: You are not authorized to access this page. <br>Possible reason for unauthorization could be your CV is not published.
-      link: BACK TO HOME
+      title: L'accesso a questa pagina non é autorizzato.
+      content_html: Il motivo dell'accesso non autorizzato potrebbe essere che il CV non è stato reso pubblico dal suo creatore.
+      link: TORNA ALLA HOME
