@@ -220,7 +220,7 @@ nav {
   }
   nav {
    width: 100%;
-    padding: $nav-height 0 15px;
+    padding: 55px 0 15px;
     ul {
       display: none;
       li {
@@ -249,9 +249,10 @@ nav {
 }
 #nav-toggle {
   position: absolute;
-  left: 18px;
-  top: 22px;
+  left: 38px;
+  top: 25px;
   cursor: pointer;
+  margin-left: 5px;
   padding: 10px 35px 16px 0px;
   transition: all 700ms ease-in-out;
   span,
@@ -259,8 +260,8 @@ nav {
   span:after {
     cursor: pointer;
     border-radius: 1px;
-    height: 5px;
-    width: 35px;
+    height: 2px;
+    width: 18px;
     background: #91076c;
     position: absolute;
     display: block;
@@ -330,6 +331,9 @@ nav {
   .popup-text{
     bottom: 0;
     left: 170px;
+  }
+  .nav-text {
+    font-size: 0.938rem !important;
   }
 }
 .edit-btn{

@@ -3,7 +3,7 @@
 <div class="position-fixed z-index-fixed w-100 bg-white shadow-sm">
   <section class="navigation">
     <div class="container">
-      <div class="brand ml-1">
+      <div class="brand">
         <%= link_to(root_domain_url , "data-turbolinks": "false") do %>
           <% if current_user.present? %>
             <span class="brand-icon"><%= current_user.first_name %>'s </span>
@@ -12,7 +12,7 @@
         <% end %>
         <% if !current_user.present? %>
           <span class="text-primary ml-md-2 overflow-hidden">
-            <small><%= t('layouts.nav.presentation') %></small>
+            <span class="nav-text"><%= t('layouts.nav.presentation') %></span>
           </span>
         <% end %>
       </div>
@@ -96,3 +96,13 @@
 </div>
 <!-- Header Container / End -->
 <%= render partial: 'layouts/shared/js_vars' %>
+<style>
+#nav-toggle:after {
+  content: "<%= t('layouts.nav.menu') %>";
+  display: block;
+  font-size: 16px !important;
+  color: #91076c;
+  margin-top: -11px;
+  margin-left: -48px;
+}
+</style>

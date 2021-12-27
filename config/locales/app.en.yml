@@ -158,6 +158,7 @@ en:
       delete_account: "Delete Account"
       menuitem1: 'Sign up to create your profile and CV'
       menuitem2: 'Sign in to update your profile and CV'
+      menu: Menu
       account: Edit account
       messages: 'View all Messages'
       presentation: 'your digital CV'
