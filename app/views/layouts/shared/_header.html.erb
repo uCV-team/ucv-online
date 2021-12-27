@@ -65,16 +65,16 @@
               </li>
             </div>
           <% else %>
-            <li class="pb-2 ml-2">
-              <button class="btn btn-lg btn-outline-primary mr-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mx-2"><%= t('layouts.nav.your_cv') %></span>
-                <i class="fas fa-angle-down"></i>
-              </button>
-              <div class="dropdown-menu dropdown-menu-right border-0 shadow mt-2" aria-labelledby="dropdownMenuButton">
-                <%= link_to t('layouts.nav.menuitem1'), new_user_registration_path, class: 'dropdown-item py-2 badge-primary-lt' %>
-                <%= link_to t('layouts.nav.menuitem2'), new_user_session_path, class: 'dropdown-item py-2 badge-primary-lt' %>
-              </div>
-            </li>
+            <% unless request.path == new_user_registration_path %>
+              <li class="pb-2 ml-2">
+                <%= link_to t('layouts.nav.create_cv'), new_user_registration_path, class: 'btn btn-lg btn-outline-primary' %>
+              </li>
+            <% end %>
+            <% unless request.path == new_user_session_path %>
+              <li class="pb-2 ml-2">
+                <%= link_to t('layouts.nav.edit_your_cv'), new_user_session_path, class: 'btn btn-lg btn-outline-primary' %>
+              </li>
+            <% end %>
             <li class="pb-2">
               <a class="btn btn-lg btn-primary ml-2" href="/#search">
                 <%= t('layouts.nav.hire_someone') %>
