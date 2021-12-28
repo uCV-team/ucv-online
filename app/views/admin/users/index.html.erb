@@ -4,6 +4,13 @@
       <div class="bgc-white bd bdrs-3 p-20 mB-20">
         <h4 class="c-grey-900 mB-20"><%= t('user_page.header') %></h4>
         <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <% t('user_page.datatable_columns').each do |key, value| %>
+                <th><%= value %></th>
+              <% end %>
+            </tr>
+          </thead>
         </table>
       </div>
     </div>
@@ -15,31 +22,9 @@
     $('#dataTable').dataTable({
       "scrollX": true,
       "retrieve": true,
-      ajax: {
-        url: "<%= records_admin_users_path %>",
-        dataSrc: 'data',
-      },
       serverSide: true,
-      columns: [
-          { title: "<%= t('user_page.datatable_columns.email') %>", data: 'email' },
-          {
-            title: "<%= t('user_page.datatable_columns.full_name') %>",
-            data: null,
-            "render": function(data, type, full) {
-                return full['first_name'] + ' ' + full['last_name'];
-            }
-          },
-          { title: "<%= t('user_page.datatable_columns.telephone') %>", data: 'tel' },
-          {
-            title: "<%= t('user_page.datatable_columns.subdomain') %>",
-            data: 'subdomain',
-            "render": function ( data, type, row, meta ) {
-              return '<a target="_blank" href="/cv/' + data + '">' + data + '</a>';
-            }
-          },
-          { title: "<%= t('user_page.datatable_columns.created_at') %>", data: 'created_at', "searchable": false }
-      ],
-      order: [['4', 'desc']]
+      processing: true,
+      ajax: "<%= admin_users_path %>"
     });
   });
 </script>

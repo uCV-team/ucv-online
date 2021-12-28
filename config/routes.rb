@@ -27,9 +27,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resource :home, only: [:show]
-    resources :users, only: %i[index] do
-      get :records, on: :collection
-    end
+    resources :users, only: %i[index]
     resources :flags, only: %i[index]
   end
   resources :accounts, only: :destroy

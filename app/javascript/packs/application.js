@@ -46,10 +46,3 @@ Turbolinks.start();
 
 import 'jquery-ui-dist/jquery-ui';
 import 'bootstrap/dist/js/bootstrap';
-
-import DataTable from 'datatables/media/js/jquery.dataTables';
-window.DataTable = DataTable;
-
-$(function () {
-  console.log('Hello World from Webpacker');
-});

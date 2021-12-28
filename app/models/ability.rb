@@ -4,7 +4,7 @@ class Ability
   def initialize(current_user)
     guest_permissions
     return unless current_user
-    if current_user.has_role?('admin')
+    if current_user.role?('admin')
       admin_permissions
     else
       user_permissions(current_user)

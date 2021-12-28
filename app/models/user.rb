@@ -53,7 +53,7 @@ class User < ApplicationRecord
     order("#{DATATABLE_COLUMNS[order_column_index]} #{order_dir}")
   end
 
-  def has_role?(user_role)
+  def role?(user_role)
     roles.any? { |role| role.name == user_role }
   end
 
