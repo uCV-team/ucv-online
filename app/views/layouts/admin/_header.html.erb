@@ -6,63 +6,35 @@
           <i class="ti-menu"></i>
         </a>
       </li>
-      <li class="search-box">
-        <a class="search-toggle no-pdd-right" href="javascript:void(0);">
-          <i class="search-icon ti-search pdd-right-10"></i>
-          <i class="search-icon-close ti-close pdd-right-10"></i>
-        </a>
-      </li>
-      <li class="search-input">
-        <input class="form-control" type="text" placeholder="Search...">
-      </li>
     </ul>
     <ul class="nav-right">
-      <li class="notifications dropdown">
-        <span class="counter bgc-red">3</span>
-        <a href="" class="dropdown-toggle no-after" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="ti-bell"></i>
-        </a>
-      </li>
-      <li class="notifications dropdown">
-        <span class="counter bgc-blue">3</span>
-        <a href="" class="dropdown-toggle no-after" data-bs-toggle="dropdown">
-          <i class="ti-email"></i>
-        </a>
-      </li>
       <li class="dropdown">
-        <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1 mr-3" data-bs-toggle="dropdown">
+        <a type="button" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1 mr-0 mr-md-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="peer mR-10">
             <%= image_tag(current_user.cv.headshot.url(:default), alt: "profile-pic", class: 'img-fluid rounded-circle', width: '32') %>
-          </div>
-          <div class="peer">
             <span class="fsz-sm c-grey-900">Hi <%= "#{current_user.first_name}!" %></span>
+            <i class="fas fa-angle-down pt-2"></i>
           </div>
         </a>
         <ul class="dropdown-menu fsz-sm">
           <li>
-            <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+            <%= link_to cv_section_path(current_user.subdomain), class: 'd-b td-n pY-5 bgcH-grey-100 c-grey-700' do %>
               <i class="ti-settings mR-10"></i>
-              <span>Setting</span>
-            </a>
+              <span><%= t('layouts.nav.edit_your_cv') %></span>
+            <% end %>
           </li>
           <li>
-            <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+            <%= link_to edit_user_registration_path, class: 'd-b td-n pY-5 bgcH-grey-100 c-grey-700' do %>
               <i class="ti-user mR-10"></i>
-              <span>Profile</span>
-            </a>
-          </li>
-          <li>
-            <a href="email.html" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-              <i class="ti-email mR-10"></i>
-              <span>Messages</span>
-            </a>
+              <span><%= t('layouts.nav.account') %></span>
+            <% end %>
           </li>
           <li role="separator" class="divider"></li>
           <li>
-            <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+            <%= link_to destroy_user_session_path, data: { method: :delete }, class: 'd-b td-n pY-5 bgcH-grey-100 c-grey-700' do %>
               <i class="ti-power-off mR-10"></i>
-              <span>Logout</span>
-            </a>
+              <span><%= t('layouts.nav.logout') %></span>
+            <% end %>
           </li>
         </ul>
       </li>

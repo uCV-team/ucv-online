@@ -1,3 +1,4 @@
+import '../src/admin/scripts/base';
 import jQuery from 'jquery';
 import Rails from 'rails-ujs';
 import Turbolinks from 'turbolinks';
@@ -11,5 +12,3 @@ import 'bootstrap/dist/js/bootstrap';
 
 import DataTable from 'datatables/media/js/jquery.dataTables';
 window.DataTable = DataTable;
-
-// import '../src/admin/scripts/datatable/index';

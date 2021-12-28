@@ -61,6 +61,9 @@
                     </div>
                   <% end %>
                   <div>
+                    <%= link_to t('layouts.nav.account'), edit_user_registration_path, class: 'dropdown-item py-2 badge-primary-lt' %>
+                  </div>
+                  <div>
                     <%= link_to t('layouts.nav.logout'), destroy_user_session_path, data: { method: :delete }, class: 'dropdown-item py-2 badge-primary-lt' %>
                   </div>
                   <div>

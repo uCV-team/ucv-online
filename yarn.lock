@@ -2793,21 +2793,6 @@ cyclist@^1.0.1:
   resolved "https://registry.npmjs.org/cyclist/-/cyclist-1.0.1.tgz"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
-d@1, d@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/d/-/d-1.0.1.tgz#8698095372d58dbee346ffd0c7093f99f8f9eb5a"
-  integrity sha512-m62ShEObQ39CfralilEQRjH6oAMtNCV1xJyEx5LpRYUVN+EviphDgUc/F3hnYbADmkiNs67Y+3ylmlG7Lnu+FA==
-  dependencies:
-    es5-ext "^0.10.50"
-    type "^1.0.1"
-
-dashdash@^1.12.0:
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
-  integrity sha1-hTz6D3y+L+1d4gMmuN1YEDX24vA=
-  dependencies:
-    assert-plus "^1.0.0"
-
 datatables@^1.10.18:
   version "1.10.18"
   resolved "https://registry.yarnpkg.com/datatables/-/datatables-1.10.18.tgz#fee16e82aa70b17c5faf1a6954ac68f404f33a70"
@@ -5544,6 +5529,11 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+perfect-scrollbar@^1.5.1:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/perfect-scrollbar/-/perfect-scrollbar-1.5.2.tgz#41167ac6bc95e3a5e87a7402fa36fdacca9bc298"
+  integrity sha512-McHAinFkyzKbBZrFtb4MT2mxkehp15KvOX/UrjB8C5EZZXHTHgyETo5IGFYtHRTI2Pb2bsV0OE0YnkjT9Cw3aw==
+
 picocolors@^0.2.1:
   version "0.2.1"
   resolved "https://registry.npmjs.org/picocolors/-/picocolors-0.2.1.tgz"
@@ -5553,15 +5543,6 @@ picocolors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz"
   integrity sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==
-perfect-scrollbar@^1.5.1:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/perfect-scrollbar/-/perfect-scrollbar-1.5.2.tgz#41167ac6bc95e3a5e87a7402fa36fdacca9bc298"
-  integrity sha512-McHAinFkyzKbBZrFtb4MT2mxkehp15KvOX/UrjB8C5EZZXHTHgyETo5IGFYtHRTI2Pb2bsV0OE0YnkjT9Cw3aw==
-
-performance-now@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
-  integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
 picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3:
   version "2.3.0"

@@ -7,11 +7,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= yield :header %> 
   </head>
-  <body class="app">
+  <body class="app" id="admin-body">
     <%= render 'layouts/admin/sidebar' %>
     <div class="page-container">
       <%= render 'layouts/admin/header' %>
