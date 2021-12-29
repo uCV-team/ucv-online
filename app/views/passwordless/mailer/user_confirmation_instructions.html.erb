@@ -1,7 +1,7 @@
 <p style="text-align: center">
-  <%= t('devise.mailer.confirmation_instructions.greeting'), recipient:@email %><br><br>
+  <%= t('devise.mailer.confirmation_instructions.greeting', recipient: @email) %><br><br>
 
-   <%= t('devise.mailer.confirmation_instructions.instruction') %><br><br>
+  <%= t('devise.mailer.confirmation_instructions.instruction') %><br><br>
 
   <%= link_to t('devise.mailer.confirmation_instructions.action'), @magic_link %>
 </p>

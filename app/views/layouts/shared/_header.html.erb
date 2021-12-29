@@ -73,9 +73,9 @@
               </li>
             </div>
           <% else %>
-            <% unless request.path == new_user_registration_path %>
+            <% unless request.path == new_users_registrations_path %>
               <li class="pb-2 ml-2">
-                <%= link_to t('layouts.nav.create_cv'), new_user_registration_path, class: 'btn btn-lg btn-outline-primary' %>
+                <%= link_to t('layouts.nav.create_cv'), new_users_registrations_path, class: 'btn btn-lg btn-outline-primary' %>
               </li>
             <% end %>
             <% unless request.path == users.sign_in_path %>
