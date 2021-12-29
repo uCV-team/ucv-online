@@ -26,12 +26,13 @@
       serverSide: true,
       "retrieve": true,
       "columns": [
-          { "searchable": true },
-          { "searchable": true },
+          { "searchable": false },
+          { "searchable": false },
           { "searchable": true },
           { "searchable": false }
         ],
-      ajax: "<%= admin_flags_path(format: :json) %>"
+      ajax: "<%= admin_flags_path(format: :json) %>",
+      "order": [[ 3, "desc" ]]
     });
   });
 </script>

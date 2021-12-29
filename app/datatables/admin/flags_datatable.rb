@@ -7,7 +7,7 @@ module Admin
     def data
       flags.includes(:user, cv: [:user]).map do |flag|
         [].tap do |column|
-          column << link_to(flag.cv.full_name, cv_section_path(flag.cv.subdomain), target: :_blank) if flag.cv.present?
+          column << link_to(flag.cv.full_name, cv_section_path(flag.cv.subdomain), target: '_blank', rel: 'noopener')
           column << flag.user.full_name if flag.user.present?
           column << flag.reason
           column << format_datetime(flag.created_at)
@@ -28,19 +28,10 @@ module Admin
     end
 
     def fetch_flags
-      search_string = []
-      columns.each do |term|
-        search_string << "#{term} like :search"
-      end
-
-      flags = Flag.order("#{sort_column} #{sort_direction}")
-      search_params = flags.sanitize_sql_for_conditions("%#{params[:search][:value]}%")
-      flags = flags.where(search_string.join(' or '), search: search_params)
-      flags = flags.page(page).per(per_page)
-    end
-
-    def columns
-      %w[reason]
+      flags = Flag.datatable_filter(params['search']['value'], params['columns'])
+      flags = flags.datatable_order(params['order']['0']['column'].to_i,
+                                    params['order']['0']['dir'])
+      flags.page(page).per(per_page)
     end
   end
 end

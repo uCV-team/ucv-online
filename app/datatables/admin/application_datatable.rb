@@ -25,14 +25,6 @@ module Admin
       params[:length].to_i.positive? ? params[:length].to_i : 10
     end
 
-    def sort_column
-      columns[params[:order]['0'][:column].to_i]
-    end
-
-    def sort_direction
-      params[:order]['0'][:dir] == 'desc' ? 'desc' : 'asc'
-    end
-
     def format_datetime(datetime)
       return nil unless datetime
       datetime.strftime('%d/%m/%Y %T')

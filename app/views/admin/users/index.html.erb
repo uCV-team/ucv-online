@@ -24,7 +24,15 @@
       "retrieve": true,
       serverSide: true,
       processing: true,
-      ajax: "<%= admin_users_path %>"
+      "columns": [
+          { "searchable": true },
+          { "searchable": true },
+          { "searchable": true },
+          { "searchable": true },
+          { "searchable": false }
+        ],
+      ajax: "<%= admin_users_path(format: :json) %>",
+      "order": [[ 4, "desc" ]]
     });
   });
 </script>

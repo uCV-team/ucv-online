@@ -10,7 +10,7 @@ module Admin
           column << user.email
           column << "#{user.first_name} #{user.last_name}"
           column << user.tel
-          column << link_to(user.subdomain, cv_section_path(user.subdomain), target: :_blank)
+          column << link_to(user.subdomain, cv_section_path(user.subdomain), target: '_blank', rel: 'noopener')
           column << format_datetime(user.created_at)
         end
       end
@@ -29,19 +29,10 @@ module Admin
     end
 
     def fetch_users
-      search_string = []
-      columns.each do |term|
-        search_string << "#{term} like :search"
-      end
-
-      users = User.order("#{sort_column} #{sort_direction}")
-      search_params = users.sanitize_sql_for_conditions("%#{params[:search][:value]}%")
-      users = users.where(search_string.join(' or '), search: search_params)
-      users = users.page(page).per(per_page)
-    end
-
-    def columns
-      %w[first_name last_name email tel]
+      users = User.datatable_filter(params['search']['value'], params['columns'])
+      users = users.datatable_order(params['order']['0']['column'].to_i,
+                                    params['order']['0']['dir'])
+      users.page(page).per(per_page)
     end
   end
 end
