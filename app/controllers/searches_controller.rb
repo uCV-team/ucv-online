@@ -17,7 +17,6 @@ class SearchesController < ApplicationController
     @search.increment!(:views)
     @all_results = @search.materialized_views_results
     @total_results = @all_results.count
-    @search_query = @search.query
     @results = @all_results.page(params[:page]).per(10)
     @formatted_results = SearchesService.new(@all_results.includes(cv: [:user])).coordinates_list
     search_map_center
