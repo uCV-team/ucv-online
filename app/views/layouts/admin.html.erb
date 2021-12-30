@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<title><%= seo_title -%></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= yield :header %> 
+  </head>
+  <body class="app" id="admin-body">
+    <%= render 'layouts/admin/sidebar' %>
+    <div class="page-container">
+      <%= render 'layouts/admin/header' %>
+      <main class='main-content bgc-grey-100'>
+        <div id='mainContent'>
+        <%= render 'layouts/shared/flash_messages' %>
+          <%= yield %>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

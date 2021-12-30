@@ -1,0 +1,43 @@
+<div class="header navbar">
+  <div class="header-container">
+    <ul class="nav-left">
+      <li>
+        <a id='sidebar-toggle' class="sidebar-toggle" href="javascript:void(0);">
+          <i class="ti-menu"></i>
+        </a>
+      </li>
+    </ul>
+    <ul class="nav-right">
+      <li class="dropdown">
+        <a type="button" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1 mr-0 mr-md-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="peer mR-10">
+            <%= image_tag(current_user.cv.headshot.url(:default), alt: "profile-pic", class: 'img-fluid rounded-circle', width: '32') %>
+            <span class="fsz-sm c-grey-900">Hi <%= "#{current_user.first_name}!" %></span>
+            <i class="fas fa-angle-down pt-2"></i>
+          </div>
+        </a>
+        <ul class="dropdown-menu fsz-sm">
+          <li>
+            <%= link_to cv_section_path(current_user.subdomain), class: 'd-b td-n pY-5 bgcH-grey-100 c-grey-700' do %>
+              <i class="ti-settings mR-10"></i>
+              <span><%= t('layouts.nav.edit_your_cv') %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to edit_user_registration_path, class: 'd-b td-n pY-5 bgcH-grey-100 c-grey-700' do %>
+              <i class="ti-user mR-10"></i>
+              <span><%= t('layouts.nav.account') %></span>
+            <% end %>
+          </li>
+          <li role="separator" class="divider"></li>
+          <li>
+            <%= link_to destroy_user_session_path, data: { method: :delete }, class: 'd-b td-n pY-5 bgcH-grey-100 c-grey-700' do %>
+              <i class="ti-power-off mR-10"></i>
+              <span><%= t('layouts.nav.logout') %></span>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

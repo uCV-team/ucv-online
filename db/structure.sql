@@ -495,6 +495,49 @@ CREATE SEQUENCE public.messages_id_seq
 ALTER SEQUENCE public.messages_id_seq OWNED BY public.messages.id;
 
 
+
+
+--
+-- Name: roles; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.roles (
+    id bigint NOT NULL,
+    name character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.roles_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.roles_id_seq OWNED BY public.roles.id;
+
+
+--
+-- Name: roles_users; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.roles_users (
+    role_id bigint NOT NULL,
+    user_id bigint NOT NULL
+);
+
+
 --
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
@@ -641,6 +684,15 @@ ALTER TABLE ONLY public.locations ALTER COLUMN id SET DEFAULT nextval('public.lo
 ALTER TABLE ONLY public.messages ALTER COLUMN id SET DEFAULT nextval('public.messages_id_seq'::regclass);
 
 
+
+
+--
+-- Name: roles id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.roles ALTER COLUMN id SET DEFAULT nextval('public.roles_id_seq'::regclass);
+
+
 --
 -- Name: searches id; Type: DEFAULT; Schema: public; Owner: -
 --
@@ -759,6 +811,14 @@ ALTER TABLE ONLY public.messages
 
 
 --
+-- Name: roles roles_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.roles
+    ADD CONSTRAINT roles_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -819,6 +879,20 @@ CREATE INDEX index_locations_on_user_id ON public.locations USING btree (user_id
 --
 
 CREATE INDEX index_messages_on_user_id ON public.messages USING btree (user_id);
+
+
+--
+-- Name: index_roles_users_on_role_id_and_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_roles_users_on_role_id_and_user_id ON public.roles_users USING btree (role_id, user_id);
+
+
+--
+-- Name: index_roles_users_on_user_id_and_role_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_roles_users_on_user_id_and_role_id ON public.roles_users USING btree (user_id, role_id);
 
 
 --
@@ -932,6 +1006,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210530194229'),
 ('20210903095035'),
 ('20210910055819'),
-('20210923121737');
+('20210923121737'),
+('20211005060043'),
+('20211005062200');
 
 

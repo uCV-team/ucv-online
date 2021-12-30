@@ -37,7 +37,11 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    cv_section_path(resource.subdomain)
+    if resource.role?('admin')
+      admin_home_path
+    else
+      cv_section_path(resource.subdomain)
+    end
   end
 
   def tld

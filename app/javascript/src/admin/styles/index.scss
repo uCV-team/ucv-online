@@ -1,0 +1,11 @@
+@import 'spec/settings/index';
+@import 'spec/tools/index';
+@import "~bootstrap/scss/bootstrap";
+@import 'spec/index';
+@import 'vendor/index';
+// Overide path for font awesome icons
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts/";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
