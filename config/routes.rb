@@ -45,5 +45,6 @@ Rails.application.routes.draw do
   namespace :cvs do
     resources :flags, only: %i[new create]
   end
+  get '/unauthorized_page', to: 'home#show', as: :unauthorized
   # resources :locations, except: %i[index show]
 end

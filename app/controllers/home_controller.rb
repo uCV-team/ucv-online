@@ -9,4 +9,6 @@ class HomeController < ApplicationController
     @featured_searches = Search.ordered.localized.limit(15)
     @cvs_last_updated_count = Cv.where('updated_at > ?', 30.days.ago).count
   end
+
+  def show; end
 end
