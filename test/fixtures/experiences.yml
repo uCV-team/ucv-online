@@ -7,7 +7,7 @@ john_experience:
   title: Web Developer
   cv: john_cv
 
-john_experience_2:
+john_experience2:
   company: <%= Faker::Company.name %>
   description: <%= Faker::Lorem.sentence %>
   ended_on: <%= Date.new(2014) %>
@@ -16,7 +16,7 @@ john_experience_2:
   title: <%= Faker::Job.title %>
   cv: john_cv
 
-john_experience_3:
+john_experience3:
   company: <%= Faker::Company.name %>
   description: <%= Faker::Lorem.sentence %>
   ended_on: <%= Date.new(2015) %>

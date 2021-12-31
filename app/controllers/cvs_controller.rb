@@ -66,7 +66,7 @@ class CvsController < ApplicationController
                                :gender, :headshot, :interests, :published, :section, :skills, :working_skills,
                                :learning_skills, :remove_headshot, :authorization_statement, :publish_last_name,
                                user_attributes: [:id, :first_name, :last_name, :tel,
-                                                 current_location_attributes: %i[id original_address]])
+                                                 { current_location_attributes: %i[id original_address] }])
   end
 
   def subdomain

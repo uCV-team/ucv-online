@@ -1,3 +1,5 @@
+require: rubocop-rails
+
 Rails:
   Enabled: true
 
@@ -6,13 +8,33 @@ Rails/HasAndBelongsToMany:
   - 'app/models/role.rb'
   - 'app/models/user.rb'
 
+Rails/HelperInstanceVariable:
+  Exclude:
+  - 'app/helpers/application_helper.rb'
+  - 'app/helpers/cvs_helper.rb'
+
+Rails/HasManyOrHasOneDependent:
+  Exclude:
+  - 'app/models/cv.rb'
+
+Rails/FilePath:
+  Exclude:
+  - 'config/application.rb'
+  - 'config/initializers/geocoder.rb'
+  - 'config/environments/development.rb'
+  - 'test/test_helper.rb'
+
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
   Exclude:
   - 'config/initializers/rack_attack.rb'
+
+Lint/UselessMethodDefinition:
+  Exclude:
+  - 'app/controllers/users/registrations_controller.rb'
 
 Metrics/MethodLength:
   Max: 15
@@ -53,6 +75,7 @@ Metrics/ModuleLength:
   Max: 140
 
 AllCops:
+  TargetRubyVersion: 2.5.1
   Exclude:
   - 'bin/**/*'
   - 'script/**/*'

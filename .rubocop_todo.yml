@@ -31,14 +31,14 @@ Layout/EndAlignment:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: special_inside_parentheses, consistent, align_brackets
-Layout/IndentArray:
+Layout/FirstArrayElementIndentation:
   Exclude:
 
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: special_inside_parentheses, consistent, align_braces
-Layout/IndentHash:
+Layout/FirstHashElementIndentation:
   Exclude:
 
 # Offense count: 1
@@ -58,7 +58,7 @@ Layout/IndentationWidth:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: final_newline, final_blank_line
-Layout/TrailingBlankLines:
+Layout/TrailingEmptyLines:
   Exclude:
 
 # Offense count: 2
@@ -70,7 +70,7 @@ Metrics/BlockLength:
 # Offense count: 8
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
-Metrics/LineLength:
+Layout/LineLength:
   Max: 163
   Exclude:
   - 'config/initializers/rack_attack.rb'
@@ -78,7 +78,7 @@ Metrics/LineLength:
 # Offense count: 2
 # Configuration parameters: MinNameLength, AllowNamesEndingInNumbers, AllowedNames, ForbiddenNames.
 # AllowedNames: io, id, to, by, on, in, at, ip, db
-Naming/UncommunicativeMethodParamName:
+Naming/MethodParameterName:
   Exclude:
     - 'lib/geocoder/results/geoip2.rb'
     - 'app/helpers/cvs_helper.rb'

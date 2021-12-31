@@ -26,7 +26,7 @@ class CvsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_template :update
 
-    about = Faker::Lorem.paragraph(256..260)
+    about = Faker::Lorem.paragraph(sentence_count: 256..260)
     invalid_params = { cv: { about: about } }
     put cv_path(invalid_params), xhr: true
     assert_response :success
@@ -37,7 +37,7 @@ class CvsControllerTest < ActionDispatch::IntegrationTest
 
   test 'logged in user can only read other user\'s published Cvs' do
     # logged in as john
-    other_cv = cvs(:john_cv_2)
+    other_cv = cvs(:john_cv2)
     other_user = other_cv.user
 
     # can read other user's published cv
@@ -54,7 +54,7 @@ class CvsControllerTest < ActionDispatch::IntegrationTest
 
   test 'guest user can only read published Cvs' do
     logout
-    cv = cvs(:john_cv_2)
+    cv = cvs(:john_cv2)
     user = cv.user
 
     # can read user's published cv
