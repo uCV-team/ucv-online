@@ -9,7 +9,7 @@ class Experience < ApplicationRecord
                                           {2,63}(:[0-9]{1,5})?(/.*)?\z}ix,
                                     message: 'is invalid' }, allow_blank: true
 
-  scope :chronological_order, -> { order('ended_on IS NULL DESC, ended_on DESC, started_on DESC') }
+  scope :chronological_order, -> { order(Arel.sql('ended_on IS NULL DESC, ended_on DESC, started_on DESC')) }
   scope :by_position, -> { order('position') }
   before_create :set_position
 
