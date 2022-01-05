@@ -3,20 +3,10 @@ require: rubocop-rails
 Rails:
   Enabled: true
 
-Rails/HasAndBelongsToMany:
-  Exclude:
-  - 'app/models/role.rb'
-  - 'app/models/user.rb'
-
 Rails/HelperInstanceVariable:
   Exclude:
   - 'app/helpers/application_helper.rb'
   - 'app/helpers/cvs_helper.rb'
-
-Rails/HasAndBelongsToMany:
-  Exclude:
-  - 'app/models/role.rb'
-  - 'app/models/user.rb'
 
 Rails/HasManyOrHasOneDependent:
   Exclude:
