@@ -17,13 +17,6 @@ CREATE EXTENSION IF NOT EXISTS dict_int WITH SCHEMA public;
 
 
 --
--- Name: EXTENSION dict_int; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION dict_int IS 'text search dictionary template for integers';
-
-
---
 -- Name: fuzzystrmatch; Type: EXTENSION; Schema: -; Owner: -
 --
 
@@ -31,24 +24,10 @@ CREATE EXTENSION IF NOT EXISTS fuzzystrmatch WITH SCHEMA public;
 
 
 --
--- Name: EXTENSION fuzzystrmatch; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION fuzzystrmatch IS 'determine similarities and distance between strings';
-
-
---
 -- Name: pg_trgm; Type: EXTENSION; Schema: -; Owner: -
 --
 
 CREATE EXTENSION IF NOT EXISTS pg_trgm WITH SCHEMA public;
-
-
---
--- Name: EXTENSION pg_trgm; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION pg_trgm IS 'text similarity measurement and index searching based on trigrams';
 
 
 --
@@ -247,7 +226,7 @@ CREATE TABLE public.active_storage_blobs (
     content_type character varying,
     metadata text,
     byte_size bigint NOT NULL,
-    checksum character varying NOT NULL,
+    checksum character varying,
     created_at timestamp without time zone NOT NULL,
     service_name character varying NOT NULL
 );
@@ -1349,6 +1328,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20211005062200'),
 ('20220103100508'),
 ('20220104062550'),
-('20220104062551');
+('20220104062551'),
+('20220104105826');
 
 

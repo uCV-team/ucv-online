@@ -95,8 +95,8 @@
 
         <div class="col-12">
           <div class="custom-control custom-checkbox mb-5">
-            <%= f.check_box :publish_last_name, class: 'custom-control-input' %>
-            <%= f.label :publish_last_name, t('content.main.cv.edit.intro.publish_last_name'), class: 'custom-control-label text-muted d-block' %>
+            <%= f.check_box :publish_last_name, class: 'custom-control-input', id: 'cv_publish_last_name' %>
+            <%= f.label :publish_last_name, t('content.main.cv.edit.intro.publish_last_name'), class: 'custom-control-label text-muted d-block', for: 'cv_publish_last_name' %>
           </div>
         </div>
       </div>

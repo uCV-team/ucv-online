@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module Publicv
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    # config.load_defaults 7.0
 
     config.time_zone = 'Rome'
     config.i18n.default_locale = :en
