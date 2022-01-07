@@ -57,6 +57,10 @@ module CvsHelper
     end
   end
 
+  def cv_image_edit(cv)
+    cv.headshot_file_name.present? ? 'icon_size' : 'popup-text'
+  end
+
   private
 
   def get_period(start_date, end_date)

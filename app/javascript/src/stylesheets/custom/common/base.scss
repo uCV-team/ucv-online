@@ -323,13 +323,23 @@ nav {
 }
 .popup-text{
   position: absolute;
-  bottom: 0;
-  left: 63%;
+  top: 11.5rem;
+  left: 11.25rem;
+}
+.icon_size{
+  position: absolute;
+  top: 9.625rem;
+  left: 10.625rem;
 }
 @media only screen and (max-width: 768px) {
   .popup-text{
-    bottom: 0;
-    left: 170px;
+    top: 11.5rem;
+    left: 11.25rem;
+  }
+  .icon_size{
+    position: absolute;
+    top: 9.625rem;
+    left: 10.625rem;
   }
 }
 .edit-btn{

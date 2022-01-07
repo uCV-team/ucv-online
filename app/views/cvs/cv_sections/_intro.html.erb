@@ -46,7 +46,7 @@
         <div class="col-12 col-md-3 mb-2 mb-md-0 headshot-edit">
           <%= image_tag(@cv.headshot.url(:default), alt: "#{@cv.abbr_name} headshot", class: 'img-fluid') %>
           <% if edit_mode? %>
-            <%= link_to edit_cv_section_path(section: :headshot), remote: true, class: 'btn-cv btn-edit popup-text' do %>
+            <%= link_to edit_cv_section_path(section: :headshot), remote: true, class: "btn-cv btn-edit #{cv_image_edit(@cv)}" do %>
               <span class="badge rounded-circle p-2 edit-btn"><i class="icon-pencil"></i></span>
             <% end %>
           <% end %>
