@@ -46,12 +46,12 @@ end
 user = User.create!(
   first_name: 'Admin',
   last_name: 'PubliCV',
-  email: 'admin@publicv.com',
-  subdomain: 'admin123',
+  email: 'admin@publicv.co',
+  subdomain: 'admin',
   confirmed_at: Time.zone.now,
-  password: Devise::Encryptor.digest(User, "supersecret")
+  password: 'supersecret'
 )
 role = Role.create!(
-  name: 'Admin',
+  name: 'admin',
 )
 user.roles << role
