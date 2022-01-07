@@ -42,4 +42,4 @@ Run the standard RoR app setup commands:
 
 # Contributing
 
-PubliCV is an open source project and we encourage contributions.[Read the wiki](https://github.com/publicv-org/publicv/wiki) to get started.
+PubliCV is an open source project and we encourage contributions. [Read the wiki](https://github.com/publicv-org/publicv/wiki) to get started.
