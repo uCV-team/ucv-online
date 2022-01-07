@@ -13,6 +13,11 @@ Rails/HelperInstanceVariable:
   - 'app/helpers/application_helper.rb'
   - 'app/helpers/cvs_helper.rb'
 
+Rails/HasAndBelongsToMany:
+  Exclude:
+  - 'app/models/role.rb'
+  - 'app/models/user.rb'
+
 Rails/HasManyOrHasOneDependent:
   Exclude:
   - 'app/models/cv.rb'
