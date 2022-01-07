@@ -72,6 +72,8 @@ Metrics/BlockLength:
 # URISchemes: http, https
 Metrics/LineLength:
   Max: 163
+  Exclude:
+  - 'config/initializers/rack_attack.rb'
 
 # Offense count: 2
 # Configuration parameters: MinNameLength, AllowNamesEndingInNumbers, AllowedNames, ForbiddenNames.
@@ -91,3 +93,8 @@ Style/ClassAndModuleChildren:
 # Offense count: 1
 Style/NestedTernaryOperator:
   Exclude:
+
+Rails/HasAndBelongsToMany:
+  Exclude:
+  - 'app/models/role.rb'
+  - 'app/models/user.rb'
