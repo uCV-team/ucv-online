@@ -59,8 +59,6 @@
                     <div>
                       <%= link_to 'Admin panel', admin_home_path , class: 'dropdown-item py-2 badge-primary-lt'%>
                     </div>
-                  <% end %>
-                  <% if (current_user.admin)%>
                     <div>
                       <%= link_to t('layouts.nav.newsletter'), admins_newsletters_path, class: 'dropdown-item py-2 badge-primary-lt' %>
                     </div>

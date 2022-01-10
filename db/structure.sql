@@ -773,7 +773,6 @@ CREATE TABLE public.users (
     unconfirmed_email character varying,
     subdomain character varying,
     locale character varying,
-    admin boolean DEFAULT false,
     email_preference_online_updates boolean DEFAULT false
 );
 

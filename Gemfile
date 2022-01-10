@@ -39,7 +39,6 @@ gem 'trix-rails', require: 'trix'
 gem 'mailkick'
 gem 'postmark-spam_check'
 
-gem 'cancancan', '~> 3.2.0'
 gem 'jsonapi-serializer'
 gem 'rack-attack'
 gem 'rack-timeout'
