@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resource :home, only: [:show]
+    resource :dashboard, only: [:show]
     resources :users, only: %i[index]
     resources :flags, only: %i[index]
     resources :newsletters, except: %i[destroy] do

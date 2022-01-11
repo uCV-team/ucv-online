@@ -1,4 +1,6 @@
 en:
+  navbar:
+    admin_text: Admin Panel
   sidebar:
     dashboard: Dashboard
     users: Users

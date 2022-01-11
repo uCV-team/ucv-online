@@ -1,13 +1,15 @@
 .dataTables_scrollBody {
   border-bottom: 0 !important;
 }
-.dataTables_scrollHead thead tr th {
+#dataTable thead tr th {
   padding: 18px;
 }
-.dataTables_scrollHead {
-  .no-footer {
-    margin-bottom: 0 !important;
-  }
+#dataTable_flags thead tr th {
+  padding: 18px;
+}
+#dataTable_flags,
+#dataTable {
+  margin-top: 72px;
 }
 .dataTables_scroll {
   margin-top: 60px !important;
