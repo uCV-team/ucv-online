@@ -1,5 +1,5 @@
-module Admins
-  class SubmittalController < ApplicationController
+module Admin
+  class SubmittalController < Admin::BaseController
     authorize_resource class: 'Newsletter'
 
     def create
@@ -16,7 +16,7 @@ module Admins
       opt_out_user_ids = recipient_ids - opted_user_ids
       flash[:info] = t('.success', opted_user_ids: opted_user_ids.join(','), scope: :flash)
       flash[:info] += t('.fail', opt_out_user_ids: opt_out_user_ids.join(','), scope: :flash) if opt_out_user_ids.any?
-      redirect_to admins_newsletters_path
+      redirect_to admin_newsletters_path
     end
 
     def user_opted_for_email_preference(preference_type, recipient_id)

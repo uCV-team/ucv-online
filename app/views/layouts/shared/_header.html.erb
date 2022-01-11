@@ -59,14 +59,10 @@
                     <div>
                       <%= link_to 'Admin panel', admin_home_path , class: 'dropdown-item py-2 badge-primary-lt'%>
                     </div>
-                    <div>
-                      <%= link_to t('layouts.nav.newsletter'), admins_newsletters_path, class: 'dropdown-item py-2 badge-primary-lt' %>
-                    </div>
-                  <% else %>
-                    <div>
-                      <%= link_to t('layouts.nav.preference'), users_preferences_path, class: 'dropdown-item py-2 badge-primary-lt' %>
-                    </div>
                   <% end %>
+                  <div>
+                    <%= link_to t('layouts.nav.preference'), users_preferences_path, class: 'dropdown-item py-2 badge-primary-lt' %>
+                  </div>
                   <div>
                     <%= link_to t('layouts.nav.logout'), destroy_user_session_path, data: { method: :delete }, class: 'dropdown-item py-2 badge-primary-lt' %>
                   </div>

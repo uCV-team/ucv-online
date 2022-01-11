@@ -8,13 +8,6 @@ it:
     c2: "C2 - Madrelingua"
   confirmation: "Sei sicuro/a?"
   content:
-    admins:
-      newsletters:
-        create: "Create Newsletter"
-        edit: " Edit Newsletter"
-        home: "Newsletters"
-        new: " New Newsletter"
-        show: "Newsletter Content"
     main:
       aria_labels:
         close: "Chiudi"

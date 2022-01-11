@@ -48,7 +48,3 @@ Turbolinks.start();
 import 'jquery-ui-dist/jquery-ui';
 import 'bootstrap/dist/js/bootstrap';
 import 'trix/dist/trix';
-
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('Hello World from Webpacker');
-});

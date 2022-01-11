@@ -16,7 +16,6 @@ class Ability
     can :read, Cv, published: true
     can :create, Message
     can :manage, Mailkick::OptOut
-    can :manage, User
   end
 
   def user_permissions(current_user)
@@ -30,8 +29,6 @@ class Ability
   end
 
   def admin_permissions
-    can :manage, Newsletter
-    can :create, Attachment
     can :manage, :all
   end
 end

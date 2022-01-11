@@ -316,15 +316,6 @@ ALTER SEQUENCE public.attachments_id_seq OWNED BY public.attachments.id;
 
 
 --
--- Name: contacts; Type: TABLE; Schema: public; Owner: -
---
-
-
-
---
---
-
---
 -- Name: cvs; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -560,23 +551,6 @@ ALTER SEQUENCE public.locations_id_seq OWNED BY public.locations.id;
 
 
 --
--- Name: messages; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.messages (
-    id bigint NOT NULL,
-    title character varying,
-    name character varying,
-    email character varying,
-    phone character varying,
-    content text,
-    user_id integer,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    status character varying DEFAULT 'new'::character varying NOT NULL
-);
-
---
 -- Name: mailkick_opt_outs; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -594,18 +568,6 @@ CREATE TABLE public.mailkick_opt_outs (
 
 
 --
--- Name: messages_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.messages_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
 -- Name: mailkick_opt_outs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -618,29 +580,47 @@ CREATE SEQUENCE public.mailkick_opt_outs_id_seq
 
 
 --
--- Name: messages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.messages_id_seq OWNED BY public.messages.id;
-
-
---
--- Name: roles; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.roles (
-    id bigint NOT NULL,
-    name character varying,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
-);
-
-
---
 -- Name: mailkick_opt_outs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.mailkick_opt_outs_id_seq OWNED BY public.mailkick_opt_outs.id;
+
+
+--
+-- Name: messages; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.messages (
+    id bigint NOT NULL,
+    title character varying,
+    name character varying,
+    email character varying,
+    phone character varying,
+    content text,
+    user_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    status character varying DEFAULT 'new'::character varying NOT NULL
+);
+
+
+--
+-- Name: messages_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.messages_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: messages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.messages_id_seq OWNED BY public.messages.id;
 
 
 --
@@ -661,10 +641,10 @@ CREATE TABLE public.newsletters (
 
 
 --
--- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: newsletters_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE public.roles_id_seq
+CREATE SEQUENCE public.newsletters_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -673,10 +653,29 @@ CREATE SEQUENCE public.roles_id_seq
 
 
 --
--- Name: newsletters_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: newsletters_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE public.newsletters_id_seq
+ALTER SEQUENCE public.newsletters_id_seq OWNED BY public.newsletters.id;
+
+
+--
+-- Name: roles; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.roles (
+    id bigint NOT NULL,
+    name character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.roles_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -699,13 +698,6 @@ CREATE TABLE public.roles_users (
     role_id bigint NOT NULL,
     user_id bigint NOT NULL
 );
-
-
---
--- Name: newsletters_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.newsletters_id_seq OWNED BY public.newsletters.id;
 
 
 --
@@ -823,11 +815,6 @@ ALTER TABLE ONLY public.attachments ALTER COLUMN id SET DEFAULT nextval('public.
 
 
 --
--- Name: contacts id; Type: DEFAULT; Schema: public; Owner: -
---
-
-
---
 -- Name: cvs id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -870,20 +857,6 @@ ALTER TABLE ONLY public.locations ALTER COLUMN id SET DEFAULT nextval('public.lo
 
 
 --
--- Name: messages id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.messages ALTER COLUMN id SET DEFAULT nextval('public.messages_id_seq'::regclass);
-
-
---
--- Name: roles id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.roles ALTER COLUMN id SET DEFAULT nextval('public.roles_id_seq'::regclass);
-
-
---
 -- Name: mailkick_opt_outs id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -891,10 +864,24 @@ ALTER TABLE ONLY public.mailkick_opt_outs ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
+-- Name: messages id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.messages ALTER COLUMN id SET DEFAULT nextval('public.messages_id_seq'::regclass);
+
+
+--
 -- Name: newsletters id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.newsletters ALTER COLUMN id SET DEFAULT nextval('public.newsletters_id_seq'::regclass);
+
+
+--
+-- Name: roles id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.roles ALTER COLUMN id SET DEFAULT nextval('public.roles_id_seq'::regclass);
 
 
 --
@@ -1026,22 +1013,6 @@ ALTER TABLE ONLY public.locations
 
 
 --
--- Name: messages messages_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.messages
-    ADD CONSTRAINT messages_pkey PRIMARY KEY (id);
-
-
---
--- Name: roles roles_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.roles
-    ADD CONSTRAINT roles_pkey PRIMARY KEY (id);
-
-
---
 -- Name: mailkick_opt_outs mailkick_opt_outs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1050,11 +1021,27 @@ ALTER TABLE ONLY public.mailkick_opt_outs
 
 
 --
+-- Name: messages messages_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.messages
+    ADD CONSTRAINT messages_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: newsletters newsletters_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.newsletters
     ADD CONSTRAINT newsletters_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: roles roles_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.roles
+    ADD CONSTRAINT roles_pkey PRIMARY KEY (id);
 
 
 --
@@ -1137,6 +1124,20 @@ CREATE INDEX index_locations_on_user_id ON public.locations USING btree (user_id
 
 
 --
+-- Name: index_mailkick_opt_outs_on_email; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_mailkick_opt_outs_on_email ON public.mailkick_opt_outs USING btree (email);
+
+
+--
+-- Name: index_mailkick_opt_outs_on_user_type_and_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_mailkick_opt_outs_on_user_type_and_user_id ON public.mailkick_opt_outs USING btree (user_type, user_id);
+
+
+--
 -- Name: index_messages_on_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1155,20 +1156,6 @@ CREATE INDEX index_roles_users_on_role_id_and_user_id ON public.roles_users USIN
 --
 
 CREATE INDEX index_roles_users_on_user_id_and_role_id ON public.roles_users USING btree (user_id, role_id);
-
-
---
--- Name: index_mailkick_opt_outs_on_email; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_mailkick_opt_outs_on_email ON public.mailkick_opt_outs USING btree (email);
-
-
---
--- Name: index_mailkick_opt_outs_on_user_type_and_user_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_mailkick_opt_outs_on_user_type_and_user_id ON public.mailkick_opt_outs USING btree (user_type, user_id);
 
 
 --

@@ -29,6 +29,10 @@ Rails.application.routes.draw do
     resource :home, only: [:show]
     resources :users, only: %i[index]
     resources :flags, only: %i[index]
+    resources :newsletters, except: %i[destroy] do
+      get :preferences, on: :collection
+      resources :submittal, only: [:create]
+    end
   end
   resources :accounts, only: :destroy
   resource :cv, except: %i[new edit create destroy show] do
@@ -55,12 +59,6 @@ Rails.application.routes.draw do
   namespace :users do
     resources :preferences, only: [:index] do
       put :update, on: :collection
-    end
-  end
-  namespace :admins do
-    resources :newsletters, except: %i[destroy] do
-      get :preferences, on: :collection
-      resources :submittal, only: [:create]
     end
   end
   resources :preferences, only: %i[show update] do

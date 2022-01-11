@@ -50,6 +50,14 @@
           <span class="title"><%= t('sidebar.flags') %></span>
         <% end %>
       </li>
+      <li class="nav-item">
+        <%= link_to admin_newsletters_path, class:'sidebar-link' do %>
+          <span class="icon-holder">
+            <i class="c-teal-500 ti-email"></i>
+          </span>
+          <span class="title"><%= t('layouts.nav.newsletter') %></span>
+        <% end %>
+      </li>
     </ul>
   </div>
 </div>

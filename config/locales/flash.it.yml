@@ -19,7 +19,7 @@ it:
     update: 'Update completed successfully.'
     create: 'Successfully created.'
     authorization: 'You are not authorized to perform this action.'
-    admins:
+    admin:
       submittal:
         create:
           success: Successfully send newsletter to users %{opted_user_ids}.

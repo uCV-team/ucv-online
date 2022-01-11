@@ -20,3 +20,17 @@ it:
       flagged_by: Flagged By User
       reason: Motivo
       created_at: Creato a
+  newsletters:
+    index:
+      id: ID
+      name: Name
+      subject: Subject
+      subject: Subject
+      recipient_ids: Recipient Ids
+      sent_at: Sent At
+      actions: ACTIONS
+    create: "Create Newsletter"
+    edit: " Edit Newsletter"
+    home: "Newsletters"
+    new: " New Newsletter"
+    show: "Newsletter Content"

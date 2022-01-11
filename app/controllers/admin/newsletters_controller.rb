@@ -1,5 +1,5 @@
-module Admins
-  class NewslettersController < ApplicationController
+module Admin
+  class NewslettersController < Admin::BaseController
     authorize_resource
     before_action :newsletter, except: %i[index create]
 
@@ -14,7 +14,7 @@ module Admins
       if @newsletter.save
         link_attachments
         flash[:success] = I18n.t('flash.create', resource_name: @newsletter)
-        redirect_to admins_newsletters_path
+        redirect_to admin_newsletters_path
       else
         render :new
       end
@@ -26,7 +26,7 @@ module Admins
       link_attachments
       if @newsletter.update(newsletter_params)
         flash[:success] = I18n.t('flash.update', resource_name: @newsletter)
-        redirect_to admins_newsletters_path
+        redirect_to admin_newsletters_path
       else
         render :edit
       end
