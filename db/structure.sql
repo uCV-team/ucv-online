@@ -574,7 +574,7 @@ CREATE TABLE public.messages (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     status character varying DEFAULT 'new'::character varying NOT NULL
-
+);
 
 --
 -- Name: mailkick_opt_outs; Type: TABLE; Schema: public; Owner: -
