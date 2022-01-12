@@ -27,7 +27,6 @@ en:
       id: ID
       name: Name
       subject: Subject
-      subject: Subject
       recipient_ids: Recipient Ids
       sent_at: Sent At
       actions: ACTIONS
@@ -36,3 +35,5 @@ en:
     home: "Newsletters"
     new: " New Newsletter"
     show: "Newsletter Content"
+    form_label:
+      language: Language Type

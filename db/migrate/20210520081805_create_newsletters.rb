@@ -7,6 +7,7 @@ class CreateNewsletters < ActiveRecord::Migration[5.2]
       t.string :recipient_ids
       t.datetime :sent_at
       t.string :preference_type
+      t.string :locale
 
       t.timestamps
     end

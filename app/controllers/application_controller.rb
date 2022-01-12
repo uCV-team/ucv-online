@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.role?('admin')
-      admin_home_path
+      admin_dashboard_path
     else
       cv_section_path(resource.subdomain)
     end

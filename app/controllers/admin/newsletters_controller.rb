@@ -53,7 +53,7 @@ module Admin
 
     def newsletter_params
       params.require(:newsletter).permit(:name, :subject, :recipient_ids, :content,
-                                         :sent_at, :preference_type)
+                                         :sent_at, :preference_type, :locale)
     end
   end
 end

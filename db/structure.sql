@@ -635,6 +635,7 @@ CREATE TABLE public.newsletters (
     recipient_ids character varying,
     sent_at timestamp without time zone,
     preference_type character varying,
+    locale character varying,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
