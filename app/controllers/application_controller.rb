@@ -34,12 +34,14 @@ class ApplicationController < ActionController::Base
   def set_locale
     return I18n.locale = ENV['DEVELOPMENT_LOCALE'].to_sym if ENV['DEVELOPMENT_LOCALE'].present?
 
-    I18n.locale = case tld
-                  when 'it'
-                    :it
-                  else
-                    :en
-                  end
+    custom_locale = if current_user.present? && current_user.locale.present?
+                      current_user.locale
+                    elsif params[:user].present?
+                      params[:user][:locale]
+                    else
+                      tld == 'it' ? 'it' : 'en'
+                    end
+    I18n.locale = custom_locale.to_sym
   end
 
   def after_sign_in_path_for(resource)

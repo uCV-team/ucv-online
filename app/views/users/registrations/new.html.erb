@@ -32,11 +32,17 @@
                   <%= f.text_field :email, placeholder: t('devise.registrations.placeholder.email'), class: 'form-control form-control-lg pl-40' %>
                 </div>
               </div>
-              <div class="col-12">
+              <div class="col-12 col-md-8">
                 <div class="form-group mb-5 input-with-icon">
                   <label class="text-muted d-block"><%= t('devise.registrations.tel') %></label>
                   <i class="icon-phone text-muted"></i>
                   <%= f.text_field :tel, placeholder: t('devise.registrations.placeholder.tel'), class: 'form-control form-control-lg pl-40' %>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="form-group mb-5 input-with-icon">
+                  <label class="text-muted d-block"><%= t('devise.registrations.language') %></label>
+                  <%= select_tag 'user[locale]', options_for_select([['it-italian', 'it'], ['en-english', 'en']]), class: 'form-control form-control-lg' %>
                 </div>
               </div>
             </div>
