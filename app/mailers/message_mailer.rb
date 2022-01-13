@@ -6,7 +6,7 @@ class MessageMailer < ApplicationMailer
     @current_locale = @user.locale
     mail(
       to: @user.email,
-      subject: "#{@message.name}",
+      subject: @message.name.to_s,
       reply_to: @message.email
     )
   end
