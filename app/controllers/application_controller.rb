@@ -36,8 +36,6 @@ class ApplicationController < ActionController::Base
 
     custom_locale = if current_user.present? && current_user.locale.present?
                       current_user.locale
-                    elsif params[:user].present?
-                      params[:user][:locale]
                     else
                       tld == 'it' ? 'it' : 'en'
                     end
