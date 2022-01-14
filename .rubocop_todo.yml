@@ -89,6 +89,7 @@ Naming/MethodParameterName:
 # SupportedStyles: nested, compact
 Style/ClassAndModuleChildren:
   Exclude:
+    - 'app/overrides/mailkick/opt_out_override.rb'
     
 # Offense count: 1
 Style/NestedTernaryOperator:
