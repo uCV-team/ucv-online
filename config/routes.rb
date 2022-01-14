@@ -26,9 +26,13 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resource :home, only: [:show]
+    resource :dashboard, only: [:show]
     resources :users, only: %i[index]
     resources :flags, only: %i[index]
+    resources :newsletters, except: %i[destroy] do
+      get :preferences, on: :collection
+      resources :submittal, only: [:create]
+    end
   end
   resources :accounts, only: :destroy
   resource :cv, except: %i[new edit create destroy show] do
@@ -51,5 +55,15 @@ Rails.application.routes.draw do
     resources :flags, only: %i[new create]
   end
   get '/unauthorized_page', to: 'home#show', as: :unauthorized
+
+  namespace :users do
+    resources :preferences, only: [:index] do
+      put :update, on: :collection
+    end
+  end
+  resources :preferences, only: %i[show update] do
+    get :unsubscribe, on: :member
+  end
+  resources :attachments, only: [:create]
   # resources :locations, except: %i[index show]
 end

@@ -82,7 +82,7 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     byebug (11.0.1)
-    cancancan (3.2.2)
+    cancancan (3.3.0)
     capybara (3.16.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -196,6 +196,8 @@ GEM
       mini_mime (>= 0.1.1)
     mailgun-ruby (1.2.0)
       rest-client (~> 2.0.2)
+    mailkick (0.4.3)
+      activesupport (>= 5)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     maxminddb (0.1.22)
@@ -236,6 +238,7 @@ GEM
     pg_search (2.3.2)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
+    postmark-spam_check (0.1.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -383,6 +386,8 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
+    trix-rails (2.3.0)
+      rails (> 4.1, < 7.0)
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -430,7 +435,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   brakeman
   bullet
-  cancancan (~> 3.2.0)
+  cancancan
   capybara
   capybara-selenium
   devise
@@ -448,12 +453,14 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   lograge
   mailgun-ruby (~> 1.2.0)
+  mailkick
   maxminddb
   minitest-reporters (~> 1.0.5)
   newrelic_rpm
   paperclip
   pg (>= 0.18, < 2.0)
   pg_search
+  postmark-spam_check
   pry-byebug
   pry-rails
   puma (~> 4.3)
@@ -476,6 +483,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   temple
+  trix-rails
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)

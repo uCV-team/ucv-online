@@ -162,6 +162,11 @@ en:
       account: Edit account
       messages: 'View all Messages'
       presentation: 'your digital CV'
+      newsletter: 'Newsletters'
+      new_newsletter: ' New Newsletter'
+      edit_newsletter: ' Edit Newsletter'
+      show_newsletter: 'Newsletter Content'
+      preference: 'Preferences'
     footer:
       links: 'Helpful Links'
       sign_in: 'Login'

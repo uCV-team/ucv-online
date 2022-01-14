@@ -15,10 +15,7 @@ class Ability
     can :read, Location
     can :read, Cv, published: true
     can :create, Message
-  end
-
-  def admin_permissions
-    can :manage, :all
+    can :manage, Mailkick::OptOut
   end
 
   def user_permissions(current_user)
@@ -29,5 +26,9 @@ class Ability
     can :manage, Experience
     can :manage, Language
     can :manage, Location
+  end
+
+  def admin_permissions
+    can :manage, :all
   end
 end

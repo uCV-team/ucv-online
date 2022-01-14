@@ -4,12 +4,15 @@
     <div class="sidebar-logo">
       <div class="peers ai-c fxw-nw">
         <div class="peer peer-greed">
-          <%= link_to(root_domain_url , "data-turbolinks": "false") do %>
+          <%= link_to(root_domain_url , "data-turbolinks": "false", class:'sidebar-link td-n') do %>
             <div class="peers ai-c fxw-nw">
               <div class="peer">
-                <div class="logo pl-5 pt-3">
-                  <%= image_pack_tag 'media/images/logo.svg' %>
+                <div class="logo icon-pos">
+                  <%= image_pack_tag 'media/icons/favicon.png' %>
                 </div>
+              </div>
+              <div class="peer peer-greed">
+                <%= image_pack_tag 'media/images/logo.svg', class:'lh-1 mB-0 logo-text' %>
               </div>
             </div>
           <% end %>
@@ -27,7 +30,7 @@
     <!-- ### $Sidebar Menu ### -->
     <ul class="sidebar-menu scrollable pos-r">
       <li class="nav-item mT-30 actived">
-        <%= link_to admin_home_path, class:'sidebar-link' do %>
+        <%= link_to admin_dashboard_path, class:'sidebar-link' do %>
           <span class="icon-holder">
             <i class="c-blue-500 ti-home"></i>
           </span>
@@ -48,6 +51,14 @@
             <i class="c-red-500 ti-flag-alt-2"></i>
           </span>
           <span class="title"><%= t('sidebar.flags') %></span>
+        <% end %>
+      </li>
+      <li class="nav-item mt-1">
+        <%= link_to admin_newsletters_path, class:'sidebar-link' do %>
+          <span class="icon-holder">
+            <i class="c-teal-500 ti-email"></i>
+          </span>
+          <span class="title"><%= t('layouts.nav.newsletter') %></span>
         <% end %>
       </li>
     </ul>

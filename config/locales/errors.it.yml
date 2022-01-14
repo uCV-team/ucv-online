@@ -10,3 +10,7 @@ it:
       title: L'accesso a questa pagina non é autorizzato.
       content_html: Il motivo dell'accesso non autorizzato potrebbe essere che il CV non è stato reso pubblico dal suo creatore.
       link: TORNA ALLA HOME
+    attributes:
+      name: 'cannot be left blank'
+      recipient_ids: 'cannot be left blank'
+    default_message: 'Cannot be saved due to %{count} errors:'

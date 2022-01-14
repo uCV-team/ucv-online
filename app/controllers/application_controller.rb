@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :notifications, if: proc { current_user.present? }
   helper_method :root_domain_url
+  rescue_from CanCan::AccessDenied do |_exception|
+    respond_to do |format|
+      format.json { head :forbidden }
+      format.html { redirect_to root_path, alert: I18n.t('flash.authorization') }
+    end
+  end
 
   rescue_from CanCan::AccessDenied do |_exception|
     respond_to do |format|
@@ -38,7 +44,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.role?('admin')
-      admin_home_path
+      admin_dashboard_path
     else
       cv_section_path(resource.subdomain)
     end
@@ -54,5 +60,12 @@ class ApplicationController < ActionController::Base
 
   def notifications
     @all_messages = current_user.messages.where(status: 'new')
+  end
+
+  private
+
+  def user_not_authorized
+    flash[:alert] = I18n.t('flash.authorization')
+    redirect_to(request.referer || root_path)
   end
 end

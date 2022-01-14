@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="bgc-white bd bdrs-3 p-20 mB-20">
+        <div class="d-flex justify-content-between">
+          <h2 class="c-grey-900 mB-20"><%= t('newsletters.home') %></h2>
+          <%= link_to new_admin_newsletter_path, class:'btn btn-success d-grid mt-5 mb-2' do %>
+            <i class="fa fa-plus-circle"></i><%= t('newsletters.new') %>
+          <% end %>
+        </div>
+        <%= form_tag admin_newsletters_path, method: 'get' do %>
+          <table class="table table-bordered table-striped" id="newsletter_table">
+            <thead class="table-dark">
+            <tr>
+              <% t('newsletters.index').each do |key, value| %>
+                <th class="<%= 'text-center' if value == 'ACTIONS' %>"><%= value %></th>
+              <% end %>
+            </tr>
+            </thead>
+            <tbody>
+            <% @newsletters.each do |newsletter| %>
+              <tr>
+                <td><%= newsletter.id %></td>
+                <td><%= newsletter.name %></td>
+                <td><%= newsletter.subject %></td>
+                <td><%= newsletter.recipient_ids %></td>
+                <td><%= format_datetime(newsletter.sent_at) %></td>
+                <td>
+                  <div class="d-flex justify-content-center">
+                    <%= link_to(edit_admin_newsletter_path(newsletter), title: 'Edit', class:'h5') do %>
+                      <i class="fas fa-pencil-alt"></i>
+                    <% end %>
+                    <%= link_to(admin_newsletter_path(newsletter), title: 'Show', target: '_blank', class:'mx-2 h5') do %>
+                      <i class="fa fa-eye mx-1" aria-hidden="true"></i>
+                    <% end %>
+                    <%= link_to(admin_newsletter_submittal_index_path(newsletter), title: 'Send',
+                                 method: :post, id: 'send_email', class:'h5' ) do %>
+                      <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

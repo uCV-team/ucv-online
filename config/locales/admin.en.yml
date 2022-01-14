@@ -1,4 +1,6 @@
 en:
+  navbar:
+    admin_text: Admin Panel
   sidebar:
     dashboard: Dashboard
     users: Users
@@ -20,3 +22,18 @@ en:
       flagged_by: Flagged By User
       reason: Reason
       created_at: Created at
+  newsletters:
+    index:
+      id: ID
+      name: Name
+      subject: Subject
+      recipient_ids: Recipient Ids
+      sent_at: Sent At
+      actions: ACTIONS
+    create: "Create Newsletter"
+    edit: " Edit Newsletter"
+    home: "Newsletters"
+    new: " New Newsletter"
+    show: "Newsletter Content"
+    form_label:
+      language: Language Type
