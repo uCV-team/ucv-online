@@ -213,7 +213,7 @@ nav {
   // height: $nav-height;
   width: 70px;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 992px) {
   // Hamburger nav visible on mobile only
   .nav-mobile {
     display: block;
@@ -239,7 +239,7 @@ nav {
     position: static;
   }
 }
-@media screen and (min-width: $breakpoint) {
+@media screen and (min-width: 992px) {
   .nav-list {
     display: block !important;
   }
