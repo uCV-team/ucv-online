@@ -11,8 +11,8 @@ john_cv:
 search_user_cv:
   user: search_user
 
-john_cv_2:
-  user: john_2
+john_cv2:
+  user: john_user2
   published: true
   about: <%= Faker::Lorem.paragraph %>
 

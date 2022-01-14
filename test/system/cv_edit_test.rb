@@ -26,7 +26,7 @@ class CvEditTest < ApplicationSystemTestCase
   end
 
   test 'Guest or other users(not owner) cannot see edit controls for Cv' do
-    sign_in(users(:john_2)) # other user
+    sign_in(users(:john_user2)) # other user
 
     visit cv_section_path(@user.subdomain)
     assert_not page.has_link?('Preview')

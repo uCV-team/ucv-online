@@ -14,7 +14,7 @@ search_user:
   subdomain: <%= Faker::Name.first_name %>
   confirmed_at: <%= Time.zone.now %>
 
-john_2:
+john_user2:
   first_name: <%= Faker::Name.first_name %>
   last_name: <%= Faker::Name.last_name %>
   email: <%= Faker::Internet.email %>

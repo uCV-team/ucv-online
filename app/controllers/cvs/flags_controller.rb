@@ -24,7 +24,7 @@ module Cvs
     end
 
     def sanitized_flag_params
-      flag_params[:reason] << ': ' + params[:flag][:message] if params[:flag][:message].present?
+      flag_params[:reason] << ": #{params[:flag][:message]}" if params[:flag][:message].present?
       flag_params
     end
 

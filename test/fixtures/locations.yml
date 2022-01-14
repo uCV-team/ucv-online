@@ -8,7 +8,7 @@ new_york:
   longitude: -74.0059731
 
 new_york_2:
-  user: john_2
+  user: john_user2
   original_address: Brooklyn
   radius: 10
   city: Brooklyn

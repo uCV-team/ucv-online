@@ -12,8 +12,8 @@ class DragAndDropViewTest < ApplicationSystemTestCase
   test 'user can sort experiences' do
     skip 'test cases of sorting are not compatible with capybara version'
     experience1 = experiences(:john_experience)
-    experience2 = experiences(:john_experience_2)
-    experience3 = experiences(:john_experience_3)
+    experience2 = experiences(:john_experience2)
+    experience3 = experiences(:john_experience3)
 
     assert_not experience1.cv.custom_experience_sort
 
@@ -41,7 +41,7 @@ class DragAndDropViewTest < ApplicationSystemTestCase
   test 'user can sort educations' do
     skip 'test cases of sorting are not compatible with capybara version'
     education1 = educations(:john_education)
-    education2 = educations(:john_education_2)
+    education2 = educations(:john_education2)
 
     assert_not education1.cv.custom_education_sort
 
