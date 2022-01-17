@@ -31,11 +31,6 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, flash: { error: I18n.t('flash.authorization') }
   end
 
-  def configure_permitted_parameters
-    params[:user][:locale] = I18n.locale if params[:user].present?
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name tel subdomain locale])
-  end
-
   def set_locale
     return I18n.locale = ENV['DEVELOPMENT_LOCALE'].to_sym if ENV['DEVELOPMENT_LOCALE'].present?
 

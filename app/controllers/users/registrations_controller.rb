@@ -13,6 +13,7 @@ module Users
     # Post (signup page)
     def create
       @user = User.new(user_params)
+      @user.locale = I18n.locale
       @user.encrypted_password = SecureRandom.hex
       yield @user if block_given?
       if @user.save
