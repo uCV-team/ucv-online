@@ -28,10 +28,10 @@ module Passwordless
   end
 end
 
-ActiveSupport::TestCase.send(:include, ::Passwordless::TestHelpers::TestCase) if defined?(ActiveSupport::TestCase)
+ActiveSupport::TestCase.include ::Passwordless::TestHelpers::TestCase if defined?(ActiveSupport::TestCase)
 
 if defined?(ActionDispatch::SystemTestCase)
-  ActionDispatch::SystemTestCase.send(:include, ::Passwordless::TestHelpers::SystemTestCase)
+  ActionDispatch::SystemTestCase.include ::Passwordless::TestHelpers::SystemTestCase
 end
 
 if defined?(RSpec)
