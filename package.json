@@ -13,7 +13,7 @@
     "lodash": ">=4.17.21",
     "perfect-scrollbar": "^1.5.1",
     "popper.js": "^1.14.4",
-    "postcss": "8.2.10",
+    "postcss": "8.2.13",
     "postcss-cssnext": "^3.1.1",
     "postcss-loader": "~3.0.0",
     "rails-ujs": "^5.2.1",
