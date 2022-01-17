@@ -3,6 +3,7 @@
 module Passwordless
   # The mailer responsible for sending Passwordless' mails.
   class Mailer < Passwordless.parent_mailer.constantize
+    include DefaultUrlOptions
     # Sends a magic link (secret token) email.
     # @param session [Session] A Passwordless Session
     def magic_link(session)
