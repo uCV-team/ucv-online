@@ -1,10 +1,9 @@
 class User < ApplicationRecord
   DATATABLE_COLUMNS = %w[email first_name tel subdomain created_at].freeze
-  devise :database_authenticatable, :recoverable, :registerable, :rememberable,
-         :timeoutable, :trackable, :validatable, :confirmable
+  EMAIL_PREFERENCES = ['email_preference_online_updates'].freeze
+  passwordless_with :email # authentication and sessions
   mailkick_user
 
-  EMAIL_PREFERENCES = ['email_preference_online_updates'].freeze
   has_one :cv, dependent: :destroy
   has_many :locations, dependent: :destroy
   has_many :messages, dependent: :destroy
@@ -13,7 +12,7 @@ class User < ApplicationRecord
 
   has_one :current_location, dependent: :destroy, class_name: 'Location'
 
-  validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, :email, presence: true
   validates :subdomain, presence: true, uniqueness: true, subdomain: true, on: :update
 
   after_initialize :prepare_blank_cv, if: :new_record?
@@ -59,8 +58,21 @@ class User < ApplicationRecord
     roles.any? { |role| role.name == user_role }
   end
 
-  def full_name
-    "#{first_name.capitalize} #{last_name.capitalize}"
+  def confirmed?
+    confirmed_at.present?
+  end
+
+  def confirm
+    self.confirmed_at = Time.now.utc
+    if unconfirmed_email.present?
+      self.email = unconfirmed_email
+      self.unconfirmed_email = nil
+    end
+    save!
+  end
+
+  def send_confirmation_instructions(token)
+    Passwordless::Mailer.user_confirmation_instructions(self, token).deliver_later
   end
 
   private

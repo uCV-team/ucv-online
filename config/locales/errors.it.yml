@@ -14,3 +14,8 @@ it:
       name: 'cannot be left blank'
       recipient_ids: 'cannot be left blank'
     default_message: 'Cannot be saved due to %{count} errors:'
+    registrations:
+      account_exist_source: "Effettua l'accesso per continuare."
+      account_not_confirmed_source: "Controlla l'email per confermare il tuo account."
+    sessions:
+      sign_in_with_wrong_email: "Se il tuo account è valido, riceverai un'email di conferma."

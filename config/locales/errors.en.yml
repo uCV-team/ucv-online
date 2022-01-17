@@ -14,3 +14,8 @@ en:
       name: 'cannot be left blank'
       recipient_ids: 'cannot be left blank'
     default_message: 'Cannot be saved due to %{count} errors:'
+    registrations:
+      account_exist_source: Please signin here to continue.
+      account_not_confirmed_source: Please confirm your account by sending confirmation instructions.
+    sessions:
+      sign_in_with_wrong_email: If we found you in the system, we've sent you an email.

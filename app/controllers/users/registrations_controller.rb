@@ -1,74 +1,92 @@
 # frozen_string_literal: true
 
 module Users
-  class RegistrationsController < Devise::RegistrationsController
-    # before_action :configure_sign_up_params, only: [:create]
-    before_action :configure_account_update_params, only: [:update]
+  class RegistrationsController < ::ApplicationController
+    skip_authorization_check
+    before_action :load_user
+    before_action :check_user_existence, only: [:create]
+    before_action :generate_new_token_if_expired?, only: [:update]
 
     # GET /resource/sign_up
-    # def new
-    #   super
-    # end
+    def new; end
 
-    # POST /resource
+    # Post (signup page)
     def create
-      super
-      sign_up(resource_name, resource) if resource.persisted?
+      @user = User.new(user_params)
+      @user.encrypted_password = SecureRandom.hex
+      yield @user if block_given?
+      if @user.save
+        passwordless = build_passwordless_session(@user)
+        passwordless.save!
+        @user.send_confirmation_instructions(passwordless.token)
+        flash[:notice] = t('devise.sessions.signed_in')
+        sign_in passwordless_session(passwordless.token, passwordless.authenticatable_type)
+        redirect_to after_sign_in_path_for(@user)
+      else
+        render :new
+      end
     end
 
-    # GET /resource/edit
-    # def edit
-    #   super
-    # end
+    def edit
+      render :edit
+    end
 
-    # PUT /resource
     def update
-      super
+      @user.encrypted_password = SecureRandom.hex
+
+      if @user.update(user_params)
+        if @user.unconfirmed_email != @user.email
+          @user.send_confirmation_instructions(@pl_session.token)
+          flash[:notice] = t('devise.registrations.update_needs_confirmation')
+        else
+          @user.update(unconfirmed_email: nil)
+          flash[:notice] = t('devise.registrations.updated')
+        end
+      else
+        render :edit
+        return
+      end
+      yield @user if block_given?
+
+      redirect_to cv_section_path(@user.subdomain)
     end
 
-    # DELETE /resource
-    # def destroy
-    #   super
-    # end
+    private
 
-    # GET /resource/cancel
-    # Forces the session data which is usually expired after sign
-    # in to be expired now. This is useful if the user wants to
-    # cancel oauth signing in/up in the middle of the process,
-    # removing all OAuth session data.
-    # def cancel
-    #   super
-    # end
-
-    # protected
-
-    # If you have extra params to permit, append them to the sanitizer.
-    # def configure_sign_up_params
-    #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-    # end
-
-    # If you have extra params to permit, append them to the sanitizer.
-    def configure_account_update_params
-      devise_parameter_sanitizer.permit(:account_update, keys: [:subdomain])
+    def load_user
+      @user = current_user.presence || ::User.new
     end
 
-    def after_update_path_for(resource)
-      cv_section_path(resource.subdomain)
+    def user_params
+      params.require(:user).permit!
     end
 
-    # The path used after sign up.
-    # def after_sign_up_path_for(resource)
-    #   super(resource)
-    # end
+    def check_user_existence
+      account = User.find_by(email: user_params[:email])
+      return if account.blank?
 
-    # The path used after sign up for inactive accounts.
-    # def after_inactive_sign_up_path_for(resource)
-    #   super(resource)
-    # end
-    protected
+      if account.confirmed?
+        flash[:error] = I18n.t('errors.registrations.account_exist_source')
+        redirect_to(users.sign_in_path) && return
+      else
+        flash[:error] = I18n.t('errors.registrations.account_not_confirmed_source')
+        redirect_to(new_users_confirmation_path) && return
+      end
+    end
 
-    def after_sign_up_path_for(resource)
-      cv_section_path(resource.subdomain) # Or :prefix_to_your_route
+    def passwordless_session(token, authenticatable_classname)
+      @passwordless_session = ::Passwordless::Session.find_by!(
+        authenticatable_type: authenticatable_classname,
+        token: token
+      )
+    end
+
+    # generate new token if expired
+    def generate_new_token_if_expired?
+      @pl_session = ::Passwordless::Session.find_by(authenticatable_id: @user.id)
+      return unless @pl_session&.timed_out? || @pl_session.blank?
+      new_session = build_passwordless_session(@user)
+      new_session.save!
     end
   end
 end

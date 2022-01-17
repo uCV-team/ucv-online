@@ -3,7 +3,7 @@ require 'test_helper'
 class EducationsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:john)
-    sign_in(@user)
+    passwordless_sign_in(@user)
   end
 
   test 'GET#new should returns a success response' do

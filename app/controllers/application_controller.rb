@@ -5,12 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :notifications, if: proc { current_user.present? }
   helper_method :root_domain_url
-  rescue_from CanCan::AccessDenied do |_exception|
-    respond_to do |format|
-      format.json { head :forbidden }
-      format.html { redirect_to root_path, alert: I18n.t('flash.authorization') }
-    end
-  end
+  include Passwordless::ControllerHelpers
+  helper_method :current_user
 
   rescue_from CanCan::AccessDenied do |_exception|
     respond_to do |format|
@@ -25,6 +21,15 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
+  def current_user
+    @current_user ||= authenticate_by_session(User)
+  end
+
+  def require_user!
+    return if current_user
+    redirect_to root_path, flash: { error: I18n.t('flash.authorization') }
+  end
 
   def configure_permitted_parameters
     params[:user][:locale] = I18n.locale if params[:user].present?

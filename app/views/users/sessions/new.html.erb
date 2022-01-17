@@ -3,23 +3,22 @@
     <div class="col-12 col-md-8 col-xl-4 mx-auto">
       <div class="card border-0 rounded">
         <div class="card-header text-center border-0 py-5">
-          <h5><%= t('devise.passwords.forgot_password') %></h5>
+          <h5><%= t('devise.sessions.signin_label') %></h5>
         </div>
         <div class="card-body p-5 border-left border-bottom border-right">
-          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= form_for(User.new, url: send(Passwordless.mounted_as).sign_in_path) do |f| %>
             <div class="form-group mb-5 input-with-icon">
-              <label class="text-muted d-block"><%= t('devise.passwords.forgot_password_text') %></label>
+              <label class="text-muted d-block"><%= t('devise.sessions.email') %></label>
               <i class="icon-user text-muted"></i>
                 <%= f.email_field(:email, autofocus: true, autocomplete: 'email', placeholder: t('devise.sessions.email'), class: 'form-control form-control-lg pl-40') %>
             </div>
 
             <div class="py-5 w-100">
-              <%= f.submit t('devise.passwords.send_button'), data: { disable_with: t('devise.passwords.sending_button') },
-              class: 'btn btn-primary w-100 rounded' %>
+              <%= f.submit t('devise.sessions.sign_in'), data: { disable_with: t('devise.sessions.signing_in') }, id: "user_log_in", class: 'btn btn-primary w-100 rounded' %>
             </div>
           <% end %>
 
-          <%= render "devise/shared/links" %>
+          <%= render "users/shared/links" %>
         </div>
       </div>
     </div>

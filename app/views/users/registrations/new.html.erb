@@ -6,11 +6,11 @@
           <h5><%= t('devise.registrations.signup_label') %></h5>
         </div>
         <div class="card-body p-5 border-left border-bottom border-right">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <% if resource.errors.any? %>
-            <div class="alert alert-danger">
-              <%= devise_error_messages! %>
-            </div>
+          <%= form_for(@user, as: :user, url: users_registrations_path(@user)) do |f| %>
+            <% if @user.errors.any? %>
+              <div class="alert alert-danger">
+                <%= render "users/shared/error_messages", resource: @user %>
+              </div>
             <% end %>
             <div class="row">
               <div class="col-12 col-md-6">
@@ -39,30 +39,13 @@
                   <%= f.text_field :tel, placeholder: t('devise.registrations.placeholder.tel'), class: 'form-control form-control-lg pl-40' %>
                 </div>
               </div>
-              <div class="col-12 d-none">
-                <h6 class="mb-5"><%= t('devise.registrations.password_min_length', count: @minimum_password_length) %></h6>
-              </div>
-              <div class="col-12">
-                <div class="form-group mb-5 input-with-icon">
-                  <label class="text-muted d-block"><%= t('devise.registrations.password') %>*</label>
-                  <span class="input-icon text-muted"><i class="icon-lock"></i></span>
-                  <%= f.password_field :password, placeholder: t('devise.registrations.password'), class: 'form-control form-control-lg pl-40' %>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-group input-with-icon">
-                  <label class="text-muted d-block"><%= t('devise.registrations.password_repeat') %>*</label>
-                  <span class="input-icon text-muted"><i class="icon-lock"></i></span>
-                  <%= f.password_field :password_confirmation, placeholder: t('devise.registrations.password_repeat'), class: 'form-control form-control-lg pl-40' %>
-                </div>
-              </div>
             </div>
             <div class="py-5 w-100">
               <%= f.submit t('devise.registrations.sign_up'), data: { disable_with: t('devise.registrations.signing_up') }, class: 'btn btn-primary w-100 rounded', id: 'register_user' %>
             </div>
           <% end %>
 
-          <%= render "devise/shared/links" %>
+          <%= render "users/shared/links" %>
         </div>
       </div>
     </div>

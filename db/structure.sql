@@ -671,6 +671,44 @@ ALTER SEQUENCE public.newsletters_id_seq OWNED BY public.newsletters.id;
 
 
 --
+-- Name: passwordless_sessions; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.passwordless_sessions (
+    id bigint NOT NULL,
+    authenticatable_type character varying,
+    authenticatable_id bigint,
+    timeout_at timestamp without time zone NOT NULL,
+    expires_at timestamp without time zone NOT NULL,
+    claimed_at timestamp without time zone,
+    user_agent text NOT NULL,
+    remote_addr character varying NOT NULL,
+    token character varying NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: passwordless_sessions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.passwordless_sessions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: passwordless_sessions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.passwordless_sessions_id_seq OWNED BY public.passwordless_sessions.id;
+
+
+--
 -- Name: roles; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -896,6 +934,13 @@ ALTER TABLE ONLY public.newsletters ALTER COLUMN id SET DEFAULT nextval('public.
 
 
 --
+-- Name: passwordless_sessions id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.passwordless_sessions ALTER COLUMN id SET DEFAULT nextval('public.passwordless_sessions_id_seq'::regclass);
+
+
+--
 -- Name: roles id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -1063,6 +1108,14 @@ ALTER TABLE ONLY public.newsletters
 
 
 --
+-- Name: passwordless_sessions passwordless_sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.passwordless_sessions
+    ADD CONSTRAINT passwordless_sessions_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: roles roles_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1084,6 +1137,13 @@ ALTER TABLE ONLY public.schema_migrations
 
 ALTER TABLE ONLY public.searches
     ADD CONSTRAINT searches_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: authenticatable; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX authenticatable ON public.passwordless_sessions USING btree (authenticatable_type, authenticatable_id);
 
 
 --
@@ -1326,6 +1386,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210923121737'),
 ('20211005060043'),
 ('20211005062200'),
+('20211207100249'),
 ('20220103100508'),
 ('20220104062550'),
 ('20220104062551'),

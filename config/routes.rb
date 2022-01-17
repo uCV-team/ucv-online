@@ -1,6 +1,6 @@
 class Subdomain
   def self.matches?(request)
-    request.domain.split('.').size > 1 && request.subdomain != 'publicv-staging' && request.subdomain.present?
+    request.subdomain.present? && request.domain.split('.').size > 1 && request.subdomain != 'publicv-staging'
   end
 end
 
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get '/', to: 'cvs#show'
   end
 
+  passwordless_for :users
   root 'home#index'
   # Static pages
   get 'legal/privacy-policy', to: 'legal#privacy'
@@ -20,10 +21,13 @@ Rails.application.routes.draw do
   get 'cv/edit/:section', to: 'cvs#edit', as: 'edit_cv_section'
   put 'cv/download', to: 'cvs#download'
 
-  devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    confirmations: 'users/confirmations'
-  }
+  namespace :users do
+    resource :registrations, except: %i[show]
+    resource :confirmation, only: %i[new show create update]
+  end
+  namespace :passwordless do
+    resource :sessions, only: %i[new show create destroy]
+  end
 
   namespace :admin do
     resource :dashboard, only: [:show]

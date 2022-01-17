@@ -8,7 +8,7 @@ class UserSignInTest < ApplicationSystemTestCase
   end
 
   test 'user can sign_in' do
-    manual_sign_in(@user.email)
-    assert_current_path cv_section_path(@user.subdomain)
+    passwordless_sign_in(@user)
+    assert_current_path root_path
   end
 end

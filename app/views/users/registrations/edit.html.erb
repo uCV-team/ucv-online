@@ -1,0 +1,45 @@
+<div class="middle-container-1">
+  <div class="row py-40 py-md-80 mx-0">
+    <div class="col-12 col-md-8 col-xl-4 mx-auto">
+      <div class="card border-0 rounded">
+        <div class="card-header text-center border-0 py-5">
+          <h4><%= t('devise.registrations.edit.title')%></h4>
+        </div>
+        <div class="card-body p-5 border-left border-bottom border-right">
+          <%= form_for(@user, as: :user, url: users_registrations_path(@user), html: { method: :put }) do |f| %>
+            <% if @user.errors.any? %>
+              <div class="alert alert-danger">
+                <%= render "users/shared/error_messages", resource: @user %>
+              </div>
+            <% end %>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group mb-4">
+                  <%= f.label :email, class:'text-muted d-block' do %>
+                    <%= t('devise.registrations.edit.email')%>
+                  <% end %>
+                  <%= f.email_field :unconfirmed_email, autofocus: true, value: updated_email(@user), class:'form-control form-control-lg' %>
+                  <% if @user.unconfirmed_email.presence %>
+                    <p class="text-muted mt-1"><%= t('devise.registrations.edit.currently_waiting_confirmation_for_email', email: @user.unconfirmed_email ) %></p>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group mb-5">
+                  <%= f.label :subdomain, class:'text-muted d-block' do %>
+                    <%= t('devise.registrations.edit.subdomain') %>
+                  <% end %>
+                  <%= f.text_field :subdomain, autocomplete: "#{@user.subdomain}", class: 'form-control form-control-lg' %>
+                  <label class="text-muted d-block mt-2"><%= t('devise.registrations.placeholder.subdomain_example') %></label>
+                </div>
+              </div>
+            </div>
+            <div class="my-5 w-100">
+              <%= f.submit t('devise.registrations.edit.update'), data: { disable_with: t('devise.registrations.edit.updating_details') }, class: 'btn btn-primary w-100 rounded p-2' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

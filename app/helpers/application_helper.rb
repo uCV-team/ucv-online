@@ -6,6 +6,10 @@ module ApplicationHelper
     @seo_title
   end
 
+  def updated_email(user)
+    user.unconfirmed_email.presence || user.email
+  end
+
   private
 
   def home?

@@ -58,6 +58,7 @@ it:
         greeting: Ciao %{recipient}!
         message:
         subject: Email modificata
+      magic_link: Confermo il mio account su PubliCV
       password_change:
         greeting: Ciao %{recipient}!
         message: Ti stiamo contattando per notificarti che la tua password è stata modificata.
@@ -162,6 +163,7 @@ it:
       signed_in: Accesso effettuato con successo.
       signed_out: Sei uscito correttamente.
       username: 'Username'
+      login: "Ti abbiamo inviato un'email per confermare il tuo login."
     shared:
       links:
         back: Indietro

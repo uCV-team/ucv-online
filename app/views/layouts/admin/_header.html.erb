@@ -24,14 +24,14 @@
             <% end %>
           </li>
           <li>
-            <%= link_to edit_user_registration_path, class: 'd-b td-n pY-5 bgcH-grey-100 c-grey-700' do %>
+            <%= link_to edit_users_registrations_path, class: 'd-b td-n pY-5 bgcH-grey-100 c-grey-700' do %>
               <i class="ti-user mR-10"></i>
               <span><%= t('layouts.nav.account') %></span>
             <% end %>
           </li>
           <li role="separator" class="divider"></li>
           <li>
-            <%= link_to destroy_user_session_path, data: { method: :delete }, class: 'd-b td-n pY-5 bgcH-grey-100 c-grey-700' do %>
+            <%= link_to users.sign_out_path, data: { method: :delete }, class: 'd-b td-n pY-5 bgcH-grey-100 c-grey-700' do %>
               <i class="ti-power-off mR-10"></i>
               <span><%= t('layouts.nav.logout') %></span>
             <% end %>

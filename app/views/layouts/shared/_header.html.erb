@@ -24,7 +24,7 @@
               About
             </a>
           </li>
-          <% if user_signed_in? %>
+          <% if current_user.present? %>
             <div class="d-flex justify-content-between justify-content-md-start border-top border-md-0 pt-3 pt-md-0 mt-md-0">
               <div class="pb-2 edit-cv" id="edit-your-CV">
                 <% unless request.path == cv_section_path(current_user.subdomain) %>
@@ -60,11 +60,12 @@
                       <%= link_to t('navbar.admin_text'), admin_dashboard_path , class: 'dropdown-item py-2 badge-primary-lt'%>
                     </div>
                   <% end %>
+                  
                   <div>
                     <%= link_to t('layouts.nav.preference'), users_preferences_path, class: 'dropdown-item py-2 badge-primary-lt' %>
                   </div>
                   <div>
-                    <%= link_to t('layouts.nav.logout'), destroy_user_session_path, data: { method: :delete }, class: 'dropdown-item py-2 badge-primary-lt' %>
+                    <%= link_to t('layouts.nav.logout'), users.sign_out_path, data: { method: :delete }, class: 'dropdown-item py-2 badge-primary-lt' %>
                   </div>
                   <div>
                     <%= link_to t('layouts.nav.delete_account'), account_path(current_user), method: :delete, remote: true, data: {confirm: t('content.main.confirm.delete_account') }, class: 'dropdown-item py-2 badge-primary-lt' %>
@@ -73,14 +74,14 @@
               </li>
             </div>
           <% else %>
-            <% unless request.path == new_user_registration_path %>
+            <% unless request.path == new_users_registrations_path %>
               <li class="pb-2 ml-2">
-                <%= link_to t('layouts.nav.create_cv'), new_user_registration_path, class: 'btn btn-lg btn-outline-primary' %>
+                <%= link_to t('layouts.nav.create_cv'), new_users_registrations_path, class: 'btn btn-lg btn-outline-primary' %>
               </li>
             <% end %>
-            <% unless request.path == new_user_session_path %>
+            <% unless request.path == users.sign_in_path %>
               <li class="pb-2 ml-2">
-                <%= link_to t('layouts.nav.edit_your_cv'), new_user_session_path, class: 'btn btn-lg btn-outline-primary' %>
+                <%= link_to t('layouts.nav.edit_your_cv'), users.sign_in_path, class: 'btn btn-lg btn-outline-primary' %>
               </li>
             <% end %>
             <li class="pb-2">
