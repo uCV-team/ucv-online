@@ -12,6 +12,9 @@ it:
         success: Messaggio aggiornato
     authorization: You are not authorized to access this page.
     cvs:
+      update:
+        success: Your choices are updated successfully.
+        success_cv: Your CV is updated successfully
       flags:
         create:
           success: Marked the user as flag.

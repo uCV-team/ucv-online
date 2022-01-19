@@ -176,6 +176,34 @@ it:
       cookie: 'Cookie policy'
       terms: 'Condizioni'
       contact_us: 'Contattaci'
+    settings:
+      main: Settings
+      header: Desired type of fields
+      contract:
+        head: Desired Contract
+        internship: Internship
+        temporary_contract: Temporary Contract
+        permanent_contract: Permanent Contract
+        freelance: Freelance
+      timetable:
+        head: Desired Timetable
+        part_time: Part Time
+        full_time: Full Time
+      modality:
+        head: Desired Modality
+        in_person: In person
+        remote_work: Remote work
+      mobility:
+        head: Desired Mobility
+        relocate: Ready to Relocate
+      notice_period:
+        head: Notice Period
+        content: (Leave blank if not on notice period)
+        placeholder: Number of days left.
+      salary_expectation:
+        head: Salary Expectation
+        currency: Currency
+        amount: Amount
   success:
     cv:
       update: "Modifiche salvate con successo."

@@ -20,6 +20,7 @@ class Cv < ApplicationRecord
   validates :future_plans, :authorization_statement, length: { maximum: INFO_MAX_LENGTH }
   validates :interests, :authorization_statement, length: { maximum: INFO_MAX_LENGTH }
   validates :user, uniqueness: true
+  validates :expected_salary_cents, length: { maximum: 9 }
   delegate :email, :tel, :subdomain, to: :user
 
   accepts_nested_attributes_for :user

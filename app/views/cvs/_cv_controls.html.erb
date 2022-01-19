@@ -6,6 +6,7 @@
           <%= link_to 'Exit preview', cv_section_path(current_user.subdomain), class: 'btn btn-primary mx-2' %>
         <% else %>
           <%= link_to 'Preview', cv_section_path(current_user.subdomain, preview: 't'), class: 'btn btn-primary mx-2' %>
+          <%= link_to t('layouts.settings.main'), cv_settings_path(current_user.id), class: 'btn btn-outline-primary ml-2' %>
           <% if @cv.published? %>
             <%= link_to 'Unpublish', cv_path("cv[published]" => "0"), method: :put, class: 'btn btn-outline-primary mx-3' %>
           <% else %>

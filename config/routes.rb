@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'cv/:subdomain', to: 'cvs#show', as: 'cv_section'
   get 'cv/edit/:section', to: 'cvs#edit', as: 'edit_cv_section'
   put 'cv/download', to: 'cvs#download'
+  get 'cv/:id/settings', to: 'cvs#settings', as: 'cv_settings'
 
   namespace :users do
     resource :registrations, except: %i[show]

@@ -24,9 +24,10 @@ class CvsController < ApplicationController
 
     respond_to do |format|
       if @cv.update(cv_params)
-        format.html { redirect_to cv_section_path(@user.subdomain) }
+        format.html { redirect_to cv_section_path(@user.subdomain), flash: { success: flash_message } }
         format.js {}
       else
+        format.html { redirect_to cv_settings_path(@cv.id), flash: { alert: @cv.errors.full_messages.first } }
         format.js { render 'errors' }
       end
     end
@@ -61,10 +62,17 @@ class CvsController < ApplicationController
           end
   end
 
+  def flash_message
+    params[:cv][:internship] ? t('.success', scope: :flash) : t('.success_cv', scope: :flash)
+  end
+
   def cv_params
     params.require(:cv).permit(:about, :birth_date, :birth_place, :birth_day, :birth_month, :birth_year, :future_plans,
                                :gender, :headshot, :interests, :published, :section, :skills, :working_skills,
                                :learning_skills, :remove_headshot, :authorization_statement, :publish_last_name,
+                               :internship, :temporary_contract, :permanent_contract, :freelance, :part_time,
+                               :full_time, :in_person, :remote_work, :relocate, :notice_period,
+                               :expected_salary_cents, :expected_salary_currency,
                                user_attributes: [:id, :first_name, :last_name, :tel,
                                                  { current_location_attributes: %i[id original_address] }])
   end

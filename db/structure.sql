@@ -355,7 +355,19 @@ CREATE TABLE public.cvs (
     authorization_statement character varying(255),
     publish_last_name boolean DEFAULT false,
     custom_experience_sort boolean DEFAULT false,
-    custom_education_sort boolean DEFAULT false
+    custom_education_sort boolean DEFAULT false,
+    internship boolean DEFAULT false,
+    temporary_contract boolean DEFAULT false,
+    permanent_contract boolean DEFAULT false,
+    freelance boolean DEFAULT false,
+    part_time boolean DEFAULT false,
+    full_time boolean DEFAULT false,
+    in_person boolean DEFAULT false,
+    remote_work boolean DEFAULT false,
+    relocate boolean DEFAULT false,
+    notice_period character varying,
+    expected_salary_cents integer DEFAULT 0 NOT NULL,
+    expected_salary_currency character varying DEFAULT 'USD'::character varying NOT NULL
 );
 
 
@@ -1390,10 +1402,10 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20211005060043'),
 ('20211005062200'),
 ('20211207100249'),
-('20220103100508'),
 ('20220104062550'),
 ('20220104062551'),
 ('20220104105826'),
-('20220218113712');
+('20220117095744'),
+('20220218113712'):
 
 
