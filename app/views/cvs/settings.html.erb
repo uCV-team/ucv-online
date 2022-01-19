@@ -69,29 +69,29 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-12 mb-5">
-          <h5 class="mb-3 d-inline-block"><%= t('layouts.settings.notice_period.head') %></h5>
-          <span class="text-muted font-size-14 ml-2"><%= t('layouts.settings.notice_period.content') %></span>
-          <div class="col-12 mb-2">
-            <%= f.number_field :notice_period, class:'form-control form-control-lg mt-2', placeholder: t('layouts.settings.notice_period.placeholder') %>
-          </div>
-        </div>
-        <div class="col-12 mb-5">
+        <div class="col-12 col-md-6 mb-5">
           <h5 class="mb-3 d-inline-block"><%= t('layouts.settings.salary_expectation.head') %></h5>
           <span class="text-muted font-size-14 ml-2">
             <%= "#{f.object.expected_salary_currency} #{f.object.expected_salary_cents}" %>
           </span>
           <div class="custom-control custom-checkbox mb-2 pl-0 pl-md-2 pr-4">
             <div class="row">
-              <div class="col-12 col-lg-3">
+              <div class="col-8 col-lg-3">
                 <%= f.label :expected_salary_currency, t('layouts.settings.salary_expectation.currency'), class: 'text-muted' %>
                 <%= f.select :expected_salary_currency, options_for_select(Money::Currency.all, f.object.expected_salary_currency), {}, class: 'custom-select custom-select-lg mr-3' %>
               </div>
-              <div class="col-12 col-lg-4">
+              <div class="col-8 col-lg-4">
                 <%= f.label :expected_salary_cents, t('layouts.settings.salary_expectation.amount'), class: 'text-muted' %>
                 <%= f.number_field :expected_salary_cents, class: 'form-control form-control-lg' %>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 mb-5">
+          <h5 class="mb-3 d-md-inline-block"><%= t('layouts.settings.notice_period.head') %></h5>
+          <span class="text-muted font-size-14 ml-2"><%= t('layouts.settings.notice_period.content') %></span>
+          <div class="col-md-6 col-8 mb-2 mt-4">
+            <%= f.number_field :notice_period, class:'form-control form-control-lg mt-2', placeholder: t('layouts.settings.notice_period.placeholder') %>
           </div>
         </div>
       </div>

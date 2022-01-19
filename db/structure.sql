@@ -365,7 +365,7 @@ CREATE TABLE public.cvs (
     in_person boolean DEFAULT false,
     remote_work boolean DEFAULT false,
     relocate boolean DEFAULT false,
-    notice_period character varying,
+    notice_period integer DEFAULT 0,
     expected_salary_cents integer DEFAULT 0 NOT NULL,
     expected_salary_currency character varying DEFAULT 'USD'::character varying NOT NULL
 );

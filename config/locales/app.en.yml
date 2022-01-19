@@ -178,7 +178,7 @@ en:
       contact_us: 'Contact Us'
     settings:
       main: Settings
-      header: Desired type of fields
+      header: Cv Settings
       contract:
         head: Desired Contract
         internship: Internship

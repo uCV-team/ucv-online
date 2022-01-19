@@ -178,7 +178,7 @@ it:
       contact_us: 'Contattaci'
     settings:
       main: Settings
-      header: Desired type of fields
+      header: Cv Settings
       contract:
         head: Desired Contract
         internship: Internship

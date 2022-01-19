@@ -9,7 +9,7 @@ class AddDesiredFieldsToCvs < ActiveRecord::Migration[5.2]
     add_column :cvs, :in_person, :boolean, default: false
     add_column :cvs, :remote_work, :boolean, default: false
     add_column :cvs, :relocate, :boolean, default: false
-    add_column :cvs, :notice_period, :string
+    add_column :cvs, :notice_period, :integer, default: 0
     add_monetize :cvs, :expected_salary
   end
 end
