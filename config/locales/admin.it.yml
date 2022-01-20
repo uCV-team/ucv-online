@@ -4,7 +4,7 @@ it:
   sidebar:
     dashboard: Pannello
     users: Utenti
-    flags: Bandiere
+    flags: Segnalazioni
   home_page:
     header: Welcome to PubliCV Admin Panel
   user_page:
