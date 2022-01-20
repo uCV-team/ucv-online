@@ -10,8 +10,8 @@
               <%= image_tag(cv.headshot.url(:default), alt: "#{result.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size') %>
               <div class="w-100 pl-3">
                 <p class="text-dark mb-0 font-size-14 text-right"><%= cv.updated_at&.strftime("%B %d, %Y") %></p>
-                <div class="d-flex">
-                  <h6 class="text-dark pr-1"><%= display_name(cv) %></h6>
+                <div class="mb-2">
+                  <h6 class="text-dark pr-1 d-md-inline-block"><%= display_name(cv) %></h6>
                   <span class="text-muted font-size-14 pl-1"><%= cv.experiences.where(position: 0)&.first&.title %></span>
                 </div>
                 <div style="line-height: 24px">

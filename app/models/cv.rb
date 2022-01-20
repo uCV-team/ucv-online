@@ -125,7 +125,7 @@ class Cv < ApplicationRecord
   end
 
   def salary_expectation
-    self.expected_salary_cents.present?
+    expected_salary_cents.present?
   end
 
   def contract_type
