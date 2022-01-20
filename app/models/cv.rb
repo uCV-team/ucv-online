@@ -20,7 +20,7 @@ class Cv < ApplicationRecord
   validates :future_plans, :authorization_statement, length: { maximum: INFO_MAX_LENGTH }
   validates :interests, :authorization_statement, length: { maximum: INFO_MAX_LENGTH }
   validates :user, uniqueness: true
-  validates :expected_salary_cents, length: { maximum: 9 }
+  validates :expected_salary_cents, length: { maximum: 9 }, presence: true
   delegate :email, :tel, :subdomain, to: :user
 
   accepts_nested_attributes_for :user
@@ -122,6 +122,14 @@ class Cv < ApplicationRecord
 
   def flagged_by?(user_id)
     flags.where(user_id: user_id).any?
+  end
+
+  def salary_expectation
+    self.expected_salary_cents.present?
+  end
+
+  def contract_type
+    internship || temporary_contract || permanent_contract || freelance
   end
 
   private

@@ -1,3 +1,10 @@
 it:
   search:
     placeholder: Quali competenze stai cercando? Dove?
+    preview:
+      working_skills: Abilità lavorative
+      languages: Le lingue
+      salary_expectation: Aspettativa di salario
+      notice_period: Periodo di preavviso
+      contract_type: Tipo di contratto
+      locations: Posizioni
