@@ -177,33 +177,34 @@ it:
       terms: 'Condizioni'
       contact_us: 'Contattaci'
     settings:
-      main: Settings
-      header: Cv Settings
+      main: Impostazioni
+      header: Cv Impostazioni
       contract:
-        head: Desired Contract
-        internship: Internship
-        temporary_contract: Temporary Contract
-        permanent_contract: Permanent Contract
-        freelance: Freelance
+        head: Contratto desiderato
+        internship: tirocinio
+        temporary_contract: Contratto temporaneo
+        permanent_contract: Contratto a tempo indeterminato
+        freelance: Libero professionista
       timetable:
-        head: Desired Timetable
-        part_time: Part Time
-        full_time: Full Time
+        head: Orario desiderato
+        part_time: Part time
+        full_time: Tempo pieno
       modality:
-        head: Desired Modality
-        in_person: In person
-        remote_work: Remote work
+        head: Modalità desiderata
+        in_person: Di persona
+        remote_work: Lavoro a distanza
       mobility:
-        head: Desired Mobility
-        relocate: Ready to Relocate
+        head: Mobilità desiderata
+        relocate: Pronto per il trasferimento
       notice_period:
-        head: Notice Period
-        content: (Leave blank if not on notice period)
-        placeholder: Number of days left.
+        head: Periodo di preavviso
+        content: '(Lasciare in bianco se non nel periodo di preavviso)'
+        placeholder: Numero di giorni rimasti.
       salary_expectation:
-        head: Salary Expectation
-        currency: Currency
-        amount: Amount
+        head: Aspettativa di salario
+        about: '(Stipendio annuale lordo)'
+        currency: Moneta
+        amount: Ammontare
   success:
     cv:
       update: "Modifiche salvate con successo."

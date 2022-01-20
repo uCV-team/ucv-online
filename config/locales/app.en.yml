@@ -202,6 +202,7 @@ en:
         placeholder: Number of days left.
       salary_expectation:
         head: Salary Expectation
+        about: '(Gross Annual Salary)'
         currency: Currency
         amount: Amount
   success:

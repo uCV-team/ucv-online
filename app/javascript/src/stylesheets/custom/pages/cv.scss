@@ -38,3 +38,10 @@ th, td{
   text-align:center;
   padding-top:5px
 }
+.bottom_bar_scroller{
+  overflow-x: auto;
+  padding-left: 80px !important;
+}
+.bottom_bar_scroller::-webkit-scrollbar {
+  display: none;
+}

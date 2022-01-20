@@ -70,11 +70,12 @@
           </div>
         </div>
         <div class="col-12 col-md-6 mb-5">
-          <h5 class="mb-3 d-inline-block"><%= t('layouts.settings.salary_expectation.head') %></h5>
+          <h5 class="d-inline-block"><%= t('layouts.settings.salary_expectation.head') %></h5>
           <span class="text-muted font-size-14 ml-2">
             <%= "#{f.object.expected_salary_currency} #{f.object.expected_salary_cents}" %>
           </span>
           <div class="custom-control custom-checkbox mb-2 pl-0 pl-md-2 pr-4">
+            <p class="text-muted"><%= t('layouts.settings.salary_expectation.about') %></p>
             <div class="row">
               <div class="col-8 col-lg-3">
                 <%= f.label :expected_salary_currency, t('layouts.settings.salary_expectation.currency'), class: 'text-muted' %>
