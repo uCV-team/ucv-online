@@ -1,6 +1,5 @@
 module Admin
   class NewslettersController < Admin::BaseController
-    authorize_resource
     before_action :newsletter, except: %i[index create]
 
     def index

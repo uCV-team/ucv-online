@@ -1,5 +1,5 @@
 // Listen for the Trix attachment event to trigger upload
-document.addEventListener("trix-attachment-add", function(event) {
+document.addEventListener("trix-attachment-add", function (event) {
   var attachment = event.attachment;
   if (attachment.file) {
     return uploadAttachment(attachment);
@@ -21,13 +21,13 @@ function uploadAttachment(attachment) {
   xhr.setRequestHeader('X-CSRF-Token', document.querySelector('meta[name="csrf-token"]').content);
 
   // Report file uploads back to Trix
-  xhr.upload.onprogress = function(event) {
+  xhr.upload.onprogress = function (event) {
     var progress = event.loaded / event.total * 100;
     attachment.setUploadProgress(progress);
   }
 
   // Tell Trix what url and href to use on successful upload
-  xhr.onload = function() {
+  xhr.onload = function () {
     if (xhr.status === 200) {
       var data = JSON.parse(xhr.responseText);
       newsletterID.push(data);
@@ -41,10 +41,14 @@ function uploadAttachment(attachment) {
   return xhr.send(form);
 }
 
-window.onload = function () {
+document.addEventListener('turbolinks:load', function () {
+  saveResource();
+});
+
+window.saveResource = function () {
   var save_newsletter = document.getElementById('newsletter_save')
-  if (save_newsletter){
-    save_newsletter.addEventListener('click',function() {
+  if (save_newsletter) {
+    save_newsletter.addEventListener('click', function () {
       for (let i = 0; i < newsletterID.length; i++) {
         var news = document.createElement("input");
         var att = document.createAttribute("name");
@@ -56,4 +60,4 @@ window.onload = function () {
       };
     });
   }
-}
+};

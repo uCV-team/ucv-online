@@ -1,7 +1,5 @@
 module Admin
   class SubmittalController < Admin::BaseController
-    authorize_resource class: 'Newsletter'
-
     def create
       newsletter = Newsletter.find_by(id: params[:newsletter_id])
       opted_user_ids = []

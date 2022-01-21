@@ -25,9 +25,7 @@ Rails.application.routes.draw do
     resource :registrations, except: %i[show]
     resource :confirmation, only: %i[new show create update]
   end
-  namespace :passwordless do
-    resource :sessions, only: %i[new show create destroy]
-  end
+  get ':authenticatable/sign_in', to: 'passwordless/sessions#new', as: 'new_passwordless_sessions'
 
   namespace :admin do
     resource :dashboard, only: [:show]
