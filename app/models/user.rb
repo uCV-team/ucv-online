@@ -37,6 +37,10 @@ class User < ApplicationRecord
     "http://#{cv_public_domain}"
   end
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def self.datatable_filter(search_value, search_columns)
     return all if search_value.blank?
 

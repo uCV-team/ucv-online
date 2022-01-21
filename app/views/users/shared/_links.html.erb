@@ -1,7 +1,7 @@
 <hr>
 <%- unless params[:controller].include?('session') %>
   <div class="d-flex align-items-center justify-content-center">
-    <%= link_to t('devise.shared.links.sign_in'), users.sign_in_path %><br />
+    <%= link_to t('devise.shared.links.sign_in'), new_passwordless_sessions_path('user') %><br />
   </div>
 <% end %>
 
