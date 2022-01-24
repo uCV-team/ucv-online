@@ -178,7 +178,7 @@ it:
       contact_us: 'Contattaci'
     settings:
       main: Impostazioni
-      header: Cv Impostazioni
+      header: Preferenze di lavoro
       contract:
         head: Contratto desiderato
         internship: tirocinio
