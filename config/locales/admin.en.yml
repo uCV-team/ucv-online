@@ -6,9 +6,9 @@ en:
     users: Users
     flags: Flags
   home_page:
-    header: Welcome to PubliCV Admin Panel
+    header: Welcome to YouCV Admin Panel
   user_page:
-    header: All PubliCV users
+    header: All YouCV users
     datatable_columns:
       email: Email
       full_name: FullName

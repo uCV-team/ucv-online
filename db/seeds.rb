@@ -45,8 +45,8 @@ end
 
 user = User.create!(
   first_name: 'Admin',
-  last_name: 'PubliCV',
-  email: 'admin@publicv.co',
+  last_name: 'YouCV',
+  email: 'admin@youCV.co',
   subdomain: 'admin',
   confirmed_at: Time.zone.now,
   password: 'supersecret'

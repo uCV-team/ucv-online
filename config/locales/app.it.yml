@@ -54,7 +54,7 @@ it:
           headshot:
             title: "Modifica foto"
         flag:
-          desc: Aiutaci a capire il problema di questo publiCV
+          desc: Aiutaci a capire il problema di questo youCV
           reasons:
             hateful: Contenuto offensivo o ingiurioso
             spam: Spam o ingannevole
@@ -145,7 +145,7 @@ it:
         accept_html: "Dichiaro di accettare i <a href='/legal/terms'>termini del servizio</a> e l'<a href='/legal/privacy-policy'>informativa sulla privacy</a>."
         recaptcha: Sito protetto con Google reCAPTCHA
       confirm:
-        delete_account: "Sei sicuro, Vuoi eliminare il tuo account da PubliCV ?"
+        delete_account: "Sei sicuro, Vuoi eliminare il tuo account da YouCV ?"
   layouts:
     nav:
       home: "Home"

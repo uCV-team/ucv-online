@@ -53,7 +53,7 @@ en:
           headshot:
             title: "Edit CV profile picture"
         flag:
-          desc: Help us understand the problem with this publiCV profile.
+          desc: Help us understand the problem with this youCV profile.
           reasons:
             hateful: Hateful or abusive content.
             spam: Spam or misleading
@@ -145,7 +145,7 @@ en:
         accept_html: "I declare to accept the <a href='/legal/terms'>terms of service</a> and the <a href='/legal/privacy-policy'>privacy policy</a>."
         recaptcha: Protected by Google reCAPTCHA
       confirm:
-        delete_account: "Are you sure, You want to delete your account from PubliCV ?"
+        delete_account: "Are you sure, You want to delete your account from YouCV ?"
   layouts:
     nav:
       home: "Home"
