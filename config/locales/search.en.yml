@@ -2,9 +2,7 @@ en:
   search:
     placeholder: What skills are you looking for? Where?
     preview:
+      about: Bio
       working_skills: Working Skills
-      languages: Languages
       salary_expectation: Salary Expectation
       notice_period: Notice Period
-      contract_type: Type of Contract
-      locations: Location
