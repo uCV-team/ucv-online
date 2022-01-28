@@ -125,11 +125,7 @@ class Cv < ApplicationRecord
   end
 
   def salary_expectation
-    expected_salary_cents.present?
-  end
-
-  def contract_type
-    internship || temporary_contract || permanent_contract || freelance
+    expected_salary_cents.present? && expected_salary_cents != 0
   end
 
   private
