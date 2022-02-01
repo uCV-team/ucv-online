@@ -1,3 +1,7 @@
 <p style="text-align:center">
+  <%= t('mailer.magic_link.greeting', first_name: @session.authenticatable.first_name, last_name: @session.authenticatable.last_name) %><br><br>
+
+  <%= t('mailer.magic_link.content') %><br><br>
+
   <%= link_to(t('devise.mailer.magic_link'), @magic_link) %>
 </p>

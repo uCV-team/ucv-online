@@ -26,6 +26,7 @@ module Passwordless
       @email = recipient.unconfirmed_email.presence || recipient.email
       @magic_link = send(Passwordless.mounted_as)
                     .token_sign_in_url(token)
+      @user = recipient
       mail(
         to: @email,
         from: ENV['MAIL_FROM'],

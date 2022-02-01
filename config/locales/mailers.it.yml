@@ -3,3 +3,8 @@ it:
     unsubscribe_text1: 'Unsubscribe_part_1'
     unsubscribe_text2: 'Unsubscribe_part_2'
     unsubscribe_link: 'Unsubscribe'
+    magic_link:
+      greeting: "Ciao %{first_name} %{last_name},"
+      content: "Per accedere al tuo account su publiCV visita il seguente link: "
+    confirmations:
+      content: "Ti diamo il benvenuto su publiCV, conferma il tuo account e accedi alla tua area di amministrazione visitando il seguente link: "
