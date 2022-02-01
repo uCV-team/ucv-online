@@ -5,6 +5,6 @@ en:
     unsubscribe_link: 'Unsubscribe'
     magic_link:
       greeting: "Hello %{first_name} %{last_name},"
-      content: "Welcome to uCV, to sign in please visit the following link: "
+      content: "Welcome to publiCV, to sign in please visit the following link: "
     confirmations:
-      content: "Welcome to uCV, to confirm your account please visit the following link: "
+      content: "Welcome to publiCV, to confirm your account please visit the following link: "
