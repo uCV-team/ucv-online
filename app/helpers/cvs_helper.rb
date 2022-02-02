@@ -51,9 +51,9 @@ module CvsHelper
 
   def cv_cache_key(cv)
     if current_user.blank? || params[:preview].present?
-      "cv_section_#{locale}_#{cv.updated_at.to_i}_open"
+      "cv_section_#{locale}_#{cv.updated_at.to_i}_#{cv.user.updated_at.to_i}_open"
     else
-      "cv_section_#{locale}_#{cv.updated_at.to_i}"
+      "cv_section_#{locale}_#{cv.updated_at.to_i}_#{cv.user.updated_at.to_i}"
     end
   end
 

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CvEditTest < ApplicationSystemTestCase
+class CvCacheTest < ApplicationSystemTestCase
   driven_by :selenium_chrome_headless
 
   setup do
