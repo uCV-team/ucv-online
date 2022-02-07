@@ -21,6 +21,10 @@ module CvsHelper
     params[:controller] == 'cvs' && params[:action] == 'show'
   end
 
+  def app_home_page?
+    params[:controller] == 'home' && params[:action] == 'index'
+  end
+
   def cv_full_name(cv_obj)
     "#{cv_obj.first_name} #{cv_obj.last_name}"
   end

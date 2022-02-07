@@ -15,7 +15,9 @@
   </head>
   <body>
     <%= render 'layouts/shared/header' %>
-    <%= render 'layouts/shared/flash_messages' %>
+    <div class="alert-box <%= 'middle-container-1' unless app_home_page? %>">
+      <%= render 'layouts/shared/flash_messages' %>
+    </div>
     <%= yield %>
     <%= render 'layouts/shared/footer' %>
     <%= render "layouts/shared/landbot_#{I18n.locale}" unless @cv || current_user -%>
