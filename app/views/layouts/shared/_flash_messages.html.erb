@@ -1,5 +1,5 @@
 <% flash.each do |key, msg| %>
-  <div class="alert alert-<%= key %> alert-dismissible fade show flash-size <%= 'home_page_alert' if app_home_page? %>" role="alert">
+  <div id="alert-bar" class="alert alert-<%= key %> alert-dismissible fade show flash-size <%= 'home_page_alert' if app_home_page? %>" role="alert">
     <button class="close" data-dismiss="alert" aria-label="Close">x</button>
     <p class="flash-message"><%= msg %></p>
   </div>

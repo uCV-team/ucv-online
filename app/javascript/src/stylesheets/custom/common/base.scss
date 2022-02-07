@@ -414,11 +414,32 @@ nav {
   height: 18px;
 }
 .home_page_alert {
-  z-index: 9999999;
+  z-index: 998;
   top: 150px;
   margin-bottom: -72px;
+  position: fixed;
 }
 .flash-size {
-  width: 59%;
-  margin-left: 20%;
+  width: 98%;
+  margin-left: 5px;
+}
+@media screen and (min-width: 992px) {
+  .flash-size {
+    width: 59%;
+    margin-left: 20%;
+  }
+}
+#alert-bar {
+  -webkit-animation: flashAnimation 8s forwards;
+  animation: flashAnimation 8s forwards;
+}
+@keyframes flashAnimation {
+  0%   {opacity: 1;}
+  60%  {opacity: 1;}
+  100% {opacity: 0; visibility: hidden}
+}
+@-webkit-keyframes flashAnimation {
+  0%   {opacity: 1;}
+  60%  {opacity: 1}
+  100% {opacity: 0; visibility: hidden}
 }
