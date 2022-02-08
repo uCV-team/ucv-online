@@ -67,6 +67,7 @@ document.addEventListener('turbolinks:load', () => {
   handleSelect();
   window.enableSortable();
   loadTooltips();
+  hideAlerts();
 });
 
 (function() {
@@ -85,3 +86,12 @@ function loadTooltips(){
     html: true
   })
 };
+
+function hideAlerts() {
+  var alertBar = document.getElementById('alert-bar')
+  if (alertBar) {
+    setTimeout(function () {
+      alertBar.style.display = 'none'
+    }, 6500); return false
+  }
+}
