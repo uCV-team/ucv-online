@@ -3,6 +3,6 @@ en:
     placeholder: What skills are you looking for? Where?
     preview:
       about: Bio
-      working_skills: Working Skills
-      salary_expectation: Salary Expectation
-      notice_period: Notice Period
+      working_skills: Skills
+      salary_expectation: Salary
+      notice_period_days: Join in

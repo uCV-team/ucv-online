@@ -4,18 +4,18 @@ module SearchesHelper
     when 'about'
       short_desc(cv_obj.about, 85)
     when 'working_skills'
-      short_desc(cv_obj.working_skills, 25)
+      short_desc(cv_obj.working_skills, 70)
     when 'salary_expectation'
       "#{cv_obj.expected_salary_currency}
           #{number_to_human(cv_obj.expected_salary_cents, format: '%n%u',
                                                           units: { thousand: 'K', million: 'M', billion: 'B' })}"
-    when 'notice_period'
+    when 'notice_period_days'
       "#{cv_obj.notice_period} days"
     end
   end
 
   def add_klass(key)
-    if key.to_s == 'salary_expectation' || key.to_s == 'notice_period'
+    if key.to_s == 'salary_expectation' || key.to_s == 'notice_period_days'
       'col-md-6'
     else
       'col-md-12'

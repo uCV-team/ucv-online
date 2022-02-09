@@ -8,7 +8,7 @@
           <div class="card-body py-3 px-2">
             <div class="d-md-flex align-items-center justify-content-between">
               <div class="d-flex justify-content-between">
-                <%= image_tag(cv.headshot.url(:default), alt: "#{result.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size ml-3 ml-md-0') %>
+                <%= image_tag(cv.headshot.url(:default), alt: "#{result.first_name}'s headshot", class: 'img-fluid rounded-circle default-img-size ml-3 ml-md-0') %>
                 <div class="col-md-6 text-right font-size-14 font-weight-bold d-md-none d-block">
                   <p class="text-dark mb-0"><%= cv.updated_at&.strftime("%B %d, %Y") %></p>
                   <p class="text-dark mb-0"><%= short_desc(result.original_address, 25) %></p>
@@ -17,7 +17,7 @@
               <div class="w-100 pl-3">
                 <div class="row mb-2">
                   <div class="col-md-6 pl-3 mt-md-0 mt-2">
-                    <h4 class="text-dark pr-1 mb-0 font-weight-bold"><%= display_name(cv) %></h4>
+                    <h4 class="text-dark pr-1 mb-0 font-weight-bold"><%= "#{result.first_name} #{result.last_name.titleize}" %></h4>
                     <h6 class="text-muted"><%= cv.experiences.where(position: 0)&.first&.title %></h6>
                   </div>
                   <div class="col-md-6 text-right font-size-14 font-weight-bold d-md-block d-none">
@@ -28,14 +28,16 @@
                 <div class="row">
                   <% t('search.preview').each do |key, value| %>
                     <% if cv.send(key).present? %>
-                    <p class="<%= add_klass(key) %> mb-2">
-                      <span class="text-dark font-weight-bold d-inline-block">
-                        <%= value %>:
-                      </span>
-                      <span class="text-muted p-1">
-                        <%= searches_preview(key, cv) %>
-                      </span>
-                    </p>
+                      <p class="<%= add_klass(key) %> mb-2">
+                        <% unless key.to_s == 'about' %>
+                          <span class="text-dark d-inline-block">
+                            <u><%= value %>:</u>
+                          </span>
+                        <% end %>
+                        <span class="text-muted p-1">
+                          <%= searches_preview(key, cv) %>
+                        </span>
+                      </p>
                     <% end %>
                   <% end %>
                 </div>

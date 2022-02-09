@@ -128,6 +128,10 @@ class Cv < ApplicationRecord
     expected_salary_cents.present? && expected_salary_cents != 0
   end
 
+  def notice_period_days
+    !notice_period.zero?
+  end
+
   private
 
   def set_authorization_statement
