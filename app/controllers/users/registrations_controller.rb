@@ -20,7 +20,7 @@ module Users
         passwordless = build_passwordless_session(@user)
         passwordless.save!
         @user.send_confirmation_instructions(passwordless.token)
-        flash[:notice] = t('devise.sessions.signed_in') + t('devise.registrations.signed_up_but_unconfirmed')
+        flash[:notice] = t('devise.registrations.signed_up_but_unconfirmed')
         sign_in passwordless_session(passwordless.token, passwordless.authenticatable_type)
         redirect_to after_sign_in_path_for(@user)
       else
