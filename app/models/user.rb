@@ -25,7 +25,7 @@ class User < ApplicationRecord
                                                               }
 
   def cv_public_domain
-    "#{subdomain}.#{ENV['SUBDOMAIN_HOST']}"
+    "#{subdomain}.#{ENV['SERVER_HOST']}"
   end
 
   def cv_public_url

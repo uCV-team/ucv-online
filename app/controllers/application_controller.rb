@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
   end
 
   def root_domain_url
-    ENV['EN_SERVER_HOST']
+    ENV['SERVER_URL']
     # locale.to_s == 'en' ? ENV['EN_SERVER_HOST'] : ENV['IT_SERVER_HOST']
   end
 

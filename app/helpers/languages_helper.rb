@@ -8,4 +8,8 @@ module LanguagesHelper
     human_levels = levels.map { |level| I18n.t(level, scope: 'cefr_levels') }
     levels.zip(human_levels).to_h.symbolize_keys
   end
+
+  def set_language(lang)
+    "http://#{lang}.#{ENV['SERVER_HOST']}"
+  end
 end
