@@ -31,7 +31,7 @@
                       <p class="<%= add_klass(key) %> mb-2">
                         <% unless key.to_s == 'about' %>
                           <span class="text-dark d-inline-block">
-                            <u><%= value %>:</u>
+                            <%= value %>:
                           </span>
                         <% end %>
                         <span class="text-muted p-1">
@@ -41,7 +41,7 @@
                     <% end %>
                   <% end %>
                 </div>
-                <h6 class="mb-0 pt-2 text-right">
+                <h6 class="mb-0 mr-2 pt-2 text-right">
                   <i class="ml-2 fas fa-angle-right"></i> you<b>CV</b>
                 </h6>
               </div>
