@@ -26,6 +26,7 @@ Layout/LineLength:
   Max: 120
   Exclude:
   - 'config/initializers/rack_attack.rb'
+  - 'config/routes.rb'
 
 Lint/UselessMethodDefinition:
   Exclude:
