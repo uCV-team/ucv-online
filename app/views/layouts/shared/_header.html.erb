@@ -91,9 +91,9 @@
             </li>
             <li>
               <div class="ml-2">
-                <select class="custom-select language-switcher" id="inputGroupSelect01">
-                  <option value="org/">English</option>
-                  <option value="it/">Italian</option>
+                <select class="custom-select language-switcher" onchange="location = this.value;">
+                  <option value="http://it.<%= ENV['EN_SERVER_HOST'] %>">Italian</option>
+                  <option value="http://en.<%= ENV['EN_SERVER_HOST'] %>">English</option>
                 </select>
               </div>
             </li>

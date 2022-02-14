@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
     custom_locale = if current_user.present? && current_user.locale.present?
                       current_user.locale
                     else
-                      tld == 'it' ? 'it' : 'en'
+                      locale_by_host
                     end
     I18n.locale = custom_locale.to_sym
   end
@@ -50,12 +50,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def tld
-    @tld ||= request.host.split('.').last
-  end
-
   def root_domain_url
-    locale.to_s == 'en' ? ENV['EN_SERVER_HOST'] : ENV['IT_SERVER_HOST']
+    ENV['EN_SERVER_HOST']
+    # locale.to_s == 'en' ? ENV['EN_SERVER_HOST'] : ENV['IT_SERVER_HOST']
   end
 
   def notifications
@@ -63,6 +60,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def locale_by_host
+    I18n.available_locales.map(&:to_s).include?(request.subdomain) ? request.subdomain : 'it'
+  end
 
   def user_not_authorized
     flash[:alert] = I18n.t('flash.authorization')

@@ -1,16 +1,10 @@
 let selectTag;
 
-function handleSelect(){
+function handleSelect() {
   selectTag = document.getElementsByClassName("language-switcher")[0];
-  if (selectTag && selectTag.length > 0) {
-    if (window.currentLocale == 'en') selectTag.getElementsByTagName('option')[0].selected = 'selected';
-    else selectTag.getElementsByTagName('option')[1].selected = 'selected';
-
-    selectTag.addEventListener('change', function(){
-      let arr = window.location.host.split('.');
-      arr[arr.length-1] = this.value;
-      window.location = "http://"+arr.join('.')
-    })
+  if (selectTag) {
+    if (window.location.host.split('.')[0] == 'en') selectTag.getElementsByTagName('option')[1].selected = 'selected'
+    else selectTag.getElementsByTagName('option')[0].selected = 'selected';
   }
 }
 

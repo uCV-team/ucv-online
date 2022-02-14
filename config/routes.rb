@@ -1,6 +1,6 @@
 class Subdomain
   def self.matches?(request)
-    request.subdomain.present? && request.domain.split('.').size > 1 && request.subdomain != 'publicv-staging'
+    request.subdomain.present? && request.domain.split('.').size > 1 && request.subdomain != 'publicv-staging' && !I18n.available_locales.map(&:to_s).include?(request.subdomain)
   end
 end
 

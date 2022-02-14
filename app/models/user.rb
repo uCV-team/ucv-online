@@ -25,12 +25,7 @@ class User < ApplicationRecord
                                                               }
 
   def cv_public_domain
-    domain_suffix = if locale.present?
-                      (locale == 'en' ? 'org' : locale)
-                    else
-                      'org'
-                    end
-    "#{subdomain}.publicv.#{domain_suffix}"
+    "#{subdomain}.#{ENV['SUBDOMAIN_HOST']}"
   end
 
   def cv_public_url
