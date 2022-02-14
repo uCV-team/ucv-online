@@ -9,7 +9,7 @@ module LanguagesHelper
     levels.zip(human_levels).to_h.symbolize_keys
   end
 
-  def set_language(lang)
+  def language_options(lang)
     "http://#{lang}.#{ENV['SERVER_HOST']}"
   end
 end
