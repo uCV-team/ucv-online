@@ -1,11 +1,18 @@
-let selectTag;
+document.addEventListener('turbolinks:load', () => {
+  handleSelect();
+  window.enableSortable();
+  loadTooltips();
+  hideAlerts();
+});
 
 function handleSelect() {
-  selectTag = document.getElementsByClassName("language-switcher")[0];
-  if (selectTag) {
-    if (window.location.host.split('.')[0] == 'en') selectTag.getElementsByTagName('option')[1].selected = 'selected'
-    else selectTag.getElementsByTagName('option')[0].selected = 'selected';
-  }
+  document.querySelectorAll('.language-switcher').forEach(function (item) {
+    if (item) {
+      if (window.location.host.split('.')[0] == 'en') item.getElementsByTagName('option')[1].selected = 'selected'
+      else item.getElementsByTagName('option')[0].selected = 'selected';
+    }
+  });
+
 }
 
 window.enableSortable = function () {
@@ -56,13 +63,6 @@ window.enableSortable = function () {
     });
   }
 };
-
-document.addEventListener('turbolinks:load', () => {
-  handleSelect();
-  window.enableSortable();
-  loadTooltips();
-  hideAlerts();
-});
 
 (function() {
   const send = XMLHttpRequest.prototype.send

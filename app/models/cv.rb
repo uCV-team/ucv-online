@@ -48,7 +48,8 @@ class Cv < ApplicationRecord
                  latest_experience.title  AS job_title,
                  users.subdomain          AS user_subdomain,
                  users.first_name         AS first_name,
-                 users.last_name          AS last_name
+                 users.last_name          AS last_name,
+                 users.locale             AS locale
           FROM   cvs
                  INNER JOIN (SELECT experiences.*
                              FROM   experiences
@@ -65,7 +66,7 @@ class Cv < ApplicationRecord
           WHERE  published = true AND
                  headshot_file_name IS NOT NULL AND
                  CHAR_LENGTH(about) > 70
-          GROUP BY cvs.id, users.subdomain, latest_experience.title, users.first_name, users.last_name
+          GROUP BY cvs.id, users.subdomain, latest_experience.title, users.first_name, users.last_name, users.locale
           ORDER BY cvs.updated_at DESC
           LIMIT 4
         ) cvs

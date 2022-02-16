@@ -35,6 +35,7 @@ module Users
       @user.encrypted_password = SecureRandom.hex
 
       if @user.update(user_params)
+        I18n.locale = user_params[:locale]
         if @user.unconfirmed_email != @user.email
           @user.send_confirmation_instructions(@pl_session.token)
           flash[:notice] = t('devise.registrations.update_needs_confirmation')
@@ -48,7 +49,7 @@ module Users
       end
       yield @user if block_given?
 
-      redirect_to cv_section_path(@user.subdomain)
+      redirect_to "http://#{@user.locale}.#{ENV['SERVER_HOST']}/cv/#{@user.subdomain}"
     end
 
     private

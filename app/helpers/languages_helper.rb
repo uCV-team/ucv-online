@@ -9,7 +9,11 @@ module LanguagesHelper
     levels.zip(human_levels).to_h.symbolize_keys
   end
 
-  def language_options(lang)
-    "http://#{lang}.#{ENV['SERVER_HOST']}"
+  def language_options(lang, usr)
+    if cv_show_page?
+      "http://#{lang}.#{ENV['SERVER_HOST']}/cv/#{usr.subdomain}"
+    else
+      "http://#{lang}.#{ENV['SERVER_HOST']}"
+    end
   end
 end

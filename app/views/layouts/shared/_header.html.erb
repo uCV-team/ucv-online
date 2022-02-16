@@ -74,16 +74,12 @@
               </li>
             </div>
           <% else %>
-            <% unless request.path == new_users_registrations_path %>
-              <li class="pb-2 ml-2">
-                <%= link_to t('layouts.nav.create_cv'), new_users_registrations_path, class: 'btn btn-lg btn-outline-primary' %>
-              </li>
-            <% end %>
-            <% unless request.path == new_passwordless_sessions_path('user') %>
-              <li class="pb-2 ml-2">
-                <%= link_to t('layouts.nav.edit_your_cv'), new_passwordless_sessions_path('user'), class: 'btn btn-lg btn-outline-primary' %>
-              </li>
-            <% end %>
+            <li class="pb-2 ml-2">
+              <%= link_to t('layouts.nav.create_cv'), registration_url, class: 'btn btn-lg btn-outline-primary' %>
+            </li>
+            <li class="pb-2 ml-2">
+              <%= link_to t('layouts.nav.edit_your_cv'), session_url, class: 'btn btn-lg btn-outline-primary' %>
+            </li>
             <li class="pb-2">
               <a class="btn btn-lg btn-primary ml-2" href="/#search">
                 <%= t('layouts.nav.hire_someone') %>
@@ -92,8 +88,8 @@
             <li>
               <div class="ml-2">
                 <select class="custom-select language-switcher" onchange="location = this.value;">
-                  <option value="<%= language_options('it') %>">Italian</option>
-                  <option value="<%= language_options('en') %>">English</option>
+                  <option value="<%= language_options('it', @user) %>">Italian</option>
+                  <option value="<%= language_options('en', @user) %>">English</option>
                 </select>
               </div>
             </li>

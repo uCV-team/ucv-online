@@ -7,7 +7,8 @@ module Passwordless
     # Sends a magic link (secret token) email.
     # @param session [Session] A Passwordless Session
     def magic_link(session)
-      I18n.locale = session.authenticatable.locale
+      @current_locale = session.authenticatable.locale
+      I18n.locale = @current_locale
       @session = session
 
       @magic_link = send(Passwordless.mounted_as)
@@ -22,7 +23,8 @@ module Passwordless
     end
 
     def user_confirmation_instructions(recipient, token)
-      I18n.locale = recipient.locale
+      @current_locale = recipient.locale
+      I18n.locale = @current_locale
       @email = recipient.unconfirmed_email.presence || recipient.email
       @magic_link = send(Passwordless.mounted_as)
                     .token_sign_in_url(token)

@@ -51,8 +51,11 @@ class ApplicationController < ActionController::Base
   end
 
   def root_domain_url
-    ENV['SERVER_URL']
-    # locale.to_s == 'en' ? ENV['EN_SERVER_HOST'] : ENV['IT_SERVER_HOST']
+    if request.subdomain.present?
+      "http://#{request.subdomain}.#{ENV['SERVER_HOST']}"
+    else
+      ENV['SERVER_URL']
+    end
   end
 
   def notifications
