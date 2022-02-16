@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # TODO: get '/about', to: 'home#about'
   get 'legal/terms', to: 'legal#terms'
 
-  get 'cv/:subdomain', to: 'cvs#show', as: 'cv_section'
+  get 'cv/:user_subdomain', to: 'cvs#show', as: 'cv_section'
   get 'cv/edit/:section', to: 'cvs#edit', as: 'edit_cv_section'
   put 'cv/download', to: 'cvs#download'
   get 'cv/:id/settings', to: 'cvs#settings', as: 'cv_settings'

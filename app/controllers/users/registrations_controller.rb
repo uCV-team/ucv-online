@@ -49,7 +49,7 @@ module Users
       end
       yield @user if block_given?
 
-      redirect_to "http://#{@user.locale}.#{ENV['SERVER_HOST']}/cv/#{@user.subdomain}"
+      redirect_to cv_section_url(@user.subdomain, subdomain: @user.locale)
     end
 
     private

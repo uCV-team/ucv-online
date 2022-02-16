@@ -1,6 +1,6 @@
 <div class="bottom-bar bg-white" id="overlay-topbar">
   <div class="d-flex align-items-center justify-content-center py-2 border-md-0 w-100 bottom_bar_scroller">
-    <% if (can? :update, @cv) && params[:subdomain] %> <!-- When CV owner is in edit mode ====== -->
+    <% if (can? :update, @cv) && params[:user_subdomain] %> <!-- When CV owner is in edit mode ====== -->
       <% if params[:preview] == 't' %> <!-- When CV owner is in preview mode ====== -->
         <%= link_to 'Exit preview', cv_section_path(current_user.subdomain), class: 'btn btn-primary mx-2' %>
       <% else %>

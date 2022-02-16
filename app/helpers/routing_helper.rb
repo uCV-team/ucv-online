@@ -16,7 +16,7 @@ module RoutingHelper
     if request.subdomain.present?
       cv_section_path(cv_obj.user_subdomain)
     else
-      "http://#{cv_obj.locale}.#{ENV['SERVER_HOST']}/cv/#{cv_obj.user_subdomain}"
+      cv_section_url(cv_obj.user_subdomain, subdomain: cv_obj.locale)
     end
   end
 end

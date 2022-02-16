@@ -8,7 +8,7 @@ class CvsController < ApplicationController
     # cannot access unpublished Cv except self
     authorize! :read, @cv
   rescue CanCan::AccessDenied
-    redirect_to params[:subdomain] ? root_domain_url : unauthorized_path
+    redirect_to params[:user_subdomain] ? root_domain_url : unauthorized_path
   end
 
   def edit
@@ -78,8 +78,8 @@ class CvsController < ApplicationController
   end
 
   def subdomain
-    return params[:subdomain] unless ENV['SERVER_ENV'] == 'production' || ENV['SERVER_ENV'] == 'staging'
+    return params[:user_subdomain] unless ENV['SERVER_ENV'] == 'production' || ENV['SERVER_ENV'] == 'staging'
 
-    params[:subdomain] || request.subdomain.presence
+    params[:user_subdomain] || request.subdomain.presence
   end
 end

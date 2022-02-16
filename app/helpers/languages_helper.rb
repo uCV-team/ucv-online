@@ -11,9 +11,9 @@ module LanguagesHelper
 
   def language_options(lang, usr)
     if cv_show_page?
-      "http://#{lang}.#{ENV['SERVER_HOST']}/cv/#{usr.subdomain}"
+      cv_section_url(usr.subdomain, subdomain: lang)
     else
-      "http://#{lang}.#{ENV['SERVER_HOST']}"
+      root_url(subdomain: lang)
     end
   end
 end
