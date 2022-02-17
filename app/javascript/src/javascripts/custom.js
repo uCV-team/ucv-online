@@ -13,6 +13,18 @@ function handleSelect() {
     }
   });
 
+  selectTag = document.getElementById('language-selector')
+  if (selectTag) {
+    selectTag.addEventListener("change", function () {
+      value = selectTag.getElementsByTagName('option')[selectTag.selectedIndex].value
+      if (location.origin.includes('://ucv')) {
+        redirect_location = location.origin.replace('://', '://' + value + '.')
+      } else {
+        redirect_location = location.origin.replace(location.host.split('.')[0], value)
+      }
+      location.href = (redirect_location + location.pathname);
+    })
+  };
 }
 
 window.enableSortable = function () {

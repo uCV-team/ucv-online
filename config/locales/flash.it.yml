@@ -1,5 +1,8 @@
 it:
   flash:
+    header:
+      english: Inglese
+      italian: Italian
     create: 'Successfully created.'
     update: 'Update completed successfully.'
     searches:

@@ -87,10 +87,17 @@
             </li>
             <li>
               <div class="ml-2">
-                <select class="custom-select language-switcher" onchange="location = this.value;">
-                  <option value="<%= language_options('it', @user) %>">Italian</option>
-                  <option value="<%= language_options('en', @user) %>">English</option>
-                </select>
+                <% if cv_show_page? %>
+                  <select class="custom-select language-switcher" onchange="location = this.value;">
+                    <option value="<%= cv_section_url(@user.subdomain, subdomain: 'it') %>"><%= t('flash.header.italian') %></option>
+                    <option value="<%= cv_section_url(@user.subdomain, subdomain: 'en') %>"><%= t('flash.header.english') %></option>
+                  </select>
+                <% else %>
+                  <select id="language-selector" class="custom-select language-switcher">
+                    <option value="it"><%= t('flash.header.italian') %></option>
+                    <option value="en"><%= t('flash.header.english') %></option>
+                  </select>
+                <% end %>
               </div>
             </li>
           <% end %>
