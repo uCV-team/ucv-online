@@ -990,6 +990,9 @@ CREATE MATERIALIZED VIEW public.searchable_cvs AS
     min(locations.latitude) AS latitude,
     min(locations.longitude) AS longitude,
     min((locations.original_address)::text) AS original_address,
+    min((locations.city)::text) AS city,
+    min((locations.region)::text) AS region,
+    min((locations.country)::text) AS country,
     (((((((((setweight(to_tsvector('public.cv_en'::regconfig, COALESCE(cvs.about, ''::text)), 'B'::"char") || setweight(to_tsvector('public.cv_en'::regconfig, (COALESCE(cvs.skills, ''::character varying))::text), 'B'::"char")) || setweight(to_tsvector('public.cv_en'::regconfig, (COALESCE(cvs.working_skills, ''::character varying))::text), 'A'::"char")) || setweight(to_tsvector('public.cv_en'::regconfig, (COALESCE(users.first_name, ''::character varying))::text), 'A'::"char")) || setweight(to_tsvector('public.cv_en'::regconfig, (COALESCE(users.last_name, ''::character varying))::text), 'A'::"char")) || setweight(to_tsvector('public.cv_en'::regconfig, COALESCE(string_agg(((locations.city)::text || (locations.country)::text), ' '::text), ''::text)), 'B'::"char")) || setweight(to_tsvector('public.cv_en'::regconfig, COALESCE(string_agg(((locations.geocoded_address)::text || (locations.original_address)::text), ' '::text), ''::text)), 'D'::"char")) || setweight(to_tsvector('public.cv_en'::regconfig, COALESCE(string_agg((((educations.degree)::text || educations.description) || (educations.school)::text), ' '::text), ''::text)), 'D'::"char")) || setweight(to_tsvector('public.cv_en'::regconfig, COALESCE(string_agg(((languages.language)::text || (languages.level)::text), ' '::text), ''::text)), 'C'::"char")) || setweight(to_tsvector('public.cv_en'::regconfig, COALESCE(string_agg((((experiences.company)::text || experiences.description) || (experiences.title)::text), ' '::text), ''::text)), 'C'::"char")) AS search_en_content_tsvector,
     (((((((((setweight(to_tsvector('public.cv_it'::regconfig, COALESCE(cvs.about, ''::text)), 'B'::"char") || setweight(to_tsvector('public.cv_it'::regconfig, (COALESCE(cvs.skills, ''::character varying))::text), 'B'::"char")) || setweight(to_tsvector('public.cv_it'::regconfig, (COALESCE(cvs.working_skills, ''::character varying))::text), 'A'::"char")) || setweight(to_tsvector('public.cv_it'::regconfig, (COALESCE(users.first_name, ''::character varying))::text), 'A'::"char")) || setweight(to_tsvector('public.cv_it'::regconfig, (COALESCE(users.last_name, ''::character varying))::text), 'A'::"char")) || setweight(to_tsvector('public.cv_it'::regconfig, COALESCE(string_agg(((locations.city)::text || (locations.country)::text), ' '::text), ''::text)), 'B'::"char")) || setweight(to_tsvector('public.cv_it'::regconfig, COALESCE(string_agg(((locations.geocoded_address)::text || (locations.original_address)::text), ' '::text), ''::text)), 'D'::"char")) || setweight(to_tsvector('public.cv_it'::regconfig, COALESCE(string_agg((((educations.degree)::text || educations.description) || (educations.school)::text), ' '::text), ''::text)), 'D'::"char")) || setweight(to_tsvector('public.cv_it'::regconfig, COALESCE(string_agg(((languages.language)::text || (languages.level)::text), ' '::text), ''::text)), 'C'::"char")) || setweight(to_tsvector('public.cv_it'::regconfig, COALESCE(string_agg((((experiences.company)::text || experiences.description) || (experiences.title)::text), ' '::text), ''::text)), 'C'::"char")) AS search_it_content_tsvector
    FROM (((((public.cvs
@@ -1390,6 +1393,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20220103100508'),
 ('20220104062550'),
 ('20220104062551'),
-('20220104105826');
+('20220104105826'),
+('20220218113712');
 
 

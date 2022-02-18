@@ -80,7 +80,8 @@ en:
             address: "Address *"
             radius: "Radius (in km)"
             title: "Add new location"
-            city: "Current City/Province"
+            city: "Current address"
+            example: "your address will always remain private, however it will help you to be visible to recruiters on the map"
         show:
           entries:
             description: "Description"

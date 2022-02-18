@@ -81,7 +81,8 @@ it:
             address: "Città o indirizzo *"
             radius: "Raggio (in km), minimo 1"
             title: "Aggiungi Zona in cui cerchi lavoro"
-            city: "Città / Provincia attuale"
+            city: "Indirizzo di riferimento"
+            example: "Il tuo indirizzo resterà sempre privato, tuttavia ti sarà d'aiuto per essere visibile ai datori di lavoro sulla mappa"
         show:
           entries:
             description: "Descrizione"

@@ -11,8 +11,10 @@
           <% end %>
         </div>
         <h6 class="font-weight-normal"><%= birth_info_for(@cv) %></h6>
-        <% if @user.current_location.present? %>
-          <h6 class="font-weight-normal"><%= @user.current_location&.original_address %></h6>
+        <% if edit_mode? && @user.current_location.present? %>
+          <h6 class="font-weight-normal">
+            <%= location_display(@user.current_location) %>
+          </h6>
         <% end %>
 
         <div class="row mt-4">
