@@ -1,5 +1,5 @@
 <%= render 'shared/modal_header', id: 'edit_cv_intro', title: t('content.main.cv.edit.intro.title') do %>
-  <%= form_with model: @cv, html: { multipart: true } do |f| %>
+  <%= form_with model: @cv, html: { multipart: true }, local: false do |f| %>
     <div class="modal-body p-5">
       <div class="alert alert-danger d-none"></div>
       <div class="row">

@@ -1,6 +1,6 @@
 en:
   home:
-    seo_title: 'PubliCV: Digital Curriculum Vitae - Search or Create Yours!'
+    seo_title: 'YouCV: Digital Curriculum Vitae - Search or Create Yours!'
     coming_soon:
       launching_in: Launching in...
       your_email_address: Your email address
@@ -15,19 +15,19 @@ en:
         Because it's also <a class="text-primary" href="#stakeholder">yours</a>.
       jobseeker_cta: Create Your CV Now
       jobseeker: Jobseeker
-      jobseeker_cta: Create your publiCV now
+      jobseeker_cta: Create your youCV now
       jobseeker_copy_1: |
         Standard CVs are ugly, ineffective and outdated.
-        PubliCV is the new standard for digital CVs.
+        YouCV is the new standard for digital CVs.
         You will be <a href="#" class="text-primary">guided to create yours</a>, download its PDF version, or send it via a public link.
       jobseeker_copy_2: |
         Rather than being left in the drawer of some kind of agencies with your permission, your CV will be <b>public</b>.
           Just like ours: <a href="https://duccio.publicv.org" class="text-primary">Duccio</a>, <a href="https://vishal.publicv.org" class="text-primary">Vishal</a>, <a href="https://anuj.publicv.org" class="text-primary">Anuj</a>. So that <b>hiring companies</b> can find us <u>directly</u>, without any middlemen.
       jobseeker_copy_3: |
-        We put you first. Your public CV, or <i>"publiCV"</i>, will be live as a real website, at:
+        We put you first. Your CV, or <i>"youCV"</i>, will be live as a real website, at:
         <span style="text-align:center;display:block"><b>your-name</b>.publicv.org</span>and this will be your professional homepage.
       jobseeker_copy_4: |
-        <b>PubliCV goes straight to the point</b>: you’re not here to make new friends, connect with people, build your network,
+        <b>YouCV goes straight to the point</b>: you’re not here to make new friends, connect with people, build your network,
         being monitored by your HR, nor to tweet like a bird… You’re here to find a job and <b>get paid</b> for it.
       jobseeker_copy_5: |
         <b>Value your time</b> by being contacted only by Companies that are willing to show real interest and even pay to contact you.
@@ -49,23 +49,23 @@ en:
         <b>Avoid the time-wasters</b>: we’ll go great lengths to keep CVs up to date.
         If the CV is here it is highly likely that the person behind is genuinely interested in a job.
       stakeholder: 👋Hi!
-      stakeholder_why: Discover how/why <b>publiCV is also yours</b> and what it can do for you.
-      stakeholder_why_1: PubliCV went live on May the 1st, on the <b>International Workers' Day</b> of 2020, for a good reason 😉
+      stakeholder_why: Discover how/why <b>youCV is also yours</b> and what it can do for you.
+      stakeholder_why_1: YouCV went live on May the 1st, on the <b>International Workers' Day</b> of 2020, for a good reason 😉
       stakeholder_copy_1: |
-        <br/>The difference with other platforms is that on publiCV you actually <b>own</b>
-        all your <b>data</b> and even the <a rel="nofollow" href="https://github.com/publicv-org/publicv" class="text-primary"><b>code</b></a> associated with you. This is why <b>publiCV is also yours</b>.
+        <br/>The difference with other platforms is that on youCV you actually <b>own</b>
+        all your <b>data</b> and even the <a rel="nofollow" href="https://github.com/publicv-org/publicv" class="text-primary"><b>code</b></a> associated with you. This is why <b>youCV is also yours</b>.
         See our legal license that grants you these rights in both <a rel="nofollow" href="https://creativecommons.org/licenses/by/4.0/" class="text-primary">simplified</a> and <a rel="nofollow" href="https://publicv.org/legal/terms" class="text-primary">extended</a> versions.
         <br/><br/>Even better: <b>take part in the project</b>, if you want,
         <a href="https://github.com/publicv-org/publicv/discussions/172" class="text-primary">you are already part of the team</a>.
       stakeholder_why_2: Facing COVID-19 together.
       stakeholder_copy_2: |
-        PubliCV <span class="font-weight-normal">will be free during this crisis.</span> Then, it will stay forever free for jobseekers.
+        YouCV <span class="font-weight-normal">will be free during this crisis.</span> Then, it will stay forever free for jobseekers.
       stakeholder_why_3: B-Corp with a simple business model
       stakeholder_copy_3: |
         Later, it will become a B-Corp with a simple business model: contacting one candidate at a time, taking the time into writing a message to them, will be always free. However, contacting more than one candidate at the same time will then have a reasonable cost. This will also serve the purpose to protect them from spam.
       stakeholder_why_4: No Tracking
       stakeholder_copy_4: |
-        We do not employ any tracking technology. All we know about you is what you included in your publiCV. You can <span class="text-danger">delete</span> it at any time.
+        We do not employ any tracking technology. All we know about you is what you included in your youCV. You can <span class="text-danger">delete</span> it at any time.
       stakeholder_why_5: Open Source
       stakeholder_copy_5: 'Most of the code is and will stay open.<br/>See the repository:'
       view_cv: View Profile

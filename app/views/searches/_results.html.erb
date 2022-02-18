@@ -5,23 +5,45 @@
     <div class="col-12 pt-5">
       <div class="card shadow-sm border-0 rounded card-feature">
         <%= link_to cv_section_path(result.subdomain) do %>
-          <div class="card-body p-3">
-            <div class="d-flex align-items-center justify-content-between">
-              <%= image_tag(cv.headshot.url(:default), alt: "#{result.abbr_name} headshot", class: 'img-fluid rounded-circle default-img-size') %>
+          <div class="card-body py-3 px-2">
+            <div class="d-md-flex align-items-center justify-content-between">
+              <div class="d-flex justify-content-between">
+                <%= image_tag(cv.headshot.url(:default), alt: "#{result.first_name}'s headshot", class: 'img-fluid rounded-circle default-img-size ml-3 ml-md-0') %>
+                <div class="col-md-6 text-right font-size-14 font-weight-bold d-md-none d-block">
+                  <p class="text-dark mb-0"><%= cv.updated_at&.strftime("%B %d, %Y") %></p>
+                  <p class="text-dark mb-0"><%= short_desc(location_display(result), 30) %></p>
+                </div>
+              </div>
               <div class="w-100 pl-3">
-                <p class="text-dark mb-0 font-size-14 text-right"><%= cv.updated_at&.strftime("%B %d, %Y") %></p>
-                <div class="d-flex">
-                  <h6 class="text-dark pr-1"><%= result.abbr_name %></h6>
-                  <span class="text-muted font-size-14 pl-1"><%= location_display(result) %></span>
+                <div class="row mb-2">
+                  <div class="col-md-6 pl-3 mt-md-0 mt-2">
+                    <h4 class="text-dark pr-1 mb-0 font-weight-bold"><%= "#{result.first_name} #{result.last_name.titleize}" %></h4>
+                    <h6 class="text-muted"><%= cv.experiences.where(position: 0)&.first&.title %></h6>
+                  </div>
+                  <div class="col-md-6 text-right font-size-14 font-weight-bold d-md-block d-none">
+                    <p class="text-dark mb-0"><%= cv.updated_at&.strftime("%B %d, %Y") %></p>
+                    <p class="text-dark mb-0"><%= short_desc(location_display(result), 30) %></p>
+                  </div>
                 </div>
-                <div>
-                  <span class="badge badge-pill-cv badge-primary badge-primary-light text-primary font-weight-normal font-size-9 p-1 text-wrap text-left mt-2">
-                    <%= short_desc(cv.about, 255) %>
-                  </span>
+                <div class="row">
+                  <% t('search.preview').each do |key, value| %>
+                    <% if cv.send(key).present? %>
+                      <p class="<%= add_klass(key) %> mb-2">
+                        <% unless key.to_s == 'about' %>
+                          <span class="text-dark d-inline-block">
+                            <%= value %>:
+                          </span>
+                        <% end %>
+                        <span class="text-muted p-1">
+                          <%= searches_preview(key, cv) %>
+                        </span>
+                      </p>
+                    <% end %>
+                  <% end %>
                 </div>
-                <p class="mb-0 pt-2 font-size-14 text-right">
-                  <i class="ml-2 fas fa-angle-right"></i> publi<b>CV</b>
-                </p>
+                <h6 class="mb-0 mr-2 pt-2 text-right">
+                  <i class="ml-2 fas fa-angle-right"></i> you<b>CV</b>
+                </h6>
               </div>
             </div>
           </div>

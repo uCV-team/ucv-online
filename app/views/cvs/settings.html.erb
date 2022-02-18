@@ -1,0 +1,110 @@
+<div class="container cvpage pb-40 pb-md-80">
+<h2 class="text-primary my-5 p-2"><u><%= t('layouts.settings.header') %></u></h2>
+  <%= form_for @cv do |f| %>
+    <div class="custom-box">
+      <div class="row ml-2 pt-5">
+        <div class="col-md-6 col-12 mb-5">
+          <h5 class="mb-3"><%= t('layouts.settings.contract.head') %></h5>
+          <div class="col-12">
+            <div class="custom-control custom-checkbox mb-2">
+              <%= f.check_box :internship, class: 'custom-control-input' %>
+              <%= f.label :internship, t('layouts.settings.contract.internship'), class: 'custom-control-label d-block' %>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="custom-control custom-checkbox mb-2">
+              <%= f.check_box :temporary_contract, class: 'custom-control-input' %>
+              <%= f.label :temporary_contract, t('layouts.settings.contract.temporary_contract'), class: 'custom-control-label d-block' %>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="custom-control custom-checkbox mb-2">
+              <%= f.check_box :permanent_contract, class: 'custom-control-input' %>
+              <%= f.label :permanent_contract, t('layouts.settings.contract.permanent_contract'), class: 'custom-control-label d-block' %>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="custom-control custom-checkbox">
+              <%= f.check_box :freelance, class: 'custom-control-input' %>
+              <%= f.label :freelance, t('layouts.settings.contract.freelance'), class: 'custom-control-label d-block' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 mb-5">
+          <h5 class="mb-3"><%= t('layouts.settings.timetable.head') %></h5>
+          <div class="col-12">
+            <div class="custom-control custom-checkbox mb-2">
+              <%= f.check_box :part_time, class: 'custom-control-input' %>
+              <%= f.label :part_time, t('layouts.settings.timetable.part_time'), class: 'custom-control-label d-block' %>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="custom-control custom-checkbox">
+              <%= f.check_box :full_time, class: 'custom-control-input' %>
+              <%= f.label :full_time, t('layouts.settings.timetable.full_time'), class: 'custom-control-label d-block' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 mb-5">
+          <h5 class="mb-3"><%= t('layouts.settings.modality.head') %></h5>
+          <div class="col-12">
+            <div class="custom-control custom-checkbox mb-2">
+              <%= f.check_box :in_person, class: 'custom-control-input' %>
+              <%= f.label :in_person, t('layouts.settings.modality.in_person'), class: 'custom-control-label d-block' %>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="custom-control custom-checkbox">
+              <%= f.check_box :remote_work, class: 'custom-control-input' %>
+              <%= f.label :remote_work, t('layouts.settings.modality.remote_work'), class: 'custom-control-label d-block' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 mb-5">
+          <h5 class="mb-3"><%= t('layouts.settings.mobility.head') %></h5>
+          <div class="col-12">
+            <div class="custom-control custom-checkbox mb-2">
+              <%= f.check_box :relocate, class: 'custom-control-input' %>
+              <%= f.label :relocate, t('layouts.settings.mobility.relocate'), class: 'custom-control-label d-block' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 mb-5">
+          <h5 class="d-inline-block"><%= t('layouts.settings.salary_expectation.head') %></h5>
+          <span class="text-muted font-size-14 ml-2">
+            <%= "#{f.object.expected_salary_currency} #{f.object.expected_salary_cents}" %>
+          </span>
+          <div class="custom-control custom-checkbox mb-2 pl-0 pl-md-2 pr-4">
+            <p class="text-muted"><%= t('layouts.settings.salary_expectation.about') %></p>
+            <div class="row">
+              <div class="col-8 col-lg-3">
+                <%= f.label :expected_salary_currency, t('layouts.settings.salary_expectation.currency'), class: 'text-muted' %>
+                <%= f.select :expected_salary_currency, options_for_select(Money::Currency.all, f.object.expected_salary_currency), {}, class: 'custom-select custom-select-lg mr-3' %>
+              </div>
+              <div class="col-8 col-lg-4">
+                <%= f.label :expected_salary_cents, t('layouts.settings.salary_expectation.amount'), class: 'text-muted' %>
+                <%= f.number_field :expected_salary_cents, class: 'form-control form-control-lg' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 mb-5">
+          <h5 class="mb-3 d-md-inline-block"><%= t('layouts.settings.notice_period.head') %></h5>
+          <span class="text-muted font-size-14 ml-2"><%= t('layouts.settings.notice_period.content') %></span>
+          <div class="col-md-6 col-8 mb-2 mt-4">
+            <%= f.number_field :notice_period, class:'form-control form-control-lg mt-2', placeholder: t('layouts.settings.notice_period.placeholder') %>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-12 text-right pr-5 pb-3">
+          <%= link_to :back, class: 'btn btn-lg btn-outline-primary rounded mr-3' do %>
+            <i class="fas fa-angle-left mr-2"></i><%= t('content.main.buttons.back') %>
+          <% end %>
+          <%= f.submit t('content.main.buttons.save'), class: 'btn btn-primary rounded btn-lg' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

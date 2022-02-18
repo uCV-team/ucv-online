@@ -1,6 +1,6 @@
 class Subdomain
   def self.matches?(request)
-    request.subdomain.present? && request.domain.split('.').size > 1 && request.subdomain != 'publicv-staging'
+    request.subdomain.present? && request.domain.split('.').size > 1 && !I18n.available_locales.map(&:to_s).include?(request.subdomain)
   end
 end
 
@@ -17,9 +17,10 @@ Rails.application.routes.draw do
   # TODO: get '/about', to: 'home#about'
   get 'legal/terms', to: 'legal#terms'
 
-  get 'cv/:subdomain', to: 'cvs#show', as: 'cv_section'
+  get 'cv/:user_subdomain', to: 'cvs#show', as: 'cv_section'
   get 'cv/edit/:section', to: 'cvs#edit', as: 'edit_cv_section'
   put 'cv/download', to: 'cvs#download'
+  get 'cv/:id/settings', to: 'cvs#settings', as: 'cv_settings'
 
   namespace :users do
     resource :registrations, except: %i[show]

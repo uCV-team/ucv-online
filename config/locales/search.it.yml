@@ -1,3 +1,8 @@
 it:
   search:
     placeholder: Quali competenze stai cercando? Dove?
+    preview:
+      about: Bio
+      working_skills: Abilità
+      salary_expectation: mensile
+      notice_period_days: Partecipa

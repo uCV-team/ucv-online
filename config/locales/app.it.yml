@@ -54,7 +54,7 @@ it:
           headshot:
             title: "Modifica foto"
         flag:
-          desc: Aiutaci a capire il problema di questo publiCV
+          desc: Aiutaci a capire il problema di questo youCV
           reasons:
             hateful: Contenuto offensivo o ingiurioso
             spam: Spam o ingannevole
@@ -145,7 +145,7 @@ it:
         accept_html: "Dichiaro di accettare i <a href='/legal/terms'>termini del servizio</a> e l'<a href='/legal/privacy-policy'>informativa sulla privacy</a>."
         recaptcha: Sito protetto con Google reCAPTCHA
       confirm:
-        delete_account: "Sei sicuro, Vuoi eliminare il tuo account da PubliCV ?"
+        delete_account: "Sei sicuro, Vuoi eliminare il tuo account da YouCV ?"
   layouts:
     nav:
       home: "Home"
@@ -176,6 +176,35 @@ it:
       cookie: 'Cookie policy'
       terms: 'Condizioni'
       contact_us: 'Contattaci'
+    settings:
+      main: Impostazioni
+      header: Preferenze di lavoro
+      contract:
+        head: Contratto desiderato
+        internship: tirocinio
+        temporary_contract: Contratto temporaneo
+        permanent_contract: Contratto a tempo indeterminato
+        freelance: Libero professionista
+      timetable:
+        head: Orario desiderato
+        part_time: Part time
+        full_time: Tempo pieno
+      modality:
+        head: Modalità desiderata
+        in_person: Di persona
+        remote_work: Lavoro a distanza
+      mobility:
+        head: Mobilità desiderata
+        relocate: Pronto per il trasferimento
+      notice_period:
+        head: Periodo di preavviso
+        content: '(Lasciare in bianco se non nel periodo di preavviso)'
+        placeholder: Numero di giorni rimasti.
+      salary_expectation:
+        head: Aspettativa di salario
+        about: '(Stipendio annuale lordo)'
+        currency: Moneta
+        amount: Ammontare
   success:
     cv:
       update: "Modifiche salvate con successo."
@@ -191,3 +220,14 @@ it:
     location:
       create: "Zona salvata."
       destroy: "Zona rimossa."
+  passwordless:
+    sessions:
+      create:
+        session_expired: 'Your session has expired, please sign in again.'
+        email_sent_if_record_found: "If we found you in the system, we've sent you an email."
+        token_claimed: "This link has already been used, try requesting the link again"
+      new:
+        submit: 'Send magic link'
+    mailer:
+      subject: "Your magic link ✨"
+      magic_link: "Here's your link: %{link}"

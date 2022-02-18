@@ -25,6 +25,12 @@
                 </div>
               </div>
               <div class="col-12">
+                <div class="form-group mb-5 input-with-icon language-switcher">
+                  <label class="text-muted d-block"><%= t('devise.registrations.language') %></label>
+                  <%= select_tag 'user[locale]', options_for_select([['it-italian', 'it'], ['en-english', 'en']]), class: 'form-control form-control-lg' %>
+                </div>
+              </div>
+              <div class="col-12">
                 <div class="form-group mb-5">
                   <%= f.label :subdomain, class:'text-muted d-block' do %>
                     <%= t('devise.registrations.edit.subdomain') %>

@@ -28,7 +28,7 @@
           <% end %>
 
           <div class="col-12 col-md-6 col-lg-4 mb-3">
-            <%= image_pack_tag 'media/icons/publicv-icon.svg', class: 'mr-2' %><%= link_to @user.cv_public_domain, @user.cv_public_url, target: '_blank' %>
+            <%= image_pack_tag 'media/icons/publicv-icon.svg', class: 'mr-2' %><%= link_to @user.cv_public_domain, @user.cv_public_url, target: '_blank', rel: 'nofollow' %>
             <% if edit_mode? %>
               <%= link_to edit_users_registrations_path, class: 'btn-cv btn-edit mt-2 ml-2' do %>
                 <span class="badge rounded-circle badge-primary-light text-primary p-2"><i class="icon-pencil"></i></span>

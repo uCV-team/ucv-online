@@ -39,6 +39,7 @@ gem 'mailkick'
 gem 'postmark-spam_check'
 
 gem 'jsonapi-serializer'
+gem 'money-rails', '~>1.12'
 gem 'passwordless'
 gem 'rack-attack'
 gem 'rack-timeout'

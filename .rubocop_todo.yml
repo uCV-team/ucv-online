@@ -99,3 +99,7 @@ Rails/HasAndBelongsToMany:
   Exclude:
   - 'app/models/role.rb'
   - 'app/models/user.rb'
+
+Metrics/MethodLength:
+  Exclude:
+  - 'app/controllers/users/registrations_controller.rb'

@@ -1,17 +1,30 @@
-let selectTag;
+document.addEventListener('turbolinks:load', () => {
+  handleSelect();
+  window.enableSortable();
+  loadTooltips();
+  hideAlerts();
+});
 
-function handleSelect(){
-  selectTag = document.getElementsByClassName("language-switcher")[0];
-  if (selectTag && selectTag.length > 0) {
-    if (window.currentLocale == 'en') selectTag.getElementsByTagName('option')[0].selected = 'selected';
-    else selectTag.getElementsByTagName('option')[1].selected = 'selected';
+function handleSelect() {
+  document.querySelectorAll('.language-switcher').forEach(function (item) {
+    if (item) {
+      if (window.location.host.split('.')[0] == 'en') item.getElementsByTagName('option')[1].selected = 'selected'
+      else item.getElementsByTagName('option')[0].selected = 'selected';
+    }
+  });
 
-    selectTag.addEventListener('change', function(){
-      let arr = window.location.host.split('.');
-      arr[arr.length-1] = this.value;
-      window.location = "http://"+arr.join('.')
+  selectTag = document.getElementById('language-selector')
+  if (selectTag) {
+    selectTag.addEventListener("change", function () {
+      value = selectTag.getElementsByTagName('option')[selectTag.selectedIndex].value
+      if (location.origin.includes('://ucv')) {
+        redirect_location = location.origin.replace('://', '://' + value + '.')
+      } else {
+        redirect_location = location.origin.replace(location.host.split('.')[0], value)
+      }
+      location.href = (redirect_location + location.pathname);
     })
-  }
+  };
 }
 
 window.enableSortable = function () {
@@ -62,13 +75,6 @@ window.enableSortable = function () {
     });
   }
 };
-
-document.addEventListener('turbolinks:load', () => {
-  handleSelect();
-  window.enableSortable();
-  loadTooltips();
-  hideAlerts();
-});
 
 (function() {
   const send = XMLHttpRequest.prototype.send

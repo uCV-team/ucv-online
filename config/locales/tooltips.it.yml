@@ -9,4 +9,4 @@ it:
       interests: 'Breve descrizione sui tuoi interessi lavorativi ed extra-lavorativi.'
       future_plans: 'Cosa vuoi realizzare e dove/come vorresti essere fra 3 anni?'
     buttons:
-      publish_html: "<span class='text-white'>Prima di poter pubblicare il tuo publiCV devi confermare il tuo account. <br>Clicca <a class='text-primary bg-light font-weight-bold text-decoration-none' href='%{url}'>qu</a> per confermare</span>"
+      publish_html: "<span class='text-white'>Prima di poter pubblicare il tuo youCV devi confermare il tuo account. <br>Clicca <a class='text-primary bg-light font-weight-bold text-decoration-none' href='%{url}'>qu</a> per confermare</span>"

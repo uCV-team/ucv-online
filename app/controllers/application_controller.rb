@@ -34,12 +34,12 @@ class ApplicationController < ActionController::Base
   def set_locale
     return I18n.locale = ENV['DEVELOPMENT_LOCALE'].to_sym if ENV['DEVELOPMENT_LOCALE'].present?
 
-    I18n.locale = case tld
-                  when 'it'
-                    :it
-                  else
-                    :en
-                  end
+    custom_locale = if current_user.present? && current_user.locale.present?
+                      current_user.locale
+                    else
+                      locale_by_host
+                    end
+    I18n.locale = custom_locale.to_sym
   end
 
   def after_sign_in_path_for(resource)
@@ -50,12 +50,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def tld
-    @tld ||= request.host.split('.').last
-  end
-
   def root_domain_url
-    locale.to_s == 'en' ? ENV['EN_SERVER_HOST'] : ENV['IT_SERVER_HOST']
+    if request.subdomain.present?
+      "http://#{request.subdomain}.#{ENV['SERVER_HOST']}"
+    else
+      ENV['SERVER_URL']
+    end
   end
 
   def notifications
@@ -63,6 +63,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def locale_by_host
+    I18n.available_locales.map(&:to_s).include?(request.subdomain) ? request.subdomain : 'it'
+  end
 
   def user_not_authorized
     flash[:alert] = I18n.t('flash.authorization')

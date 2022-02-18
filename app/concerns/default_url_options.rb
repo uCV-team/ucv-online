@@ -1,15 +1,15 @@
 module DefaultUrlOptions
   def default_url_options
     {
-      host: host,
+      host: host(@current_locale),
       port: port
     }
   end
 
   private
 
-  def host
-    @current_locale.to_s == 'en' ? ENV['EN_SERVER_HOST'] : ENV['IT_SERVER_HOST']
+  def host(locale)
+    "http://#{locale}.#{ENV['SERVER_HOST']}"
   end
 
   def port

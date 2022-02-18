@@ -249,6 +249,15 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
+    monetize (1.12.0)
+      money (~> 6.12)
+    money (6.16.0)
+      i18n (>= 0.6.4, <= 2)
+    money-rails (1.15.0)
+      activesupport (>= 3.0)
+      monetize (~> 1.9)
+      money (~> 6.13)
+      railties (>= 3.0)
     msgpack (1.4.2)
     multipart-post (2.1.1)
     netrc (0.11.0)
@@ -412,7 +421,7 @@ GEM
     thor (1.2.1)
     tilt (2.0.10)
     trix-rails (2.3.0)
-      rails (> 4.1, < 7.0)
+      rails (> 4.1)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -477,6 +486,7 @@ DEPENDENCIES
   mailkick
   maxminddb
   minitest-reporters (~> 1.0.5)
+  money-rails (~> 1.12)
   newrelic_rpm
   paperclip!
   passwordless

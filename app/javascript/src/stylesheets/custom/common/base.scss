@@ -414,3 +414,11 @@ nav {
   60%  {opacity: 1}
   100% {opacity: 0; visibility: hidden}
 }
+.custom-box {
+  border: 1px solid rgba(0,0,0,.15);
+  border-top: 3px solid #91076c;
+  background-color: hsla(0,0%,92.5%,.3);
+}
+.cv-language{
+  border-radius: 2rem;
+}
