@@ -128,7 +128,7 @@ window.initIndexMap = function () {
         'circle-color': '#fff',
         'circle-radius': 4,
         'circle-stroke-width': 5,
-        'circle-stroke-color': '#91076C'
+        'circle-stroke-color': '#5415e5'
       }
     });
 
