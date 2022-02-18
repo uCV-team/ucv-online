@@ -84,6 +84,7 @@
               <div class="form-group mb-5">
                 <%= location.label :original_address, t('content.main.cv.new.location.city'), for: "edit_cv_intro_address", class: 'text-muted d-block' %>
                 <%= location.text_field :original_address, autocomplete: 'off', class: 'form-control', id: "edit_cv_intro_address" %>
+                <label class="text-muted d-block mt-2 font-size-14 ml-3"><%= t('content.main.cv.new.location.example') %></label>
                 <div class="autocomplete-results position-absolute" id="edit_cv_intro_results">
                   <ul>
                   </ul>
