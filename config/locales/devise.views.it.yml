@@ -104,7 +104,7 @@ it:
         last_name: 'Cognome'
         email: 'tuaemail@gmail.com'
         tel: '+39 123 456 7890'
-        subdomain_example: 'Serve a creare il sito per il tuo CV digitale, per esempio "tuo-nome" diventa: "tuo-nome.publicv.it". Potrai controllarne i contenuti e condividerlo facilmente, con un link!'
+        subdomain_example: 'Serve a creare il sito per il tuo CV digitale, per esempio "tuo-nome" diventa: "tuo-nome.ucv.online". Potrai controllarne i contenuti e condividerlo facilmente, con un link!'
       subdomain: 'Nome del tuo youCV, per esempio: "tuo-nome"'
       signup_label: 'Crea il tuo account, poi il tuo youCV'
       first_name: "Nome"
@@ -140,7 +140,7 @@ it:
       signing_up: "Ti sto registrando..."
       signed_up_but_inactive: Iscrizione eseguita correttamente. Però non puoi accedere in quanto il tuo account non è ancora attivo.
       signed_up_but_locked: Iscrizione eseguita correttamente. Però non puoi accedere in quanto il tuo account è bloccato.
-      signed_up_but_unconfirmed: Benvenuto su publiCV! Ti abbiamo inviato una email per confermare il tuo account!
+      signed_up_but_unconfirmed: Benvenuto su youCV! Ti abbiamo inviato una email per confermare il tuo account!
       update_needs_confirmation: Il tuo account è stato aggiornato, ma dobbiamo verificare la tua email. Ti invitiamo a consultare la tua email e cliccare sul link di conferma.
       updated: Il tuo account è stato aggiornato.
       updated_but_not_signed_in:

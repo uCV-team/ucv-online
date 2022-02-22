@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   check_authorization unless: :devise_controller?
   before_action :set_locale
+  before_action :set_req_subdomain
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :notifications, if: proc { current_user.present? }
   helper_method :root_domain_url
@@ -60,6 +61,14 @@ class ApplicationController < ActionController::Base
 
   def notifications
     @all_messages = current_user.messages.where(status: 'new')
+  end
+
+  def set_req_subdomain
+    sub_domain = request.host.split('.').first
+    return if current_user.blank? || current_user.locale == sub_domain
+
+    redirect_to "http://#{current_user.locale}.#{ENV['SERVER_HOST']}#{request.path}",
+                alert: I18n.t('flash.authorization')
   end
 
   private
