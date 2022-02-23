@@ -65,10 +65,10 @@ class ApplicationController < ActionController::Base
 
   def set_req_subdomain
     sub_domain = request.host.split('.').first
-    return if current_user.blank? || current_user.locale == sub_domain
+    return if current_user.blank? || current_user.locale == sub_domain || sub_domain == 'www' || sub_domain == '127'
 
     redirect_to "http://#{current_user.locale}.#{ENV['SERVER_HOST']}#{request.path}",
-                alert: I18n.t('flash.authorization')
+                alert: t('flash.url_update_html')
   end
 
   private

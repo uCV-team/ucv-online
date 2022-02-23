@@ -5,6 +5,7 @@ john:
   encrypted_password: <%= SecureRandom.hex %>
   subdomain: johnwilliams
   confirmed_at: <%= Time.zone.now %>
+  locale: en
 
 search_user:
   first_name: <%= Faker::Name.first_name %>
@@ -21,6 +22,7 @@ john_user2:
   encrypted_password: <%= SecureRandom.hex %>
   subdomain: <%= Faker::Name.first_name.downcase %>
   confirmed_at: <%= Time.zone.now %>
+  locale: en
 
 john_3:
   first_name: <%= Faker::Name.first_name %>
