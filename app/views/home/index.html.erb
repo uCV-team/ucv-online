@@ -114,8 +114,8 @@
           </div>
         </div>
         <div class="pt-4 pt-lg-40">
-          <%= link_to new_passwordless_sessions_path('user'), class: 'btn btn-primary' do %>
-          <%= t('home.index.jobseeker_cta') %> <i class="fas fa-angle-right"></i>
+          <%= link_to session_url, class: 'btn btn-primary' do %>
+            <%= t('home.index.jobseeker_cta') %> <i class="fas fa-angle-right"></i>
           <% end %>
         </div>
       </div>
@@ -243,7 +243,9 @@
           <ul>
             <% featured_searches_group.each do |search| %>
               <% next unless search %>
-              <li><%= link_to(search.seo_title, search) %></li>
+              <li>
+                <%= link_to search.seo_title, search_url(search.seo_title, subdomain: I18n.locale.to_s) %>
+              </li>
             <% end %>
           </ul>
         </div>

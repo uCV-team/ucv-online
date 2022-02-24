@@ -8,4 +8,4 @@ it:
     <br/>Il marchio è nostro, il tuo profilo (il tuo "youCV") è tuo.
     <br/>Il <a href="https://github.com/uCV-team/ucv" rel="nofollow">codice sorgente principale è rilasciato su <i class="fab fa-github"></i> GitHub</a> con licenza MIT.
   footer_2: |
-        <br/>Per ulteriori informazioni vedasi i <a href="/legal/terms">termini del servizio</a>, la <a href="/legal/privacy-policy">privacy policy</a> e la <a href="/legal/cookie-policy">cookie policy</a>.
+        <br/>Per ulteriori informazioni vedasi i <a href="%{terms}">termini del servizio</a>, la <a href="%{privacy}">privacy policy</a> e la <a href="%{cookie}">cookie policy</a>.

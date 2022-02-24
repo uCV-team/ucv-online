@@ -8,4 +8,4 @@ en:
     <br/>We own the brand, you own your profile (your public-CV or "youCV").
     <br/>The main <a href="https://github.com/uCV-team/ucv" rel="nofollow">source code is be available on <i class="fab fa-github"></i> GitHub</a> under the MIT license.
   footer_2: |
-        <br/>For further information see the <a href="/legal/terms">terms of service</a>, our <a href="/legal/privacy-policy">GDPR-compliant privacy</a> and <a href="/legal/cookie-policy">cookie policy</a>.
+        <br/>For further information see the <a href="%{terms}">terms of service</a>, our <a href="%{privacy}">GDPR-compliant privacy</a> and <a href="%{cookie}">cookie policy</a>.
