@@ -1,17 +1,17 @@
-# PubliCV
+# YouCV
 ## One website for each job seeker
 
-PubliCV is the open source platform to help Job seekers find their next Employer, and vice versa, _directly_. The core idea is to simplify the job seekeing / recruitment processes by cutting the middlemen out. See: https://publicv.org 
+YouCV is the open source platform to help Job seekers find their next Employer, and vice versa, _directly_. The core idea is to simplify the job seekeing / recruitment processes by cutting the middlemen out. See: https://ucv.online
 
-**"PubliCV: one website for each job seeker"** is now a pledge [published](https://pledgeviewer.eu/pledge/initiative/659) on the **Digital Skills and Jobs Coalition** of the **European Commission**.
+**"YouCV: one website for each job seeker"** is now a pledge [published](https://pledgeviewer.eu/pledge/initiative/659) on the **Digital Skills and Jobs Coalition** of the **European Commission**.
 
-The source code of the core service is released under the MIT license (see the [LICENSE](https://github.com/publicv-org/publicv/blob/develop/LICENSE) file and the [terms of service](https://publicv.org/legal/terms) for more).
+The source code of the core service is released under the MIT license (see the [LICENSE](https://github.com/uCV-team/ucv/blob/main/LICENSE) file and the [terms of service](https://ucv.online/legal/terms) for more).
 
 ## Trademarks policy
 
-"PubliCV", "publiCV", and the PubliCV logo are registered trademarks of Corsidia & Bluebash. You may not use these trademarks in a commercial setting to infer that your product or service is endorsed or associated with PubliCV without permission. You may use these marks to refer to PubliCV in a way where it's clear that you're simply referring to the project, not claiming endorsement or association.
+"YouCV", "ucv", and the uCV logo are registered trademarks of Corsidia & Bluebash. You may not use these trademarks in a commercial setting to infer that your product or service is endorsed or associated with YouCV without permission. You may use these marks to refer to YouCV in a way where it's clear that you're simply referring to the project, not claiming endorsement or association.
 
-You can request permission by emailing info@publicv.org.
+You can request permission by emailing info@ucv.online.
 
 ## Requirements
 
@@ -42,4 +42,4 @@ Run the standard RoR app setup commands:
 
 # Contributing
 
-PubliCV is an open source project and we encourage contributions. [Read the wiki](https://github.com/publicv-org/publicv/wiki) to get started.
+YouCV is an open source project and we encourage contributions. [Read the wiki](https://github.com/uCV-team/ucv/wiki) to get started.

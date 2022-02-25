@@ -4,7 +4,7 @@ class SearchesController < ApplicationController
   def create
     if search_param.present?
       @search = Search.find_or_create_by(query: sanitized_query, locale: I18n.locale.to_s)
-      redirect_to search_url(@search)
+      redirect_to search_url(@search, subdomain: I18n.locale.to_s)
     else
       flash[:error] = t('flash.searches.query_blank')
       redirect_to root_domain_url

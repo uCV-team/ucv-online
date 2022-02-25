@@ -22,11 +22,11 @@ it:
         potrai scaricarlo in <b>PDF</b> o condividerlo con un link, come una pagina web.
       jobseeker_copy_2: |
         Invece di finire in fondo al cassetto di qualche agenzia, col tuo permesso, il tuo CV diventerà un <b>mini-sito online</b>.
-          Come i nostri: <a href="https://duccio.publicv.it" class="text-primary">Duccio</a>, <a href="https://alessio.publicv.it/" class="text-primary">Alessio</a>, <a href="https://vishal.publicv.it" class="text-primary">Vishal</a>.
+          Come i nostri: <a href="https://duccio.ucv.online" class="text-primary">Duccio</a>, <a href="https://alessio.ucv.online/" class="text-primary">Alessio</a>, <a href="https://vishal.ucv.online" class="text-primary">Vishal</a>.
           In modo che i <b>datori di lavoro</b> possano trovarti direttamente, senza intermediari.
       jobseeker_copy_3: |
         Ti mettiamo al primo posto. Il tuo CV pubblico o <i>"youCV"</i> sarà online all'indirizzo:
-        <span style="text-align:center;display:block"><b>tuo-nome</b>.publicv.it</span>
+        <span style="text-align:center;display:block"><b>tuo-nome</b>.ucv.online</span>
       jobseeker_copy_4: |
         <b>YouCV va dritto al punto</b>: non sei qui per farti nuovi amici, collegarti coi colleghi, costruire il tuo network,
         farti monitorare dalle Risorse Umane e nemmeno per cinguettare come un uccellino… Sei qui per trovare un lavoro e <b>farti pagare</b>.
@@ -53,11 +53,11 @@ it:
       stakeholder_why_1: YouCV è stato lanciato il <b>Primo Maggio</b> 2020, per un buon motivo 😉
       stakeholder_copy_1: |
         <br/>La differenza con le altre piattaforme sta nel fatto che su youCV tu sei <b>davvero il proprietario</b> di tutti i tuoi dati e perfino del
-        <a rel="nofollow" href="https://github.com/publicv-org/publicv" class="text-primary"><b>codice</b></a> associato a te. Per questo <b>youCV è anche tuo</b>.
+        <a rel="nofollow" href="https://github.com/uCV-team/ucv" class="text-primary"><b>codice</b></a> associato a te. Per questo <b>youCV è anche tuo</b>.
         La nostra licenza, disponibile sia in forma <a rel="nofollow" href="https://creativecommons.org/licenses/by/4.0/deed.it" class="text-primary">semplificata</a> che in forma
-        <a rel="nofollow" href="https://publicv.it/legal/terms" class="text-primary">estesa</a>, ti garantisce questi diritti.
+        <a rel="nofollow" href="https://ucv.online/legal/terms" class="text-primary">estesa</a>, ti garantisce questi diritti.
         <br/><br/>Di più: <b>puoi partecipare alla gestione e allo sviluppo di YouCV</b>, se vuoi,
-        <a href="https://github.com/publicv-org/publicv/discussions/172" class="text-primary">fai già parte del team</a>.
+        <a href="https://github.com/uCV-team/ucv/discussions/172" class="text-primary">fai già parte del team</a>.
       stakeholder_why_2: Affrontiamo questa emergenza insieme.
       stakeholder_copy_2: |
         YouCV sarà <span class="font-weight-normal">completamente gratuito</span> durante la crisi sanitaria. Dopo, sarà sempre gratuito per chi cerca lavoro.

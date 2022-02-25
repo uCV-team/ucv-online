@@ -114,8 +114,8 @@
           </div>
         </div>
         <div class="pt-4 pt-lg-40">
-          <%= link_to new_passwordless_sessions_path('user'), class: 'btn btn-primary' do %>
-          <%= t('home.index.jobseeker_cta') %> <i class="fas fa-angle-right"></i>
+          <%= link_to session_url, class: 'btn btn-primary' do %>
+            <%= t('home.index.jobseeker_cta') %> <i class="fas fa-angle-right"></i>
           <% end %>
         </div>
       </div>
@@ -222,7 +222,7 @@
         <div class="pr-0 pr-md-80 d-flex flex-column justify-content-center h-100">
           <h5 class="mb-3"><%== t('home.index.stakeholder_why_5') -%></h5>
           <span class="font-weight-normal mb-5"><%== t('home.index.stakeholder_copy_5') -%></span>
-          <a href="https://github.com/publicv-org/publicv" class="text-primary"><i class="fab fa-github"></i> GitHub <i class="ml-2 fas fa-angle-right"></i></a>
+          <a href="https://github.com/uCV-team/ucv" class="text-primary"><i class="fab fa-github"></i> GitHub <i class="ml-2 fas fa-angle-right"></i></a>
         </div>
       </div>
       <div class="col-12 col-md-6 pt-3 pb-80 py-md-80">
@@ -243,7 +243,9 @@
           <ul>
             <% featured_searches_group.each do |search| %>
               <% next unless search %>
-              <li><%= link_to(search.seo_title, search) %></li>
+              <li>
+                <%= link_to search.seo_title, search_url(search.seo_title, subdomain: I18n.locale.to_s) %>
+              </li>
             <% end %>
           </ul>
         </div>

@@ -14,6 +14,7 @@ it:
       update:
         success: Messaggio aggiornato
     authorization: You are not authorized to access this page.
+    url_update_html: "If you want to change language of your CV then you can change it from your settings"
     cvs:
       update:
         success: Your choices are updated successfully.
