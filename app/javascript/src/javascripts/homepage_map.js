@@ -156,12 +156,22 @@ window.initIndexMap = function () {
         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
       }
 
-      new mapboxgl.Popup()
-        .setHTML(
-          '<a href="/cv/' + e.features[0].properties.subdomain + '">' + e.features[0].properties.name + '</a>'
-        )
-        .setLngLat(coordinates)
-        .addTo(map)
+      if (location.href.includes('://en') || location.href.includes('://it')) {
+        new mapboxgl.Popup()
+          .setHTML(
+            '<a href="/cv/' + e.features[0].properties.subdomain + '" target="_blank">' + e.features[0].properties.name + '</a>'
+          )
+          .setLngLat(coordinates)
+          .addTo(map)
+      } else {
+        var newLoc = location.href.replace('://ucv', '://it.ucv');
+        new mapboxgl.Popup()
+          .setHTML(
+            '<a href="' + newLoc + 'cv/' + e.features[0].properties.subdomain + '" target="_blank">' + e.features[0].properties.name + '</a>'
+          )
+          .setLngLat(coordinates)
+          .addTo(map)
+      }
     });
 
     map.on('mouseenter', 'clusters', function () {
