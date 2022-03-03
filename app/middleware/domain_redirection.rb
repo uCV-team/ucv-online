@@ -10,7 +10,7 @@ class DomainRedirection < Rack::Proxy
     host_arr = env['HTTP_HOST'].split('.')
     if env['HTTP_HOST'].include?('publicv') && host_arr.length > 2 && !I18n.available_locales.map(&:to_s).include?(host_arr.first)
       env['rack.ssl_verify_none'] = true
-      env['HTTP_HOST'] = "#{env['HTTP_HOST'].split('.').first}.ucv-test.online"
+      env['HTTP_HOST'] = "#{env['HTTP_HOST'].split('.').first}.#{ENV['SERVER_HOST']}"
       env['HTTP_COOKIE'] = ''
       super(env)
     else
