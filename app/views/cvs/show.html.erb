@@ -2,15 +2,10 @@
 ================================================== -->
 <div class="container cvpage pb-40 pb-md-80">
   <% if can? :update, @cv %>
-    <% if @cv.published? %>
+    <% unless @cv.published? %>
       <p class="border-bottom border-primary text-muted py-3 mb-0">
         <i class="icon-info mr-2"></i>
-        <%= t('content.main.cv.show.published') %>
-      </p>
-    <% else %>
-      <p class="border-bottom border-primary text-muted py-3 mb-0">
-        <i class="icon-info mr-2"></i>
-        <%= t('content.main.cv.show.unpublished') %>
+        <%= t('content.main.cv.show.unpublished_html') %>
       </p>
     <% end %>
   <% end %>

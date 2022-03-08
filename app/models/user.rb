@@ -63,6 +63,7 @@ class User < ApplicationRecord
 
   def confirm
     self.confirmed_at = Time.now.utc
+    cv.published = true
     if unconfirmed_email.present?
       self.email = unconfirmed_email
       self.unconfirmed_email = nil
