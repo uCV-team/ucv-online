@@ -1,6 +1,11 @@
-<span>Quando si cerca lavoro molto spesso c’è il rischio di sentirsi soli, scoraggiati e inadeguati alle proprie ambizioni professionali.<br><br>
+<span>Gentile <%= @user_name %>,<br><br>
+Ricevi questa email perché hai pubblicato il tuo curriculum vitae digitale sulla piattaforma <b>uCV</b> (ex <b>PubliCV</b>).
+Per vederlo e mantenerlo attivo visita il seguente link e assicurati che sia pubblicato:<br><br>
+<%= link_to 'IL TUO CV', @magic_link %><br><br>
+<strong>Altre novità importanti</strong><br><br>
+Quando si cerca lavoro molto spesso c’è il rischio di sentirsi soli, scoraggiati e inadeguati alle proprie ambizioni professionali.
 Il progetto PubliCV è nato per essere la risposta a questa esigenza.<br><br>
-Nei nostri 2 anni di attività abbiamo lavorato con un unico obiettivo: aiutarti nella ricerca del tuo percorso professionale.
+Nei nostri 2 anni di attività abbiamo lavorato con un unico obiettivo: aiutarti nella ricerca del tuo percorso professionale.<br>
 La nostra missione è diventare l’unico CV del quale avrai mai bisogno, il tuo uCV.<br><br>
 Per rimarcare questo nostro valore, ti comunichiamo con gioia il nuovo nome della piattaforma: "<br><br>
 <%= image_tag(attachments['new_logo.svg'].url) %><br><br>
@@ -12,26 +17,28 @@ e stiamo continuando ad investire per permetterti di usufruire di un servizio se
 <strong>Miglioramenti per te:</strong><br><br>
 <ul>
 <li>
-Il tuo uCV sarà più facile da condividere!Il tuo CV digitale non sarà più online all’indirizzo https://[username].publicv.it bensì all’indirizzo
-https://[username].ucv.online il vecchio indirizzo continuerà a funzionare per qualche mese, però ricordati,
-d’ora in poi, di utilizzare il nuovo. Più semplice e facile da ricordare.<br><br>
+Il tuo uCV sarà più facile da condividere!<br>
+Il tuo CV digitale non sarà più online all’indirizzo https://[username].publicv.it bensì all’indirizzo https://[username].ucv.online il
+vecchio indirizzo continuerà a funzionare per qualche mese, però ricordati, d’ora in poi, di utilizzare il nuovo.<br>
+Più semplice e facile da ricordare.<br><br>
 </li>
 <li>
-Non avrai più bisogno della password!Per aumentare la sicurezza dei tuoi dati abbiamo abolito l’utilizzo delle password, D’ora in poi,
-per accedere, riceverai sempre un link al tuo indirizzo email.<br><br>
+Non avrai più bisogno della password!<br>
+Per aumentare la sicurezza dei tuoi dati abbiamo abolito l’utilizzo delle password, D’ora in poi, per accedere, riceverai sempre un link al tuo indirizzo email.<br><br>
 </li>
 <li>
-Il tuo cv sarà immediatamente visibile a tutti i recruiter!uCV ti garantirà visibilità immediata per poter essere ricercato
-e contattato da selezionatori di tutto il mondo.<br><br>
+Il tuo cv sarà immediatamente visibile a tutti i recruiter!<br>
+uCV ti garantirà visibilità immediata per poter essere ricercato e contattato da selezionatori di tutto il mondo.
+<br><br>
 </li>
 <li>
-Contenuti aggiuntivi per aiutarti a raggiungere i tuoi obiettivi!Siamo lieti di annunciarti l’ingresso nel team di Valerio,
-con lui seguiranno tantissimi contenuti e novità finalizzate a migliorare e facilitare la tua ricerca lavorativa.<br>
+Contenuti aggiuntivi per aiutarti a raggiungere i tuoi obiettivi!<br>
+Siamo lieti di annunciarti l’ingresso nel team di Valerio, con lui seguiranno tantissimi contenuti e novità finalizzate a migliorare e facilitare la tua ricerca lavorativa.<br>
 Intanto, puoi già visitare il suo <a href="https://www.youtube.com/c/ValerioVillaniChannel">canale YouTube, pieno di risorse gratuite</a>
 (my channel link). e il canale uCV (uCV channel link).
 </li>
 </ul><br><br>
-Questo è il tuo nuovo uCV! DAI UN’OCCHIATA!<br>
+Questo è il tuo nuovo uCV, dai un'occhiata:<br>
 <%= link_to 'IL TUO CV', @magic_link %><br><br>
 Non vediamo l’ora di continuare a supportarti nel tuo percorso di crescita!<br><br>
 Grazie,<br><br>

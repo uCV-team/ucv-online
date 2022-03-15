@@ -13,12 +13,13 @@ class UserMailer < ApplicationMailer
     session = build_passwordless_session(user)
     session.save!
     @current_locale = user.locale
+    @user_name = "#{user.first_name} #{user.last_name}"
     @magic_link = send(Passwordless.mounted_as)
                   .token_sign_in_url(session.token, subdomain: @current_locale)
     attachments.inline['new_logo.svg'] = File.read(Rails.root.join(*%w[app javascript images new_logo.svg]))
     mail(
       to: user.email,
-      subject: 'PubliCV diventa uCV, ma la risorsa più importante per noi, resti TU.'
+      subject: 'Azione richiesta sul tuo CV digitale.'
     )
   end
 
