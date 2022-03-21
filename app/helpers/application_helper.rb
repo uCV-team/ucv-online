@@ -1,7 +1,7 @@
 module ApplicationHelper
   def seo_title
-    return 'YouCV' unless @seo_title
-    return "#{@seo_title} @ YouCV" unless home?
+    return 'Ucv' unless @seo_title
+    return "#{@seo_title} @ Ucv" unless home?
 
     @seo_title
   end

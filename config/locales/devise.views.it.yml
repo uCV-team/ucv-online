@@ -58,7 +58,7 @@ it:
         greeting: Ciao %{recipient}!
         message:
         subject: Email modificata
-      magic_link: Confermo il mio account su YouCV
+      magic_link: Confermo il mio account su uCV
       password_change:
         greeting: Ciao %{recipient}!
         message: Ti stiamo contattando per notificarti che la tua password è stata modificata.
@@ -105,8 +105,8 @@ it:
         email: 'tuaemail@gmail.com'
         tel: '+39 123 456 7890'
         subdomain_example: 'Serve a creare il sito per il tuo CV digitale, per esempio "tuo-nome" diventa: "tuo-nome.ucv.online". Potrai controllarne i contenuti e condividerlo facilmente, con un link!'
-      subdomain: 'Nome del tuo youCV, per esempio: "tuo-nome"'
-      signup_label: 'Crea il tuo account, poi il tuo youCV'
+      subdomain: 'Nome del tuo uCV, per esempio: "tuo-nome"'
+      signup_label: 'Crea il tuo account, poi il tuo uCV'
       first_name: "Nome"
       last_name: "Cognome"
       email: "Email"
@@ -136,11 +136,11 @@ it:
         sign_up: Registrati
       signed_up: Iscrizione eseguita correttamente. Se abilitata, una conferma è stata inviata al tuo indirizzo email.
       sign_up: "Registrati"
-      sign_up_text: "Crea il tuo account (e poi il tuo youCV)"
+      sign_up_text: "Crea il tuo account (e poi il tuo uCV)"
       signing_up: "Ti sto registrando..."
       signed_up_but_inactive: Iscrizione eseguita correttamente. Però non puoi accedere in quanto il tuo account non è ancora attivo.
       signed_up_but_locked: Iscrizione eseguita correttamente. Però non puoi accedere in quanto il tuo account è bloccato.
-      signed_up_but_unconfirmed: Benvenuto su youCV! Ti abbiamo inviato una email per confermare il tuo account!
+      signed_up_but_unconfirmed: Benvenuto su uCV! Ti abbiamo inviato una email per confermare il tuo account!
       update_needs_confirmation: Il tuo account è stato aggiornato, ma dobbiamo verificare la tua email. Ti invitiamo a consultare la tua email e cliccare sul link di conferma.
       updated: Il tuo account è stato aggiornato.
       updated_but_not_signed_in:
@@ -150,7 +150,7 @@ it:
       email: "Email"
       password: "Password"
       sign_in: "Login"
-      signin_label: 'Login to YouCV'
+      signin_label: 'Login to uCV'
       already_signed_out: Sei uscito correttamente.
       email: "Email"
       password: "Password"

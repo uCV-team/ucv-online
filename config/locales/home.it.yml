@@ -1,6 +1,6 @@
 it:
   home:
-    seo_title: 'YouCV: Curriculum Vitae Digitali - Cerca o Crea il Tuo!'
+    seo_title: 'uCV: Curriculum Vitae Digitali - Cerca o Crea il Tuo!'
     coming_soon:
       launching_in: Sarà online fra...
       your_email_address: Il tuo indirizzo email
@@ -13,11 +13,11 @@ it:
       why: Perché
       because: |
         Perché è anche <u><a class="text-primary" href="#stakeholder">tuo</a></u>.
-      jobseeker_cta: Crea il tuo youCV adesso
+      jobseeker_cta: Crea il tuo uCV adesso
       jobseeker: Lavoratore <small>(o in cerca di lavoro)</small>
       jobseeker_copy_1: |
         I CV tradizionali sono brutti, inefficaci e superati.
-        YouCV è il nuovo standard per <b>il tuo CV digitale</b>.
+        uCV è il nuovo standard per <b>il tuo CV digitale</b>.
         Segui la <a href="#" class="text-primary">procedura guidata per creare il tuo Curriculum Vitae</a>,
         potrai scaricarlo in <b>PDF</b> o condividerlo con un link, come una pagina web.
       jobseeker_copy_2: |
@@ -25,19 +25,19 @@ it:
           Come i nostri: <a href="https://duccio.ucv.online" class="text-primary">Duccio</a>, <a href="https://alessio.ucv.online/" class="text-primary">Alessio</a>, <a href="https://vishal.ucv.online" class="text-primary">Vishal</a>.
           In modo che i <b>datori di lavoro</b> possano trovarti direttamente, senza intermediari.
       jobseeker_copy_3: |
-        Ti mettiamo al primo posto. Il tuo CV pubblico o <i>"youCV"</i> sarà online all'indirizzo:
+        Ti mettiamo al primo posto. Il tuo CV pubblico o <i>"uCV"</i> sarà online all'indirizzo:
         <span style="text-align:center;display:block"><b>tuo-nome</b>.ucv.online</span>
       jobseeker_copy_4: |
-        <b>YouCV va dritto al punto</b>: non sei qui per farti nuovi amici, collegarti coi colleghi, costruire il tuo network,
+        <b>uCV va dritto al punto</b>: non sei qui per farti nuovi amici, collegarti coi colleghi, costruire il tuo network,
         farti monitorare dalle Risorse Umane e nemmeno per cinguettare come un uccellino… Sei qui per trovare un lavoro e <b>farti pagare</b>.
       jobseeker_copy_5: |
         <b>Dai valore al tuo tempo</b> facendoti contattare solo da Aziende e datori di lavoro che dimostrino un vero interesse per il tuo profilo.
       company: Datore di Lavoro
       company_cta: Cerca Candidati adesso
       company_copy_1: |
-        Utilizza il form di ricerca per trovare i <strong>CV dei candidati in cerca di lavoro</strong>, non serve alcuna registrazione né pagamento perché il curriculum, qui su <b>YouCV</b>, è il sito web del candidato.
+        Utilizza il form di ricerca per trovare i <strong>CV dei candidati in cerca di lavoro</strong>, non serve alcuna registrazione né pagamento perché il curriculum, qui su <b>uCV</b>, è il sito web del candidato.
       company_copy_2: |
-        <b>Niente intermediari:</b> contatta immediatamente i candidati di tuo interesse dal loro <em>CV pubblico</em> o <em>youCV</em>.
+        <b>Niente intermediari:</b> contatta immediatamente i candidati di tuo interesse dal loro <em>CV pubblico</em> o <em>uCV</em>.
       company_copy_3: |
         <b>Tratta direttamente</b> con le persone che scegli.
         <br/>Noi staremo fuori da ogni eventuale contratto fra te e i tuoi candidati.
@@ -46,29 +46,29 @@ it:
         Risparmia soldi e tempo, pagherai soltanto se vorrai contattare molti candidati con caratteristiche simili <i>contemporaneamente</i>.
         Contattare un singolo candidato alla volta sarà sempre <b>gratuito</b>, senza limiti.
       company_copy_5: |
-        <b>Evita i perditempo</b>: faremo tutto il possibile per mantenere aggiornati i youCV che troverai.
-        Se il youCV è disponibile è molto probabile che quella persona sia genuinamente interessata a un lavoro.
+        <b>Evita i perditempo</b>: faremo tutto il possibile per mantenere aggiornati i uCV che troverai.
+        Se il uCV è disponibile è molto probabile che quella persona sia genuinamente interessata a un lavoro.
       stakeholder: 👋Ciao!
-      stakeholder_why: Scopri perché <b>youCV è anche tuo</b> e cosa può fare per te.
-      stakeholder_why_1: YouCV è stato lanciato il <b>Primo Maggio</b> 2020, per un buon motivo 😉
+      stakeholder_why: Scopri perché <b>uCV è anche tuo</b> e cosa può fare per te.
+      stakeholder_why_1: uCV è stato lanciato il <b>Primo Maggio</b> 2020, per un buon motivo 😉
       stakeholder_copy_1: |
-        <br/>La differenza con le altre piattaforme sta nel fatto che su youCV tu sei <b>davvero il proprietario</b> di tutti i tuoi dati e perfino del
-        <a rel="nofollow" href="https://github.com/uCV-team/ucv" class="text-primary"><b>codice</b></a> associato a te. Per questo <b>youCV è anche tuo</b>.
+        <br/>La differenza con le altre piattaforme sta nel fatto che su uCV tu sei <b>davvero il proprietario</b> di tutti i tuoi dati e perfino del
+        <a rel="nofollow" href="https://github.com/uCV-team/ucv" class="text-primary"><b>codice</b></a> associato a te. Per questo <b>uCV è anche tuo</b>.
         La nostra licenza, disponibile sia in forma <a rel="nofollow" href="https://creativecommons.org/licenses/by/4.0/deed.it" class="text-primary">semplificata</a> che in forma
         <a rel="nofollow" href="https://ucv.online/legal/terms" class="text-primary">estesa</a>, ti garantisce questi diritti.
-        <br/><br/>Di più: <b>puoi partecipare alla gestione e allo sviluppo di YouCV</b>, se vuoi,
+        <br/><br/>Di più: <b>puoi partecipare alla gestione e allo sviluppo di uCV</b>, se vuoi,
         <a href="https://github.com/uCV-team/ucv/discussions/172" class="text-primary">fai già parte del team</a>.
       stakeholder_why_2: Affrontiamo questa emergenza insieme.
       stakeholder_copy_2: |
-        YouCV sarà <span class="font-weight-normal">completamente gratuito</span> durante la crisi sanitaria. Dopo, sarà sempre gratuito per chi cerca lavoro.
+        uCV sarà <span class="font-weight-normal">completamente gratuito</span> durante la crisi sanitaria. Dopo, sarà sempre gratuito per chi cerca lavoro.
       stakeholder_why_3: Società Benefit
       stakeholder_copy_3: |
-        Dopo la crisi, YouCV diventerà una società benefit con un semplice modello di business:
+        Dopo la crisi, uCV diventerà una società benefit con un semplice modello di business:
         contattare un candidato alla volta, prendendoti quindi il tempo di scrivere un messaggio a lui dedicato, sarà sempre gratuito.
         Contattare più di un candidato contemporaneamente avrà invece un costo ragionevole, che servirà anche a evitare lo spam.
       stakeholder_why_4: Nessun Tracciamento
       stakeholder_copy_4: |
-        Non adottiamo alcuna tecnologia di tracciamento o "tracking". Tutto quello che sappiamo di te è il tuo IP (anonimizzato) e quello che decidi di inserire nel tuo youCV,
+        Non adottiamo alcuna tecnologia di tracciamento o "tracking". Tutto quello che sappiamo di te è il tuo IP (anonimizzato) e quello che decidi di inserire nel tuo uCV,
         che puoi <span class="text-danger">cancellare</span> in qualsiasi momento.
       stakeholder_why_5: Open Source
       stakeholder_copy_5: 'Il codice sorgente è aperto e <b>puoi utilizzarlo senza chiedere il permesso</b> a nessuno. Eccolo qui:'
