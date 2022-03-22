@@ -25,4 +25,4 @@ default: &default
 
 development:
   <<: *default
-  database: youcv_development
+  database: ucv_development

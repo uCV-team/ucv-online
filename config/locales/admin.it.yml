@@ -6,9 +6,9 @@ it:
     users: Utenti
     flags: Segnalazioni
   home_page:
-    header: Welcome to YouCV Admin Panel
+    header: Welcome to uCV Admin Panel
   user_page:
-    header: All YouCV users
+    header: All uCV users
     datatable_columns:
       email: E-mail
       full_name: Nome e cognome
