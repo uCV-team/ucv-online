@@ -71,9 +71,10 @@ Metrics/BlockLength:
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
 Layout/LineLength:
-  Max: 163
   Exclude:
   - 'config/initializers/rack_attack.rb'
+  - 'config/routes.rb'
+  - 'app/middleware/domain_redirection.rb'
 
 # Offense count: 2
 # Configuration parameters: MinNameLength, AllowNamesEndingInNumbers, AllowedNames, ForbiddenNames.
