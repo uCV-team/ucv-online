@@ -13,7 +13,7 @@ class UserMailer < ApplicationMailer
     session = build_passwordless_session(user)
     session.save!
     @current_locale = user.locale
-    @user_name = "#{user.first_name} #{user.last_name}"
+    @user_name = "#{user.first_name.titleize} #{user.last_name.titleize}"
     @magic_link = send(Passwordless.mounted_as)
                   .token_sign_in_url(session.token, subdomain: @current_locale)
     attachments.inline['new_logo.svg'] = File.read(Rails.root.join(*%w[app javascript images new_logo.svg]))
