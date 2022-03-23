@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
   before_validation :sanitize_main_attributes
   validates :first_name, :last_name, :email, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :subdomain, presence: true, uniqueness: true, subdomain: true, on: :update
 
   after_initialize :prepare_blank_cv, if: :new_record?
@@ -79,9 +80,9 @@ class User < ApplicationRecord
   private
 
   def sanitize_main_attributes
-    self.first_name = first_name&.titleize&.strip&.chomp
-    self.last_name = last_name&.titleize&.strip&.chomp
-    self.email = email&.downcase&.gsub(/\s+/, '')&.chomp
+    self.first_name = first_name.titleize.strip.chomp
+    self.last_name = last_name.titleize.strip.chomp
+    self.email = email.downcase.gsub(/\s+/, '').chomp
   end
 
   def prepare_blank_cv
