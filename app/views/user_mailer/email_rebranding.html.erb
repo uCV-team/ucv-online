@@ -1,24 +1,24 @@
-<span>Gentile <%= @user_name %>,<br><br>
-Ricevi questa email perché hai pubblicato il tuo curriculum vitae digitale sulla piattaforma <b>uCV</b> (ex <b>PubliCV</b>).
+Gentile <%= @user_name %>,<br><br>
+Ricevi questa email perché hai pubblicato il tuo <i>curriculum vitae digitale</i> sulla piattaforma <b>uCV</b> (ex <b>PubliCV</b>).
 Per vederlo e mantenerlo attivo visita il seguente link e assicurati che sia pubblicato:<br><br>
 <%= link_to 'IL TUO CV', @magic_link %><br><br>
-<strong>Altre novità importanti</strong><br><br>
+<strong>Altre novità importanti:</strong><br><br>
 Quando si cerca lavoro molto spesso c’è il rischio di sentirsi soli, scoraggiati e inadeguati alle proprie ambizioni professionali.
 Il progetto PubliCV è nato per essere la risposta a questa esigenza.<br><br>
 Nei nostri 2 anni di attività abbiamo lavorato con un unico obiettivo: aiutarti nella ricerca del tuo percorso professionale.<br>
 La nostra missione è diventare l’unico CV del quale avrai mai bisogno, il tuo uCV.<br><br>
-Per rimarcare questo nostro valore, ti comunichiamo con gioia il nuovo nome della piattaforma: "<br><br>
+Per rimarcare questo nostro valore, ti comunichiamo con gioia il nuovo nome della piattaforma:<br><br>
 <%= image_tag(attachments['new_logo.svg'].url) %><br><br>
 Scopri come appare adesso il tuo CV:<br>
 <%= link_to 'IL TUO CV', @magic_link %><br><br>
 Ma non è tutto!<br><br>
-Grazie al tuo contributo siamo diventati progetto approvato dalla <a href= "https://pledgeviewer.eu/pledge/initiative/659">Commissione Europea</a>,
+Grazie al tuo contributo siamo diventati un progetto approvato dalla <a href= "https://pledgeviewer.eu/pledge/initiative/659">Commissione Europea</a>,
 e stiamo continuando ad investire per permetterti di usufruire di un servizio sempre più completo e più adatto alle tue esigenze.<br><br>
 <strong>Miglioramenti per te:</strong><br><br>
 <ul>
 <li>
 Il tuo uCV sarà più facile da condividere!<br>
-Il tuo CV digitale non sarà più online all’indirizzo https://[username].publicv.it bensì all’indirizzo https://[username].ucv.online il
+Il tuo CV digitale non sarà più online all’indirizzo <b>https://<%= @user.subdomain -%>.publicv.it</b> bensì all’indirizzo <b>https://<%= @user.subdomain -%>.uCV.online</b> il
 vecchio indirizzo continuerà a funzionare per qualche mese, però ricordati, d’ora in poi, di utilizzare il nuovo.<br>
 Più semplice e facile da ricordare.<br><br>
 </li>
@@ -34,13 +34,19 @@ uCV ti garantirà visibilità immediata per poter essere ricercato e contattato 
 <li>
 Contenuti aggiuntivi per aiutarti a raggiungere i tuoi obiettivi!<br>
 Siamo lieti di annunciarti l’ingresso nel team di Valerio, con lui seguiranno tantissimi contenuti e novità finalizzate a migliorare e facilitare la tua ricerca lavorativa.<br>
-Intanto, puoi già visitare il suo <a href="https://www.youtube.com/c/ValerioVillaniChannel">canale YouTube, pieno di risorse gratuite</a>
-(my channel link). e il canale uCV (uCV channel link).
+Intanto, puoi già visitare il suo <a href="https://www.youtube.com/c/ValerioVillaniChannel">canale YouTube, pieno di risorse gratuite</a>.
 </li>
 </ul><br><br>
 Questo è il tuo nuovo uCV, dai un'occhiata:<br>
 <%= link_to 'IL TUO CV', @magic_link %><br><br>
 Non vediamo l’ora di continuare a supportarti nel tuo percorso di crescita!<br><br>
 Grazie,<br><br>
-Team uCV
-</span>
+Duccio, Valerio e il Team uCV.
+
+<p>
+  <small>
+    Ricevi questa email da uCV perché hai un account attivo su uCV.online, al quale puoi accedere utilizzando i link sopra. Una volta effettuato l'accesso puoi cancellarlo o aggiornare le tue preferenze.
+    La presente comunicazione non ha fini pubblicitari e non è parte di una mailing list,
+    pertanto, non riceverai altre comunicazioni come questa.
+  </small>
+</p>

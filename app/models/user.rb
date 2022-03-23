@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   has_one :current_location, dependent: :destroy, class_name: 'Location'
 
+  before_validation :sanitize_main_attributes
   validates :first_name, :last_name, :email, presence: true
   validates :subdomain, presence: true, uniqueness: true, subdomain: true, on: :update
 
@@ -77,13 +78,19 @@ class User < ApplicationRecord
 
   private
 
+  def sanitize_main_attributes
+    self.first_name = first_name&.titleize&.strip&.chomp
+    self.last_name = last_name&.titleize&.strip&.chomp
+    self.email = email&.downcase&.gsub(/\s+/, '')&.chomp
+  end
+
   def prepare_blank_cv
     self.cv ||= Cv.new
   end
 
   def set_subdomain
     self.subdomain = loop do
-      unique_subdomain = (first_name.downcase + rand.to_s[2..4]).to_s.tr('.', '-')
+      unique_subdomain = (first_name + rand.to_s[2..4]).to_s.parameterize
       break unique_subdomain unless self.class.exists?(subdomain: unique_subdomain)
     end
   end
