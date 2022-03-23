@@ -12,6 +12,7 @@ class UserMailer < ApplicationMailer
   def email_rebranding(user)
     session = build_passwordless_session(user)
     session.save!
+    @user = user
     @current_locale = user.locale
     @user_name = "#{user.first_name.titleize} #{user.last_name.titleize}"
     @magic_link = send(Passwordless.mounted_as)
