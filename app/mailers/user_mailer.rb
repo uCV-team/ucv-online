@@ -17,6 +17,7 @@ class UserMailer < ApplicationMailer
     @user_name = "#{user.first_name.titleize} #{user.last_name.titleize}"
     @magic_link = send(Passwordless.mounted_as)
                   .token_sign_in_url(session.token, subdomain: @current_locale)
+    attachments['ucv_logo.png'] = File.read(Rails.root.join(*%w[app javascript images ucv_logo.png]))
     mail(
       to: user.email,
       subject: 'Azione richiesta sul tuo CV digitale.'
