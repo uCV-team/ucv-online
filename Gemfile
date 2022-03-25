@@ -42,6 +42,7 @@ gem 'jsonapi-serializer'
 gem 'money-rails', '~>1.12'
 gem 'passwordless'
 gem 'rack-attack'
+gem 'rack-cors'
 gem 'rack-timeout'
 gem 'scenic'
 
