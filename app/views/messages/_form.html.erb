@@ -44,7 +44,9 @@
           <%= f.button class: 'btn btn-outline-primary rounded mx-3', "data-dismiss": "modal" do %>
             <i class="fas fa-angle-left"></i> <%= t('content.main.buttons.back') %>
           <% end %>
-          <%= invisible_recaptcha_tags text: t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') }, class: 'btn btn-primary rounded', id: 'message-save', disabled: true %>
+          <%= f.submit t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') }, class: 'btn btn-primary rounded', id: 'message-save' %>
+          <!-- Update for domain in recaptcha required.
+          <%= invisible_recaptcha_tags text: t('content.main.buttons.save'), data: { disable_with: t('content.main.buttons.saving') }, class: 'btn btn-primary rounded', id: 'message-save', disabled: true %>  -->
         </div>
       </div>
   </div>
