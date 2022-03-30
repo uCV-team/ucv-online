@@ -12,17 +12,15 @@ class MessagesController < ApplicationController
   end
 
   def create
-    # Not working as we have to update the new domain in recaptcha.
-    # Revert changes to make recaptcha work again.
-    # recaptcha_passed = verify_recaptcha(model: @message)
+    recaptcha_passed = verify_recaptcha(model: @message)
     @message = @user.messages.build(message_params)
-    if @message.save
+    if recaptcha_passed && @message.save
       session.delete(:message_us_params)
       flash[:success] = t('flash.messages.success', user_name: @user.first_name)
     else
       session[:message_us_params] = message_params
-      # flash[:error] = t('flash.messages.recaptcha') unless recaptcha_passed
-      flash[:error] = @message.errors.full_messages.join(', ')
+      flash[:error] = t('flash.messages.recaptcha') unless recaptcha_passed
+      flash[:error] = @message.errors.full_messages.join(', ') if recaptcha_passed
     end
     redirect_to cv_section_path(@user.subdomain)
   end
